@@ -12,6 +12,10 @@
    3) اگر مسیر پوشه با ریشه فرق دارد (مثلاً /wp-content/uploads/hero-frames/)
       فقط مقدار data-frames-desktop و data-frames-mobile روی <section> را
       اصلاح کنید.
+   4) تنظیم سرعت انیمیشن با متغیر CSS  --kv-hero-scroll  انجام می‌شود:
+        • بزرگ‌تر (مثلاً 700vh)  →  انیمیشن آرام‌تر، اسکرول طولانی‌تر
+        • کوچک‌تر (مثلاً 300vh) →  انیمیشن سریع‌تر، اسکرول کوتاه‌تر
+      پیش‌فرض دسکتاپ 500vh و موبایل 380vh است.
   ---------------------------------------------------------------------------
   رعایت شده:
    • Core Web Vitals: preload + fetchpriority برای LCP، aspect-ratio و
@@ -100,7 +104,7 @@
 #kv-hero *::after { box-sizing: border-box; }
 
 #kv-hero {
-  --kv-hero-scroll: 250vh;   /* طول اسکرول کل سکشن (پین + اسکرول انیمیشن) */
+  --kv-hero-scroll: 500vh;   /* طول اسکرول کل سکشن — بزرگ‌تر = انیمیشن آرام‌تر */
   --kv-hero-bg: #0b0c10;
   --kv-hero-fg: #ffffff;
   --kv-hero-accent: #FFC72C; /* زرد کاورون */
@@ -285,9 +289,9 @@
   100% { transform: translateY(0);  opacity: 0; }
 }
 
-/* روی موبایل: طول اسکرول کوتاه‌تر تا هرو زیادی سنگین نشود */
+/* روی موبایل: طول اسکرول کمی کمتر تا کاربر خسته نشود */
 @media (max-width: 720px) {
-  #kv-hero { --kv-hero-scroll: 200vh; }
+  #kv-hero { --kv-hero-scroll: 380vh; }
   #kv-hero .kv-hero__content { align-items: flex-start; }
 }
 
