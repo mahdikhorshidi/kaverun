@@ -55,18 +55,6 @@
           </p>
         </div>
 
-        <!-- تصویر بیل مکانیکی (حفظ‌شده) -->
-        <figure class="kv-au__figure" data-kv-reveal>
-          <span class="kv-au__figure-glow" aria-hidden="true"></span>
-          <img
-            class="kv-au__img"
-            src="https://kaverun.com/wp-content/uploads/2024/01/1000.png"
-            width="576" height="576" loading="lazy" decoding="async"
-            alt="بیل مکانیکی گروه صنعتی کاوران، تولیدشده در شهر صنعتی کاوه"
-            itemprop="image"
-          />
-        </figure>
-
         <div class="kv-au__actions" data-kv-reveal>
           <a class="kv-au__btn kv-au__btn--primary" href="/about"
              aria-label="آشنایی بیشتر با گروه صنعتی کاوران در صفحه درباره ما">
@@ -223,7 +211,6 @@
   --kv-ink: #111111;
   --kv-line: rgba(255,255,255,.10);
   --kv-card: #14161d;
-  --kv-vspeed: 34s;              /* سرعت اسلایدر عمودی — بزرگ‌تر = آرام‌تر */
   --kv-ease: cubic-bezier(.22,1,.36,1);
 
   position: relative;
@@ -256,6 +243,11 @@
 #kv-au .kv-au__col { min-width: 0; }
 #kv-au .kv-au__col--aside { display: flex; flex-direction: column; gap: 20px; }
 
+/* ستون درباره: متن بالا با چینش وسط‌چین */
+#kv-au .kv-au__col--main { text-align: center; }
+#kv-au .kv-au__col--main .kv-au__lede { text-align: center; }
+#kv-au .kv-au__col--main .kv-au__actions { justify-content: center; }
+
 /* ---- eyebrow ---- */
 #kv-au .kv-au__eyebrow {
   display: inline-flex; align-items: center; gap: 9px; margin: 0 0 18px;
@@ -285,23 +277,6 @@
   color: var(--kv-muted); text-align: justify;
 }
 #kv-au .kv-au__lede strong { color: #fff; font-weight: 700; }
-
-/* ---- تصویر بیل مکانیکی ---- */
-#kv-au .kv-au__figure { position: relative; margin: 28px 0 0; text-align: center; }
-#kv-au .kv-au__figure-glow {
-  position: absolute; inset: 6% 12%;
-  background: radial-gradient(60% 55% at 50% 45%, rgba(255,199,44,.22), rgba(255,199,44,0) 70%);
-  filter: blur(12px); pointer-events: none;
-}
-#kv-au .kv-au__img {
-  position: relative; width: clamp(200px, 42vw, 340px); height: auto;
-  filter: drop-shadow(0 22px 40px rgba(0,0,0,.55));
-  animation: kvAuFloat 6s ease-in-out infinite;
-}
-@keyframes kvAuFloat {
-  0%,100% { transform: translateY(0); }
-  50% { transform: translateY(-12px); }
-}
 
 /* ---- دکمه‌ها ---- */
 #kv-au .kv-au__actions { display: flex; flex-wrap: wrap; gap: 12px; margin-top: 30px; }
@@ -343,17 +318,10 @@
 #kv-au .kv-vslider__track {
   list-style: none; margin: 0; padding: 0;
   display: flex; flex-direction: column;
+  transform: translateY(0);
+  will-change: transform;
 }
-/* انیمیشن فقط پس از فعال‌سازی با JS (کلون کارت‌ها) اجرا می‌شود */
-#kv-au .kv-vslider.is-anim .kv-vslider__track {
-  animation: kvVUp var(--kv-vspeed) linear infinite;
-}
-#kv-au .kv-vslider.is-anim:hover .kv-vslider__track,
-#kv-au .kv-vslider.is-anim:focus-within .kv-vslider__track { animation-play-state: paused; }
-@keyframes kvVUp {
-  from { transform: translateY(0); }
-  to   { transform: translateY(-50%); }
-}
+/* حرکت دونه‌به‌دونه با JS کنترل می‌شود (transition روی transform) */
 /* بدون JS: فقط لیست قابل اسکرول داخلی */
 #kv-au .kv-vslider:not(.is-anim) .kv-vslider__viewport { overflow-y: auto; }
 
@@ -380,7 +348,6 @@
 /* ---- ورود با اسکرول ---- */
 #kv-au [data-kv-reveal] { opacity: 0; transform: translateY(26px); transition: opacity .7s var(--kv-ease), transform .7s var(--kv-ease); }
 #kv-au.is-in [data-kv-reveal] { opacity: 1; transform: none; }
-#kv-au.is-in .kv-au__figure[data-kv-reveal] { transition-delay: .1s; }
 #kv-au.is-in .kv-au__actions[data-kv-reveal] { transition-delay: .18s; }
 #kv-au.is-in .kv-au__why-head[data-kv-reveal] { transition-delay: .12s; }
 
@@ -392,8 +359,6 @@
     align-items: stretch;
   }
   #kv-au .kv-au__col--aside { gap: 16px; }
-  #kv-au .kv-au__figure { margin-top: 22px; }
-  #kv-au .kv-au__img { width: clamp(190px, 62vw, 300px); }
   #kv-au .kv-vslider__viewport { height: clamp(300px, 82vw, 380px); }
 }
 @media (max-width: 480px) {
@@ -425,25 +390,64 @@
     io.observe(root);
   } else { root.classList.add('is-in'); }
 
-  /* --- اسلایدر عمودی: کلون کارت‌ها برای لوپ بی‌درز + فعال‌سازی انیمیشن --- */
+  /* --- اسلایدر عمودی: حرکت خودکار «دونه‌به‌دونه» رو به بالا --- */
   var slider = root.querySelector('[data-kv-vslider]');
   var track = root.querySelector('[data-kv-vtrack]');
   if (slider && track && !reduce) {
-    var originals = Array.prototype.slice.call(track.children);
-    originals.forEach(function (li) {
+    var STEP_MS = 2600;   // مکث روی هر کارت
+    var MOVE_MS = 700;    // مدت حرکت یک پله
+    var EASE = 'cubic-bezier(.22,1,.36,1)';
+
+    // کلون کارت‌ها برای لوپ بی‌درز (نمایش کارت‌های بعدی هنگام رسیدن به انتها)
+    var originalCount = track.children.length;
+    Array.prototype.slice.call(track.children).forEach(function (li) {
       var clone = li.cloneNode(true);
-      clone.setAttribute('aria-hidden', 'true');           // نسخه‌ی تکراری برای اسکرین‌ریدر خوانده نشود
-      clone.removeAttribute('itemprop');                    // جلوگیری از داده‌ی ساختاری تکراری
+      clone.setAttribute('aria-hidden', 'true');  // برای اسکرین‌ریدر خوانده نشود
+      clone.removeAttribute('itemprop');           // جلوگیری از داده‌ی ساختاری تکراری
       clone.removeAttribute('itemscope');
       clone.removeAttribute('itemtype');
       track.appendChild(clone);
     });
     slider.classList.add('is-anim');
 
-    // توقف انیمیشن هنگام پنهان بودن تب (بهینه‌سازی مصرف)
-    document.addEventListener('visibilitychange', function () {
-      track.style.animationPlayState = document.hidden ? 'paused' : '';
-    });
+    var index = 0;
+    var timer = null;
+
+    // فاصله‌ی هر کارت از کارت اول (پشتیبانی از ارتفاع‌های متفاوت)
+    function offsetOf(i) {
+      var kids = track.children;
+      if (!kids[i]) return 0;
+      return kids[i].offsetTop - kids[0].offsetTop;
+    }
+
+    function step() {
+      index++;
+      track.style.transition = 'transform ' + MOVE_MS + 'ms ' + EASE;
+      track.style.transform = 'translateY(-' + offsetOf(index) + 'px)';
+
+      // وقتی به ابتدای مجموعه‌ی کلون رسیدیم، بی‌درز به صفر برگرد
+      if (index >= originalCount) {
+        window.setTimeout(function () {
+          track.style.transition = 'none';
+          index = 0;
+          track.style.transform = 'translateY(0)';
+          void track.offsetHeight; // reflow تا انتقال بعدی نرم باشد
+        }, MOVE_MS + 20);
+      }
+    }
+
+    function start() { if (!timer) timer = window.setInterval(step, STEP_MS); }
+    function stop() { if (timer) { window.clearInterval(timer); timer = null; } }
+
+    // توقف روی hover/focus برای خواندن راحت
+    slider.addEventListener('mouseenter', stop);
+    slider.addEventListener('mouseleave', start);
+    slider.addEventListener('focusin', stop);
+    slider.addEventListener('focusout', start);
+    // توقف هنگام پنهان بودن تب
+    document.addEventListener('visibilitychange', function () { document.hidden ? stop() : start(); });
+
+    start();
   }
 })();
 </script>
