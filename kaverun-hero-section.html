@@ -5,8 +5,8 @@
   نحوه استفاده:
    1) پوشه‌ی «hero-frames» را در ریشه‌ی هاست وردپرس آپلود کنید تا مسیر نهایی به
       شکل زیر باشد:
-        https://your-domain.com/hero-frames/desktop/frame_001.webp ... frame_060.webp
-        https://your-domain.com/hero-frames/mobile/frame_001.webp  ... frame_060.webp
+        /hero-frames/desktop/frame_001.webp … frame_060.webp   (1280×720 لند‌اسکیپ)
+        /hero-frames/mobile/frame_001.webp  … frame_060.webp   (540×720  پرتره)
    2) در صفحه‌ی مورد نظر یک بلوک «Custom HTML» اضافه کنید و کل این فایل را داخل
       آن Paste کنید. تمام است — بدون هیچ وابستگی، اسکریپت یا CSS خارجی.
    3) اگر مسیر پوشه با ریشه فرق دارد (مثلاً /wp-content/uploads/hero-frames/)
@@ -40,20 +40,23 @@
   <div class="kv-hero__track">
     <div class="kv-hero__viewport">
 
-      <!-- LCP image: اولین فریم برای رنگ‌بندی سریع و امتیاز خوب LCP -->
-      <img
-        class="kv-hero__poster"
-        src="/hero-frames/desktop/frame_001.webp"
-        srcset="/hero-frames/mobile/frame_001.webp 720w,
-                /hero-frames/desktop/frame_001.webp 1280w"
-        sizes="100vw"
-        width="1280"
-        height="720"
-        alt="مینی بیل مکانیکی زرد کاورون در حال کار در پروژه ساختمانی"
-        fetchpriority="high"
-        decoding="async"
-        itemprop="image"
-      />
+      <!-- LCP image: اولین فریم برای رنگ‌بندی سریع و امتیاز خوب LCP.
+           روی موبایل نسخه‌ی پرتره (540×720) و روی دسکتاپ نسخه‌ی 1280×720 لود می‌شود. -->
+      <picture>
+        <source media="(max-width: 720px)"
+                srcset="/hero-frames/mobile/frame_001.webp"
+                width="540" height="720">
+        <img
+          class="kv-hero__poster"
+          src="/hero-frames/desktop/frame_001.webp"
+          width="1280"
+          height="720"
+          alt="مینی بیل مکانیکی زرد کاورون در حال کار در پروژه ساختمانی"
+          fetchpriority="high"
+          decoding="async"
+          itemprop="image"
+        />
+      </picture>
 
       <!-- Canvas که فریم به فریم روی اسکرول رندر می‌شود -->
       <canvas class="kv-hero__canvas" aria-hidden="true"></canvas>
@@ -148,8 +151,15 @@
   width: 100%;
   height: 100%;
   object-fit: cover;
+  object-position: center center;
   display: block;
   will-change: transform;
+}
+#kv-hero picture {
+  position: absolute;
+  inset: 0;
+  z-index: 1;
+  display: block;
 }
 #kv-hero .kv-hero__poster { z-index: 1; }
 #kv-hero .kv-hero__canvas {

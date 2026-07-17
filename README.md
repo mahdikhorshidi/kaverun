@@ -9,8 +9,8 @@
 | مسیر | توضیح |
 |---|---|
 | `kaverun-hero-section.html` | تکه‌کد قابل Paste در «Custom HTML» وردپرس. |
-| `hero-frames/desktop/` | ۶۰ فریم WebP با ابعاد 1280×720 (کل ~1.7MB). |
-| `hero-frames/mobile/` | ۶۰ فریم WebP با ابعاد 720×405 برای موبایل (~840KB). |
+| `hero-frames/desktop/` | ۶۰ فریم WebP لند‌اسکیپ 1280×720 با واترمارک پاک‌شده (~1.7MB). |
+| `hero-frames/mobile/` | ۶۰ فریم WebP **پرتره 540×720** برای موبایل، متمرکز روی سوژه (~900KB). |
 | `hero-frames.zip` | آرشیو فشرده‌ی کل پوشه‌ی `hero-frames` برای آپلود آسان. |
 
 ## نصب روی وردپرس
