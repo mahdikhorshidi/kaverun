@@ -1,0 +1,584 @@
+<!--
+============================================================================
+  KAVERUN — «درباره کاوران» | سکشن مارکتینگ‌محور و سئومحور (Self-contained)
+  ---------------------------------------------------------------------------
+  • بازطراحی سکشن «درباره Kaverun» با رویکرد بازاریابی و بهینه‌سازی موتور جستجو.
+  • بدون هیچ وابستگی خارجی (بدون CDN، jQuery، GSAP، فونت خارجی).
+  • یک بلوک «Custom HTML» در وردپرس بسازید و کل این فایل را داخل آن Paste کنید.
+  ---------------------------------------------------------------------------
+  رعایت شده:
+   • SEO: تیترهای معنایی (h2/h3)، متن پرکلمه‌کلیدی قابل کرال، schema.org
+     (Organization + AggregateRating سبک)، alt توصیفی، لینک داخلی.
+   • Core Web Vitals: بدون layout shift (اسلایدر با ابعاد ثابت)، انیمیشن‌های
+     GPU-محور (transform/opacity)، اسکریپت passive + IntersectionObserver.
+   • دسترس‌پذیری: prefers-reduced-motion، aria-label، ناوبری کیبوردی اسلایدر.
+============================================================================
+-->
+<section
+  id="kv-about"
+  class="kv-about"
+  dir="rtl"
+  itemscope
+  itemtype="https://schema.org/Organization"
+  aria-labelledby="kv-about-title"
+>
+  <meta itemprop="foundingDate" content="1385" />
+  <meta itemprop="name" content="گروه صنعتی کاوران (Kaverun)" />
+
+  <div class="kv-about__inner">
+
+    <!-- ستون محتوا -->
+    <div class="kv-about__content">
+      <p class="kv-about__eyebrow">
+        <span class="kv-about__eyebrow-dot" aria-hidden="true"></span>
+        از سال ۱۳۸۵ در شهر صنعتی کاوه
+      </p>
+
+      <h2 id="kv-about-title" class="kv-about__title">
+        درباره <span class="kv-about__brand">کاوران</span>؛
+        <br />تولیدکننده‌ی ماشین‌آلات راه‌سازی، ساختمانی و کشاورزی
+      </h2>
+
+      <p class="kv-about__lede" itemprop="description">
+        گروه صنعتی <strong>کاوران (Kaverun)</strong> فعالیت خود را از سال ۱۳۸۵ با
+        نام «چلنگر» در زمینی به وسعت <strong>۱۰٬۱۵۰ متر مربع</strong> و در زمینه
+        تولید انواع <strong>لوله و پروفیل</strong> آغاز کرد. از سال ۱۳۹۸ با توسعه‌ی
+        خطوط تولید و تنوع‌بخشی به محصولات — از جمله
+        <strong>بیل مکانیکی، لودر و لیفتراک</strong> — و با بهره‌گیری از کارشناسان
+        متخصص، تکنسین‌های آگاه به تکنولوژی روز و ماشین‌آلات پیشرفته، به یکی از
+        تولیدکنندگان و فروشندگان معتبر ماشین‌های
+        <strong>راه‌سازی، ساختمانی و کشاورزی</strong> در شهر صنعتی کاوه تبدیل شده است.
+      </p>
+
+      <!-- شمارنده‌های آماری (اعتمادسازی + سئو محتوایی) -->
+      <ul class="kv-about__stats" aria-label="آمار و دستاوردهای گروه صنعتی کاوران">
+        <li class="kv-about__stat">
+          <span class="kv-about__stat-num" data-count-to="1385" data-count-plain="1">۱۳۸۵</span>
+          <span class="kv-about__stat-label">سال تأسیس</span>
+        </li>
+        <li class="kv-about__stat">
+          <span class="kv-about__stat-num" data-count-to="10150" data-count-suffix="+">۱۰٬۱۵۰</span>
+          <span class="kv-about__stat-label">متر مربع کارخانه</span>
+        </li>
+        <li class="kv-about__stat">
+          <span class="kv-about__stat-num" data-count-to="3" data-count-suffix="+">۳</span>
+          <span class="kv-about__stat-label">حوزه‌ی تخصصی تولید</span>
+        </li>
+        <li class="kv-about__stat">
+          <span class="kv-about__stat-num" data-count-to="100" data-count-suffix="٪">۱۰۰</span>
+          <span class="kv-about__stat-label">اصالت محصولات</span>
+        </li>
+      </ul>
+
+      <div class="kv-about__actions">
+        <a class="kv-about__btn kv-about__btn--primary" href="#products"
+           aria-label="مشاهده محصولات گروه صنعتی کاوران">
+          مشاهده محصولات
+          <svg viewBox="0 0 24 24" width="18" height="18" aria-hidden="true"><path fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" d="M15 6l-6 6 6 6"/></svg>
+        </a>
+        <a class="kv-about__btn kv-about__btn--ghost" href="#contact">
+          مشاوره و استعلام قیمت
+        </a>
+      </div>
+    </div>
+
+    <!-- ستون اسلایدر مزیت‌ها (طراحی سلایدری مدرن) -->
+    <div class="kv-about__showcase">
+      <div class="kv-about__glow" aria-hidden="true"></div>
+
+      <div
+        class="kv-slider"
+        data-kv-slider
+        data-autoplay="4200"
+        aria-roledescription="carousel"
+        aria-label="مزیت‌های خرید از گروه صنعتی کاوران"
+      >
+        <div class="kv-slider__viewport">
+          <ul class="kv-slider__track">
+
+            <li class="kv-slide" role="group" aria-roledescription="اسلاید" aria-label="۱ از ۴">
+              <div class="kv-slide__card">
+                <span class="kv-slide__icon" aria-hidden="true">
+                  <svg viewBox="0 0 640 512" width="30" height="30"><path fill="currentColor" d="M608 32H32C14.33 32 0 46.33 0 64v384c0 17.67 14.33 32 32 32h576c17.67 0 32-14.33 32-32V64c0-17.67-14.33-32-32-32zM176 327.88V344c0 4.42-3.58 8-8 8h-16c-4.42 0-8-3.58-8-8v-16.29c-11.29-.58-22.27-4.52-31.37-11.35-3.9-2.93-4.1-8.77-.57-12.14l11.75-11.21c2.77-2.64 6.89-2.76 10.13-.73 3.87 2.42 8.26 3.72 12.82 3.72h28.11c6.5 0 11.8-5.92 11.8-13.19 0-5.95-3.61-11.19-8.77-12.73l-45-13.5c-18.59-5.58-31.58-23.42-31.58-43.39 0-24.52 19.05-44.44 42.67-45.07V152c0-4.42 3.58-8 8-8h16c4.42 0 8 3.58 8 8v16.29c11.29.58 22.27 4.51 31.37 11.35 3.9 2.93 4.1 8.77.57 12.14l-11.75 11.21c-2.77 2.64-6.89 2.76-10.13.73-3.87-2.43-8.26-3.72-12.82-3.72h-28.11c-6.5 0-11.8 5.92-11.8 13.19 0 5.95 3.61 11.19 8.77 12.73l45 13.5c18.59 5.58 31.58 23.42 31.58 43.39 0 24.53-19.05 44.44-42.67 45.07zM416 312c0 4.42-3.58 8-8 8H296c-4.42 0-8-3.58-8-8v-16c0-4.42 3.58-8 8-8h112c4.42 0 8 3.58 8 8v16zm160 0c0 4.42-3.58 8-8 8h-80c-4.42 0-8-3.58-8-8v-16c0-4.42 3.58-8 8-8h80c4.42 0 8 3.58 8 8v16zm0-96c0 4.42-3.58 8-8 8H296c-4.42 0-8-3.58-8-8v-16c0-4.42 3.58-8 8-8h272c4.42 0 8 3.58 8 8v16z"/></svg>
+                </span>
+                <h3 class="kv-slide__title">بهترین قیمت بازار</h3>
+                <p class="kv-slide__text">
+                  تولید مستقیم در کارخانه و حذف واسطه‌ها؛ نتیجه‌اش قیمت رقابتی و
+                  منصفانه برای بیل مکانیکی، لودر و لیفتراک است.
+                </p>
+              </div>
+            </li>
+
+            <li class="kv-slide" role="group" aria-roledescription="اسلاید" aria-label="۲ از ۴">
+              <div class="kv-slide__card">
+                <span class="kv-slide__icon" aria-hidden="true">
+                  <svg viewBox="0 0 384 512" width="30" height="30"><path fill="currentColor" d="M97.12 362.63c-8.69-8.69-4.16-6.24-25.12-11.85-9.51-2.55-17.87-7.45-25.43-13.32L1.2 448.7c-4.39 10.77 3.81 22.47 15.43 22.03l52.69-2.01L105.56 507c8 8.44 22.04 5.81 26.43-4.96l52.05-127.62c-10.84 6.04-22.87 9.58-35.31 9.58-19.5 0-37.82-7.59-51.61-21.37zM382.8 448.7l-45.37-111.24c-7.56 5.88-15.92 10.77-25.43 13.32-21.07 5.64-16.45 3.18-25.12 11.85-13.79 13.78-32.12 21.37-51.62 21.37-12.44 0-24.47-3.55-35.31-9.58L252 502.04c4.39 10.77 18.44 13.4 26.43 4.96l36.25-38.28 52.69 2.01c11.62.44 19.82-11.27 15.43-22.03zM263 340c15.28-15.55 17.03-14.21 38.79-20.14 13.89-3.79 24.75-14.84 28.47-28.98 7.48-28.4 5.54-24.97 25.95-45.75 10.17-10.35 14.14-25.44 10.42-39.58-7.47-28.38-7.48-24.42 0-52.83 3.72-14.14-.25-29.23-10.42-39.58-20.41-20.78-18.47-17.36-25.95-45.75-3.72-14.14-14.58-25.19-28.47-28.98-27.88-7.61-24.52-5.62-44.95-26.41-10.17-10.35-25-14.4-38.89-10.61-27.87 7.6-23.98 7.61-51.9 0-13.89-3.79-28.72.25-38.89 10.61-20.41 20.78-17.05 18.8-44.94 26.41-13.89 3.79-24.75 14.84-28.47 28.98-7.47 28.39-5.54 24.97-25.95 45.75-10.17 10.35-14.15 25.44-10.42 39.58 7.47 28.36 7.48 24.4 0 52.82-3.72 14.14.25 29.23 10.42 39.59 20.41 20.78 18.47 17.35 25.95 45.75 3.72 14.14 14.58 25.19 28.47 28.98C104.6 325.96 106.27 325 121 340c13.23 13.47 33.84 15.88 49.74 5.82a39.676 39.676 0 0 1 42.53 0c15.89 10.06 36.5 7.65 49.73-5.82zM97.66 175.96c0-53.03 42.24-96.02 94.34-96.02s94.34 42.99 94.34 96.02-42.24 96.02-94.34 96.02-94.34-42.99-94.34-96.02z"/></svg>
+                </span>
+                <h3 class="kv-slide__title">اصالت محصولات</h3>
+                <p class="kv-slide__text">
+                  تمام محصولات اورجینال و دارای شناسه‌ی اصالت هستند؛ خیالتان از
+                  کیفیت و ضمانت قطعات راحت باشد.
+                </p>
+              </div>
+            </li>
+
+            <li class="kv-slide" role="group" aria-roledescription="اسلاید" aria-label="۳ از ۴">
+              <div class="kv-slide__card">
+                <span class="kv-slide__icon" aria-hidden="true">
+                  <svg viewBox="0 0 448 512" width="30" height="30"><path fill="currentColor" d="M400 64h-48V12c0-6.627-5.373-12-12-12h-40c-6.627 0-12 5.373-12 12v52H160V12c0-6.627-5.373-12-12-12h-40c-6.627 0-12 5.373-12 12v52H48C21.49 64 0 85.49 0 112v352c0 26.51 21.49 48 48 48h352c26.51 0 48-21.49 48-48V112c0-26.51-21.49-48-48-48zm-6 400H54a6 6 0 0 1-6-6V160h352v298a6 6 0 0 1-6 6zm-52.849-200.65L198.842 404.519c-4.705 4.667-12.303 4.637-16.971-.068l-75.091-75.699c-4.667-4.705-4.637-12.303.068-16.971l22.719-22.536c4.705-4.667 12.303-4.637 16.97.069l44.104 44.461 111.072-110.181c4.705-4.667 12.303-4.637 16.971.068l22.536 22.718c4.667 4.705 4.636 12.303-.069 16.97z"/></svg>
+                </span>
+                <h3 class="kv-slide__title">تحویل در کمترین زمان</h3>
+                <p class="kv-slide__text">
+                  موجودی انبار و زنجیره‌ی تأمین منظم باعث می‌شود سفارش شما در
+                  سریع‌ترین زمان ممکن آماده و ارسال شود.
+                </p>
+              </div>
+            </li>
+
+            <li class="kv-slide" role="group" aria-roledescription="اسلاید" aria-label="۴ از ۴">
+              <div class="kv-slide__card">
+                <span class="kv-slide__icon" aria-hidden="true">
+                  <svg viewBox="0 0 512 512" width="30" height="30"><path fill="currentColor" d="M173.898 439.404l-166.4-166.4c-9.997-9.997-9.997-26.206 0-36.204l36.203-36.204c9.997-9.998 26.207-9.998 36.204 0L192 312.69 432.095 72.596c9.997-9.997 26.207-9.997 36.204 0l36.203 36.204c9.997 9.997 9.997 26.206 0 36.204l-294.4 294.401c-9.998 9.997-26.207 9.997-36.204-.001z"/></svg>
+                </span>
+                <h3 class="kv-slide__title">تنوع تولید محصولات</h3>
+                <p class="kv-slide__text">
+                  از لوله و پروفیل تا بیل مکانیکی، لودر و لیفتراک؛ سبد کاملی از
+                  ماشین‌آلات صنعتی و راه‌سازی زیر یک برند.
+                </p>
+              </div>
+            </li>
+
+          </ul>
+        </div>
+
+        <!-- ناوبری اسلایدر -->
+        <div class="kv-slider__nav">
+          <button class="kv-slider__arrow" data-kv-prev type="button" aria-label="اسلاید قبلی">
+            <svg viewBox="0 0 24 24" width="20" height="20" aria-hidden="true"><path fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" d="M9 6l6 6-6 6"/></svg>
+          </button>
+          <div class="kv-slider__dots" data-kv-dots role="tablist" aria-label="انتخاب اسلاید"></div>
+          <button class="kv-slider__arrow" data-kv-next type="button" aria-label="اسلاید بعدی">
+            <svg viewBox="0 0 24 24" width="20" height="20" aria-hidden="true"><path fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" d="M15 6l-6 6 6 6"/></svg>
+          </button>
+        </div>
+      </div>
+
+      <!-- تصویر برند (SEO alt + lazy) -->
+      <img
+        class="kv-about__badge"
+        src="https://kaverun.com/wp-content/uploads/2024/01/3-4.png"
+        width="150" height="150" loading="lazy" decoding="async"
+        alt="نشان گروه صنعتی کاوران، تولیدکننده ماشین‌آلات راه‌سازی و ساختمانی"
+      />
+    </div>
+  </div>
+</section>
+
+<style id="kv-about-styles">
+#kv-about, #kv-about *, #kv-about *::before, #kv-about *::after { box-sizing: border-box; }
+
+#kv-about {
+  --kv-bg: #0b0c10;
+  --kv-bg-2: #12141b;
+  --kv-fg: #ffffff;
+  --kv-muted: rgba(255,255,255,.72);
+  --kv-accent: #FFC72C;
+  --kv-ink: #111111;
+  --kv-line: rgba(255,255,255,.10);
+  --kv-radius: 22px;
+  --kv-ease: cubic-bezier(.22,1,.36,1);
+
+  position: relative;
+  width: 100%;
+  margin: 0;
+  padding: clamp(48px, 8vw, 110px) clamp(18px, 5vw, 80px);
+  background:
+    radial-gradient(120% 90% at 90% -10%, rgba(255,199,44,.10) 0%, rgba(255,199,44,0) 45%),
+    radial-gradient(90% 80% at -10% 110%, rgba(255,199,44,.06) 0%, rgba(255,199,44,0) 50%),
+    var(--kv-bg);
+  color: var(--kv-fg);
+  direction: rtl;
+  font-family: inherit;
+  overflow: hidden;
+}
+#kv-about::before {
+  content: "";
+  position: absolute; inset: 0;
+  background-image: linear-gradient(var(--kv-line) 1px, transparent 1px),
+                    linear-gradient(90deg, var(--kv-line) 1px, transparent 1px);
+  background-size: 46px 46px;
+  -webkit-mask-image: radial-gradient(80% 60% at 50% 0%, #000 0%, transparent 75%);
+          mask-image: radial-gradient(80% 60% at 50% 0%, #000 0%, transparent 75%);
+  opacity: .5;
+  pointer-events: none;
+}
+
+#kv-about .kv-about__inner {
+  position: relative;
+  z-index: 1;
+  max-width: 1200px;
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: 1.05fr .95fr;
+  gap: clamp(28px, 5vw, 68px);
+  align-items: center;
+}
+
+/* ---- محتوا ---- */
+#kv-about .kv-about__eyebrow {
+  display: inline-flex; align-items: center; gap: 9px;
+  margin: 0 0 18px;
+  padding: 8px 16px;
+  border: 1px solid var(--kv-line);
+  border-radius: 999px;
+  background: rgba(255,255,255,.03);
+  font-size: clamp(12px, 1.2vw, 14px);
+  font-weight: 700;
+  color: var(--kv-accent);
+  letter-spacing: .01em;
+}
+#kv-about .kv-about__eyebrow-dot {
+  width: 8px; height: 8px; border-radius: 50%;
+  background: var(--kv-accent);
+  box-shadow: 0 0 0 0 rgba(255,199,44,.6);
+  animation: kvAboutPulse 2.2s ease-out infinite;
+}
+@keyframes kvAboutPulse {
+  0% { box-shadow: 0 0 0 0 rgba(255,199,44,.55); }
+  70% { box-shadow: 0 0 0 10px rgba(255,199,44,0); }
+  100% { box-shadow: 0 0 0 0 rgba(255,199,44,0); }
+}
+#kv-about .kv-about__title {
+  margin: 0 0 18px;
+  font-size: clamp(26px, 4.2vw, 46px);
+  line-height: 1.28;
+  font-weight: 800;
+  letter-spacing: -.01em;
+}
+#kv-about .kv-about__brand {
+  color: var(--kv-accent);
+  position: relative;
+  white-space: nowrap;
+}
+#kv-about .kv-about__brand::after {
+  content: "";
+  position: absolute; right: 0; left: 0; bottom: -4px; height: 6px;
+  background: linear-gradient(90deg, var(--kv-accent), rgba(255,199,44,0));
+  border-radius: 4px; opacity: .55;
+}
+#kv-about .kv-about__lede {
+  margin: 0 0 30px;
+  font-size: clamp(15px, 1.7vw, 18px);
+  line-height: 2.1;
+  color: var(--kv-muted);
+  text-align: justify;
+}
+#kv-about .kv-about__lede strong { color: #fff; font-weight: 700; }
+
+/* ---- شمارنده‌ها ---- */
+#kv-about .kv-about__stats {
+  list-style: none; margin: 0 0 32px; padding: 0;
+  display: grid; grid-template-columns: repeat(4, 1fr); gap: 12px;
+}
+#kv-about .kv-about__stat {
+  padding: 16px 12px;
+  border: 1px solid var(--kv-line);
+  border-radius: 16px;
+  background: linear-gradient(180deg, rgba(255,255,255,.05), rgba(255,255,255,.015));
+  text-align: center;
+  transition: transform .3s var(--kv-ease), border-color .3s var(--kv-ease);
+}
+#kv-about .kv-about__stat:hover { transform: translateY(-4px); border-color: rgba(255,199,44,.4); }
+#kv-about .kv-about__stat-num {
+  display: block;
+  font-size: clamp(20px, 2.6vw, 30px);
+  font-weight: 800; line-height: 1.1;
+  color: var(--kv-accent);
+  font-variant-numeric: tabular-nums;
+}
+#kv-about .kv-about__stat-label {
+  display: block; margin-top: 6px;
+  font-size: clamp(11px, 1.2vw, 13px);
+  color: var(--kv-muted);
+}
+
+/* ---- دکمه‌ها ---- */
+#kv-about .kv-about__actions { display: flex; flex-wrap: wrap; gap: 12px; }
+#kv-about .kv-about__btn {
+  display: inline-flex; align-items: center; gap: 8px;
+  padding: 14px 26px; border-radius: 999px;
+  font-weight: 700; font-size: 15px; text-decoration: none;
+  border: 2px solid transparent; cursor: pointer;
+  transition: transform .18s var(--kv-ease), box-shadow .2s var(--kv-ease), background-color .2s;
+}
+#kv-about .kv-about__btn svg { transition: transform .2s var(--kv-ease); }
+#kv-about .kv-about__btn--primary {
+  background: var(--kv-accent); color: var(--kv-ink);
+  box-shadow: 0 12px 30px rgba(255,199,44,.30);
+}
+#kv-about .kv-about__btn--primary:hover { transform: translateY(-2px); box-shadow: 0 16px 38px rgba(255,199,44,.45); }
+#kv-about .kv-about__btn--primary:hover svg { transform: translateX(-4px); }
+#kv-about .kv-about__btn--ghost {
+  background: rgba(255,255,255,.05); color: #fff; border-color: var(--kv-line);
+}
+#kv-about .kv-about__btn--ghost:hover { border-color: rgba(255,255,255,.5); background: rgba(255,255,255,.1); }
+
+/* ---- نمایشگر/اسلایدر ---- */
+#kv-about .kv-about__showcase { position: relative; }
+#kv-about .kv-about__glow {
+  position: absolute; inset: -8% -6% -8% -6%;
+  background: radial-gradient(60% 55% at 60% 35%, rgba(255,199,44,.22), rgba(255,199,44,0) 70%);
+  filter: blur(10px); pointer-events: none;
+}
+#kv-about .kv-about__badge {
+  position: absolute; left: -6px; bottom: -18px; width: clamp(78px, 12vw, 120px);
+  height: auto; filter: drop-shadow(0 14px 30px rgba(0,0,0,.5));
+  animation: kvAboutFloat 5s ease-in-out infinite;
+  z-index: 3;
+}
+@keyframes kvAboutFloat {
+  0%,100% { transform: translateY(0) rotate(0); }
+  50% { transform: translateY(-12px) rotate(-3deg); }
+}
+
+/* ---- کامپوننت اسلایدر ---- */
+#kv-about .kv-slider { position: relative; z-index: 2; }
+#kv-about .kv-slider__viewport {
+  overflow: hidden;
+  border: 1px solid var(--kv-line);
+  border-radius: var(--kv-radius);
+  background: linear-gradient(160deg, rgba(255,255,255,.06), rgba(255,255,255,.02));
+  box-shadow: 0 30px 70px rgba(0,0,0,.45);
+}
+#kv-about .kv-slider__track {
+  list-style: none; margin: 0; padding: 0;
+  display: flex;
+  transition: transform .6s var(--kv-ease);
+  touch-action: pan-y;
+}
+#kv-about .kv-slide { flex: 0 0 100%; min-width: 0; }
+#kv-about .kv-slide__card {
+  min-height: clamp(260px, 34vw, 320px);
+  padding: clamp(26px, 3.4vw, 40px);
+  display: flex; flex-direction: column; justify-content: center; gap: 16px;
+}
+#kv-about .kv-slide__icon {
+  display: inline-flex; align-items: center; justify-content: center;
+  width: 62px; height: 62px; border-radius: 18px;
+  color: var(--kv-ink); background: var(--kv-accent);
+  box-shadow: 0 12px 26px rgba(255,199,44,.35);
+}
+#kv-about .kv-slide__title { margin: 0; font-size: clamp(19px, 2.4vw, 25px); font-weight: 800; }
+#kv-about .kv-slide__text {
+  margin: 0; font-size: clamp(14px, 1.5vw, 16.5px);
+  line-height: 2; color: var(--kv-muted); text-align: justify;
+}
+
+#kv-about .kv-slider__nav {
+  display: flex; align-items: center; justify-content: center; gap: 16px;
+  margin-top: 20px;
+}
+#kv-about .kv-slider__arrow {
+  display: inline-flex; align-items: center; justify-content: center;
+  width: 44px; height: 44px; border-radius: 50%;
+  border: 1px solid var(--kv-line); background: rgba(255,255,255,.05);
+  color: #fff; cursor: pointer;
+  transition: transform .18s var(--kv-ease), background-color .2s, border-color .2s, color .2s;
+}
+#kv-about .kv-slider__arrow:hover { background: var(--kv-accent); color: var(--kv-ink); border-color: var(--kv-accent); transform: translateY(-2px); }
+#kv-about .kv-slider__arrow:focus-visible { outline: 3px solid var(--kv-accent); outline-offset: 2px; }
+#kv-about .kv-slider__dots { display: flex; gap: 8px; align-items: center; }
+#kv-about .kv-slider__dot {
+  width: 9px; height: 9px; padding: 0; border: none; border-radius: 999px;
+  background: rgba(255,255,255,.28); cursor: pointer;
+  transition: width .3s var(--kv-ease), background-color .3s;
+}
+#kv-about .kv-slider__dot[aria-selected="true"] { width: 26px; background: var(--kv-accent); }
+#kv-about .kv-slider__dot:focus-visible { outline: 3px solid var(--kv-accent); outline-offset: 2px; }
+
+/* ---- ورود با اسکرول ---- */
+#kv-about [data-kv-reveal] {
+  opacity: 0; transform: translateY(26px);
+  transition: opacity .7s var(--kv-ease), transform .7s var(--kv-ease);
+}
+#kv-about.is-in [data-kv-reveal] { opacity: 1; transform: none; }
+#kv-about.is-in [data-kv-reveal="1"] { transition-delay: .08s; }
+#kv-about.is-in [data-kv-reveal="2"] { transition-delay: .16s; }
+#kv-about.is-in [data-kv-reveal="3"] { transition-delay: .24s; }
+#kv-about.is-in [data-kv-reveal="4"] { transition-delay: .32s; }
+
+/* ---- ریسپانسیو ---- */
+@media (max-width: 900px) {
+  #kv-about .kv-about__inner { grid-template-columns: 1fr; }
+  #kv-about .kv-about__showcase { order: -1; }
+  #kv-about .kv-about__badge { left: auto; right: -4px; }
+}
+@media (max-width: 520px) {
+  #kv-about .kv-about__stats { grid-template-columns: repeat(2, 1fr); }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  #kv-about * { animation: none !important; }
+  #kv-about [data-kv-reveal] { opacity: 1 !important; transform: none !important; }
+  #kv-about .kv-slider__track { transition: none !important; }
+}
+</style>
+
+<script id="kv-about-script">
+(function () {
+  'use strict';
+  var root = document.getElementById('kv-about');
+  if (!root || root.dataset.kvInit === '1') return;
+  root.dataset.kvInit = '1';
+
+  var reduce = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+  /* --- تخصیص خودکار ایندکس reveal به بلوک‌های اصلی --- */
+  var revealTargets = root.querySelectorAll(
+    '.kv-about__eyebrow, .kv-about__title, .kv-about__lede, .kv-about__stats, .kv-about__actions, .kv-about__showcase'
+  );
+  revealTargets.forEach(function (el, i) { el.setAttribute('data-kv-reveal', String(i)); });
+
+  /* --- اعداد فارسی --- */
+  var FA = ['۰','۱','۲','۳','۴','۵','۶','۷','۸','۹'];
+  function toFa(n) {
+    return String(n).replace(/\d/g, function (d) { return FA[+d]; })
+                    .replace(/\B(?=(\d{3})+(?!\d))/, ''); // جداکننده در تابع گروه‌بندی اعمال می‌شود
+  }
+  function groupFa(n) {
+    var s = String(n).replace(/\B(?=(\d{3})+(?!\d))/g, '٬');
+    return s.replace(/\d/g, function (d) { return FA[+d]; });
+  }
+
+  /* --- شمارنده‌ها --- */
+  function runCounters() {
+    var nums = root.querySelectorAll('[data-count-to]');
+    nums.forEach(function (el) {
+      var target = parseInt(el.getAttribute('data-count-to'), 10) || 0;
+      var suffix = el.getAttribute('data-count-suffix') || '';
+      var plain = el.getAttribute('data-count-plain') === '1';
+      if (reduce) { el.textContent = (plain ? toFa(target) : groupFa(target)) + suffix; return; }
+      var start = null, dur = 1500;
+      function frame(ts) {
+        if (start === null) start = ts;
+        var p = Math.min((ts - start) / dur, 1);
+        var eased = 1 - Math.pow(1 - p, 3);
+        var val = Math.round(target * eased);
+        el.textContent = (plain ? toFa(val) : groupFa(val)) + suffix;
+        if (p < 1) requestAnimationFrame(frame);
+      }
+      requestAnimationFrame(frame);
+    });
+  }
+
+  /* --- ورود با اسکرول + شمارنده --- */
+  var started = false;
+  if ('IntersectionObserver' in window) {
+    var io = new IntersectionObserver(function (entries) {
+      entries.forEach(function (e) {
+        if (e.isIntersecting) {
+          root.classList.add('is-in');
+          if (!started) { started = true; runCounters(); }
+          io.disconnect();
+        }
+      });
+    }, { threshold: 0.2 });
+    io.observe(root);
+  } else {
+    root.classList.add('is-in'); runCounters();
+  }
+
+  /* ==================== اسلایدر ==================== */
+  initSlider(root.querySelector('[data-kv-slider]'));
+
+  function initSlider(slider) {
+    if (!slider) return;
+    var track = slider.querySelector('.kv-slider__track');
+    var slides = Array.prototype.slice.call(slider.querySelectorAll('.kv-slide'));
+    var prevBtn = slider.querySelector('[data-kv-prev]');
+    var nextBtn = slider.querySelector('[data-kv-next]');
+    var dotsWrap = slider.querySelector('[data-kv-dots]');
+    var count = slides.length;
+    if (!count) return;
+    var index = 0;
+    var autoplayMs = parseInt(slider.getAttribute('data-autoplay'), 10) || 0;
+    var timer = null;
+
+    // ساخت دات‌ها
+    var dots = [];
+    for (var i = 0; i < count; i++) {
+      var d = document.createElement('button');
+      d.type = 'button';
+      d.className = 'kv-slider__dot';
+      d.setAttribute('role', 'tab');
+      d.setAttribute('aria-label', 'اسلاید ' + toFa(i + 1));
+      (function (idx) { d.addEventListener('click', function () { go(idx, true); }); })(i);
+      dotsWrap.appendChild(d);
+      dots.push(d);
+    }
+
+    function render() {
+      // RTL: اسلاید بعدی به سمت چپ می‌رود → ترنسلیت مثبت
+      track.style.transform = 'translateX(' + (index * 100) + '%)';
+      dots.forEach(function (d, i) { d.setAttribute('aria-selected', i === index ? 'true' : 'false'); });
+      slides.forEach(function (s, i) { s.setAttribute('aria-hidden', i === index ? 'false' : 'true'); });
+    }
+    function go(i, user) {
+      index = (i + count) % count;
+      render();
+      if (user) restart();
+    }
+    function next() { go(index + 1); }
+    function prev() { go(index - 1); }
+
+    nextBtn && nextBtn.addEventListener('click', function () { next(); restart(); });
+    prevBtn && prevBtn.addEventListener('click', function () { prev(); restart(); });
+
+    // کیبورد
+    slider.addEventListener('keydown', function (e) {
+      if (e.key === 'ArrowLeft') { next(); restart(); }        // RTL: چپ = بعدی
+      else if (e.key === 'ArrowRight') { prev(); restart(); }
+    });
+
+    // درگ / سواایپ
+    var startX = 0, dragging = false, moved = 0;
+    function down(x) { dragging = true; startX = x; moved = 0; track.style.transition = 'none'; stop(); }
+    function move(x) {
+      if (!dragging) return;
+      moved = x - startX;
+      track.style.transform = 'translateX(calc(' + (index * 100) + '% + ' + moved + 'px))';
+    }
+    function up() {
+      if (!dragging) return;
+      dragging = false;
+      track.style.transition = '';
+      var vw = slider.querySelector('.kv-slider__viewport').clientWidth;
+      if (Math.abs(moved) > vw * 0.18) {
+        // در RTL درگ به راست (moved>0) یعنی اسلاید قبلی
+        if (moved > 0) prev(); else next();
+      } else { render(); }
+      restart();
+    }
+    slider.addEventListener('mousedown', function (e) { down(e.clientX); });
+    window.addEventListener('mousemove', function (e) { move(e.clientX); });
+    window.addEventListener('mouseup', up);
+    slider.addEventListener('touchstart', function (e) { down(e.touches[0].clientX); }, { passive: true });
+    slider.addEventListener('touchmove', function (e) { move(e.touches[0].clientX); }, { passive: true });
+    slider.addEventListener('touchend', up);
+
+    // اتوپلی
+    function start() { if (autoplayMs && !reduce) timer = setInterval(next, autoplayMs); }
+    function stop() { if (timer) { clearInterval(timer); timer = null; } }
+    function restart() { stop(); start(); }
+    slider.addEventListener('mouseenter', stop);
+    slider.addEventListener('mouseleave', start);
+    slider.addEventListener('focusin', stop);
+    slider.addEventListener('focusout', start);
+    document.addEventListener('visibilitychange', function () { document.hidden ? stop() : start(); });
+
+    render();
+    start();
+  }
+})();
+</script>
+<!-- ============ END KAVERUN — درباره کاوران ============ -->
