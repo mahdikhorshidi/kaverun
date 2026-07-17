@@ -1,20 +1,10 @@
 <!--
 ============================================================================
-  KAVERUN — «درباره کاوران» (ترکیب «درباره» + «چرا کاوران») | Self-contained
+  KAVERUN — «درباره کاوران» | سکشن معرفی (سبک، وسط‌چین) | Self-contained
   ---------------------------------------------------------------------------
-  • یک سکشن ترکیبی مارکتینگ‌محور و سئومحور: متن معرفی شرکت + تصویر بیل مکانیکی
-    در ستون راست، و یک «اسلایدر عمودی خودکار (رو به بالا)» در ستون چپ که مزیت‌های
-    خرید و دلایل انتخاب کاوران را با هم نمایش می‌دهد.
   • بدون هیچ وابستگی خارجی. یک بلوک «Custom HTML» در وردپرس بسازید و کل این
     فایل را داخل آن Paste کنید.
-  ---------------------------------------------------------------------------
-  رعایت شده:
-   • SEO: تیترهای معنایی h2/h3، متن پرکلمه‌کلیدی قابل کرال، ریزداده‌ی
-     schema.org (Organization + ItemList)، alt توصیفی، لینک داخلی به /about و /contact.
-   • Core Web Vitals: بدون layout shift، انیمیشن‌های GPU-محور (transform)،
-     اسکریپت سبک + IntersectionObserver.
-   • دسترس‌پذیری: prefers-reduced-motion، aria، توقف اسلایدر روی hover/focus.
-   • موبایل: چیدمان تک‌ستونی تضمین‌شده و نمایش صحیح اسلایدر.
+  • سکشن «چرا کاوران» به فایل جداگانه‌ی why-kaverun-section.html منتقل شده است.
 ============================================================================
 -->
 <section
@@ -29,173 +19,31 @@
   <meta itemprop="name" content="گروه صنعتی کاوران (Kaverun)" />
 
   <div class="kv-au__inner">
-    <div class="kv-au__grid">
+    <div class="kv-au__head" data-kv-reveal>
+      <p class="kv-au__eyebrow">
+        <span class="kv-au__eyebrow-dot" aria-hidden="true"></span>
+        از سال ۱۳۸۵ در شهر صنعتی کاوه
+      </p>
+      <h2 id="kv-au-title" class="kv-au__title">
+        درباره <span class="kv-au__brand">کاوران</span>
+      </h2>
+      <p class="kv-au__lede" itemprop="description">
+        گروه صنعتی <strong>کاوران (Kaverun)</strong> تولیدکننده و فروشنده‌ی انواع
+        <strong>بیل مکانیکی، لودر، لیفتراک</strong> و ماشین‌آلات
+        <strong>راه‌سازی، ساختمانی و کشاورزی</strong> در شهر صنعتی کاوه است.
+      </p>
+    </div>
 
-      <!-- ===== ستون اصلی (راست): درباره کاوران ===== -->
-      <div class="kv-au__col kv-au__col--main">
-
-        <div class="kv-au__head" data-kv-reveal>
-          <p class="kv-au__eyebrow">
-            <span class="kv-au__eyebrow-dot" aria-hidden="true"></span>
-            از سال ۱۳۸۵ در شهر صنعتی کاوه
-          </p>
-          <h2 id="kv-au-title" class="kv-au__title">
-            درباره <span class="kv-au__brand">کاوران</span>؛
-            تولیدکننده‌ی ماشین‌آلات راه‌سازی، ساختمانی و کشاورزی
-          </h2>
-          <p class="kv-au__lede" itemprop="description">
-            گروه صنعتی <strong>کاوران (Kaverun)</strong> فعالیت خود را از سال ۱۳۸۵
-            با نام «چلنگر» در زمینی به وسعت <strong>۱۰٬۱۵۰ متر مربع</strong> و در
-            زمینه تولید انواع <strong>لوله و پروفیل</strong> آغاز کرد. از سال ۱۳۹۸
-            با توسعه‌ی خطوط تولید و تنوع‌بخشی به محصولات — از جمله
-            <strong>بیل مکانیکی، لودر و لیفتراک</strong> — و با بهره‌گیری از
-            کارشناسان متخصص و ماشین‌آلات پیشرفته، به یکی از تولیدکنندگان و
-            فروشندگان معتبر ماشین‌های <strong>راه‌سازی، ساختمانی و کشاورزی</strong>
-            در شهر صنعتی کاوه تبدیل شده است.
-          </p>
-        </div>
-
-        <div class="kv-au__actions" data-kv-reveal>
-          <a class="kv-au__btn kv-au__btn--primary" href="/about"
-             aria-label="آشنایی بیشتر با گروه صنعتی کاوران در صفحه درباره ما">
-            درباره ما
-            <svg viewBox="0 0 24 24" width="18" height="18" aria-hidden="true"><path fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" d="M15 6l-6 6 6 6"/></svg>
-          </a>
-          <a class="kv-au__btn kv-au__btn--ghost" href="/contact"
-             aria-label="تماس با کارشناسان فروش کاوران">
-            تماس با ما
-          </a>
-        </div>
-      </div>
-
-      <!-- ===== ستون کناری (چپ): چرا کاوران + اسلایدر عمودی خودکار ===== -->
-      <aside class="kv-au__col kv-au__col--aside" itemscope itemtype="https://schema.org/ItemList">
-        <meta itemprop="name" content="مزیت‌ها و دلایل انتخاب گروه صنعتی کاوران" />
-
-        <div class="kv-au__why-head" data-kv-reveal>
-          <p class="kv-au__eyebrow kv-au__eyebrow--alt">
-            <span class="kv-au__eyebrow-dot" aria-hidden="true"></span>
-            دلایل انتخاب کاوران
-          </p>
-          <h3 class="kv-au__why-title">
-            چرا <span class="kv-au__brand">کاوران</span>؟
-          </h3>
-          <p class="kv-au__why-lede">
-            <strong>گارانتی خدمات، محصولات اورجینال، پشتیبانی تخصصی و مشاوره‌ی
-            حرفه‌ای</strong>؛ ستون‌هایی که خرید ماشین‌آلات صنعتی از کاوران را به یک
-            سرمایه‌گذاری مطمئن تبدیل می‌کنند.
-          </p>
-        </div>
-
-        <!-- اسلایدر عمودی خودکار (رو به بالا) — ترکیب مزیت‌ها + دلایل -->
-        <div class="kv-vslider" data-kv-vslider aria-label="مزیت‌ها و دلایل انتخاب کاوران">
-          <div class="kv-vslider__viewport">
-            <ul class="kv-vslider__track" data-kv-vtrack>
-
-              <li class="kv-vcard" itemprop="itemListElement" itemscope itemtype="https://schema.org/ListItem">
-                <meta itemprop="position" content="1" />
-                <span class="kv-vcard__icon" aria-hidden="true">
-                  <svg viewBox="0 0 640 512" width="22" height="22"><path fill="currentColor" d="M608 32H32C14.33 32 0 46.33 0 64v384c0 17.67 14.33 32 32 32h576c17.67 0 32-14.33 32-32V64c0-17.67-14.33-32-32-32zM176 327.88V344c0 4.42-3.58 8-8 8h-16c-4.42 0-8-3.58-8-8v-16.29c-11.29-.58-22.27-4.52-31.37-11.35-3.9-2.93-4.1-8.77-.57-12.14l11.75-11.21c2.77-2.64 6.89-2.76 10.13-.73 3.87 2.42 8.26 3.72 12.82 3.72h28.11c6.5 0 11.8-5.92 11.8-13.19 0-5.95-3.61-11.19-8.77-12.73l-45-13.5c-18.59-5.58-31.58-23.42-31.58-43.39 0-24.52 19.05-44.44 42.67-45.07V152c0-4.42 3.58-8 8-8h16c4.42 0 8 3.58 8 8v16.29c11.29.58 22.27 4.51 31.37 11.35 3.9 2.93 4.1 8.77.57 12.14l-11.75 11.21c-2.77 2.64-6.89 2.76-10.13.73-3.87-2.43-8.26-3.72-12.82-3.72h-28.11c-6.5 0-11.8 5.92-11.8 13.19 0 5.95 3.61 11.19 8.77 12.73l45 13.5c18.59 5.58 31.58 23.42 31.58 43.39 0 24.53-19.05 44.44-42.67 45.07zM416 312c0 4.42-3.58 8-8 8H296c-4.42 0-8-3.58-8-8v-16c0-4.42 3.58-8 8-8h112c4.42 0 8 3.58 8 8v16zm160 0c0 4.42-3.58 8-8 8h-80c-4.42 0-8-3.58-8-8v-16c0-4.42 3.58-8 8-8h80c4.42 0 8 3.58 8 8v16zm0-96c0 4.42-3.58 8-8 8H296c-4.42 0-8-3.58-8-8v-16c0-4.42 3.58-8 8-8h272c4.42 0 8 3.58 8 8v16z"/></svg>
-                </span>
-                <div class="kv-vcard__body">
-                  <h4 class="kv-vcard__title" itemprop="name">بهترین قیمت بازار</h4>
-                  <p class="kv-vcard__text" itemprop="description">تولید مستقیم در کارخانه و حذف واسطه‌ها؛ قیمتی رقابتی و منصفانه.</p>
-                </div>
-              </li>
-
-              <li class="kv-vcard" itemprop="itemListElement" itemscope itemtype="https://schema.org/ListItem">
-                <meta itemprop="position" content="2" />
-                <span class="kv-vcard__icon" aria-hidden="true">
-                  <svg viewBox="0 0 384 512" width="22" height="22"><path fill="currentColor" d="M97.12 362.63c-8.69-8.69-4.16-6.24-25.12-11.85-9.51-2.55-17.87-7.45-25.43-13.32L1.2 448.7c-4.39 10.77 3.81 22.47 15.43 22.03l52.69-2.01L105.56 507c8 8.44 22.04 5.81 26.43-4.96l52.05-127.62c-10.84 6.04-22.87 9.58-35.31 9.58-19.5 0-37.82-7.59-51.61-21.37zM382.8 448.7l-45.37-111.24c-7.56 5.88-15.92 10.77-25.43 13.32-21.07 5.64-16.45 3.18-25.12 11.85-13.79 13.78-32.12 21.37-51.62 21.37-12.44 0-24.47-3.55-35.31-9.58L252 502.04c4.39 10.77 18.44 13.4 26.43 4.96l36.25-38.28 52.69 2.01c11.62.44 19.82-11.27 15.43-22.03zM192 344c66.27 0 120-53.73 120-120S258.27 104 192 104 72 157.73 72 224s53.73 120 120 120z"/></svg>
-                </span>
-                <div class="kv-vcard__body">
-                  <h4 class="kv-vcard__title" itemprop="name">اصالت محصولات</h4>
-                  <p class="kv-vcard__text" itemprop="description">تمام محصولات اورجینال و دارای شناسه‌ی اصالت؛ بدون قطعات تقلبی.</p>
-                </div>
-              </li>
-
-              <li class="kv-vcard" itemprop="itemListElement" itemscope itemtype="https://schema.org/ListItem">
-                <meta itemprop="position" content="3" />
-                <span class="kv-vcard__icon" aria-hidden="true">
-                  <svg viewBox="0 0 448 512" width="22" height="22"><path fill="currentColor" d="M400 64h-48V12c0-6.627-5.373-12-12-12h-40c-6.627 0-12 5.373-12 12v52H160V12c0-6.627-5.373-12-12-12h-40c-6.627 0-12 5.373-12 12v52H48C21.49 64 0 85.49 0 112v352c0 26.51 21.49 48 48 48h352c26.51 0 48-21.49 48-48V112c0-26.51-21.49-48-48-48zm-6 400H54a6 6 0 0 1-6-6V160h352v298a6 6 0 0 1-6 6zm-52.849-200.65L198.842 404.519c-4.705 4.667-12.303 4.637-16.971-.068l-75.091-75.699c-4.667-4.705-4.637-12.303.068-16.971l22.719-22.536c4.705-4.667 12.303-4.637 16.97.069l44.104 44.461 111.072-110.181c4.705-4.667 12.303-4.637 16.971.068l22.536 22.718c4.667 4.705 4.636 12.303-.069 16.97z"/></svg>
-                </span>
-                <div class="kv-vcard__body">
-                  <h4 class="kv-vcard__title" itemprop="name">تحویل در کمترین زمان</h4>
-                  <p class="kv-vcard__text" itemprop="description">موجودی انبار و زنجیره‌ی تأمین منظم؛ آماده‌سازی و ارسال سریع سفارش.</p>
-                </div>
-              </li>
-
-              <li class="kv-vcard" itemprop="itemListElement" itemscope itemtype="https://schema.org/ListItem">
-                <meta itemprop="position" content="4" />
-                <span class="kv-vcard__icon" aria-hidden="true">
-                  <svg viewBox="0 0 512 512" width="22" height="22"><path fill="currentColor" d="M173.898 439.404l-166.4-166.4c-9.997-9.997-9.997-26.206 0-36.204l36.203-36.204c9.997-9.998 26.207-9.998 36.204 0L192 312.69 432.095 72.596c9.997-9.997 26.207-9.997 36.204 0l36.203 36.204c9.997 9.997 9.997 26.206 0 36.204l-294.4 294.401c-9.998 9.997-26.207 9.997-36.204-.001z"/></svg>
-                </span>
-                <div class="kv-vcard__body">
-                  <h4 class="kv-vcard__title" itemprop="name">تنوع تولید محصولات</h4>
-                  <p class="kv-vcard__text" itemprop="description">از لوله و پروفیل تا بیل مکانیکی، لودر و لیفتراک؛ سبدی کامل زیر یک برند.</p>
-                </div>
-              </li>
-
-              <li class="kv-vcard" itemprop="itemListElement" itemscope itemtype="https://schema.org/ListItem">
-                <meta itemprop="position" content="5" />
-                <span class="kv-vcard__icon" aria-hidden="true">
-                  <svg viewBox="0 0 512 512" width="22" height="22"><path fill="currentColor" d="M173.898 439.404l-166.4-166.4c-9.997-9.997-9.997-26.206 0-36.204l36.203-36.204c9.997-9.998 26.207-9.998 36.204 0L192 312.69 432.095 72.596c9.997-9.997 26.207-9.997 36.204 0l36.203 36.204c9.997 9.997 9.997 26.206 0 36.204l-294.4 294.401c-9.998 9.997-26.207 9.997-36.204-.001z"/></svg>
-                </span>
-                <div class="kv-vcard__body">
-                  <h4 class="kv-vcard__title" itemprop="name">محصولات باکیفیت</h4>
-                  <p class="kv-vcard__text" itemprop="description">مواد اولیه مرغوب، فناوری پیشرفته و کنترل کیفیت دقیق در تمام مراحل تولید.</p>
-                </div>
-              </li>
-
-              <li class="kv-vcard" itemprop="itemListElement" itemscope itemtype="https://schema.org/ListItem">
-                <meta itemprop="position" content="6" />
-                <span class="kv-vcard__icon" aria-hidden="true">
-                  <svg viewBox="0 0 512 512" width="22" height="22"><path fill="currentColor" d="M504 255.531c.253 136.64-111.18 248.372-247.82 248.468-59.015.042-113.223-20.53-155.822-54.911-11.077-8.94-11.905-25.541-1.839-35.607l11.267-11.267c8.609-8.609 22.353-9.551 31.891-1.984C173.062 425.135 212.781 440 256 440c101.705 0 184-82.311 184-184 0-101.705-82.311-184-184-184-48.814 0-93.149 18.969-126.068 49.932l50.754 50.754c10.08 10.08 2.941 27.314-11.313 27.314H24c-8.837 0-16-7.163-16-16V38.627c0-14.254 17.234-21.393 27.314-11.314l49.372 49.372C129.209 34.136 189.552 8 256 8c136.81 0 247.747 110.78 248 247.531zm-180.912 78.784l9.823-12.63c8.138-10.463 6.253-25.542-4.21-33.679L288 258.294V152c0-13.255-10.745-24-24-24h-16c-13.255 0-24 10.745-24 24v135.706l65.409 50.874c10.463 8.137 25.541 6.253 33.679-4.209z"/></svg>
-                </span>
-                <div class="kv-vcard__body">
-                  <h4 class="kv-vcard__title" itemprop="name">خدمات پس از فروش</h4>
-                  <p class="kv-vcard__text" itemprop="description">پشتیبانی، مشاوره، آموزش، تأمین قطعات یدکی و خدمات تعویض و بازسازی.</p>
-                </div>
-              </li>
-
-              <li class="kv-vcard" itemprop="itemListElement" itemscope itemtype="https://schema.org/ListItem">
-                <meta itemprop="position" content="7" />
-                <span class="kv-vcard__icon" aria-hidden="true">
-                  <svg viewBox="0 0 512 512" width="22" height="22"><path fill="currentColor" d="M466.5 83.7l-192-80a48.15 48.15 0 0 0-36.9 0l-192 80C27.7 91.1 16 108.6 16 128c0 198.5 114.5 335.7 221.5 380.3 11.8 4.9 25.1 4.9 36.9 0C360.1 472.6 496 349.3 496 128c0-19.4-11.7-36.9-29.5-44.3zM256.1 446.3l-.1-381 175.9 73.3c-3.3 151.4-82.1 261.1-175.8 307.7z"/></svg>
-                </span>
-                <div class="kv-vcard__body">
-                  <h4 class="kv-vcard__title" itemprop="name">گارانتی خدمات</h4>
-                  <p class="kv-vcard__text" itemprop="description">هر دستگاه با گارانتی معتبر؛ تعهد کتبی کاوران به عملکرد محصول.</p>
-                </div>
-              </li>
-
-              <li class="kv-vcard" itemprop="itemListElement" itemscope itemtype="https://schema.org/ListItem">
-                <meta itemprop="position" content="8" />
-                <span class="kv-vcard__icon" aria-hidden="true">
-                  <svg viewBox="0 0 576 512" width="22" height="22"><path fill="currentColor" d="M280.37 148.26L96 300.11V464a16 16 0 0 0 16 16l112.06-.29a16 16 0 0 0 15.92-16V368a16 16 0 0 1 16-16h64a16 16 0 0 1 16 16v95.64a16 16 0 0 0 16 16.05L464 480a16 16 0 0 0 16-16V300L295.67 148.26a12.19 12.19 0 0 0-15.3 0zM571.6 251.47L488 182.56V44.05a12 12 0 0 0-12-12h-56a12 12 0 0 0-12 12v72.61L318.47 43a48 48 0 0 0-61 0L4.34 251.47a12 12 0 0 0-1.6 16.9l25.5 31A12 12 0 0 0 45.15 301l235.22-193.74a12.19 12.19 0 0 1 15.3 0L530.9 301a12 12 0 0 0 16.9-1.6l25.5-31a12 12 0 0 0-1.7-16.93z"/></svg>
-                </span>
-                <div class="kv-vcard__body">
-                  <h4 class="kv-vcard__title" itemprop="name">پشتیبانی تخصصی</h4>
-                  <p class="kv-vcard__text" itemprop="description">تیم فنی آگاه به تکنولوژی روز، در نصب، راه‌اندازی و نگه‌داری کنار شما.</p>
-                </div>
-              </li>
-
-              <li class="kv-vcard" itemprop="itemListElement" itemscope itemtype="https://schema.org/ListItem">
-                <meta itemprop="position" content="9" />
-                <span class="kv-vcard__icon" aria-hidden="true">
-                  <svg viewBox="0 0 512 512" width="22" height="22"><path fill="currentColor" d="M256 32C114.6 32 0 125.1 0 240c0 49.6 21.4 95 57 130.7C44.5 421.1 2.7 466 2.2 466.5c-2.2 2.3-2.8 5.7-1.5 8.7S4.8 480 8 480c66.3 0 116-31.8 140.6-51.4 32.7 12.3 69 19.4 107.4 19.4 141.4 0 256-93.1 256-208S397.4 32 256 32zM128 272c-17.7 0-32-14.3-32-32s14.3-32 32-32 32 14.3 32 32-14.3 32-32 32zm128 0c-17.7 0-32-14.3-32-32s14.3-32 32-32 32 14.3 32 32-14.3 32-32 32zm128 0c-17.7 0-32-14.3-32-32s14.3-32 32-32 32 14.3 32 32-14.3 32-32 32z"/></svg>
-                </span>
-                <div class="kv-vcard__body">
-                  <h4 class="kv-vcard__title" itemprop="name">مشاوره‌ی حرفه‌ای</h4>
-                  <p class="kv-vcard__text" itemprop="description">پیشنهاد بهترین گزینه متناسب با نوع پروژه و بودجه‌ی شما، پیش از خرید.</p>
-                </div>
-              </li>
-
-            </ul>
-          </div>
-        </div>
-      </aside>
-
+    <div class="kv-au__actions" data-kv-reveal>
+      <a class="kv-au__btn kv-au__btn--primary" href="/about"
+         aria-label="آشنایی بیشتر با گروه صنعتی کاوران در صفحه درباره ما">
+        درباره ما
+        <svg viewBox="0 0 24 24" width="18" height="18" aria-hidden="true"><path fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" d="M15 6l-6 6 6 6"/></svg>
+      </a>
+      <a class="kv-au__btn kv-au__btn--ghost" href="/contact"
+         aria-label="تماس با کارشناسان فروش کاوران">
+        تماس با ما
+      </a>
     </div>
   </div>
 </section>
@@ -210,52 +58,35 @@
   --kv-accent: #FFC72C;
   --kv-ink: #111111;
   --kv-line: rgba(255,255,255,.10);
-  --kv-card: #14161d;
   --kv-ease: cubic-bezier(.22,1,.36,1);
 
-  position: relative;
-  width: 100%; margin: 0;
-  padding: clamp(48px, 8vw, 110px) clamp(18px, 5vw, 80px);
+  position: relative; width: 100%; margin: 0;
+  padding: clamp(56px, 9vw, 120px) clamp(18px, 5vw, 80px);
   background:
-    radial-gradient(110% 80% at 88% -10%, rgba(255,199,44,.10) 0%, rgba(255,199,44,0) 46%),
-    radial-gradient(80% 70% at 8% 110%, rgba(255,199,44,.06) 0%, rgba(255,199,44,0) 52%),
+    radial-gradient(90% 70% at 50% -10%, rgba(255,199,44,.10) 0%, rgba(255,199,44,0) 50%),
     var(--kv-bg);
-  color: var(--kv-fg);
-  direction: rtl; font-family: inherit; overflow: hidden;
+  color: var(--kv-fg); direction: rtl; font-family: inherit; overflow: hidden;
 }
 #kv-au::before {
   content: ""; position: absolute; inset: 0;
   background-image: linear-gradient(var(--kv-line) 1px, transparent 1px),
                     linear-gradient(90deg, var(--kv-line) 1px, transparent 1px);
   background-size: 46px 46px;
-  -webkit-mask-image: radial-gradient(80% 60% at 50% 0%, #000 0%, transparent 78%);
-          mask-image: radial-gradient(80% 60% at 50% 0%, #000 0%, transparent 78%);
-  opacity: .45; pointer-events: none;
+  -webkit-mask-image: radial-gradient(70% 60% at 50% 0%, #000 0%, transparent 78%);
+          mask-image: radial-gradient(70% 60% at 50% 0%, #000 0%, transparent 78%);
+  opacity: .4; pointer-events: none;
 }
 
-#kv-au .kv-au__inner { position: relative; z-index: 1; max-width: 1200px; margin: 0 auto; }
-#kv-au .kv-au__grid {
-  display: grid;
-  grid-template-columns: 1.02fr .98fr;
-  gap: clamp(28px, 5vw, 64px);
-  align-items: center;
+#kv-au .kv-au__inner {
+  position: relative; z-index: 1;
+  max-width: 780px; margin: 0 auto; text-align: center;
 }
-#kv-au .kv-au__col { min-width: 0; }
-#kv-au .kv-au__col--aside { display: flex; flex-direction: column; gap: 20px; }
-
-/* ستون درباره: متن بالا با چینش وسط‌چین */
-#kv-au .kv-au__col--main { text-align: center; }
-#kv-au .kv-au__col--main .kv-au__lede { text-align: center; }
-#kv-au .kv-au__col--main .kv-au__actions { justify-content: center; }
-
-/* ---- eyebrow ---- */
 #kv-au .kv-au__eyebrow {
-  display: inline-flex; align-items: center; gap: 9px; margin: 0 0 18px;
+  display: inline-flex; align-items: center; gap: 9px; margin: 0 0 20px;
   padding: 8px 16px; border: 1px solid var(--kv-line); border-radius: 999px;
   background: rgba(255,255,255,.03);
   font-size: clamp(12px, 1.2vw, 14px); font-weight: 700; color: var(--kv-accent);
 }
-#kv-au .kv-au__eyebrow--alt { margin-bottom: 14px; }
 #kv-au .kv-au__eyebrow-dot {
   width: 8px; height: 8px; border-radius: 50%; background: var(--kv-accent);
   animation: kvAuPulse 2.2s ease-out infinite;
@@ -265,21 +96,18 @@
   70% { box-shadow: 0 0 0 10px rgba(255,199,44,0); }
   100% { box-shadow: 0 0 0 0 rgba(255,199,44,0); }
 }
-
-/* ---- عناوین و متن ---- */
 #kv-au .kv-au__title {
-  margin: 0 0 18px; font-size: clamp(25px, 3.9vw, 42px);
-  line-height: 1.3; font-weight: 800; letter-spacing: -.01em;
+  margin: 0 0 18px; font-size: clamp(30px, 5vw, 52px);
+  line-height: 1.2; font-weight: 800; letter-spacing: -.01em;
 }
-#kv-au .kv-au__brand { color: var(--kv-accent); white-space: nowrap; }
+#kv-au .kv-au__brand { color: var(--kv-accent); }
 #kv-au .kv-au__lede {
-  margin: 0; font-size: clamp(14.5px, 1.6vw, 17px); line-height: 2.05;
-  color: var(--kv-muted); text-align: justify;
+  margin: 0 auto; max-width: 620px;
+  font-size: clamp(15px, 1.8vw, 19px); line-height: 2; color: var(--kv-muted);
 }
 #kv-au .kv-au__lede strong { color: #fff; font-weight: 700; }
 
-/* ---- دکمه‌ها ---- */
-#kv-au .kv-au__actions { display: flex; flex-wrap: wrap; gap: 12px; margin-top: 30px; }
+#kv-au .kv-au__actions { display: flex; flex-wrap: wrap; gap: 12px; justify-content: center; margin-top: 34px; }
 #kv-au .kv-au__btn {
   display: inline-flex; align-items: center; gap: 8px;
   padding: 14px 30px; border-radius: 999px;
@@ -295,81 +123,16 @@
 #kv-au .kv-au__btn--ghost:hover { border-color: rgba(255,255,255,.5); background: rgba(255,255,255,.1); }
 #kv-au .kv-au__btn:focus-visible { outline: 3px solid var(--kv-accent); outline-offset: 3px; }
 
-/* ---- سر ستون «چرا کاوران» ---- */
-#kv-au .kv-au__why-title { margin: 0 0 12px; font-size: clamp(22px, 3vw, 32px); font-weight: 800; line-height: 1.25; }
-#kv-au .kv-au__why-lede { margin: 0; font-size: clamp(14px, 1.5vw, 16px); line-height: 1.95; color: var(--kv-muted); text-align: justify; }
-#kv-au .kv-au__why-lede strong { color: #fff; font-weight: 700; }
-
-/* ==================== اسلایدر عمودی خودکار ==================== */
-#kv-au .kv-vslider {
-  position: relative;
-  border: 1px solid var(--kv-line); border-radius: 22px;
-  background: linear-gradient(160deg, rgba(255,255,255,.05), rgba(255,255,255,.015));
-  box-shadow: 0 30px 70px rgba(0,0,0,.4);
-  padding: 6px;
-}
-#kv-au .kv-vslider__viewport {
-  height: clamp(320px, 40vw, 460px);
-  overflow: hidden;
-  border-radius: 18px;
-  -webkit-mask-image: linear-gradient(180deg, transparent 0, #000 12%, #000 88%, transparent 100%);
-          mask-image: linear-gradient(180deg, transparent 0, #000 12%, #000 88%, transparent 100%);
-}
-#kv-au .kv-vslider__track {
-  list-style: none; margin: 0; padding: 0;
-  display: flex; flex-direction: column;
-  transform: translateY(0);
-  will-change: transform;
-}
-/* حرکت دونه‌به‌دونه با JS کنترل می‌شود (transition روی transform) */
-/* بدون JS: فقط لیست قابل اسکرول داخلی */
-#kv-au .kv-vslider:not(.is-anim) .kv-vslider__viewport { overflow-y: auto; }
-
-#kv-au .kv-vcard {
-  display: flex; align-items: flex-start; gap: 14px;
-  margin-bottom: 12px;               /* فاصله یکنواخت برای لوپ بی‌درز */
-  padding: 18px 18px;
-  border: 1px solid var(--kv-line); border-radius: 16px;
-  background: linear-gradient(165deg, rgba(255,255,255,.055), rgba(255,255,255,.02)), var(--kv-card);
-  transition: border-color .3s var(--kv-ease), transform .3s var(--kv-ease);
-}
-#kv-au .kv-vcard:hover { border-color: rgba(255,199,44,.45); transform: translateX(-4px); }
-#kv-au .kv-vcard__icon {
-  flex: 0 0 auto;
-  display: inline-flex; align-items: center; justify-content: center;
-  width: 46px; height: 46px; border-radius: 13px;
-  color: var(--kv-ink); background: var(--kv-accent);
-  box-shadow: 0 8px 18px rgba(255,199,44,.32);
-}
-#kv-au .kv-vcard__body { min-width: 0; }
-#kv-au .kv-vcard__title { margin: 0 0 5px; font-size: clamp(15px, 1.7vw, 18px); font-weight: 800; }
-#kv-au .kv-vcard__text { margin: 0; font-size: clamp(12.5px, 1.4vw, 14.5px); line-height: 1.85; color: var(--kv-muted); }
-
-/* ---- ورود با اسکرول ---- */
-#kv-au [data-kv-reveal] { opacity: 0; transform: translateY(26px); transition: opacity .7s var(--kv-ease), transform .7s var(--kv-ease); }
+#kv-au [data-kv-reveal] { opacity: 0; transform: translateY(24px); transition: opacity .7s var(--kv-ease), transform .7s var(--kv-ease); }
 #kv-au.is-in [data-kv-reveal] { opacity: 1; transform: none; }
-#kv-au.is-in .kv-au__actions[data-kv-reveal] { transition-delay: .18s; }
-#kv-au.is-in .kv-au__why-head[data-kv-reveal] { transition-delay: .12s; }
+#kv-au.is-in .kv-au__actions[data-kv-reveal] { transition-delay: .15s; }
 
-/* ==================== ریسپانسیو (موبایل) ==================== */
-@media (max-width: 900px) {
-  #kv-au .kv-au__grid {
-    grid-template-columns: 1fr;      /* تک‌ستونی تضمین‌شده */
-    gap: 34px;
-    align-items: stretch;
-  }
-  #kv-au .kv-au__col--aside { gap: 16px; }
-  #kv-au .kv-vslider__viewport { height: clamp(300px, 82vw, 380px); }
-}
 @media (max-width: 480px) {
   #kv-au .kv-au__actions .kv-au__btn { flex: 1 1 auto; justify-content: center; }
 }
-
 @media (prefers-reduced-motion: reduce) {
   #kv-au * { animation: none !important; }
   #kv-au [data-kv-reveal] { opacity: 1 !important; transform: none !important; }
-  #kv-au .kv-vslider .kv-vslider__track { transform: none !important; }
-  #kv-au .kv-vslider__viewport { overflow-y: auto; }
 }
 </style>
 
@@ -379,76 +142,12 @@
   var root = document.getElementById('kv-au');
   if (!root || root.dataset.kvInit === '1') return;
   root.dataset.kvInit = '1';
-
-  var reduce = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
-
-  /* --- ورود با اسکرول --- */
   if ('IntersectionObserver' in window) {
     var io = new IntersectionObserver(function (entries) {
       entries.forEach(function (e) { if (e.isIntersecting) { root.classList.add('is-in'); io.disconnect(); } });
-    }, { threshold: 0.15 });
+    }, { threshold: 0.2 });
     io.observe(root);
   } else { root.classList.add('is-in'); }
-
-  /* --- اسلایدر عمودی: حرکت خودکار «دونه‌به‌دونه» رو به بالا --- */
-  var slider = root.querySelector('[data-kv-vslider]');
-  var track = root.querySelector('[data-kv-vtrack]');
-  if (slider && track && !reduce) {
-    var STEP_MS = 2600;   // مکث روی هر کارت
-    var MOVE_MS = 700;    // مدت حرکت یک پله
-    var EASE = 'cubic-bezier(.22,1,.36,1)';
-
-    // کلون کارت‌ها برای لوپ بی‌درز (نمایش کارت‌های بعدی هنگام رسیدن به انتها)
-    var originalCount = track.children.length;
-    Array.prototype.slice.call(track.children).forEach(function (li) {
-      var clone = li.cloneNode(true);
-      clone.setAttribute('aria-hidden', 'true');  // برای اسکرین‌ریدر خوانده نشود
-      clone.removeAttribute('itemprop');           // جلوگیری از داده‌ی ساختاری تکراری
-      clone.removeAttribute('itemscope');
-      clone.removeAttribute('itemtype');
-      track.appendChild(clone);
-    });
-    slider.classList.add('is-anim');
-
-    var index = 0;
-    var timer = null;
-
-    // فاصله‌ی هر کارت از کارت اول (پشتیبانی از ارتفاع‌های متفاوت)
-    function offsetOf(i) {
-      var kids = track.children;
-      if (!kids[i]) return 0;
-      return kids[i].offsetTop - kids[0].offsetTop;
-    }
-
-    function step() {
-      index++;
-      track.style.transition = 'transform ' + MOVE_MS + 'ms ' + EASE;
-      track.style.transform = 'translateY(-' + offsetOf(index) + 'px)';
-
-      // وقتی به ابتدای مجموعه‌ی کلون رسیدیم، بی‌درز به صفر برگرد
-      if (index >= originalCount) {
-        window.setTimeout(function () {
-          track.style.transition = 'none';
-          index = 0;
-          track.style.transform = 'translateY(0)';
-          void track.offsetHeight; // reflow تا انتقال بعدی نرم باشد
-        }, MOVE_MS + 20);
-      }
-    }
-
-    function start() { if (!timer) timer = window.setInterval(step, STEP_MS); }
-    function stop() { if (timer) { window.clearInterval(timer); timer = null; } }
-
-    // توقف روی hover/focus برای خواندن راحت
-    slider.addEventListener('mouseenter', stop);
-    slider.addEventListener('mouseleave', start);
-    slider.addEventListener('focusin', stop);
-    slider.addEventListener('focusout', start);
-    // توقف هنگام پنهان بودن تب
-    document.addEventListener('visibilitychange', function () { document.hidden ? stop() : start(); });
-
-    start();
-  }
 })();
 </script>
-<!-- ============ END KAVERUN — درباره کاوران (ترکیبی) ============ -->
+<!-- ============ END KAVERUN — درباره کاوران ============ -->
