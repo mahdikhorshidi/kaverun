@@ -1,0 +1,467 @@
+<!--
+============================================================================
+  KAVERUN — Scroll-Driven Hero Section (self-contained)
+  ---------------------------------------------------------------------------
+  نحوه استفاده:
+   1) پوشه‌ی «hero-frames» را در ریشه‌ی هاست وردپرس آپلود کنید تا مسیر نهایی به
+      شکل زیر باشد:
+        https://your-domain.com/hero-frames/desktop/frame_001.webp ... frame_060.webp
+        https://your-domain.com/hero-frames/mobile/frame_001.webp  ... frame_060.webp
+   2) در صفحه‌ی مورد نظر یک بلوک «Custom HTML» اضافه کنید و کل این فایل را داخل
+      آن Paste کنید. تمام است — بدون هیچ وابستگی، اسکریپت یا CSS خارجی.
+   3) اگر مسیر پوشه با ریشه فرق دارد (مثلاً /wp-content/uploads/hero-frames/)
+      فقط مقدار data-frames-desktop و data-frames-mobile روی <section> را
+      اصلاح کنید.
+  ---------------------------------------------------------------------------
+  رعایت شده:
+   • Core Web Vitals: preload + fetchpriority برای LCP، aspect-ratio و
+     ابعاد مشخص برای CLS صفر، رویداد اسکرول passive + requestAnimationFrame
+     برای INP پایین.
+   • SEO: تگ‌های معنایی <section>/<h1>، alt متنی، محتوای متنی قابل کرال،
+     schema.org microdata سبک.
+   • دسترس‌پذیری: prefers-reduced-motion، aria-label، تمرکز کیبورد، noscript.
+   • بدون وابستگی: بدون jQuery/GSAP/فونت خارجی/CDN.
+============================================================================
+-->
+<section
+  id="kv-hero"
+  class="kv-hero"
+  data-frame-count="60"
+  data-frames-desktop="/hero-frames/desktop/"
+  data-frames-mobile="/hero-frames/mobile/"
+  itemscope
+  itemtype="https://schema.org/Service"
+  aria-labelledby="kv-hero-title"
+>
+  <div class="kv-hero__track">
+    <div class="kv-hero__viewport">
+
+      <!-- LCP image: اولین فریم برای رنگ‌بندی سریع و امتیاز خوب LCP -->
+      <img
+        class="kv-hero__poster"
+        src="/hero-frames/desktop/frame_001.webp"
+        srcset="/hero-frames/mobile/frame_001.webp 720w,
+                /hero-frames/desktop/frame_001.webp 1280w"
+        sizes="100vw"
+        width="1280"
+        height="720"
+        alt="مینی بیل مکانیکی زرد کاورون در حال کار در پروژه ساختمانی"
+        fetchpriority="high"
+        decoding="async"
+        itemprop="image"
+      />
+
+      <!-- Canvas که فریم به فریم روی اسکرول رندر می‌شود -->
+      <canvas class="kv-hero__canvas" aria-hidden="true"></canvas>
+
+      <!-- Overlay برای خوانایی متن -->
+      <div class="kv-hero__overlay" aria-hidden="true"></div>
+
+      <!-- محتوای معنایی — قابل کرال و ایندکس شدن توسط گوگل -->
+      <div class="kv-hero__content">
+        <p class="kv-hero__eyebrow">مینی بیل مکانیکی کاورون</p>
+        <h1 id="kv-hero-title" class="kv-hero__title" itemprop="name">
+          نیروی چابک، دقت میلی‌متری،
+          <br>در هر گوشه از پروژه شما
+        </h1>
+        <p class="kv-hero__lede" itemprop="description">
+          اجاره و فروش مینی بیل مکانیکی برای پروژه‌های شهری، باغی و صنعتی —
+          کم‌مصرف، مانورپذیر و ساخته‌شده برای فضای تنگ.
+        </p>
+        <div class="kv-hero__actions">
+          <a class="kv-hero__cta kv-hero__cta--primary" href="#contact"
+             aria-label="درخواست مشاوره رایگان">
+            درخواست مشاوره رایگان
+          </a>
+          <a class="kv-hero__cta kv-hero__cta--ghost" href="#services">
+            مشاهده خدمات
+          </a>
+        </div>
+      </div>
+
+      <!-- راهنمای اسکرول -->
+      <div class="kv-hero__scroll-hint" aria-hidden="true">
+        <span></span>
+      </div>
+    </div>
+  </div>
+
+  <!-- Fallback برای مرورگرهایی که JS ندارند: فریم میانی به عنوان تصویر ثابت -->
+  <noscript>
+    <style>#kv-hero .kv-hero__canvas,#kv-hero .kv-hero__scroll-hint{display:none!important}#kv-hero{height:100vh}#kv-hero .kv-hero__track{position:relative}</style>
+  </noscript>
+</section>
+
+<style id="kv-hero-styles">
+/* ==== KAVERUN Hero — scoped styles (بدون تداخل با تم وردپرس) ==== */
+#kv-hero,
+#kv-hero *,
+#kv-hero *::before,
+#kv-hero *::after { box-sizing: border-box; }
+
+#kv-hero {
+  --kv-hero-scroll: 250vh;   /* طول اسکرول کل سکشن (پین + اسکرول انیمیشن) */
+  --kv-hero-bg: #0b0c10;
+  --kv-hero-fg: #ffffff;
+  --kv-hero-accent: #FFC72C; /* زرد کاورون */
+  --kv-hero-accent-ink: #111111;
+
+  position: relative;
+  width: 100%;
+  height: var(--kv-hero-scroll);
+  margin: 0;
+  padding: 0;
+  background: var(--kv-hero-bg);
+  color: var(--kv-hero-fg);
+  overflow: clip;
+  direction: rtl;
+  font-family: inherit;
+  contain: layout paint;
+}
+
+/* ظرف چسبان: صحنه یک صفحه ثابت می‌ماند، فریم‌ها با اسکرول عوض می‌شوند */
+#kv-hero .kv-hero__track {
+  position: sticky;
+  top: 0;
+  width: 100%;
+  height: 100vh;
+  height: 100svh; /* روی موبایل ارتفاع پایدارتر */
+}
+
+#kv-hero .kv-hero__viewport {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+  isolation: isolate;
+}
+
+/* پوستر LCP و canvas هردو absolute و cover */
+#kv-hero .kv-hero__poster,
+#kv-hero .kv-hero__canvas {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+  will-change: transform;
+}
+#kv-hero .kv-hero__poster { z-index: 1; }
+#kv-hero .kv-hero__canvas {
+  z-index: 2;
+  opacity: 0;
+  transition: opacity .35s ease;
+}
+#kv-hero.is-ready .kv-hero__canvas { opacity: 1; }
+
+/* overlay شیب‌دار برای خوانایی متن */
+#kv-hero .kv-hero__overlay {
+  position: absolute;
+  inset: 0;
+  z-index: 3;
+  background:
+    linear-gradient(90deg,
+      rgba(0,0,0,0.55) 0%,
+      rgba(0,0,0,0.30) 45%,
+      rgba(0,0,0,0.15) 100%),
+    linear-gradient(180deg,
+      rgba(0,0,0,0.20) 0%,
+      rgba(0,0,0,0.00) 40%,
+      rgba(0,0,0,0.35) 100%);
+  pointer-events: none;
+}
+
+/* محتوای متنی */
+#kv-hero .kv-hero__content {
+  position: absolute;
+  inset: 0;
+  z-index: 4;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: flex-start;
+  padding: clamp(20px, 5vw, 88px);
+  max-width: min(760px, 92%);
+  gap: 18px;
+  pointer-events: none;
+}
+#kv-hero .kv-hero__content > * { pointer-events: auto; }
+
+#kv-hero .kv-hero__eyebrow {
+  margin: 0;
+  font-size: clamp(12px, 1.3vw, 14px);
+  letter-spacing: .12em;
+  text-transform: uppercase;
+  color: var(--kv-hero-accent);
+  font-weight: 700;
+}
+#kv-hero .kv-hero__title {
+  margin: 0;
+  font-family: inherit;
+  font-size: clamp(28px, 5.4vw, 60px);
+  line-height: 1.15;
+  font-weight: 800;
+  color: #fff;
+  text-shadow: 0 2px 20px rgba(0,0,0,.35);
+}
+#kv-hero .kv-hero__lede {
+  margin: 0;
+  font-size: clamp(15px, 1.8vw, 20px);
+  line-height: 1.7;
+  color: rgba(255,255,255,.92);
+  max-width: 560px;
+  text-shadow: 0 1px 12px rgba(0,0,0,.35);
+}
+#kv-hero .kv-hero__actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+  margin-top: 8px;
+}
+#kv-hero .kv-hero__cta {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 14px 28px;
+  border-radius: 999px;
+  text-decoration: none;
+  font-weight: 700;
+  font-size: 16px;
+  line-height: 1;
+  transition: transform .18s ease, box-shadow .18s ease, background-color .18s ease;
+  border: 2px solid transparent;
+  cursor: pointer;
+}
+#kv-hero .kv-hero__cta--primary {
+  background: var(--kv-hero-accent);
+  color: var(--kv-hero-accent-ink);
+  box-shadow: 0 12px 28px rgba(255,199,44,.35);
+}
+#kv-hero .kv-hero__cta--primary:hover,
+#kv-hero .kv-hero__cta--primary:focus-visible {
+  transform: translateY(-2px);
+  box-shadow: 0 16px 34px rgba(255,199,44,.5);
+  outline: none;
+}
+#kv-hero .kv-hero__cta--ghost {
+  background: rgba(255,255,255,.08);
+  color: #fff;
+  border-color: rgba(255,255,255,.35);
+  backdrop-filter: blur(6px);
+  -webkit-backdrop-filter: blur(6px);
+}
+#kv-hero .kv-hero__cta--ghost:hover,
+#kv-hero .kv-hero__cta--ghost:focus-visible {
+  background: rgba(255,255,255,.16);
+  border-color: rgba(255,255,255,.7);
+  outline: none;
+}
+
+/* راهنمای اسکرول */
+#kv-hero .kv-hero__scroll-hint {
+  position: absolute;
+  left: 50%;
+  bottom: clamp(16px, 3vh, 32px);
+  transform: translateX(-50%);
+  z-index: 4;
+  width: 22px;
+  height: 38px;
+  border: 2px solid rgba(255,255,255,.65);
+  border-radius: 12px;
+}
+#kv-hero .kv-hero__scroll-hint span {
+  display: block;
+  width: 3px;
+  height: 7px;
+  background: #fff;
+  border-radius: 2px;
+  margin: 5px auto;
+  animation: kvHeroScrollHint 1.7s ease-in-out infinite;
+}
+@keyframes kvHeroScrollHint {
+  0%   { transform: translateY(0);  opacity: 1; }
+  60%  { transform: translateY(14px); opacity: 0; }
+  100% { transform: translateY(0);  opacity: 0; }
+}
+
+/* روی موبایل: طول اسکرول کوتاه‌تر تا هرو زیادی سنگین نشود */
+@media (max-width: 720px) {
+  #kv-hero { --kv-hero-scroll: 200vh; }
+  #kv-hero .kv-hero__content { align-items: flex-start; }
+}
+
+/* کاربر ترجیح داده حرکت کم باشد → انیمیشن غیر فعال، پوستر ثابت */
+@media (prefers-reduced-motion: reduce) {
+  #kv-hero { height: 100vh; height: 100svh; }
+  #kv-hero .kv-hero__track { position: relative; }
+  #kv-hero .kv-hero__canvas,
+  #kv-hero .kv-hero__scroll-hint { display: none !important; }
+}
+</style>
+
+<script id="kv-hero-script">
+(function () {
+  'use strict';
+  var section = document.getElementById('kv-hero');
+  if (!section || section.dataset.kvInit === '1') return;
+  section.dataset.kvInit = '1';
+
+  var reduced = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  if (reduced) return; // پوستر ثابت کافی است
+
+  var FRAME_COUNT   = parseInt(section.dataset.frameCount, 10) || 60;
+  var BASE_DESKTOP  = section.dataset.framesDesktop || '/hero-frames/desktop/';
+  var BASE_MOBILE   = section.dataset.framesMobile  || '/hero-frames/mobile/';
+  var MOBILE_MAX_W  = 720;
+  var PAD           = 3;
+  var EXT           = 'webp';
+
+  var isMobile = window.matchMedia('(max-width: ' + MOBILE_MAX_W + 'px)').matches;
+  var BASE = isMobile ? BASE_MOBILE : BASE_DESKTOP;
+
+  var canvas   = section.querySelector('.kv-hero__canvas');
+  var ctx      = canvas.getContext('2d', { alpha: false });
+  var frames   = new Array(FRAME_COUNT);
+  var loaded   = new Array(FRAME_COUNT);
+  var currentIdx = -1;
+  var targetIdx  = 0;
+  var rafPending = false;
+  var dpr = Math.min(window.devicePixelRatio || 1, 2);
+
+  function pad(n){ var s = String(n); while (s.length < PAD) s = '0' + s; return s; }
+  function srcFor(i){ return BASE + 'frame_' + pad(i + 1) + '.' + EXT; }
+
+  function sizeCanvas(){
+    var rect = canvas.getBoundingClientRect();
+    var w = Math.max(1, Math.round(rect.width  * dpr));
+    var h = Math.max(1, Math.round(rect.height * dpr));
+    if (canvas.width !== w)  canvas.width  = w;
+    if (canvas.height !== h) canvas.height = h;
+    // بعد از تغییر اندازه، فریم فعلی را دوباره بکشیم
+    if (currentIdx >= 0) drawFrame(currentIdx, true);
+  }
+
+  function drawFrame(i, force){
+    if (!force && i === currentIdx) return;
+    var img = frames[i];
+    if (!img || !loaded[i]) return;
+    var cw = canvas.width, ch = canvas.height;
+    var iw = img.naturalWidth, ih = img.naturalHeight;
+    if (!iw || !ih) return;
+    var scale = Math.max(cw / iw, ch / ih);
+    var dw = iw * scale, dh = ih * scale;
+    var dx = (cw - dw) / 2, dy = (ch - dh) / 2;
+    ctx.drawImage(img, dx, dy, dw, dh);
+    currentIdx = i;
+    if (!section.classList.contains('is-ready')) {
+      section.classList.add('is-ready');
+    }
+  }
+
+  function loadFrame(i, priority){
+    if (i < 0 || i >= FRAME_COUNT) return null;
+    if (frames[i]) return frames[i];
+    var img = new Image();
+    img.decoding = 'async';
+    if (priority && 'fetchPriority' in img) img.fetchPriority = 'high';
+    img.onload = function(){
+      loaded[i] = true;
+      if (i === targetIdx || currentIdx < 0) drawFrame(i);
+    };
+    img.onerror = function(){ /* silent — فریم بعدی از fallback استفاده می‌کند */ };
+    img.src = srcFor(i);
+    frames[i] = img;
+    return img;
+  }
+
+  function nearestLoaded(i){
+    if (loaded[i]) return i;
+    var back = i - 1, fwd = i + 1;
+    while (back >= 0 || fwd < FRAME_COUNT) {
+      if (back >= 0 && loaded[back]) return back;
+      if (fwd < FRAME_COUNT && loaded[fwd]) return fwd;
+      back--; fwd++;
+    }
+    return -1;
+  }
+
+  function scheduleDraw(){
+    if (rafPending) return;
+    rafPending = true;
+    requestAnimationFrame(function(){
+      rafPending = false;
+      var i = targetIdx;
+      if (!loaded[i]) {
+        loadFrame(i, true);
+        i = nearestLoaded(targetIdx);
+        if (i < 0) return;
+      }
+      drawFrame(i);
+    });
+  }
+
+  function onScroll(){
+    var rect = section.getBoundingClientRect();
+    var scrollable = section.offsetHeight - window.innerHeight;
+    if (scrollable <= 0) return;
+    var progress = -rect.top / scrollable;
+    if (progress < 0) progress = 0;
+    else if (progress > 1) progress = 1;
+    var idx = Math.round(progress * (FRAME_COUNT - 1));
+    if (idx !== targetIdx) {
+      targetIdx = idx;
+      scheduleDraw();
+    }
+  }
+
+  // بارگذاری تدریجی بقیه فریم‌ها بدون فشار روی شبکه
+  function preloadRest(){
+    var i = 0;
+    function step(){
+      var deadline = (performance.now ? performance.now() : Date.now()) + 6;
+      while (i < FRAME_COUNT && ((performance.now ? performance.now() : Date.now()) < deadline)) {
+        if (!frames[i]) loadFrame(i, false);
+        i++;
+      }
+      if (i < FRAME_COUNT) {
+        if ('requestIdleCallback' in window) {
+          requestIdleCallback(step, { timeout: 400 });
+        } else {
+          setTimeout(step, 24);
+        }
+      }
+    }
+    step();
+  }
+
+  // ── راه‌اندازی ─────────────────────────────────────────────────────────────
+  sizeCanvas();
+  loadFrame(0, true);                         // اولین فریم = LCP
+  for (var k = 1; k < Math.min(8, FRAME_COUNT); k++) loadFrame(k, false);
+
+  if ('IntersectionObserver' in window) {
+    var io = new IntersectionObserver(function(entries){
+      for (var e = 0; e < entries.length; e++) {
+        if (entries[e].isIntersecting) { preloadRest(); io.disconnect(); break; }
+      }
+    }, { rootMargin: '600px 0px' });
+    io.observe(section);
+  } else {
+    preloadRest();
+  }
+
+  window.addEventListener('scroll',  onScroll, { passive: true });
+  window.addEventListener('resize', function(){
+    dpr = Math.min(window.devicePixelRatio || 1, 2);
+    sizeCanvas();
+    onScroll();
+  }, { passive: true });
+  window.addEventListener('orientationchange', function(){
+    setTimeout(function(){ sizeCanvas(); onScroll(); }, 100);
+  });
+
+  onScroll();
+})();
+</script>
+<!-- ============ END KAVERUN Hero ============ -->
