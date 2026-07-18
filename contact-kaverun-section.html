@@ -1,0 +1,551 @@
+<!--
+============================================================================
+  KAVERUN — «تماس با ما و درخواست کاتالوگ» | سکشن دو‌ستونی مدرن | Self-contained
+  ---------------------------------------------------------------------------
+  • بدون هیچ وابستگی خارجی (CDN، فونت، jQuery، ...). یک بلوک «Custom HTML» در
+    وردپرس بسازید و کل این فایل را داخل آن Paste کنید.
+  • الهام‌گرفته از الگوی سایت‌های پیشروی جهانیِ ماشین‌آلات سنگین
+    (Caterpillar, Komatsu, Volvo CE, JCB, Liebherr): چیدمان split دو‌ستونی،
+    ستون اطلاعات تماس + کارت دانلود کاتالوگ در یک سمت و فرم «درخواست کاتالوگ /
+    مشاوره» در سمت دیگر، تایپوگرافی درشت و میکرواینتراکشن‌های ظریف.
+  ---------------------------------------------------------------------------
+  پیکربندی سریع (روی تگ <section id="kv-contact"> این اتربیوت‌ها را ویرایش کنید):
+    data-phone      : شماره تماس نمایشی
+    data-phone-link : شماره تماس برای کلیک (tel:) — بدون صفر و با کد کشور
+    data-email      : ایمیل
+    data-address    : نشانی
+    data-hours      : ساعات کاری
+    data-whatsapp   : شماره واتساپ (بین‌المللی، بدون + و بدون صفر ابتدایی)
+    data-catalog    : لینک مستقیم فایل PDF کاتالوگ (برای دکمه‌ی دانلود)
+    data-endpoint   : (اختیاری) آدرس بک‌اند برای ثبت فرم. اگر خالی باشد، فرم به
+                      صورت خودکار یک پیام واتساپ آماده باز می‌کند.
+  ---------------------------------------------------------------------------
+  رعایت شده: SEO (h2/h3، schema.org/Organization + ContactPoint، متن قابل کرال)،
+  Core Web Vitals (بدون layout shift، انیمیشن transform-محور)، دسترس‌پذیری
+  (label برای هر فیلد، aria، prefers-reduced-motion، فوکوس کیبوردی).
+============================================================================
+-->
+<section
+  id="kv-contact"
+  class="kv-contact"
+  dir="rtl"
+  itemscope
+  itemtype="https://schema.org/Organization"
+  aria-labelledby="kv-contact-title"
+  data-phone="۰۲۱ ۹۱۰۰ ۰۰۰۰"
+  data-phone-link="982191000000"
+  data-email="info@kaverun.com"
+  data-address="شهر صنعتی کاوه، ساوه، ایران"
+  data-hours="شنبه تا پنج‌شنبه، ۸ تا ۱۷"
+  data-whatsapp="989120000000"
+  data-catalog="/kaverun-catalog.pdf"
+  data-endpoint=""
+>
+  <meta itemprop="name" content="گروه صنعتی کاوران (Kaverun)" />
+
+  <div class="kv-contact__inner">
+    <div class="kv-contact__grid">
+
+      <!-- ستون اطلاعات (راست) -->
+      <div class="kv-contact__aside" data-kv-reveal>
+        <p class="kv-contact__eyebrow">
+          <span class="kv-contact__eyebrow-dot" aria-hidden="true"></span>
+          در کنار شما هستیم
+        </p>
+        <h2 id="kv-contact-title" class="kv-contact__title">
+          تماس با ما و درخواست <span class="kv-contact__brand">کاتالوگ</span>
+        </h2>
+        <p class="kv-contact__lede">
+          برای دریافت <strong>کاتالوگ کامل محصولات</strong>، استعلام قیمت و
+          مشاوره‌ی تخصصی خرید <strong>بیل مکانیکی، لودر، لیفتراک</strong> و
+          ماشین‌آلات راه‌سازی، فرم روبه‌رو را پر کنید؛ کارشناسان کاوران در سریع‌ترین
+          زمان با شما تماس می‌گیرند.
+        </p>
+
+        <ul class="kv-contact__list" itemprop="contactPoint" itemscope itemtype="https://schema.org/ContactPoint">
+          <meta itemprop="contactType" content="فروش و پشتیبانی" />
+
+          <li class="kv-contact__item">
+            <span class="kv-contact__ico" aria-hidden="true">
+              <svg viewBox="0 0 24 24" width="20" height="20"><path fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round" d="M22 16.9v3a2 2 0 0 1-2.2 2 19.8 19.8 0 0 1-8.6-3.1 19.5 19.5 0 0 1-6-6 19.8 19.8 0 0 1-3.1-8.6A2 2 0 0 1 4.1 2h3a2 2 0 0 1 2 1.7c.1.9.4 1.8.7 2.7a2 2 0 0 1-.5 2.1L8.1 9.9a16 16 0 0 0 6 6l1.4-1.2a2 2 0 0 1 2.1-.5c.9.3 1.8.6 2.7.7a2 2 0 0 1 1.7 2z"/></svg>
+            </span>
+            <span class="kv-contact__item-body">
+              <span class="kv-contact__item-k">تلفن تماس</span>
+              <a class="kv-contact__item-v" data-kv-phone itemprop="telephone" href="tel:+982191000000" dir="ltr">۰۲۱ ۹۱۰۰ ۰۰۰۰</a>
+            </span>
+          </li>
+
+          <li class="kv-contact__item">
+            <span class="kv-contact__ico" aria-hidden="true">
+              <svg viewBox="0 0 24 24" width="20" height="20"><path fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round" d="M4 4h16a2 2 0 0 1 2 2v12a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2z"/><path fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round" d="m22 7-10 6L2 7"/></svg>
+            </span>
+            <span class="kv-contact__item-body">
+              <span class="kv-contact__item-k">ایمیل</span>
+              <a class="kv-contact__item-v" data-kv-email itemprop="email" href="mailto:info@kaverun.com" dir="ltr">info@kaverun.com</a>
+            </span>
+          </li>
+
+          <li class="kv-contact__item">
+            <span class="kv-contact__ico" aria-hidden="true">
+              <svg viewBox="0 0 24 24" width="20" height="20"><path fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round" d="M20 10c0 6-8 12-8 12s-8-6-8-12a8 8 0 0 1 16 0z"/><circle cx="12" cy="10" r="3" fill="none" stroke="currentColor" stroke-width="1.9"/></svg>
+            </span>
+            <span class="kv-contact__item-body">
+              <span class="kv-contact__item-k">نشانی</span>
+              <span class="kv-contact__item-v" data-kv-address itemprop="address">شهر صنعتی کاوه، ساوه، ایران</span>
+            </span>
+          </li>
+
+          <li class="kv-contact__item">
+            <span class="kv-contact__ico" aria-hidden="true">
+              <svg viewBox="0 0 24 24" width="20" height="20"><circle cx="12" cy="12" r="9" fill="none" stroke="currentColor" stroke-width="1.9"/><path fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round" d="M12 7v5l3 2"/></svg>
+            </span>
+            <span class="kv-contact__item-body">
+              <span class="kv-contact__item-k">ساعات کاری</span>
+              <span class="kv-contact__item-v" data-kv-hours>شنبه تا پنج‌شنبه، ۸ تا ۱۷</span>
+            </span>
+          </li>
+        </ul>
+
+        <!-- کارت دانلود کاتالوگ -->
+        <a class="kv-contact__catalog" data-kv-catalog href="/kaverun-catalog.pdf" download
+           aria-label="دانلود مستقیم کاتالوگ محصولات کاوران (PDF)">
+          <span class="kv-contact__catalog-ico" aria-hidden="true">
+            <svg viewBox="0 0 24 24" width="24" height="24"><path fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round" d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><path fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round" d="M7 10l5 5 5-5M12 15V3"/></svg>
+          </span>
+          <span class="kv-contact__catalog-body">
+            <span class="kv-contact__catalog-t">دانلود مستقیم کاتالوگ</span>
+            <span class="kv-contact__catalog-s">فایل PDF کامل محصولات و مشخصات فنی</span>
+          </span>
+          <span class="kv-contact__catalog-arrow" aria-hidden="true">
+            <svg viewBox="0 0 24 24" width="18" height="18"><path fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" d="M15 6l-6 6 6 6"/></svg>
+          </span>
+        </a>
+      </div>
+
+      <!-- ستون فرم (چپ) -->
+      <div class="kv-contact__form-col" data-kv-reveal>
+        <form class="kv-contact__form" data-kv-form novalidate aria-label="فرم درخواست کاتالوگ و مشاوره">
+          <h3 class="kv-contact__form-title">درخواست کاتالوگ / مشاوره</h3>
+
+          <div class="kv-contact__row">
+            <div class="kv-field">
+              <label class="kv-field__label" for="kv-name">نام و نام خانوادگی <span aria-hidden="true">*</span></label>
+              <input class="kv-field__input" id="kv-name" name="name" type="text" required
+                     autocomplete="name" placeholder="مثلاً علی رضایی" />
+              <span class="kv-field__err" data-kv-err aria-live="polite"></span>
+            </div>
+            <div class="kv-field">
+              <label class="kv-field__label" for="kv-company">نام شرکت / کسب‌وکار</label>
+              <input class="kv-field__input" id="kv-company" name="company" type="text"
+                     autocomplete="organization" placeholder="اختیاری" />
+              <span class="kv-field__err" data-kv-err aria-live="polite"></span>
+            </div>
+          </div>
+
+          <div class="kv-contact__row">
+            <div class="kv-field">
+              <label class="kv-field__label" for="kv-phone">شماره تماس <span aria-hidden="true">*</span></label>
+              <input class="kv-field__input" id="kv-phone" name="phone" type="tel" required
+                     inputmode="tel" autocomplete="tel" dir="ltr" placeholder="09xxxxxxxxx" />
+              <span class="kv-field__err" data-kv-err aria-live="polite"></span>
+            </div>
+            <div class="kv-field">
+              <label class="kv-field__label" for="kv-email2">ایمیل</label>
+              <input class="kv-field__input" id="kv-email2" name="email" type="email"
+                     autocomplete="email" dir="ltr" placeholder="اختیاری" />
+              <span class="kv-field__err" data-kv-err aria-live="polite"></span>
+            </div>
+          </div>
+
+          <div class="kv-field">
+            <label class="kv-field__label" for="kv-product">محصول موردنظر</label>
+            <div class="kv-field__select-wrap">
+              <select class="kv-field__input kv-field__select" id="kv-product" name="product">
+                <option value="کاتالوگ کامل محصولات" selected>کاتالوگ کامل محصولات</option>
+                <option value="بیل مکانیکی">بیل مکانیکی</option>
+                <option value="مینی بیل / مینی اکسکاواتور">مینی بیل / مینی اکسکاواتور</option>
+                <option value="لودر">لودر</option>
+                <option value="لیفتراک">لیفتراک</option>
+                <option value="ماشین‌آلات راه‌سازی">ماشین‌آلات راه‌سازی</option>
+                <option value="ماشین‌آلات کشاورزی">ماشین‌آلات کشاورزی</option>
+                <option value="سایر / مشاوره">سایر / مشاوره</option>
+              </select>
+              <span class="kv-field__caret" aria-hidden="true">
+                <svg viewBox="0 0 24 24" width="18" height="18"><path fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" d="m6 9 6 6 6-6"/></svg>
+              </span>
+            </div>
+          </div>
+
+          <div class="kv-field">
+            <label class="kv-field__label" for="kv-message">توضیحات</label>
+            <textarea class="kv-field__input kv-field__textarea" id="kv-message" name="message" rows="3"
+                      placeholder="نیاز خود را کوتاه بنویسید (اختیاری)"></textarea>
+          </div>
+
+          <div class="kv-contact__actions">
+            <button class="kv-contact__btn kv-contact__btn--primary" type="submit" data-kv-submit>
+              <span class="kv-contact__btn-label">ارسال درخواست</span>
+              <svg class="kv-contact__btn-ico" viewBox="0 0 24 24" width="18" height="18" aria-hidden="true"><path fill="none" stroke="currentColor" stroke-width="2.1" stroke-linecap="round" stroke-linejoin="round" d="M22 2 11 13M22 2l-7 20-4-9-9-4 20-7z"/></svg>
+              <span class="kv-contact__spinner" aria-hidden="true"></span>
+            </button>
+            <a class="kv-contact__btn kv-contact__btn--ghost" data-kv-catalog href="/kaverun-catalog.pdf" download>
+              دانلود کاتالوگ
+            </a>
+          </div>
+
+          <p class="kv-contact__note" data-kv-status role="status" aria-live="polite">
+            اطلاعات شما محرمانه است و تنها برای پاسخ‌گویی استفاده می‌شود.
+          </p>
+        </form>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<style id="kv-contact-styles">
+#kv-contact, #kv-contact *, #kv-contact *::before, #kv-contact *::after { box-sizing: border-box; }
+
+#kv-contact {
+  --kv-bg: #0b0c10;
+  --kv-fg: #ffffff;
+  --kv-muted: rgba(255,255,255,.72);
+  --kv-faint: rgba(255,255,255,.5);
+  --kv-accent: #FFC72C;
+  --kv-ink: #111111;
+  --kv-line: rgba(255,255,255,.10);
+  --kv-card: rgba(255,255,255,.04);
+  --kv-ease: cubic-bezier(.22,1,.36,1);
+
+  position: relative; width: 100%; margin: 0;
+  padding: clamp(56px, 9vw, 120px) clamp(18px, 5vw, 80px);
+  background:
+    radial-gradient(80% 60% at 85% -5%, rgba(255,199,44,.10) 0%, rgba(255,199,44,0) 55%),
+    radial-gradient(70% 60% at 5% 105%, rgba(255,199,44,.07) 0%, rgba(255,199,44,0) 55%),
+    var(--kv-bg);
+  color: var(--kv-fg); direction: rtl; font-family: inherit; overflow: hidden;
+}
+#kv-contact::before {
+  content: ""; position: absolute; inset: 0;
+  background-image: linear-gradient(var(--kv-line) 1px, transparent 1px),
+                    linear-gradient(90deg, var(--kv-line) 1px, transparent 1px);
+  background-size: 46px 46px;
+  -webkit-mask-image: radial-gradient(80% 70% at 70% 0%, #000 0%, transparent 80%);
+          mask-image: radial-gradient(80% 70% at 70% 0%, #000 0%, transparent 80%);
+  opacity: .35; pointer-events: none;
+}
+
+#kv-contact .kv-contact__inner { position: relative; z-index: 1; max-width: 1180px; margin: 0 auto; }
+#kv-contact .kv-contact__grid {
+  display: grid; grid-template-columns: 1fr 1.05fr;
+  gap: clamp(24px, 4vw, 56px); align-items: stretch;
+}
+
+/* --- ستون اطلاعات --- */
+#kv-contact .kv-contact__eyebrow {
+  display: inline-flex; align-items: center; gap: 9px; margin: 0 0 20px;
+  padding: 8px 16px; border: 1px solid var(--kv-line); border-radius: 999px;
+  background: rgba(255,255,255,.03);
+  font-size: clamp(12px, 1.2vw, 14px); font-weight: 700; color: var(--kv-accent);
+}
+#kv-contact .kv-contact__eyebrow-dot {
+  width: 8px; height: 8px; border-radius: 50%; background: var(--kv-accent);
+  animation: kvContactPulse 2.2s ease-out infinite;
+}
+@keyframes kvContactPulse {
+  0% { box-shadow: 0 0 0 0 rgba(255,199,44,.55); }
+  70% { box-shadow: 0 0 0 10px rgba(255,199,44,0); }
+  100% { box-shadow: 0 0 0 0 rgba(255,199,44,0); }
+}
+#kv-contact .kv-contact__title {
+  margin: 0 0 16px; font-size: clamp(28px, 4.2vw, 46px);
+  line-height: 1.25; font-weight: 800; letter-spacing: -.01em;
+}
+#kv-contact .kv-contact__brand { color: var(--kv-accent); }
+#kv-contact .kv-contact__lede {
+  margin: 0 0 30px; max-width: 46ch;
+  font-size: clamp(14px, 1.6vw, 17px); line-height: 2; color: var(--kv-muted);
+}
+#kv-contact .kv-contact__lede strong { color: #fff; font-weight: 700; }
+
+#kv-contact .kv-contact__list { list-style: none; margin: 0 0 26px; padding: 0; display: grid; gap: 14px; }
+#kv-contact .kv-contact__item { display: flex; align-items: center; gap: 14px; }
+#kv-contact .kv-contact__ico {
+  flex: 0 0 auto; display: inline-flex; align-items: center; justify-content: center;
+  width: 46px; height: 46px; border-radius: 14px;
+  border: 1px solid var(--kv-line); background: var(--kv-card); color: var(--kv-accent);
+}
+#kv-contact .kv-contact__item-body { display: flex; flex-direction: column; gap: 2px; min-width: 0; }
+#kv-contact .kv-contact__item-k { font-size: 12.5px; color: var(--kv-faint); font-weight: 600; }
+#kv-contact .kv-contact__item-v {
+  font-size: clamp(14px, 1.4vw, 16px); font-weight: 700; color: #fff;
+  text-decoration: none; word-break: break-word;
+}
+#kv-contact a.kv-contact__item-v { transition: color .18s var(--kv-ease); }
+#kv-contact a.kv-contact__item-v:hover { color: var(--kv-accent); }
+
+#kv-contact .kv-contact__catalog {
+  display: flex; align-items: center; gap: 14px;
+  padding: 16px 18px; border-radius: 18px; text-decoration: none;
+  border: 1px solid var(--kv-line);
+  background: linear-gradient(180deg, rgba(255,199,44,.08), rgba(255,199,44,.02));
+  color: #fff; transition: transform .2s var(--kv-ease), border-color .2s, box-shadow .2s;
+}
+#kv-contact .kv-contact__catalog:hover {
+  transform: translateY(-2px); border-color: rgba(255,199,44,.5);
+  box-shadow: 0 14px 34px rgba(255,199,44,.16);
+}
+#kv-contact .kv-contact__catalog-ico {
+  flex: 0 0 auto; display: inline-flex; align-items: center; justify-content: center;
+  width: 48px; height: 48px; border-radius: 14px;
+  background: var(--kv-accent); color: var(--kv-ink);
+}
+#kv-contact .kv-contact__catalog-body { display: flex; flex-direction: column; gap: 3px; flex: 1 1 auto; }
+#kv-contact .kv-contact__catalog-t { font-weight: 800; font-size: 15.5px; }
+#kv-contact .kv-contact__catalog-s { font-size: 12.5px; color: var(--kv-muted); }
+#kv-contact .kv-contact__catalog-arrow { flex: 0 0 auto; color: var(--kv-accent); transition: transform .2s var(--kv-ease); }
+#kv-contact .kv-contact__catalog:hover .kv-contact__catalog-arrow { transform: translateX(-4px); }
+
+/* --- ستون فرم --- */
+#kv-contact .kv-contact__form-col { display: flex; }
+#kv-contact .kv-contact__form {
+  width: 100%; padding: clamp(22px, 3vw, 34px);
+  border: 1px solid var(--kv-line); border-radius: 24px;
+  background: linear-gradient(180deg, rgba(255,255,255,.05), rgba(255,255,255,.02));
+  backdrop-filter: blur(6px); -webkit-backdrop-filter: blur(6px);
+  box-shadow: 0 30px 70px rgba(0,0,0,.35);
+}
+#kv-contact .kv-contact__form-title { margin: 0 0 20px; font-size: clamp(18px, 2vw, 22px); font-weight: 800; }
+#kv-contact .kv-contact__row { display: grid; grid-template-columns: 1fr 1fr; gap: 14px; }
+#kv-contact .kv-field { display: flex; flex-direction: column; gap: 7px; margin-bottom: 14px; }
+#kv-contact .kv-field__label { font-size: 13px; font-weight: 700; color: var(--kv-muted); }
+#kv-contact .kv-field__label span { color: var(--kv-accent); }
+#kv-contact .kv-field__input {
+  width: 100%; padding: 13px 15px; font: inherit; font-size: 15px; color: #fff;
+  background: rgba(255,255,255,.04); border: 1px solid var(--kv-line); border-radius: 13px;
+  outline: none; transition: border-color .18s var(--kv-ease), box-shadow .18s var(--kv-ease), background-color .18s;
+}
+#kv-contact .kv-field__input::placeholder { color: rgba(255,255,255,.35); }
+#kv-contact .kv-field__input:focus {
+  border-color: var(--kv-accent); background: rgba(255,255,255,.06);
+  box-shadow: 0 0 0 3px rgba(255,199,44,.18);
+}
+#kv-contact .kv-field__textarea { resize: vertical; min-height: 84px; line-height: 1.9; }
+#kv-contact .kv-field__select-wrap { position: relative; }
+#kv-contact .kv-field__select {
+  width: 100%; appearance: none; -webkit-appearance: none; -moz-appearance: none;
+  padding-left: 42px; cursor: pointer;
+}
+#kv-contact .kv-field__select option { background: #14161c; color: #fff; }
+#kv-contact .kv-field__caret {
+  position: absolute; left: 14px; top: 50%; transform: translateY(-50%);
+  color: var(--kv-accent); pointer-events: none;
+}
+#kv-contact .kv-field.is-invalid .kv-field__input { border-color: #ff6b6b; box-shadow: 0 0 0 3px rgba(255,107,107,.15); }
+#kv-contact .kv-field__err { font-size: 12px; color: #ff8f8f; min-height: 0; }
+#kv-contact .kv-field.is-invalid .kv-field__err { min-height: 14px; }
+
+#kv-contact .kv-contact__actions { display: flex; flex-wrap: wrap; gap: 12px; margin-top: 6px; }
+#kv-contact .kv-contact__btn {
+  display: inline-flex; align-items: center; justify-content: center; gap: 8px;
+  padding: 14px 26px; border-radius: 999px;
+  font-weight: 800; font-size: 15px; text-decoration: none; cursor: pointer;
+  border: 2px solid transparent;
+  transition: transform .18s var(--kv-ease), box-shadow .2s var(--kv-ease), background-color .2s, border-color .2s;
+}
+#kv-contact .kv-contact__btn--primary { flex: 1 1 220px; background: var(--kv-accent); color: var(--kv-ink); box-shadow: 0 12px 30px rgba(255,199,44,.30); }
+#kv-contact .kv-contact__btn--primary:hover { transform: translateY(-2px); box-shadow: 0 16px 38px rgba(255,199,44,.45); }
+#kv-contact .kv-contact__btn--primary:disabled { opacity: .75; cursor: progress; transform: none; }
+#kv-contact .kv-contact__btn-ico { transition: transform .2s var(--kv-ease); }
+#kv-contact .kv-contact__btn--primary:hover .kv-contact__btn-ico { transform: translateX(-4px); }
+#kv-contact .kv-contact__btn--ghost { background: rgba(255,255,255,.05); color: #fff; border-color: var(--kv-line); }
+#kv-contact .kv-contact__btn--ghost:hover { border-color: rgba(255,255,255,.5); background: rgba(255,255,255,.1); }
+#kv-contact .kv-contact__btn:focus-visible { outline: 3px solid var(--kv-accent); outline-offset: 3px; }
+
+#kv-contact .kv-contact__spinner {
+  width: 16px; height: 16px; border-radius: 50%; display: none;
+  border: 2px solid rgba(17,17,17,.35); border-top-color: var(--kv-ink);
+  animation: kvContactSpin .7s linear infinite;
+}
+#kv-contact .kv-contact__form.is-sending .kv-contact__spinner { display: inline-block; }
+#kv-contact .kv-contact__form.is-sending .kv-contact__btn-ico { display: none; }
+@keyframes kvContactSpin { to { transform: rotate(360deg); } }
+
+#kv-contact .kv-contact__note { margin: 16px 0 0; font-size: 12.5px; color: var(--kv-faint); line-height: 1.9; }
+#kv-contact .kv-contact__note.is-ok { color: #7ee2a8; font-weight: 700; }
+#kv-contact .kv-contact__note.is-err { color: #ff9c9c; font-weight: 700; }
+
+/* --- reveal --- */
+#kv-contact [data-kv-reveal] { opacity: 0; transform: translateY(26px); transition: opacity .7s var(--kv-ease), transform .7s var(--kv-ease); }
+#kv-contact.is-in [data-kv-reveal] { opacity: 1; transform: none; }
+#kv-contact.is-in .kv-contact__form-col[data-kv-reveal] { transition-delay: .12s; }
+
+/* --- responsive --- */
+@media (max-width: 900px) {
+  #kv-contact .kv-contact__grid { grid-template-columns: 1fr; }
+}
+@media (max-width: 560px) {
+  #kv-contact .kv-contact__row { grid-template-columns: 1fr; gap: 0; }
+  #kv-contact .kv-contact__btn--primary { flex: 1 1 auto; width: 100%; }
+  #kv-contact .kv-contact__btn--ghost { flex: 1 1 auto; width: 100%; }
+}
+@media (prefers-reduced-motion: reduce) {
+  #kv-contact * { animation: none !important; transition: none !important; }
+  #kv-contact [data-kv-reveal] { opacity: 1 !important; transform: none !important; }
+}
+</style>
+
+<script id="kv-contact-script">
+(function () {
+  'use strict';
+  var root = document.getElementById('kv-contact');
+  if (!root || root.dataset.kvInit === '1') return;
+  root.dataset.kvInit = '1';
+
+  var d = root.dataset;
+
+  /* --- تزریق مقادیر قابل‌پیکربندی --- */
+  function toEnDigits(s) {
+    return String(s || '').replace(/[۰-۹]/g, function (c) { return '۰۱۲۳۴۵۶۷۸۹'.indexOf(c); });
+  }
+  var phoneEl = root.querySelector('[data-kv-phone]');
+  if (phoneEl) {
+    if (d.phone) phoneEl.textContent = d.phone;
+    if (d.phoneLink) phoneEl.setAttribute('href', 'tel:+' + toEnDigits(d.phoneLink).replace(/\D/g, ''));
+  }
+  var emailEl = root.querySelector('[data-kv-email]');
+  if (emailEl && d.email) { emailEl.textContent = d.email; emailEl.setAttribute('href', 'mailto:' + d.email); }
+  var addrEl = root.querySelector('[data-kv-address]');
+  if (addrEl && d.address) addrEl.textContent = d.address;
+  var hoursEl = root.querySelector('[data-kv-hours]');
+  if (hoursEl && d.hours) hoursEl.textContent = d.hours;
+  if (d.catalog) {
+    root.querySelectorAll('[data-kv-catalog]').forEach(function (a) { a.setAttribute('href', d.catalog); });
+  }
+
+  /* --- reveal --- */
+  if ('IntersectionObserver' in window) {
+    var io = new IntersectionObserver(function (entries) {
+      entries.forEach(function (e) { if (e.isIntersecting) { root.classList.add('is-in'); io.disconnect(); } });
+    }, { threshold: 0.15 });
+    io.observe(root);
+  } else { root.classList.add('is-in'); }
+
+  /* --- اعتبارسنجی + ارسال فرم --- */
+  var form = root.querySelector('[data-kv-form]');
+  if (!form) return;
+  var statusEl = form.querySelector('[data-kv-status]');
+  var submitBtn = form.querySelector('[data-kv-submit]');
+  var defaultNote = statusEl ? statusEl.textContent : '';
+
+  function fieldWrap(input) { return input.closest('.kv-field'); }
+  function setError(input, msg) {
+    var w = fieldWrap(input); if (!w) return;
+    w.classList.add('is-invalid');
+    var err = w.querySelector('[data-kv-err]'); if (err) err.textContent = msg || '';
+  }
+  function clearError(input) {
+    var w = fieldWrap(input); if (!w) return;
+    w.classList.remove('is-invalid');
+    var err = w.querySelector('[data-kv-err]'); if (err) err.textContent = '';
+  }
+  function setStatus(msg, kind) {
+    if (!statusEl) return;
+    statusEl.textContent = msg;
+    statusEl.classList.remove('is-ok', 'is-err');
+    if (kind) statusEl.classList.add(kind === 'ok' ? 'is-ok' : 'is-err');
+  }
+
+  var nameEl = form.querySelector('#kv-name');
+  var phoneField = form.querySelector('#kv-phone');
+  var emailField = form.querySelector('#kv-email2');
+
+  [nameEl, phoneField, emailField].forEach(function (el) {
+    if (el) el.addEventListener('input', function () { clearError(el); });
+  });
+
+  function validate() {
+    var ok = true;
+    if (!nameEl.value.trim()) { setError(nameEl, 'نام خود را وارد کنید.'); ok = false; }
+    var ph = toEnDigits(phoneField.value).replace(/[\s-]/g, '');
+    if (!ph) { setError(phoneField, 'شماره تماس را وارد کنید.'); ok = false; }
+    else if (!/^\+?\d{8,15}$/.test(ph)) { setError(phoneField, 'شماره تماس معتبر نیست.'); ok = false; }
+    if (emailField.value.trim() && !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(emailField.value.trim())) {
+      setError(emailField, 'ایمیل معتبر نیست.'); ok = false;
+    }
+    return ok;
+  }
+
+  function collect() {
+    return {
+      name: nameEl.value.trim(),
+      company: (form.querySelector('#kv-company') || {}).value || '',
+      phone: toEnDigits(phoneField.value).trim(),
+      email: emailField.value.trim(),
+      product: (form.querySelector('#kv-product') || {}).value || '',
+      message: (form.querySelector('#kv-message') || {}).value || ''
+    };
+  }
+
+  function openWhatsApp(data) {
+    var num = toEnDigits(d.whatsapp || '').replace(/\D/g, '');
+    if (!num) return false;
+    var lines = [
+      'سلام، درخواست کاتالوگ / مشاوره از سایت کاوران:',
+      'نام: ' + data.name,
+      data.company ? 'شرکت: ' + data.company : '',
+      'تلفن: ' + data.phone,
+      data.email ? 'ایمیل: ' + data.email : '',
+      'محصول: ' + data.product,
+      data.message ? 'توضیحات: ' + data.message : ''
+    ].filter(Boolean);
+    var url = 'https://wa.me/' + num + '?text=' + encodeURIComponent(lines.join('\n'));
+    window.open(url, '_blank', 'noopener');
+    return true;
+  }
+
+  form.addEventListener('submit', function (e) {
+    e.preventDefault();
+    if (!validate()) { setStatus('لطفاً خطاهای فرم را برطرف کنید.', 'err'); return; }
+    var data = collect();
+
+    // اگر آدرس بک‌اند تنظیم شده باشد، فرم را POST می‌کنیم؛ در غیر این صورت
+    // یک پیام واتساپ آماده باز می‌شود (بدون نیاز به بک‌اند).
+    if (d.endpoint) {
+      form.classList.add('is-sending');
+      submitBtn.disabled = true;
+      setStatus('در حال ارسال…');
+      fetch(d.endpoint, {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json', 'Accept': 'application/json' },
+        body: JSON.stringify(data)
+      }).then(function (r) {
+        if (!r.ok) throw new Error('bad status');
+        form.reset();
+        setStatus('درخواست شما با موفقیت ثبت شد. به‌زودی با شما تماس می‌گیریم.', 'ok');
+      }).catch(function () {
+        setStatus('ارسال با خطا مواجه شد. لطفاً تماس بگیرید یا دوباره تلاش کنید.', 'err');
+      }).then(function () {
+        form.classList.remove('is-sending');
+        submitBtn.disabled = false;
+      });
+    } else {
+      var sent = openWhatsApp(data);
+      if (sent) {
+        setStatus('در حال انتقال به واتساپ برای ثبت درخواست شما…', 'ok');
+        form.reset();
+      } else {
+        setStatus('درخواست شما ثبت شد. برای پیگیری سریع‌تر با ما تماس بگیرید.', 'ok');
+        form.reset();
+      }
+    }
+  });
+
+  form.addEventListener('reset', function () {
+    setTimeout(function () {
+      [nameEl, phoneField, emailField].forEach(clearError);
+    }, 0);
+  });
+})();
+</script>
+<!-- ============ END KAVERUN — تماس با ما و درخواست کاتالوگ ============ -->
