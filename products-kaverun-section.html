@@ -507,12 +507,13 @@
 
 /* ============ حالت ارتقاءیافته (JS + motion) — اسلایدشوی pinned ============ */
 /* سکشن دقیقاً یک ویوپورت است؛ جابه‌جایی بین محصولات با هر اسکرول به‌صورت گام‌به‌گام
-   توسط JS انجام می‌شود (نه با اسکرول طولانی). */
+   توسط JS انجام می‌شود (نه با اسکرول طولانی). --kv-prod-inset = ارتفاع هدر ثابت
+   سایت (در صورت وجود) تا سکشن دقیقاً زیر آن قفل شود، نه پشت آن. */
 #kv-products.is-enhanced .kv-prod__scroll {
-  height: 100vh;
+  height: calc(100vh - var(--kv-prod-inset, 0px));
 }
 #kv-products.is-enhanced .kv-prod__stage {
-  position: relative; height: 100vh; overflow: hidden;
+  position: relative; height: calc(100vh - var(--kv-prod-inset, 0px)); overflow: hidden;
   padding: 0;
   display: block;
 }
@@ -743,9 +744,39 @@
   var cooling = false;        // در حال انیمیشن گام
   var releaseCooldown = false;// جلوگیری از قفل مجدد بلافاصله پس از رها شدن
   var lastY = window.pageYOffset || 0;
+  var inset = 0; // ارتفاع هدر ثابت/چسبانِ بالای صفحه (اتوماتیک)
 
   function absTop(el) { var t = 0; while (el) { t += el.offsetTop; el = el.offsetParent; } return t; }
-  function pinToTop() { window.scrollTo(0, absTop(root)); }
+
+  // تشخیص خودکار ارتفاع هر نوار ثابت/چسبان در بالای ویوپورت (هدر سایت، ادمین‌بار).
+  // با اتربیوت data-top-offset روی سکشن قابل بازنویسی دستی است.
+  function computeInset() {
+    var manual = parseInt(root.getAttribute('data-top-offset'), 10);
+    if (!isNaN(manual)) return Math.max(0, manual);
+    var found = 0;
+    var vh = window.innerHeight;
+    var xs = [window.innerWidth * 0.5, window.innerWidth * 0.12, window.innerWidth * 0.88];
+    for (var i = 0; i < xs.length; i++) {
+      var stack = document.elementsFromPoint(Math.round(xs[i]), 2) || [];
+      for (var j = 0; j < stack.length; j++) {
+        var el = stack[j];
+        if (el === root || root.contains(el)) continue;
+        var cs = window.getComputedStyle(el);
+        if (cs.position === 'fixed' || cs.position === 'sticky') {
+          var r = el.getBoundingClientRect();
+          if (r.top <= 2 && r.bottom > found && r.bottom < vh * 0.4) found = r.bottom;
+        }
+      }
+    }
+    return Math.round(found);
+  }
+
+  function refreshInset() {
+    inset = computeInset();
+    root.style.setProperty('--kv-prod-inset', inset + 'px');
+  }
+
+  function pinToTop() { window.scrollTo(0, Math.max(0, absTop(root) - inset)); }
 
   function step(dir) {
     if (cooling) return true;                 // در حال گام؛ رویداد را ببلع
@@ -760,6 +791,7 @@
   function lock(atIndex) {
     if (locked) return;
     locked = true;
+    refreshInset();
     if (atIndex != null) setActive(atIndex);
     pinToTop();
   }
@@ -824,13 +856,14 @@
     if (releaseCooldown) return;
     var r = root.getBoundingClientRect();
     var vh = window.innerHeight;
-    // درصد پوشش ویوپورت توسط سکشن
-    var covered = (Math.min(vh, r.bottom) - Math.max(0, r.top)) / vh;
+    var avail = vh - inset; // ارتفاع مفید زیر هدر ثابت
+    // درصد پوشش ناحیه‌ی مفید توسط سکشن
+    var covered = (Math.min(vh, r.bottom) - Math.max(inset, r.top)) / avail;
     if (covered < 0.5) return;
-    // قفل زمانی که لبه‌ی بالای سکشن به بالای ویوپورت می‌رسد (هر دو جهت)
-    if (down && r.top <= 6) {
+    // قفل زمانی که لبه‌ی بالای سکشن به «زیر هدر ثابت» می‌رسد (هر دو جهت)
+    if (down && r.top <= inset + 6) {
       lock(current < 0 ? 0 : current);          // ورود از بالا → از محصول فعلی/اول
-    } else if (!down && r.top >= -6) {
+    } else if (!down && r.top >= inset - 6) {
       lock(current < 0 ? count - 1 : current);  // ورود از پایین → از محصول فعلی/آخر
     }
   }
@@ -844,7 +877,7 @@
 
   window.addEventListener('resize', function () {
     if (window.__kvProdRz) clearTimeout(window.__kvProdRz);
-    window.__kvProdRz = setTimeout(function () { if (locked) pinToTop(); }, 150);
+    window.__kvProdRz = setTimeout(function () { refreshInset(); if (locked) pinToTop(); }, 150);
   }, { passive: true });
 
   // کلیک روی ریل: اگر قفل است مستقیم گام بزن، وگرنه اول سکشن را در دید بیاور
@@ -854,6 +887,7 @@
     else { setActive(i); }
   };
 
+  refreshInset();
   setActive(0);
   onScroll();
 })();
