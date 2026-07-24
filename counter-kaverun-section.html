@@ -349,14 +349,16 @@
 #kv-stats .kv-marquee__track {
   display: flex; width: max-content; gap: clamp(28px, 5vw, 64px);
   animation: kvMarquee 34s linear infinite;
+  animation-play-state: paused;               /* ثابت تا رسیدن سکشن به دید */
   will-change: transform;
 }
-/* حرکت پیوسته از چپ به راست (لوپ بی‌درز) */
+/* حرکت فقط پس از ورود سکشن به دید شروع می‌شود و دیگر متوقف نمی‌شود */
+#kv-stats .kv-clients.is-in .kv-marquee__track { animation-play-state: running; }
+/* حرکت پیوسته راست به چپ (لوپ بی‌درز) */
 @keyframes kvMarquee {
-  from { transform: translateX(-33.333%); }   /* یک مجموعه‌ی کامل جابه‌جا */
-  to   { transform: translateX(0); }
+  from { transform: translateX(0); }
+  to   { transform: translateX(-33.333%); }   /* یک مجموعه‌ی کامل جابه‌جا */
 }
-#kv-stats .kv-marquee:hover .kv-marquee__track { animation-play-state: paused; }
 
 #kv-stats .kv-logo {
   flex: 0 0 auto;
