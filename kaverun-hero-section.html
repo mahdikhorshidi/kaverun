@@ -1,21 +1,33 @@
 <!--
 ============================================================================
-  KAVERUN — Scroll-Driven Hero Section (self-contained)
+  KAVERUN — Scroll-Driven Hero Section (self-contained)  •  نسخه ۲
+  ---------------------------------------------------------------------------
+  چه چیزی جدید است؟
+   • فریم‌ها از ویدئوی جدید استخراج و آیکون «جمینای» گوشه‌ی تصویر حذف شده است.
+   • تعداد فریم‌ها ۹۰ عدد است تا حرکت نرم‌تر و سینمایی‌تر دیده شود.
+   • «اسکیل اسکرول موشن»: با اسکرول، تصویر به‌آرامی زوم می‌شود (حرکت مقیاس).
+   • «پخش سینمایی ۱۵ ثانیه‌ای»: بار اول که سکشن وارد دید کاربر می‌شود، کل
+     صحنه در ۱۵ ثانیه به‌صورت آهسته پخش می‌شود؛ به‌محض اسکرول کاربر، کنترل
+     کامل به اسکرول سپرده می‌شود.
   ---------------------------------------------------------------------------
   نحوه استفاده:
    1) پوشه‌ی «hero-frames» را در ریشه‌ی هاست وردپرس آپلود کنید تا مسیر نهایی به
       شکل زیر باشد:
-        /hero-frames/desktop/frame_001.webp … frame_060.webp   (1280×720 لند‌اسکیپ)
-        /hero-frames/mobile/frame_001.webp  … frame_060.webp   (540×720  پرتره)
+        /hero-frames/desktop/frame_001.webp … frame_090.webp   (1280×720 لند‌اسکیپ)
+        /hero-frames/mobile/frame_001.webp  … frame_090.webp   (540×720  پرتره)
    2) در صفحه‌ی مورد نظر یک بلوک «Custom HTML» اضافه کنید و کل این فایل را داخل
       آن Paste کنید. تمام است — بدون هیچ وابستگی، اسکریپت یا CSS خارجی.
    3) اگر مسیر پوشه با ریشه فرق دارد (مثلاً /wp-content/uploads/hero-frames/)
       فقط مقدار data-frames-desktop و data-frames-mobile روی <section> را
       اصلاح کنید.
-   4) تنظیم سرعت انیمیشن با متغیر CSS  --kv-hero-scroll  انجام می‌شود:
-        • بزرگ‌تر (مثلاً 700vh)  →  انیمیشن آرام‌تر، اسکرول طولانی‌تر
-        • کوچک‌تر (مثلاً 300vh) →  انیمیشن سریع‌تر، اسکرول کوتاه‌تر
-      پیش‌فرض دسکتاپ 500vh و موبایل 380vh است.
+   4) تنظیم پارامترها روی <section>:
+        • data-frame-count      → تعداد فریم‌ها (۹۰)
+        • data-intro-seconds    → مدت پخش سینمایی اولیه (پیش‌فرض ۱۵ ثانیه)
+        • data-zoom             → شدت زوم اسکرول (پیش‌فرض 0.14 یعنی تا ۱۴٪)
+   5) سرعت/طول اسکرول با متغیر CSS  --kv-hero-scroll  کنترل می‌شود:
+        • بزرگ‌تر (مثلاً 760vh)  →  اسکرول طولانی‌تر و آرام‌تر
+        • کوچک‌تر (مثلاً 400vh) →  اسکرول کوتاه‌تر و سریع‌تر
+      پیش‌فرض دسکتاپ 640vh و موبایل 460vh است.
   ---------------------------------------------------------------------------
   رعایت شده:
    • Core Web Vitals: preload + fetchpriority برای LCP، aspect-ratio و
@@ -30,9 +42,11 @@
 <section
   id="kv-hero"
   class="kv-hero"
-  data-frame-count="60"
+  data-frame-count="90"
   data-frames-desktop="/hero-frames/desktop/"
   data-frames-mobile="/hero-frames/mobile/"
+  data-intro-seconds="15"
+  data-zoom="0.14"
   itemscope
   itemtype="https://schema.org/Service"
   aria-labelledby="kv-hero-title"
@@ -51,7 +65,7 @@
           src="/hero-frames/desktop/frame_001.webp"
           width="1280"
           height="720"
-          alt="مینی بیل مکانیکی زرد کاورون در حال کار در پروژه ساختمانی"
+          alt="مینی بیل مکانیکی زرد کاورون در حال چرخش و نمایش در سالن صنعتی"
           fetchpriority="high"
           decoding="async"
           itemprop="image"
@@ -93,7 +107,7 @@
     </div>
   </div>
 
-  <!-- Fallback برای مرورگرهایی که JS ندارند: فریم میانی به عنوان تصویر ثابت -->
+  <!-- Fallback برای مرورگرهایی که JS ندارند: فریم اول به عنوان تصویر ثابت -->
   <noscript>
     <style>#kv-hero .kv-hero__canvas,#kv-hero .kv-hero__scroll-hint{display:none!important}#kv-hero{height:100vh}#kv-hero .kv-hero__track{position:relative}</style>
   </noscript>
@@ -107,7 +121,7 @@
 #kv-hero *::after { box-sizing: border-box; }
 
 #kv-hero {
-  --kv-hero-scroll: 500vh;   /* طول اسکرول کل سکشن — بزرگ‌تر = انیمیشن آرام‌تر */
+  --kv-hero-scroll: 640vh;   /* طول اسکرول کل سکشن — بزرگ‌تر = انیمیشن آرام‌تر */
   --kv-hero-bg: #0b0c10;
   --kv-hero-fg: #ffffff;
   --kv-hero-accent: #FFC72C; /* زرد کاورون */
@@ -168,6 +182,7 @@
   transition: opacity .35s ease;
 }
 #kv-hero.is-ready .kv-hero__canvas { opacity: 1; }
+#kv-hero.is-ready .kv-hero__poster { opacity: 0; transition: opacity .35s ease; }
 
 /* overlay شیب‌دار برای خوانایی متن */
 #kv-hero .kv-hero__overlay {
@@ -283,7 +298,9 @@
   height: 38px;
   border: 2px solid rgba(255,255,255,.65);
   border-radius: 12px;
+  transition: opacity .4s ease;
 }
+#kv-hero.is-scrubbing .kv-hero__scroll-hint { opacity: 0; }
 #kv-hero .kv-hero__scroll-hint span {
   display: block;
   width: 3px;
@@ -301,7 +318,7 @@
 
 /* روی موبایل: طول اسکرول کمی کمتر تا کاربر خسته نشود */
 @media (max-width: 720px) {
-  #kv-hero { --kv-hero-scroll: 380vh; }
+  #kv-hero { --kv-hero-scroll: 460vh; }
   #kv-hero .kv-hero__content { align-items: flex-start; }
 }
 
@@ -324,9 +341,12 @@
   var reduced = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
   if (reduced) return; // پوستر ثابت کافی است
 
-  var FRAME_COUNT   = parseInt(section.dataset.frameCount, 10) || 60;
+  var FRAME_COUNT   = parseInt(section.dataset.frameCount, 10) || 90;
   var BASE_DESKTOP  = section.dataset.framesDesktop || '/hero-frames/desktop/';
   var BASE_MOBILE   = section.dataset.framesMobile  || '/hero-frames/mobile/';
+  var INTRO_SECONDS = parseFloat(section.dataset.introSeconds) || 15;
+  var ZOOM_MAX      = parseFloat(section.dataset.zoom);
+  if (isNaN(ZOOM_MAX)) ZOOM_MAX = 0.14;   // «اسکیل اسکرول موشن»: حداکثر زوم
   var MOBILE_MAX_W  = 720;
   var PAD           = 3;
   var EXT           = 'webp';
@@ -340,11 +360,19 @@
   var loaded   = new Array(FRAME_COUNT);
   var currentIdx = -1;
   var targetIdx  = 0;
+  var curProgress = 0;        // 0..1 — مبنای زوم و پن
   var rafPending = false;
   var dpr = Math.min(window.devicePixelRatio || 1, 2);
 
+  // ── وضعیت پخش سینمایی اولیه ─────────────────────────────────────────────
+  var introActive = false;
+  var introDone   = false;
+  var introStart  = 0;
+  var userScrolled = false;
+
   function pad(n){ var s = String(n); while (s.length < PAD) s = '0' + s; return s; }
   function srcFor(i){ return BASE + 'frame_' + pad(i + 1) + '.' + EXT; }
+  function easeInOut(t){ return t < 0.5 ? 2*t*t : 1 - Math.pow(-2*t+2, 2)/2; }
 
   function sizeCanvas(){
     var rect = canvas.getBoundingClientRect();
@@ -352,10 +380,10 @@
     var h = Math.max(1, Math.round(rect.height * dpr));
     if (canvas.width !== w)  canvas.width  = w;
     if (canvas.height !== h) canvas.height = h;
-    // بعد از تغییر اندازه، فریم فعلی را دوباره بکشیم
     if (currentIdx >= 0) drawFrame(currentIdx, true);
   }
 
+  // رسم فریم با «حرکت مقیاس» (زوم) و پن ملایم بر اساس curProgress
   function drawFrame(i, force){
     if (!force && i === currentIdx) return;
     var img = frames[i];
@@ -363,9 +391,13 @@
     var cw = canvas.width, ch = canvas.height;
     var iw = img.naturalWidth, ih = img.naturalHeight;
     if (!iw || !ih) return;
-    var scale = Math.max(cw / iw, ch / ih);
+    var cover = Math.max(cw / iw, ch / ih);
+    var zoom  = 1 + ZOOM_MAX * easeInOut(curProgress);   // اسکیل اسکرول موشن
+    var scale = cover * zoom;
     var dw = iw * scale, dh = ih * scale;
-    var dx = (cw - dw) / 2, dy = (ch - dh) / 2;
+    var dx = (cw - dw) / 2;
+    // پن عمودی ملایم حین زوم تا بدنه‌ی دستگاه در کادر بماند
+    var dy = (ch - dh) / 2 - (dh - ch) * 0.06 * easeInOut(curProgress);
     ctx.drawImage(img, dx, dy, dw, dh);
     currentIdx = i;
     if (!section.classList.contains('is-ready')) {
@@ -383,7 +415,7 @@
       loaded[i] = true;
       if (i === targetIdx || currentIdx < 0) drawFrame(i);
     };
-    img.onerror = function(){ /* silent — فریم بعدی از fallback استفاده می‌کند */ };
+    img.onerror = function(){ /* silent — فریم نزدیک به‌جای آن رسم می‌شود */ };
     img.src = srcFor(i);
     frames[i] = img;
     return img;
@@ -400,6 +432,13 @@
     return -1;
   }
 
+  // رندر برای یک progress مشخص (0..1) — مشترک بین اسکرول و پخش اولیه
+  function renderAt(progress){
+    curProgress = progress < 0 ? 0 : (progress > 1 ? 1 : progress);
+    targetIdx = Math.round(curProgress * (FRAME_COUNT - 1));
+    scheduleDraw();
+  }
+
   function scheduleDraw(){
     if (rafPending) return;
     rafPending = true;
@@ -408,42 +447,61 @@
       var i = targetIdx;
       if (!loaded[i]) {
         loadFrame(i, true);
-        i = nearestLoaded(targetIdx);
-        if (i < 0) return;
+        var n = nearestLoaded(targetIdx);
+        if (n < 0) return;
+        i = n;
       }
-      drawFrame(i);
+      drawFrame(i, true); // force: چون curProgress (زوم) هم ممکن است تغییر کرده باشد
     });
   }
 
-  function onScroll(){
+  function progressFromScroll(){
     var rect = section.getBoundingClientRect();
     var scrollable = section.offsetHeight - window.innerHeight;
-    if (scrollable <= 0) return;
-    var progress = -rect.top / scrollable;
-    if (progress < 0) progress = 0;
-    else if (progress > 1) progress = 1;
-    var idx = Math.round(progress * (FRAME_COUNT - 1));
-    if (idx !== targetIdx) {
-      targetIdx = idx;
-      scheduleDraw();
+    if (scrollable <= 0) return 0;
+    var p = -rect.top / scrollable;
+    return p < 0 ? 0 : (p > 1 ? 1 : p);
+  }
+
+  function onScroll(){
+    if (!userScrolled) {
+      userScrolled = true;
+      section.classList.add('is-scrubbing');
+      introActive = false; // اسکرول کاربر همیشه اولویت دارد
     }
+    renderAt(progressFromScroll());
+  }
+
+  // ── پخش سینمایی اولیه: کل صحنه در INTRO_SECONDS ثانیه، آهسته ──────────────
+  function introTick(now){
+    if (!introActive) return;
+    var t = (now - introStart) / (INTRO_SECONDS * 1000);
+    if (t >= 1) { renderAt(1); introActive = false; introDone = true; return; }
+    renderAt(easeInOut(t)); // شتاب‌گیری و کاهش نرم برای حس سینمایی
+    requestAnimationFrame(introTick);
+  }
+  function startIntro(){
+    if (introDone || introActive || userScrolled) return;
+    introActive = true;
+    introStart = (performance.now ? performance.now() : Date.now());
+    requestAnimationFrame(introTick);
   }
 
   // بارگذاری تدریجی بقیه فریم‌ها بدون فشار روی شبکه
-  function preloadRest(){
-    var i = 0;
+  function preloadRest(cb){
+    var i = 0, remaining = FRAME_COUNT;
+    function tickLoaded(){ if (--remaining <= 0 && cb) cb(); }
     function step(){
       var deadline = (performance.now ? performance.now() : Date.now()) + 6;
       while (i < FRAME_COUNT && ((performance.now ? performance.now() : Date.now()) < deadline)) {
-        if (!frames[i]) loadFrame(i, false);
+        if (!frames[i]) { var im = loadFrame(i, false); }
         i++;
       }
       if (i < FRAME_COUNT) {
-        if ('requestIdleCallback' in window) {
-          requestIdleCallback(step, { timeout: 400 });
-        } else {
-          setTimeout(step, 24);
-        }
+        if ('requestIdleCallback' in window) requestIdleCallback(step, { timeout: 400 });
+        else setTimeout(step, 24);
+      } else if (cb) {
+        cb();
       }
     }
     step();
@@ -451,31 +509,37 @@
 
   // ── راه‌اندازی ─────────────────────────────────────────────────────────────
   sizeCanvas();
-  loadFrame(0, true);                         // اولین فریم = LCP
-  for (var k = 1; k < Math.min(8, FRAME_COUNT); k++) loadFrame(k, false);
+  loadFrame(0, true);                                   // اولین فریم = LCP
+  for (var k = 1; k < Math.min(10, FRAME_COUNT); k++) loadFrame(k, false);
 
   if ('IntersectionObserver' in window) {
     var io = new IntersectionObserver(function(entries){
       for (var e = 0; e < entries.length; e++) {
-        if (entries[e].isIntersecting) { preloadRest(); io.disconnect(); break; }
+        if (entries[e].isIntersecting) {
+          // برای پخش روان، اول فریم‌ها را واکشی می‌کنیم سپس پخش سینمایی شروع می‌شود
+          preloadRest(function(){ startIntro(); });
+          io.disconnect();
+          break;
+        }
       }
-    }, { rootMargin: '600px 0px' });
+    }, { rootMargin: '300px 0px', threshold: 0.25 });
     io.observe(section);
   } else {
-    preloadRest();
+    preloadRest(function(){ startIntro(); });
   }
 
   window.addEventListener('scroll',  onScroll, { passive: true });
   window.addEventListener('resize', function(){
     dpr = Math.min(window.devicePixelRatio || 1, 2);
     sizeCanvas();
-    onScroll();
+    if (userScrolled) onScroll();
   }, { passive: true });
   window.addEventListener('orientationchange', function(){
-    setTimeout(function(){ sizeCanvas(); onScroll(); }, 100);
+    setTimeout(function(){ sizeCanvas(); if (userScrolled) onScroll(); }, 100);
   });
 
-  onScroll();
+  // اگر صفحه از وسط سکشن باز شد، همان لحظه با اسکرول همگام شود
+  if (progressFromScroll() > 0.001) onScroll();
 })();
 </script>
 <!-- ============ END KAVERUN Hero ============ -->
