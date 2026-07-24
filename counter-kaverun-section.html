@@ -135,6 +135,45 @@
       </li>
 
     </ul>
+
+    <!-- ============ مشتریان / لوگوی مشتریان ============ -->
+    <div class="kv-clients" data-kv-reveal>
+      <div class="kv-clients__head">
+        <p class="kv-stats__eyebrow">
+          <span class="kv-stats__eyebrow-dot" aria-hidden="true"></span>
+          مشتریانِ ما
+        </p>
+        <h3 class="kv-clients__title">
+          نامِ بزرگانِ صنعت، پشتِ <span class="kv-stats__brand">اعتماد</span> به کاوران
+        </h3>
+        <p class="kv-clients__lede">
+          افتخار می‌کنیم که در کنارِ شرکت‌های پیشروی صنعتِ نفت و راه ایستاده‌ایم؛
+          هر لوگو، داستانِ یک همکاریِ پایدار و اعتمادی است که برای ما سرمایه است.
+        </p>
+      </div>
+
+      <!-- نوار لوگوی متحرک بی‌نهایت -->
+      <div class="kv-marquee" role="list" aria-label="لوگوی مشتریان و همکاران کاوران">
+        <div class="kv-marquee__track">
+          <!-- مجموعه ۱ -->
+          <div class="kv-logo" role="listitem"><img loading="lazy" decoding="async" width="200" height="150" src="https://kaverun.com/wp-content/uploads/2024/01/vrah.png" alt="شرکت وراه — از مشتریان گروه صنعتی کاوران"></div>
+          <div class="kv-logo" role="listitem"><img loading="lazy" decoding="async" width="200" height="150" src="https://kaverun.com/wp-content/uploads/2024/01/rahgostarnaft.png" alt="رهگستر نفت — از مشتریان گروه صنعتی کاوران"></div>
+          <div class="kv-logo" role="listitem"><img loading="lazy" decoding="async" width="200" height="150" src="https://kaverun.com/wp-content/uploads/2024/01/rahdari.png" alt="سازمان راهداری و حمل‌ونقل جاده‌ای — از مشتریان گروه صنعتی کاوران"></div>
+          <div class="kv-logo" role="listitem"><img loading="lazy" decoding="async" width="200" height="150" src="https://kaverun.com/wp-content/uploads/2024/01/naftiran.png" alt="نفتیران — از مشتریان گروه صنعتی کاوران"></div>
+          <!-- مجموعه ۲ (کلون برای لوپ بی‌درز) -->
+          <div class="kv-logo" role="listitem" aria-hidden="true"><img loading="lazy" decoding="async" width="200" height="150" src="https://kaverun.com/wp-content/uploads/2024/01/vrah.png" alt=""></div>
+          <div class="kv-logo" role="listitem" aria-hidden="true"><img loading="lazy" decoding="async" width="200" height="150" src="https://kaverun.com/wp-content/uploads/2024/01/rahgostarnaft.png" alt=""></div>
+          <div class="kv-logo" role="listitem" aria-hidden="true"><img loading="lazy" decoding="async" width="200" height="150" src="https://kaverun.com/wp-content/uploads/2024/01/rahdari.png" alt=""></div>
+          <div class="kv-logo" role="listitem" aria-hidden="true"><img loading="lazy" decoding="async" width="200" height="150" src="https://kaverun.com/wp-content/uploads/2024/01/naftiran.png" alt=""></div>
+          <!-- مجموعه ۳ (کلون برای لوپ بی‌درز) -->
+          <div class="kv-logo" role="listitem" aria-hidden="true"><img loading="lazy" decoding="async" width="200" height="150" src="https://kaverun.com/wp-content/uploads/2024/01/vrah.png" alt=""></div>
+          <div class="kv-logo" role="listitem" aria-hidden="true"><img loading="lazy" decoding="async" width="200" height="150" src="https://kaverun.com/wp-content/uploads/2024/01/rahgostarnaft.png" alt=""></div>
+          <div class="kv-logo" role="listitem" aria-hidden="true"><img loading="lazy" decoding="async" width="200" height="150" src="https://kaverun.com/wp-content/uploads/2024/01/rahdari.png" alt=""></div>
+          <div class="kv-logo" role="listitem" aria-hidden="true"><img loading="lazy" decoding="async" width="200" height="150" src="https://kaverun.com/wp-content/uploads/2024/01/naftiran.png" alt=""></div>
+        </div>
+      </div>
+    </div>
+
   </div>
 </section>
 
@@ -284,6 +323,61 @@
 #kv-stats .kv-stat:nth-child(2) { transition-delay: .15s; }
 #kv-stats .kv-stat:nth-child(3) { transition-delay: .25s; }
 #kv-stats .kv-stat:nth-child(4) { transition-delay: .35s; }
+
+/* ==================== مشتریان / نوار لوگو ==================== */
+#kv-stats .kv-clients {
+  margin-top: clamp(48px, 7vw, 84px);
+  padding-top: clamp(40px, 6vw, 68px);
+  border-top: 1px solid var(--kv-line);
+}
+#kv-stats .kv-clients__head { text-align: center; max-width: 680px; margin: 0 auto clamp(30px, 4vw, 48px); }
+#kv-stats .kv-clients__title {
+  margin: 0 0 14px; font-size: clamp(22px, 3.4vw, 38px);
+  line-height: 1.3; font-weight: 800; letter-spacing: -.01em;
+}
+#kv-stats .kv-clients__lede {
+  margin: 0 auto; max-width: 560px;
+  font-size: clamp(14px, 1.6vw, 17px); line-height: 2; color: var(--kv-muted);
+}
+
+/* نوار متحرک */
+#kv-stats .kv-marquee {
+  position: relative; overflow: hidden; width: 100%;
+  -webkit-mask-image: linear-gradient(90deg, transparent 0, #000 12%, #000 88%, transparent 100%);
+          mask-image: linear-gradient(90deg, transparent 0, #000 12%, #000 88%, transparent 100%);
+}
+#kv-stats .kv-marquee__track {
+  display: flex; width: max-content; gap: clamp(28px, 5vw, 64px);
+  animation: kvMarquee 34s linear infinite;
+  will-change: transform;
+}
+/* در RTL جهت حرکت را طبیعی نگه می‌داریم */
+@keyframes kvMarquee {
+  from { transform: translateX(0); }
+  to   { transform: translateX(-33.333%); }   /* یک‌سومِ سه مجموعه = یک مجموعه‌ی کامل */
+}
+#kv-stats .kv-marquee:hover .kv-marquee__track { animation-play-state: paused; }
+
+#kv-stats .kv-logo {
+  flex: 0 0 auto;
+  display: flex; align-items: center; justify-content: center;
+  width: clamp(140px, 18vw, 190px); height: clamp(84px, 11vw, 108px);
+  padding: 14px 22px; border-radius: 18px;
+  border: 1px solid var(--kv-line);
+  background: linear-gradient(165deg, rgba(255,255,255,.06), rgba(255,255,255,.015));
+  transition: transform .45s var(--kv-spring), border-color .45s var(--kv-ease), background .45s var(--kv-ease);
+}
+#kv-stats .kv-logo img {
+  max-width: 100%; max-height: 100%; width: auto; height: auto; object-fit: contain;
+  filter: grayscale(1) brightness(0) invert(1) opacity(.62);   /* یکدست سفید و کم‌رنگ */
+  transition: filter .45s var(--kv-ease), transform .45s var(--kv-spring);
+}
+#kv-stats .kv-logo:hover {
+  transform: translateY(-6px);
+  border-color: rgba(255,199,44,.45);
+  background: linear-gradient(165deg, rgba(255,199,44,.12), rgba(255,255,255,.02));
+}
+#kv-stats .kv-logo:hover img { filter: grayscale(0) brightness(1) invert(0) opacity(1); transform: scale(1.04); }
 
 /* ---- ریسپانسیو ---- */
 @media (max-width: 900px) {
