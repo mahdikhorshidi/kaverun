@@ -1,0 +1,374 @@
+<!--
+============================================================================
+  KAVERUN — «کاوران در یک نگاه» | سکشن آمار/شمارنده مدرن
+  ---------------------------------------------------------------------------
+  • بازطراحی مدرن سکشن شمارنده‌ی Elementor. کارت‌های شیشه‌ای (glassmorphism)
+    با حلقه‌ی پیشرفت متحرک، شمارش عددی نرم هنگام ورود به دید (count-up) و
+    ورود پلکانی (staggered reveal) با اسکرول.
+  • بدون هیچ وابستگی خارجی. یک بلوک «Custom HTML» در وردپرس بسازید و کل این
+    فایل را داخل آن Paste کنید.
+  ---------------------------------------------------------------------------
+  رعایت شده: SEO (h2/h3، متن قابل کرال)، Core Web Vitals (فقط transform/opacity،
+  بدون layout shift)، دسترس‌پذیری (prefers-reduced-motion، aria-live، فوکوس).
+============================================================================
+-->
+<section
+  id="kv-stats"
+  class="kv-stats"
+  dir="rtl"
+  aria-labelledby="kv-stats-title"
+>
+  <div class="kv-stats__inner">
+
+    <!-- سرتیتر -->
+    <header class="kv-stats__head" data-kv-reveal>
+      <p class="kv-stats__eyebrow">
+        <span class="kv-stats__eyebrow-dot" aria-hidden="true"></span>
+        کاوران در یک نگاه
+      </p>
+      <h2 id="kv-stats-title" class="kv-stats__title">
+        اعداد، زبانِ <span class="kv-stats__brand">اعتماد</span> ما هستند
+      </h2>
+      <p class="kv-stats__lede">
+        دو دهه تجربه، ظرفیت تولید بالا و تیمی متخصص؛ آمار زیر تصویری روشن از
+        توان گروه صنعتی کاوران به‌دست می‌دهد.
+      </p>
+    </header>
+
+    <!-- شبکه‌ی آمار -->
+    <ul class="kv-stats__grid" role="list">
+
+      <!-- ۱) مساحت کارخانه -->
+      <li class="kv-stat" data-kv-reveal>
+        <div class="kv-stat__card">
+          <div class="kv-stat__ring" aria-hidden="true">
+            <svg class="kv-stat__ring-svg" viewBox="0 0 120 120">
+              <circle class="kv-stat__ring-bg" cx="60" cy="60" r="52" />
+              <circle class="kv-stat__ring-fg" cx="60" cy="60" r="52" />
+            </svg>
+            <span class="kv-stat__icon">
+              <svg viewBox="0 0 640 512" width="26" height="26"><path fill="currentColor" d="M32 32C14.3 32 0 46.3 0 64V448c0 17.7 14.3 32 32 32H288V416c0-17.7 14.3-32 32-32s32 14.3 32 32v64H608c17.7 0 32-14.3 32-32V304c0-17.7-14.3-32-32-32H544V208c0-17.7-14.3-32-32-32H448V112c0-17.7-14.3-32-32-32H320c-17.7 0-32 14.3-32 32V176H224c-17.7 0-32 14.3-32 32v64H128V64c0-17.7-14.3-32-32-32H32zm32 64h32v32H64V96zm0 96h32v32H64V192zm288-64h32v32H352V128zm0 96h32v32H352V224zM160 288h32v32H160V288zm192 0h32v32H352V288zM480 384h32v32H480V384z"/></svg>
+            </span>
+          </div>
+          <div class="kv-stat__body">
+            <div class="kv-stat__num-wrap">
+              <span class="kv-stat__prefix"></span>
+              <span class="kv-stat__num" data-to="10150" data-delimiter="," aria-hidden="true">۰</span>
+              <span class="kv-stat__suffix">متر²</span>
+            </div>
+            <h3 class="kv-stat__label">مساحت کارخانه</h3>
+            <span class="kv-stat__sr">مساحت کارخانه ۱۰٬۱۵۰ متر مربع</span>
+          </div>
+        </div>
+      </li>
+
+      <!-- ۲) ظرفیت تولید در سال -->
+      <li class="kv-stat" data-kv-reveal>
+        <div class="kv-stat__card">
+          <div class="kv-stat__ring" aria-hidden="true">
+            <svg class="kv-stat__ring-svg" viewBox="0 0 120 120">
+              <circle class="kv-stat__ring-bg" cx="60" cy="60" r="52" />
+              <circle class="kv-stat__ring-fg" cx="60" cy="60" r="52" />
+            </svg>
+            <span class="kv-stat__icon">
+              <svg viewBox="0 0 512 512" width="26" height="26"><path fill="currentColor" d="M481.9 166.6c3.2 8.7 .5 18.4-6.4 24.6l-84.7 76.5c1.6 7.4 2.5 15.1 2.5 22.9s-.9 15.5-2.5 22.9l84.7 76.5c6.9 6.2 9.6 15.9 6.4 24.6c-4.4 11.9-9.7 23.3-15.8 34.3l-4.7 8.1c-6.6 11-14 21.4-22.1 31.2c-5.9 7.2-15.7 9.6-24.5 6.8l-108.3-34.5c-11.8 9.3-25 17-39.2 22.8L247.3 511c-2 9.1-9 16.3-18.2 17.8c-13.8 2.3-28 3.5-42.5 3.5s-28.7-1.2-42.5-3.5c-9.2-1.5-16.2-8.7-18.2-17.8l-20.1-88.1c-14.2-5.8-27.3-13.5-39.2-22.8L38.3 434.4c-8.8 2.8-18.6 .3-24.5-6.8c-8.1-9.8-15.5-20.2-22.1-31.2l-4.7-8.1c-6.1-11-11.4-22.4-15.8-34.3zM224 224a64 64 0 1 0 0 128 64 64 0 1 0 0-128z"/></svg>
+            </span>
+          </div>
+          <div class="kv-stat__body">
+            <div class="kv-stat__num-wrap">
+              <span class="kv-stat__prefix"></span>
+              <span class="kv-stat__num" data-to="1000" data-delimiter="," aria-hidden="true">۰</span>
+              <span class="kv-stat__suffix">+</span>
+            </div>
+            <h3 class="kv-stat__label">ظرفیت تولید در سال</h3>
+            <span class="kv-stat__sr">ظرفیت تولید بیش از ۱٬۰۰۰ دستگاه در سال</span>
+          </div>
+        </div>
+      </li>
+
+      <!-- ۳) تعداد پرسنل -->
+      <li class="kv-stat" data-kv-reveal>
+        <div class="kv-stat__card">
+          <div class="kv-stat__ring" aria-hidden="true">
+            <svg class="kv-stat__ring-svg" viewBox="0 0 120 120">
+              <circle class="kv-stat__ring-bg" cx="60" cy="60" r="52" />
+              <circle class="kv-stat__ring-fg" cx="60" cy="60" r="52" />
+            </svg>
+            <span class="kv-stat__icon">
+              <svg viewBox="0 0 640 512" width="26" height="26"><path fill="currentColor" d="M96 128a128 128 0 1 1 256 0A128 128 0 1 1 96 128zM0 482.3C0 383.8 79.8 304 178.3 304h91.4C368.2 304 448 383.8 448 482.3c0 16.4-13.3 29.7-29.7 29.7H29.7C13.3 512 0 498.7 0 482.3zM609.3 512H471.4c5.4-9.4 8.6-20.3 8.6-32v-8c0-60.7-27.1-115.2-69.8-151.8c2.4-.1 4.7-.2 7.1-.2h61.4C567.8 320 640 392.2 640 481.3c0 17-13.8 30.7-30.7 30.7zM432 256c-31 0-59-12.6-79.3-32.9C372.4 196.5 384 163.6 384 128c0-26.8-6.6-52.1-18.3-74.3C384.3 40.1 407.2 32 432 32c61.9 0 112 50.1 112 112s-50.1 112-112 112z"/></svg>
+            </span>
+          </div>
+          <div class="kv-stat__body">
+            <div class="kv-stat__num-wrap">
+              <span class="kv-stat__prefix"></span>
+              <span class="kv-stat__num" data-to="65" data-delimiter="," aria-hidden="true">۰</span>
+              <span class="kv-stat__suffix">+</span>
+            </div>
+            <h3 class="kv-stat__label">تعداد پرسنل</h3>
+            <span class="kv-stat__sr">بیش از ۶۵ نفر پرسنل</span>
+          </div>
+        </div>
+      </li>
+
+      <!-- ۴) سال سابقه -->
+      <li class="kv-stat" data-kv-reveal>
+        <div class="kv-stat__card">
+          <div class="kv-stat__ring" aria-hidden="true">
+            <svg class="kv-stat__ring-svg" viewBox="0 0 120 120">
+              <circle class="kv-stat__ring-bg" cx="60" cy="60" r="52" />
+              <circle class="kv-stat__ring-fg" cx="60" cy="60" r="52" />
+            </svg>
+            <span class="kv-stat__icon">
+              <svg viewBox="0 0 512 512" width="26" height="26"><path fill="currentColor" d="M4.1 38.2C1.4 34.2 0 29.4 0 24.6C0 11 11 0 24.6 0H488c13.3 0 24 10.7 24 24c0 4.6-1.3 9.1-3.8 13l-152 236.4V464l-30 15c-8.9 4.4-19.3 3.9-27.7-1.4S256 458.3 256 448V273.4L4.1 38.2zM56 32L256 273.4V448l-30-15c-8.9-4.4-19.3-3.9-27.7 1.4S184 458.3 184 448V273.4z"/></svg>
+            </span>
+          </div>
+          <div class="kv-stat__body">
+            <div class="kv-stat__num-wrap">
+              <span class="kv-stat__prefix"></span>
+              <span class="kv-stat__num" data-to="21" data-delimiter="," aria-hidden="true">۰</span>
+              <span class="kv-stat__suffix">+</span>
+            </div>
+            <h3 class="kv-stat__label">سال سابقه</h3>
+            <span class="kv-stat__sr">بیش از ۲۱ سال سابقه</span>
+          </div>
+        </div>
+      </li>
+
+    </ul>
+  </div>
+</section>
+
+<style id="kv-stats-styles">
+#kv-stats, #kv-stats *, #kv-stats *::before, #kv-stats *::after { box-sizing: border-box; }
+
+#kv-stats {
+  --kv-bg: #0b0c10;
+  --kv-fg: #ffffff;
+  --kv-muted: rgba(255,255,255,.70);
+  --kv-accent: #FFC72C;
+  --kv-ink: #111111;
+  --kv-line: rgba(255,255,255,.10);
+  --kv-card: rgba(255,255,255,.045);
+  --kv-ease: cubic-bezier(.4,0,.2,1);
+  --kv-spring: cubic-bezier(.34,1.56,.64,1);
+
+  position: relative; width: 100%; margin: 0;
+  padding: clamp(56px, 8vw, 110px) clamp(18px, 5vw, 80px);
+  background:
+    radial-gradient(75% 55% at 12% 0%, rgba(255,199,44,.10) 0%, rgba(255,199,44,0) 46%),
+    radial-gradient(65% 55% at 92% 100%, rgba(255,199,44,.06) 0%, rgba(255,199,44,0) 50%),
+    var(--kv-bg);
+  color: var(--kv-fg); direction: rtl; font-family: inherit; overflow: hidden;
+}
+/* پس‌زمینه‌ی شبکه‌ای محو */
+#kv-stats::before {
+  content: ""; position: absolute; inset: 0;
+  background-image: linear-gradient(var(--kv-line) 1px, transparent 1px),
+                    linear-gradient(90deg, var(--kv-line) 1px, transparent 1px);
+  background-size: 46px 46px;
+  -webkit-mask-image: radial-gradient(85% 75% at 50% 40%, #000 0%, transparent 82%);
+          mask-image: radial-gradient(85% 75% at 50% 40%, #000 0%, transparent 82%);
+  opacity: .38; pointer-events: none;
+}
+
+#kv-stats .kv-stats__inner { position: relative; z-index: 1; width: 100%; max-width: 1200px; margin: 0 auto; }
+
+/* ---- سرتیتر ---- */
+#kv-stats .kv-stats__head { text-align: center; max-width: 680px; margin: 0 auto clamp(40px, 6vw, 68px); }
+#kv-stats .kv-stats__eyebrow {
+  display: inline-flex; align-items: center; gap: 9px; margin: 0 0 18px;
+  padding: 8px 16px; border: 1px solid var(--kv-line); border-radius: 999px;
+  background: rgba(255,255,255,.03);
+  font-size: clamp(12px, 1.2vw, 14px); font-weight: 700; color: var(--kv-accent);
+}
+#kv-stats .kv-stats__eyebrow-dot {
+  width: 8px; height: 8px; border-radius: 50%; background: var(--kv-accent);
+  animation: kvStatsPulse 2.2s ease-out infinite;
+}
+@keyframes kvStatsPulse {
+  0% { box-shadow: 0 0 0 0 rgba(255,199,44,.55); }
+  70% { box-shadow: 0 0 0 10px rgba(255,199,44,0); }
+  100% { box-shadow: 0 0 0 0 rgba(255,199,44,0); }
+}
+#kv-stats .kv-stats__title {
+  margin: 0 0 16px; font-size: clamp(28px, 4.6vw, 52px);
+  line-height: 1.2; font-weight: 800; letter-spacing: -.01em;
+}
+#kv-stats .kv-stats__brand { color: var(--kv-accent); }
+#kv-stats .kv-stats__lede {
+  margin: 0 auto; max-width: 560px;
+  font-size: clamp(15px, 1.7vw, 18px); line-height: 2; color: var(--kv-muted);
+}
+
+/* ---- شبکه ---- */
+#kv-stats .kv-stats__grid {
+  list-style: none; margin: 0; padding: 0;
+  display: grid; grid-template-columns: repeat(4, 1fr);
+  gap: clamp(16px, 2.2vw, 26px);
+}
+
+/* ---- کارت آمار ---- */
+#kv-stats .kv-stat { min-width: 0; }
+#kv-stats .kv-stat__card {
+  position: relative; height: 100%;
+  display: flex; flex-direction: column; align-items: center; text-align: center;
+  gap: 20px; padding: clamp(26px, 3vw, 38px) clamp(18px, 2vw, 26px);
+  border: 1px solid var(--kv-line); border-radius: 22px;
+  background: linear-gradient(165deg, rgba(255,255,255,.07), rgba(255,255,255,.015)), var(--kv-card);
+  backdrop-filter: blur(8px) saturate(150%);
+  -webkit-backdrop-filter: blur(8px) saturate(150%);
+  box-shadow: 0 20px 50px rgba(0,0,0,.38);
+  transition: transform .5s var(--kv-ease), border-color .5s var(--kv-ease), box-shadow .5s var(--kv-ease);
+  overflow: hidden;
+}
+/* درخشش نرم که با هاور حرکت می‌کند */
+#kv-stats .kv-stat__card::before {
+  content: ""; position: absolute; inset: 0; pointer-events: none;
+  background: radial-gradient(60% 50% at 50% 0%, rgba(255,199,44,.14), transparent 70%);
+  opacity: 0; transition: opacity .5s var(--kv-ease);
+}
+#kv-stats .kv-stat__card:hover {
+  transform: translateY(-8px);
+  border-color: rgba(255,199,44,.45);
+  box-shadow: 0 30px 66px rgba(0,0,0,.5), 0 0 0 1px rgba(255,199,44,.12);
+}
+#kv-stats .kv-stat__card:hover::before { opacity: 1; }
+
+/* ---- حلقه‌ی پیشرفت + آیکون ---- */
+#kv-stats .kv-stat__ring { position: relative; width: clamp(92px, 12vw, 112px); aspect-ratio: 1; flex: 0 0 auto; }
+#kv-stats .kv-stat__ring-svg { width: 100%; height: 100%; transform: rotate(-90deg); }
+#kv-stats .kv-stat__ring-bg { fill: none; stroke: rgba(255,255,255,.10); stroke-width: 6; }
+#kv-stats .kv-stat__ring-fg {
+  fill: none; stroke: var(--kv-accent); stroke-width: 6; stroke-linecap: round;
+  stroke-dasharray: 326.7;              /* 2πr، r=52 */
+  stroke-dashoffset: 326.7;             /* حالت اولیه: خالی */
+  transition: stroke-dashoffset 1.9s var(--kv-ease);
+  filter: drop-shadow(0 0 6px rgba(255,199,44,.5));
+}
+#kv-stats .kv-stat.is-in .kv-stat__ring-fg { stroke-dashoffset: 82; } /* ~۷۵٪ پرشدگی */
+#kv-stats .kv-stat__icon {
+  position: absolute; inset: 0; margin: auto;
+  width: 54px; height: 54px; border-radius: 16px;
+  display: inline-flex; align-items: center; justify-content: center;
+  color: var(--kv-ink); background: var(--kv-accent);
+  box-shadow: 0 10px 24px rgba(255,199,44,.34);
+  transition: transform .5s var(--kv-spring);
+}
+#kv-stats .kv-stat__card:hover .kv-stat__icon { transform: scale(1.08) rotate(-4deg); }
+
+/* ---- عدد و برچسب ---- */
+#kv-stats .kv-stat__body { display: flex; flex-direction: column; align-items: center; gap: 6px; }
+#kv-stats .kv-stat__num-wrap {
+  display: inline-flex; align-items: baseline; gap: 3px;
+  font-weight: 800; line-height: 1;
+  font-size: clamp(34px, 5vw, 52px);
+  font-variant-numeric: tabular-nums; font-feature-settings: "tnum";
+  color: #fff;
+}
+#kv-stats .kv-stat__prefix, #kv-stats .kv-stat__suffix { color: var(--kv-accent); font-size: .58em; font-weight: 800; }
+#kv-stats .kv-stat__num {
+  background: linear-gradient(180deg, #fff 0%, rgba(255,255,255,.72) 100%);
+  -webkit-background-clip: text; background-clip: text; -webkit-text-fill-color: transparent;
+}
+#kv-stats .kv-stat__label { margin: 4px 0 0; font-size: clamp(14px, 1.6vw, 17px); font-weight: 700; color: var(--kv-muted); }
+/* متن مخصوص صفحه‌خوان (پنهان بصری) */
+#kv-stats .kv-stat__sr {
+  position: absolute; width: 1px; height: 1px; padding: 0; margin: -1px;
+  overflow: hidden; clip: rect(0 0 0 0); white-space: nowrap; border: 0;
+}
+
+/* ---- ورود پلکانی با اسکرول ---- */
+#kv-stats [data-kv-reveal] { opacity: 0; transform: translateY(30px); transition: opacity .7s var(--kv-ease), transform .7s var(--kv-ease); }
+#kv-stats [data-kv-reveal].is-in { opacity: 1; transform: none; }
+#kv-stats .kv-stat:nth-child(1) { transition-delay: .05s; }
+#kv-stats .kv-stat:nth-child(2) { transition-delay: .15s; }
+#kv-stats .kv-stat:nth-child(3) { transition-delay: .25s; }
+#kv-stats .kv-stat:nth-child(4) { transition-delay: .35s; }
+
+/* ---- ریسپانسیو ---- */
+@media (max-width: 900px) {
+  #kv-stats .kv-stats__grid { grid-template-columns: repeat(2, 1fr); }
+}
+@media (max-width: 520px) {
+  #kv-stats .kv-stats__grid { grid-template-columns: 1fr; }
+  #kv-stats .kv-stat__card { flex-direction: row; text-align: right; gap: 18px; padding: 22px; }
+  #kv-stats .kv-stat__body { align-items: flex-start; }
+  #kv-stats .kv-stat__ring { width: 84px; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  #kv-stats * { animation: none !important; transition: none !important; }
+  #kv-stats [data-kv-reveal] { opacity: 1 !important; transform: none !important; }
+  #kv-stats .kv-stat__ring-fg { stroke-dashoffset: 82; }
+}
+</style>
+
+<script id="kv-stats-script">
+(function () {
+  'use strict';
+  var root = document.getElementById('kv-stats');
+  if (!root || root.dataset.kvInit === '1') return;
+  root.dataset.kvInit = '1';
+
+  var reduce = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+  // ارقام فارسی
+  var FA = ['۰','۱','۲','۳','۴','۵','۶','۷','۸','۹'];
+  function toFa(str) { return String(str).replace(/[0-9]/g, function (d) { return FA[+d]; }); }
+  function format(value, delimiter) {
+    var s = String(Math.round(value));
+    if (delimiter) s = s.replace(/\B(?=(\d{3})+(?!\d))/g, delimiter);
+    return toFa(s);
+  }
+
+  var reveals = Array.prototype.slice.call(root.querySelectorAll('[data-kv-reveal]'));
+  var nums = Array.prototype.slice.call(root.querySelectorAll('.kv-stat__num'));
+
+  // در حالت کم‌حرکت: مقدار نهایی را مستقیم بگذار
+  if (reduce) {
+    reveals.forEach(function (el) { el.classList.add('is-in'); });
+    nums.forEach(function (el) {
+      el.textContent = format(+el.dataset.to, el.dataset.delimiter);
+    });
+    return;
+  }
+
+  // شمارش نرم با easeOutCubic
+  function countUp(el) {
+    if (el.dataset.counted === '1') return;
+    el.dataset.counted = '1';
+    var target = +el.dataset.to || 0;
+    var delimiter = el.dataset.delimiter || '';
+    var duration = 2000;
+    var start = null;
+    function frame(ts) {
+      if (start === null) start = ts;
+      var p = Math.min((ts - start) / duration, 1);
+      var eased = 1 - Math.pow(1 - p, 3);
+      el.textContent = format(target * eased, delimiter);
+      if (p < 1) requestAnimationFrame(frame);
+      else el.textContent = format(target, delimiter);
+    }
+    requestAnimationFrame(frame);
+  }
+
+  if ('IntersectionObserver' in window) {
+    var io = new IntersectionObserver(function (entries) {
+      entries.forEach(function (e) {
+        if (!e.isIntersecting) return;
+        var el = e.target;
+        el.classList.add('is-in');                 // ورود + پرشدن حلقه
+        var num = el.querySelector('.kv-stat__num');
+        if (num) countUp(num);
+        io.unobserve(el);
+      });
+    }, { threshold: 0.35 });
+    reveals.forEach(function (el) { io.observe(el); });
+  } else {
+    // fallback: نمایش فوری
+    reveals.forEach(function (el) { el.classList.add('is-in'); });
+    nums.forEach(function (el) { countUp(el); });
+  }
+})();
+</script>
+<!-- ============ END KAVERUN — کاوران در یک نگاه ============ -->
