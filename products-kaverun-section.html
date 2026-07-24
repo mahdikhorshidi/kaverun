@@ -2,10 +2,18 @@
 ============================================================================
   KAVERUN — «محصولات» | سکشن اسلایدشوی اسکرول‌محور تمام‌ارتفاع (Self-contained)
   ---------------------------------------------------------------------------
-  • بازطراحی مدرن سکشن محصولات به صورت اسلایدشوی pinned (تمام‌ارتفاع)؛ با اسکرول
-    هر محصول جایگزین محصول قبل می‌شود (تصویر و متن اسلاید و fade می‌خورند).
+  • بازطراحی مدرن سکشن محصولات به صورت اسلایدشوی pinned (تمام‌ارتفاع)؛ سکشن با
+    position:sticky در بالای صفحه (زیر هدر سایت) قفل می‌شود و با پیشرفتِ اسکرولِ
+    بومیِ مرورگر، محصول فعال جایگزین محصول قبل می‌شود (fade). چون شماره‌ی اسلاید
+    تابعِ محضِ موقعیت اسکرول است، هیچ‌گاه اسلاید «یکباره وسط کار» پرش نمی‌کند و در
+    دو انتها به‌صورت طبیعی از حالت چسبان خارج می‌شود (بدون scroll-jacking).
   • بدون هیچ وابستگی خارجی (CDN/فونت/jQuery/GSAP). یک بلوک «Custom HTML» در
     وردپرس بسازید و کل این فایل را داخل آن Paste کنید.
+  ---------------------------------------------------------------------------
+  تغییر ترتیب محصولات:
+   کافی است بلوک‌های <article class="kv-prod__panel"> را در HTML جابه‌جا کنید؛
+   شماره‌ی هر محصول (schema position / شمارنده / ریل) به‌صورت خودکار از روی ترتیب
+   DOM محاسبه می‌شود. ترتیب فعلی: بیل مکانیکی ۸.۵ تن ← مینی بیل مکانیکی ← ... .
   ---------------------------------------------------------------------------
   رعایت شده:
    • SEO: تیترهای معنایی h2/h3، متن مارکتینگ‌محور پرکلمه‌کلیدی، لینک‌سازی داخلی
@@ -43,7 +51,7 @@
           محصولات <span class="kv-prod__brand">KAVERUN</span>
         </h2>
         <p class="kv-prod__lede">
-          از <strong>لودر و بیل مکانیکی</strong> تا <strong>اسکیدلودر، مینی بیل و لیفتراک</strong>؛
+          از <strong>بیل مکانیکی و مینی بیل</strong> تا <strong>لودر، اسکیدلودر و لیفتراک</strong>؛
           ماشین‌آلات راه‌سازی و صنعتی کاوران با گارانتی معتبر، خدمات پس از فروش و
           تأمین قطعات یدکی، برای پروژه‌های عمرانی، معدنی، کشاورزی و لجستیک ساخته
           شده‌اند. برای دیدن هر محصول، اسکرول کنید.
@@ -65,10 +73,10 @@
         <span class="kv-prod__counter-total" data-kv-total>۰۶</span>
       </div>
 
-      <!-- پنل‌های محصولات -->
+      <!-- پنل‌های محصولات (ترتیب = ترتیب DOM؛ برای تغییر، بلوک‌ها را جابه‌جا کنید) -->
       <div class="kv-prod__panels" data-kv-panels role="list" aria-live="polite">
 
-        <!-- ۱ ـ لودر ۲.۵ تن -->
+        <!-- ۱ ـ بیل مکانیکی ۸.۵ تن -->
         <article
           class="kv-prod__panel is-active"
           role="listitem"
@@ -84,55 +92,8 @@
             <img
               itemprop="image"
               class="kv-prod__img"
-              src="https://kaverun.com/wp-content/uploads/2024/01/999999999.png"
-              width="576" height="576" loading="eager" decoding="async"
-              alt="لودر ۲.۵ تن کاوران؛ لودر چرخ لاستیکی جمع‌وجور گروه صنعتی کاوران"
-            />
-          </div>
-          <div class="kv-prod__text">
-            <span class="kv-prod__cat">لودر چرخ لاستیکی سبک</span>
-            <h3 class="kv-prod__name" itemprop="name">
-              <a itemprop="url" href="https://kaverun.com/loader-2-5-ton">لودر ۲.۵ تن KAVERUN</a>
-            </h3>
-            <p class="kv-prod__desc" itemprop="description">
-              <strong>لودر ۲.۵ تن کاوران</strong> یک لودر چرخ لاستیکی چابک و جمع‌وجور برای
-              پروژه‌های عمرانی، کشاورزی، دامداری و محوطه‌سازی است. قدرت مانور بالا در
-              فضاهای محدود، مصرف سوخت بهینه و باکت مستحکم، بارگیری مصالح و جابه‌جایی
-              خاک را سریع و کم‌هزینه می‌کند. برای عملیات سنگین‌تر،
-              <a class="kv-prod__inline" href="https://kaverun.com/loader-5-5-ton">لودر ۵.۵ تن کاوران</a>
-              گزینه‌ی قدرتمندتری است.
-            </p>
-            <ul class="kv-prod__specs">
-              <li>ظرفیت ۲.۵ تن</li>
-              <li>موتور دیزلی</li>
-              <li>چرخ لاستیکی</li>
-              <li>گارانتی معتبر</li>
-            </ul>
-            <a class="kv-prod__cta" href="https://kaverun.com/loader-2-5-ton" aria-label="مشاهده صفحه لودر ۲.۵ تن کاوران">
-              مشاهده محصول
-              <svg viewBox="0 0 24 24" width="18" height="18" aria-hidden="true"><path fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" d="M15 6l-6 6 6 6"/></svg>
-            </a>
-          </div>
-        </article>
-
-        <!-- ۲ ـ بیل مکانیکی ۸.۵ تن -->
-        <article
-          class="kv-prod__panel"
-          role="listitem"
-          data-kv-panel="1"
-          itemprop="itemListElement"
-          itemscope
-          itemtype="https://schema.org/Product"
-        >
-          <meta itemprop="position" content="2" />
-          <meta itemprop="brand" content="KAVERUN" />
-          <div class="kv-prod__media">
-            <span class="kv-prod__glow" aria-hidden="true"></span>
-            <img
-              itemprop="image"
-              class="kv-prod__img"
               src="https://kaverun.com/wp-content/uploads/2024/02/download-3.png"
-              width="500" height="500" loading="lazy" decoding="async"
+              width="500" height="500" loading="eager" decoding="async"
               alt="بیل مکانیکی ۸.۵ تن کاوران؛ بیل مکانیکی چرخ‌زنجیری راه‌سازی KAVERUN"
             />
           </div>
@@ -162,7 +123,54 @@
           </div>
         </article>
 
-        <!-- ۳ ـ لودر ۵.۵ تن -->
+        <!-- ۲ ـ مینی بیل مکانیکی -->
+        <article
+          class="kv-prod__panel"
+          role="listitem"
+          data-kv-panel="1"
+          itemprop="itemListElement"
+          itemscope
+          itemtype="https://schema.org/Product"
+        >
+          <meta itemprop="position" content="2" />
+          <meta itemprop="brand" content="KAVERUN" />
+          <div class="kv-prod__media">
+            <span class="kv-prod__glow" aria-hidden="true"></span>
+            <img
+              itemprop="image"
+              class="kv-prod__img"
+              src="https://kaverun.com/wp-content/uploads/2024/01/000-removebg-preview.png"
+              width="566" height="441" loading="lazy" decoding="async"
+              alt="مینی بیل مکانیکی کاوران؛ مینی اکسکاواتور بابکت KAVERUN"
+            />
+          </div>
+          <div class="kv-prod__text">
+            <span class="kv-prod__cat">مینی بیل مکانیکی (بابکت)</span>
+            <h3 class="kv-prod__name" itemprop="name">
+              <a itemprop="url" href="https://kaverun.com/mini-excavator">مینی بیل مکانیکی KAVERUN</a>
+            </h3>
+            <p class="kv-prod__desc" itemprop="description">
+              <strong>مینی بیل مکانیکی کاوران</strong> برای عملیات خاکی در فضاهای کوچک،
+              فضای سبز، لوله‌گذاری و پروژه‌های شهری ایده‌آل است. ابعاد کم، انتقال آسان
+              و دقت بالا در حفاری، آن را به دستیار همیشگی پیمانکاران تبدیل کرده است.
+              برای پروژه‌های بزرگ‌تر و گودبرداری سنگین،
+              <a class="kv-prod__inline" href="https://kaverun.com/excavator-8-5-ton">بیل مکانیکی ۸.۵ تن کاوران</a>
+              پیشنهاد می‌شود.
+            </p>
+            <ul class="kv-prod__specs">
+              <li>ابعاد جمع‌وجور</li>
+              <li>چرخ زنجیری</li>
+              <li>حفاری دقیق</li>
+              <li>انتقال آسان</li>
+            </ul>
+            <a class="kv-prod__cta" href="https://kaverun.com/mini-excavator" aria-label="مشاهده صفحه مینی بیل مکانیکی کاوران">
+              مشاهده محصول
+              <svg viewBox="0 0 24 24" width="18" height="18" aria-hidden="true"><path fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" d="M15 6l-6 6 6 6"/></svg>
+            </a>
+          </div>
+        </article>
+
+        <!-- ۳ ـ لودر ۲.۵ تن -->
         <article
           class="kv-prod__panel"
           role="listitem"
@@ -172,6 +180,53 @@
           itemtype="https://schema.org/Product"
         >
           <meta itemprop="position" content="3" />
+          <meta itemprop="brand" content="KAVERUN" />
+          <div class="kv-prod__media">
+            <span class="kv-prod__glow" aria-hidden="true"></span>
+            <img
+              itemprop="image"
+              class="kv-prod__img"
+              src="https://kaverun.com/wp-content/uploads/2024/01/999999999.png"
+              width="576" height="576" loading="lazy" decoding="async"
+              alt="لودر ۲.۵ تن کاوران؛ لودر چرخ لاستیکی جمع‌وجور گروه صنعتی کاوران"
+            />
+          </div>
+          <div class="kv-prod__text">
+            <span class="kv-prod__cat">لودر چرخ لاستیکی سبک</span>
+            <h3 class="kv-prod__name" itemprop="name">
+              <a itemprop="url" href="https://kaverun.com/loader-2-5-ton">لودر ۲.۵ تن KAVERUN</a>
+            </h3>
+            <p class="kv-prod__desc" itemprop="description">
+              <strong>لودر ۲.۵ تن کاوران</strong> یک لودر چرخ لاستیکی چابک و جمع‌وجور برای
+              پروژه‌های عمرانی، کشاورزی، دامداری و محوطه‌سازی است. قدرت مانور بالا در
+              فضاهای محدود، مصرف سوخت بهینه و باکت مستحکم، بارگیری مصالح و جابه‌جایی
+              خاک را سریع و کم‌هزینه می‌کند. برای عملیات سنگین‌تر،
+              <a class="kv-prod__inline" href="https://kaverun.com/loader-5-5-ton">لودر ۵.۵ تن کاوران</a>
+              گزینه‌ی قدرتمندتری است.
+            </p>
+            <ul class="kv-prod__specs">
+              <li>ظرفیت ۲.۵ تن</li>
+              <li>موتور دیزلی</li>
+              <li>چرخ لاستیکی</li>
+              <li>گارانتی معتبر</li>
+            </ul>
+            <a class="kv-prod__cta" href="https://kaverun.com/loader-2-5-ton" aria-label="مشاهده صفحه لودر ۲.۵ تن کاوران">
+              مشاهده محصول
+              <svg viewBox="0 0 24 24" width="18" height="18" aria-hidden="true"><path fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" d="M15 6l-6 6 6 6"/></svg>
+            </a>
+          </div>
+        </article>
+
+        <!-- ۴ ـ لودر ۵.۵ تن -->
+        <article
+          class="kv-prod__panel"
+          role="listitem"
+          data-kv-panel="3"
+          itemprop="itemListElement"
+          itemscope
+          itemtype="https://schema.org/Product"
+        >
+          <meta itemprop="position" content="4" />
           <meta itemprop="brand" content="KAVERUN" />
           <div class="kv-prod__media">
             <span class="kv-prod__glow" aria-hidden="true"></span>
@@ -209,16 +264,16 @@
           </div>
         </article>
 
-        <!-- ۴ ـ اسکیدلودر -->
+        <!-- ۵ ـ اسکیدلودر -->
         <article
           class="kv-prod__panel"
           role="listitem"
-          data-kv-panel="3"
+          data-kv-panel="4"
           itemprop="itemListElement"
           itemscope
           itemtype="https://schema.org/Product"
         >
-          <meta itemprop="position" content="4" />
+          <meta itemprop="position" content="5" />
           <meta itemprop="brand" content="KAVERUN" />
           <div class="kv-prod__media">
             <span class="kv-prod__glow" aria-hidden="true"></span>
@@ -251,53 +306,6 @@
               <li>مانور بالا</li>
             </ul>
             <a class="kv-prod__cta" href="https://kaverun.com/skid-loader" aria-label="مشاهده صفحه اسکیدلودر کاوران">
-              مشاهده محصول
-              <svg viewBox="0 0 24 24" width="18" height="18" aria-hidden="true"><path fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" d="M15 6l-6 6 6 6"/></svg>
-            </a>
-          </div>
-        </article>
-
-        <!-- ۵ ـ مینی بیل مکانیکی -->
-        <article
-          class="kv-prod__panel"
-          role="listitem"
-          data-kv-panel="4"
-          itemprop="itemListElement"
-          itemscope
-          itemtype="https://schema.org/Product"
-        >
-          <meta itemprop="position" content="5" />
-          <meta itemprop="brand" content="KAVERUN" />
-          <div class="kv-prod__media">
-            <span class="kv-prod__glow" aria-hidden="true"></span>
-            <img
-              itemprop="image"
-              class="kv-prod__img"
-              src="https://kaverun.com/wp-content/uploads/2024/01/000-removebg-preview.png"
-              width="566" height="441" loading="lazy" decoding="async"
-              alt="مینی بیل مکانیکی کاوران؛ مینی اکسکاواتور بابکت KAVERUN"
-            />
-          </div>
-          <div class="kv-prod__text">
-            <span class="kv-prod__cat">مینی بیل مکانیکی (بابکت)</span>
-            <h3 class="kv-prod__name" itemprop="name">
-              <a itemprop="url" href="https://kaverun.com/mini-excavator">مینی بیل مکانیکی KAVERUN</a>
-            </h3>
-            <p class="kv-prod__desc" itemprop="description">
-              <strong>مینی بیل مکانیکی کاوران</strong> برای عملیات خاکی در فضاهای کوچک،
-              فضای سبز، لوله‌گذاری و پروژه‌های شهری ایده‌آل است. ابعاد کم، انتقال آسان
-              و دقت بالا در حفاری، آن را به دستیار همیشگی پیمانکاران تبدیل کرده است.
-              برای پروژه‌های بزرگ‌تر و گودبرداری سنگین،
-              <a class="kv-prod__inline" href="https://kaverun.com/excavator-8-5-ton">بیل مکانیکی ۸.۵ تن کاوران</a>
-              پیشنهاد می‌شود.
-            </p>
-            <ul class="kv-prod__specs">
-              <li>ابعاد جمع‌وجور</li>
-              <li>چرخ زنجیری</li>
-              <li>حفاری دقیق</li>
-              <li>انتقال آسان</li>
-            </ul>
-            <a class="kv-prod__cta" href="https://kaverun.com/mini-excavator" aria-label="مشاهده صفحه مینی بیل مکانیکی کاوران">
               مشاهده محصول
               <svg viewBox="0 0 24 24" width="18" height="18" aria-hidden="true"><path fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" d="M15 6l-6 6 6 6"/></svg>
             </a>
@@ -505,15 +513,20 @@
   outline: 3px solid var(--kv-accent); outline-offset: 3px; border-radius: 6px;
 }
 
-/* ============ حالت ارتقاءیافته (JS + motion) — اسلایدشوی pinned ============ */
-/* سکشن دقیقاً یک ویوپورت است؛ جابه‌جایی بین محصولات با هر اسکرول به‌صورت گام‌به‌گام
-   توسط JS انجام می‌شود (نه با اسکرول طولانی). --kv-prod-inset = ارتفاع هدر ثابت
-   سایت (در صورت وجود) تا سکشن دقیقاً زیر آن قفل شود، نه پشت آن. */
+/* ============ حالت ارتقاءیافته (JS + motion) — اسلایدشوی pinned (sticky بومی) ============
+   .kv-prod__scroll یک «ریلِ بلند» به ارتفاع (تعداد محصولات × ارتفاع مفید ویوپورت) است.
+   .kv-prod__stage با position:sticky درست زیر هدرِ ثابتِ سایت قفل می‌شود و تا انتهای ریل
+   همان‌جا می‌ماند؛ محصول فعال، تابعِ محضِ درصدِ پیشرفتِ اسکرول در طول ریل است. در دو انتها
+   (اولین/آخرین محصول) sticky به‌صورت طبیعی رها می‌شود و اسکرول به سکشن بعد/قبل ادامه می‌یابد.
+   --kv-prod-inset = ارتفاع هدر ثابت سایت (خودکار) تا سکشن دقیقاً زیر آن قفل شود. */
 #kv-products.is-enhanced .kv-prod__scroll {
-  height: calc(100vh - var(--kv-prod-inset, 0px));
+  height: calc(var(--kv-steps, 6) * (100vh - var(--kv-prod-inset, 0px)));
 }
 #kv-products.is-enhanced .kv-prod__stage {
-  position: relative; height: calc(100vh - var(--kv-prod-inset, 0px)); overflow: hidden;
+  position: sticky;
+  top: var(--kv-prod-inset, 0px);
+  height: calc(100vh - var(--kv-prod-inset, 0px));
+  overflow: hidden;
   padding: 0;
   display: block;
 }
@@ -528,7 +541,7 @@
 #kv-products.is-enhanced .kv-prod__lede { display: none; }
 #kv-products.is-enhanced .kv-prod__eyebrow { margin-bottom: 12px; }
 
-/* ریل ناوبری سمت چپ */
+/* ریل ناوبری سمت چپ (عمودی) */
 #kv-products.is-enhanced .kv-prod__rail {
   display: flex; align-items: stretch; gap: 14px;
   position: absolute; left: clamp(18px,4vw,52px); top: 50%;
@@ -542,7 +555,7 @@
 #kv-products .kv-prod__rail-fill {
   position: absolute; top: 0; left: 0; width: 100%; height: 0%;
   background: var(--kv-accent); border-radius: 2px;
-  transition: height .3s var(--kv-ease);
+  transition: height .3s var(--kv-ease), width .3s var(--kv-ease);
 }
 #kv-products .kv-prod__rail-list {
   list-style: none; margin: 0; padding: 0;
@@ -647,23 +660,51 @@
   #kv-products .kv-prod__panel:nth-child(even) .kv-prod__media { order: 0; }
   #kv-products .kv-prod__specs { justify-content: center; }
 
-  /* روی موبایل هم اسلایدشوی pinned فعال است اما تک‌ستونه و متمرکز */
-  #kv-products.is-enhanced .kv-prod__head { position: static; max-width: none; }
+  /* روی موبایل هم اسلایدشوی pinned فعال است اما تک‌ستونه، فشرده و با ناوبری افقیِ پایین */
   #kv-products.is-enhanced .kv-prod__head { display: none; }
-  #kv-products.is-enhanced .kv-prod__rail { display: none; }
   #kv-products.is-enhanced .kv-prod__panel {
     grid-template-columns: 1fr;
     align-content: center;
-    gap: clamp(14px,3vh,26px);
-    padding: clamp(70px,10vh,110px) clamp(18px,7vw,40px) clamp(90px,12vh,120px);
+    gap: clamp(14px,3vh,24px);
+    /* بالا: فضای شمارنده | پایین: فضای ناوبری افقی */
+    padding: clamp(64px,9vh,100px) clamp(18px,7vw,40px) clamp(84px,13vh,120px);
     text-align: center;
   }
-  /* روی موبایل تصویر بالا و متن پایین */
+  /* روی موبایل تصویر بالا و مشخصات خلاصه پایین */
   #kv-products.is-enhanced .kv-prod__media { order: 0; transform: translateY(30px) scale(.96); }
   #kv-products.is-enhanced .kv-prod__text { order: 1; }
-  #kv-products.is-enhanced .kv-prod__img { max-height: 34vh; }
-  #kv-products.is-enhanced .kv-prod__counter { right: 50%; transform: translateX(50%); bottom: auto; top: clamp(16px,3vh,30px); }
-  #kv-products.is-enhanced .kv-prod__desc { text-align: justify; }
+  #kv-products.is-enhanced .kv-prod__img { max-height: 36vh; }
+  /* روی موبایل توضیح بلند حذف می‌شود تا فقط «مشخصات خلاصه» بماند */
+  #kv-products.is-enhanced .kv-prod__desc { display: none; }
+  #kv-products.is-enhanced .kv-prod__name { margin-bottom: 10px; }
+  #kv-products.is-enhanced .kv-prod__specs { margin-bottom: 18px; }
+  /* شمارنده بالا-وسط */
+  #kv-products.is-enhanced .kv-prod__counter {
+    right: 50%; transform: translateX(50%); bottom: auto; top: clamp(14px,3vh,26px);
+  }
+  #kv-products.is-enhanced .kv-prod__counter-now { font-size: clamp(30px,9vw,44px); }
+
+  /* ناوبری محصولات: افقی، پایینِ صفحه، نقطه‌ای */
+  #kv-products.is-enhanced .kv-prod__rail {
+    display: flex; flex-direction: row; align-items: center; justify-content: center;
+    left: 50%; right: auto; top: auto; bottom: clamp(20px,4vh,34px);
+    transform: translateX(-50%);
+    gap: 0; max-width: min(92vw, 460px);
+  }
+  #kv-products.is-enhanced .kv-prod__rail-line { display: none; }
+  #kv-products.is-enhanced .kv-prod__rail-list {
+    flex-direction: row; flex-wrap: wrap; justify-content: center; gap: 14px;
+  }
+  /* متنِ دکمه فقط برای دسترس‌پذیری می‌ماند؛ در موبایل فقط نقطه دیده می‌شود */
+  #kv-products.is-enhanced .kv-prod__rail-txt {
+    position: absolute; width: 1px; height: 1px; padding: 0; margin: -1px;
+    overflow: hidden; clip: rect(0 0 0 0); white-space: nowrap; border: 0;
+  }
+  #kv-products.is-enhanced .kv-prod__rail-btn { gap: 0; padding: 6px; }
+  #kv-products.is-enhanced .kv-prod__rail-btn::before { width: 10px; height: 10px; }
+  #kv-products.is-enhanced .kv-prod__rail-btn[aria-current="true"]::before { transform: scale(1.5); }
+
+  #kv-products.is-enhanced .kv-prod__hint { display: none; }
 }
 
 @media (max-width: 480px) {
@@ -685,6 +726,7 @@
 
   var reduce = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
   var scroll = root.querySelector('[data-kv-scroll]');
+  var stage  = root.querySelector('[data-kv-stage]');
   var panels = Array.prototype.slice.call(root.querySelectorAll('.kv-prod__panel'));
   var railWrap = root.querySelector('[data-kv-rail]');
   var fill = root.querySelector('[data-kv-fill]');
@@ -692,16 +734,25 @@
   var totalEl = root.querySelector('[data-kv-total]');
   var hint = root.querySelector('[data-kv-hint]');
   var count = panels.length;
-  if (!count) return;
+  if (!count || !scroll || !stage) return;
 
   var FA = ['۰','۱','۲','۳','۴','۵','۶','۷','۸','۹'];
   function toFa(n) { return String(n).replace(/\d/g, function (d) { return FA[+d]; }); }
   function pad(n) { return toFa(n < 10 ? '0' + n : n); }
 
-  // بدون ارتقاء: لیست عمودی ساده (progressive enhancement / دسترس‌پذیری)
+  // ترتیب و شماره‌گذاری اسکیمای هر محصول از روی ترتیب DOM محاسبه می‌شود؛ بنابراین برای
+  // تغییر ترتیب محصولات کافی است بلوک‌های <article class="kv-prod__panel"> جابه‌جا شوند.
+  panels.forEach(function (panel, i) {
+    panel.setAttribute('data-kv-panel', i);
+    var posMeta = panel.querySelector('meta[itemprop="position"]');
+    if (posMeta) posMeta.setAttribute('content', String(i + 1));
+  });
+
+  // بدون ارتقاء (reduced-motion): لیست عمودی ساده (progressive enhancement / دسترس‌پذیری)
   if (reduce) { return; }
 
   root.classList.add('is-enhanced');
+  root.style.setProperty('--kv-steps', count);
   if (totalEl) totalEl.textContent = pad(count);
 
   // ساخت دکمه‌های ریل ناوبری از روی تیتر هر محصول
@@ -713,10 +764,13 @@
     var btn = document.createElement('button');
     btn.type = 'button';
     btn.className = 'kv-prod__rail-btn';
-    btn.textContent = label;
+    var txt = document.createElement('span');
+    txt.className = 'kv-prod__rail-txt';
+    txt.textContent = label;
+    btn.appendChild(txt);
     btn.setAttribute('aria-label', 'رفتن به ' + label);
     (function (idx) {
-      btn.addEventListener('click', function () { window.__kvProdGoTo(idx); });
+      btn.addEventListener('click', function () { goTo(idx); });
     })(i);
     li.appendChild(btn);
     railWrap.appendChild(li);
@@ -724,37 +778,28 @@
   });
 
   var current = -1;
-
   function setActive(i) {
     if (i === current) return;
     current = i;
-    panels.forEach(function (p, idx) { p.classList.toggle('is-active', idx === i); });
-    railBtns.forEach(function (b, idx) { b.setAttribute('aria-current', idx === i ? 'true' : 'false'); });
+    for (var k = 0; k < panels.length; k++) panels[k].classList.toggle('is-active', k === i);
+    for (var b = 0; b < railBtns.length; b++) railBtns[b].setAttribute('aria-current', b === i ? 'true' : 'false');
     if (nowEl) nowEl.textContent = pad(i + 1);
-    if (fill) fill.style.height = ((count > 1 ? i / (count - 1) : 0) * 100).toFixed(2) + '%';
+    if (fill) {
+      var pct = ((count > 1 ? i / (count - 1) : 0) * 100).toFixed(2) + '%';
+      fill.style.height = pct; // ریل عمودی (دسکتاپ)
+      fill.style.width = pct;  // ریل افقی (موبایل)
+    }
     if (hint) hint.classList.toggle('is-hidden', i > 0);
   }
 
-  /* ================= اسلایدشوی گام‌به‌گام (یک اسکرول = یک محصول) =================
-     سکشن فقط وقتی «قفل» می‌شود که در ویوپورت جا خوش کند؛ آن‌گاه هر اسکرول یک
-     محصول را اسلاید می‌کند و در دو انتها، اسکرول به صفحه رها می‌شود (بدون گیر
-     افتادن کاربر). */
-  var STEP_MS = 720;          // فاصله‌ی حداقلی بین دو گام
-  var locked = false;         // آیا سکشن قفل است
-  var cooling = false;        // در حال انیمیشن گام
-  var releaseCooldown = false;// جلوگیری از قفل مجدد بلافاصله پس از رها شدن
-  var lastY = window.pageYOffset || 0;
-  var inset = 0; // ارتفاع هدر ثابت/چسبانِ بالای صفحه (اتوماتیک)
-
-  function absTop(el) { var t = 0; while (el) { t += el.offsetTop; el = el.offsetParent; } return t; }
-
-  // تشخیص خودکار ارتفاع هر نوار ثابت/چسبان در بالای ویوپورت (هدر سایت، ادمین‌بار).
+  // ---- تشخیص خودکار افستِ هدر ثابت/چسبانِ بالای صفحه (هدر سایت، ادمین‌بار وردپرس) ----
   // با اتربیوت data-top-offset روی سکشن قابل بازنویسی دستی است.
+  var inset = 0;
+  function absTop(el) { var t = 0; while (el) { t += el.offsetTop; el = el.offsetParent; } return t; }
   function computeInset() {
     var manual = parseInt(root.getAttribute('data-top-offset'), 10);
     if (!isNaN(manual)) return Math.max(0, manual);
-    var found = 0;
-    var vh = window.innerHeight;
+    var found = 0, vh = window.innerHeight;
     var xs = [window.innerWidth * 0.5, window.innerWidth * 0.12, window.innerWidth * 0.88];
     for (var i = 0; i < xs.length; i++) {
       var stack = document.elementsFromPoint(Math.round(xs[i]), 2) || [];
@@ -770,126 +815,50 @@
     }
     return Math.round(found);
   }
-
   function refreshInset() {
     inset = computeInset();
     root.style.setProperty('--kv-prod-inset', inset + 'px');
   }
 
-  function pinToTop() { window.scrollTo(0, Math.max(0, absTop(root) - inset)); }
-
-  function step(dir) {
-    if (cooling) return true;                 // در حال گام؛ رویداد را ببلع
-    var ni = current + dir;
-    if (ni < 0 || ni >= count) return false;  // مرز؛ باید رها شود
-    cooling = true;
-    setActive(ni);
-    setTimeout(function () { cooling = false; }, STEP_MS);
-    return true;
-  }
-
-  function lock(atIndex) {
-    if (locked) return;
-    locked = true;
-    refreshInset();
-    if (atIndex != null) setActive(atIndex);
-    pinToTop();
-  }
-
-  function unlock(dir) {
-    locked = false;
-    releaseCooldown = true;
-    setTimeout(function () { releaseCooldown = false; }, 900);
-    // یک ویوپورت جابه‌جا می‌شویم تا سکشن کامل از دید خارج شود
-    window.scrollBy({ top: dir * window.innerHeight, behavior: 'smooth' });
-  }
-
-  // ---- چرخ ماوس ----
-  window.addEventListener('wheel', function (e) {
-    if (!locked) return;
-    e.preventDefault();
-    var dir = e.deltaY > 0 ? 1 : -1;
-    if (!step(dir) && !cooling) {
-      if (dir > 0 && current === count - 1) unlock(1);
-      else if (dir < 0 && current === 0) unlock(-1);
-    }
-  }, { passive: false });
-
-  // ---- لمسی ----
-  var touchY = null;
-  window.addEventListener('touchstart', function (e) {
-    touchY = e.touches[0].clientY;
-  }, { passive: true });
-  window.addEventListener('touchmove', function (e) {
-    if (locked) e.preventDefault(); // جلوگیری از اسکرول صفحه هنگام قفل
-  }, { passive: false });
-  window.addEventListener('touchend', function (e) {
-    if (!locked || touchY == null) { touchY = null; return; }
-    var dy = touchY - e.changedTouches[0].clientY;
-    touchY = null;
-    if (Math.abs(dy) < 40) return;
-    var dir = dy > 0 ? 1 : -1;
-    if (!step(dir) && !cooling) {
-      if (dir > 0 && current === count - 1) unlock(1);
-      else if (dir < 0 && current === 0) unlock(-1);
-    }
-  }, { passive: true });
-
-  // ---- کیبورد ----
-  window.addEventListener('keydown', function (e) {
-    if (!locked) return;
-    if (e.key === 'ArrowDown' || e.key === 'PageDown' || e.key === ' ') {
-      e.preventDefault();
-      if (!step(1) && !cooling && current === count - 1) unlock(1);
-    } else if (e.key === 'ArrowUp' || e.key === 'PageUp') {
-      e.preventDefault();
-      if (!step(-1) && !cooling && current === 0) unlock(-1);
-    }
-  });
-
-  // ---- تشخیص ورود/خروج و قفل کردن ----
-  function onScroll() {
-    var y = window.pageYOffset || 0;
-    var down = y > lastY;
-    lastY = y;
-    if (locked) { return; }
-    if (releaseCooldown) return;
-    var r = root.getBoundingClientRect();
-    var vh = window.innerHeight;
-    var avail = vh - inset; // ارتفاع مفید زیر هدر ثابت
-    // درصد پوشش ناحیه‌ی مفید توسط سکشن
-    var covered = (Math.min(vh, r.bottom) - Math.max(inset, r.top)) / avail;
-    if (covered < 0.5) return;
-    // قفل زمانی که لبه‌ی بالای سکشن به «زیر هدر ثابت» می‌رسد (هر دو جهت)
-    if (down && r.top <= inset + 6) {
-      lock(current < 0 ? 0 : current);          // ورود از بالا → از محصول فعلی/اول
-    } else if (!down && r.top >= inset - 6) {
-      lock(current < 0 ? count - 1 : current);  // ورود از پایین → از محصول فعلی/آخر
-    }
+  /* ================= نگاشتِ اسکرول → شماره‌ی محصول (اسکرولِ بومی؛ بدون scroll-jacking) ==========
+     stage با position:sticky تا انتهای ریل در بالای صفحه قفل می‌ماند. محصول فعال تابعِ محضِ
+     درصدِ پیشرفت اسکرول است؛ پس هیچ‌گاه اسلاید «یکباره وسط کار» پرش نمی‌کند و ورود/خروجِ حالت
+     چسبان کاملاً طبیعی است (اولین محصول = شروع، آخرین محصول = پایانِ قفل). */
+  function update() {
+    var stageH = stage.offsetHeight;
+    var maxShift = scroll.offsetHeight - stageH; // کل مسافتِ اسکرول در طول قفل
+    if (maxShift <= 0) { setActive(0); return; }
+    var top = scroll.getBoundingClientRect().top; // نسبت به بالای ویوپورت
+    var p = (inset - top) / maxShift;             // ۰ در شروع قفل، ۱ در پایان قفل
+    if (p < 0) p = 0; else if (p > 1) p = 1;
+    setActive(Math.round(p * (count - 1)));
   }
 
   var rafPending = false;
-  window.addEventListener('scroll', function () {
+  function onScroll() {
     if (rafPending) return;
     rafPending = true;
-    requestAnimationFrame(function () { rafPending = false; onScroll(); });
-  }, { passive: true });
+    requestAnimationFrame(function () { rafPending = false; update(); });
+  }
+  window.addEventListener('scroll', onScroll, { passive: true });
 
   window.addEventListener('resize', function () {
     if (window.__kvProdRz) clearTimeout(window.__kvProdRz);
-    window.__kvProdRz = setTimeout(function () { refreshInset(); if (locked) pinToTop(); }, 150);
+    window.__kvProdRz = setTimeout(function () { refreshInset(); update(); }, 150);
   }, { passive: true });
 
-  // کلیک روی ریل: اگر قفل است مستقیم گام بزن، وگرنه اول سکشن را در دید بیاور
-  window.__kvProdGoTo = function (i) {
+  // کلیک روی ریل → اسکرولِ نرمِ بومی به موقعیتِ آن محصول در ریل
+  function goTo(i) {
     i = Math.max(0, Math.min(count - 1, i));
-    if (!locked) { pinToTop(); lock(i); }
-    else { setActive(i); }
-  };
+    var maxShift = scroll.offsetHeight - stage.offsetHeight;
+    var pr = (count > 1 ? i / (count - 1) : 0);
+    var y = absTop(scroll) - inset + pr * Math.max(0, maxShift);
+    window.scrollTo({ top: Math.max(0, Math.round(y)), behavior: 'smooth' });
+  }
+  window.__kvProdGoTo = goTo;
 
   refreshInset();
-  setActive(0);
-  onScroll();
+  update();
 })();
 </script>
 <!-- ============ END KAVERUN — محصولات ============ -->
