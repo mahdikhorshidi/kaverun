@@ -160,12 +160,7 @@
           <div class="kv-logo" role="listitem"><img loading="lazy" decoding="async" width="200" height="150" src="https://kaverun.com/wp-content/uploads/2024/01/rahgostarnaft.png" alt="رهگستر نفت — از مشتریان گروه صنعتی کاوران"></div>
           <div class="kv-logo" role="listitem"><img loading="lazy" decoding="async" width="200" height="150" src="https://kaverun.com/wp-content/uploads/2024/01/rahdari.png" alt="سازمان راهداری و حمل‌ونقل جاده‌ای — از مشتریان گروه صنعتی کاوران"></div>
           <div class="kv-logo" role="listitem"><img loading="lazy" decoding="async" width="200" height="150" src="https://kaverun.com/wp-content/uploads/2024/01/naftiran.png" alt="نفتیران — از مشتریان گروه صنعتی کاوران"></div>
-          <!-- مجموعه ۲ (کلون برای لوپ بی‌درز) -->
-          <div class="kv-logo" role="listitem" aria-hidden="true"><img loading="lazy" decoding="async" width="200" height="150" src="https://kaverun.com/wp-content/uploads/2024/01/vrah.png" alt=""></div>
-          <div class="kv-logo" role="listitem" aria-hidden="true"><img loading="lazy" decoding="async" width="200" height="150" src="https://kaverun.com/wp-content/uploads/2024/01/rahgostarnaft.png" alt=""></div>
-          <div class="kv-logo" role="listitem" aria-hidden="true"><img loading="lazy" decoding="async" width="200" height="150" src="https://kaverun.com/wp-content/uploads/2024/01/rahdari.png" alt=""></div>
-          <div class="kv-logo" role="listitem" aria-hidden="true"><img loading="lazy" decoding="async" width="200" height="150" src="https://kaverun.com/wp-content/uploads/2024/01/naftiran.png" alt=""></div>
-          <!-- مجموعه ۳ (کلون برای لوپ بی‌درز) -->
+          <!-- مجموعه ۲ (کلون برای لوپ بی‌درز و بدون قطعی هنگام شروع مجدد) -->
           <div class="kv-logo" role="listitem" aria-hidden="true"><img loading="lazy" decoding="async" width="200" height="150" src="https://kaverun.com/wp-content/uploads/2024/01/vrah.png" alt=""></div>
           <div class="kv-logo" role="listitem" aria-hidden="true"><img loading="lazy" decoding="async" width="200" height="150" src="https://kaverun.com/wp-content/uploads/2024/01/rahgostarnaft.png" alt=""></div>
           <div class="kv-logo" role="listitem" aria-hidden="true"><img loading="lazy" decoding="async" width="200" height="150" src="https://kaverun.com/wp-content/uploads/2024/01/rahdari.png" alt=""></div>
@@ -348,16 +343,13 @@
 }
 #kv-stats .kv-marquee__track {
   display: flex; width: max-content; gap: clamp(28px, 5vw, 64px);
-  animation: kvMarquee 34s linear infinite;
-  animation-play-state: paused;               /* ثابت تا رسیدن سکشن به دید */
+  animation: kvMarquee 30s linear infinite;   /* همیشه در حرکت، بدون توقف */
   will-change: transform;
 }
-/* حرکت فقط پس از ورود سکشن به دید شروع می‌شود و دیگر متوقف نمی‌شود */
-#kv-stats .kv-clients.is-in .kv-marquee__track { animation-play-state: running; }
-/* حرکت پیوسته راست به چپ (لوپ بی‌درز) */
+/* حرکت پیوسته چپ به راست؛ دو مجموعه‌ی یکسان و جابه‌جایی ۵۰٪ = لوپ بی‌درز */
 @keyframes kvMarquee {
-  from { transform: translateX(0); }
-  to   { transform: translateX(-33.333%); }   /* یک مجموعه‌ی کامل جابه‌جا */
+  from { transform: translateX(-50%); }
+  to   { transform: translateX(0); }
 }
 
 #kv-stats .kv-logo {
