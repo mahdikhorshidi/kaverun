@@ -351,10 +351,10 @@
   animation: kvMarquee 34s linear infinite;
   will-change: transform;
 }
-/* در RTL جهت حرکت را طبیعی نگه می‌داریم */
+/* حرکت پیوسته از چپ به راست (لوپ بی‌درز) */
 @keyframes kvMarquee {
-  from { transform: translateX(0); }
-  to   { transform: translateX(-33.333%); }   /* یک‌سومِ سه مجموعه = یک مجموعه‌ی کامل */
+  from { transform: translateX(-33.333%); }   /* یک مجموعه‌ی کامل جابه‌جا */
+  to   { transform: translateX(0); }
 }
 #kv-stats .kv-marquee:hover .kv-marquee__track { animation-play-state: paused; }
 
