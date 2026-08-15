@@ -454,6 +454,19 @@ window.KV_CP = {
 .kv-cp .wpcf7 { margin: 0; }
 .kv-cp .wpcf7-form { margin: 0; }
 .kv-cp .wpcf7-form-control-wrap { display: block; position: relative; }
+
+/* ---- خنثی‌سازی wpautop --------------------------------------------------
+   وردپرس/CF7 روی محتوای فرم wpautop اجرا می‌کند و خودکار <p> و <br> اضافه
+   می‌کند؛ این کار چیدمان دو-ستونه‌ی .kv-cp__row را به‌هم می‌ریزد.
+   دو قانون زیر آن‌ها را بی‌اثر می‌کند، بدون نیاز به هیچ کد PHP.
+   (<p>های ساخته‌شده توسط wpautop هیچ‌وقت کلاس ندارند، پس :not([class]) امن است.)
+   ---------------------------------------------------------------------- */
+.kv-cp .wpcf7-form p:not([class]) { display: contents; }
+.kv-cp .wpcf7-form > br,
+.kv-cp .wpcf7-form p > br,
+.kv-cp .wpcf7-form label > br,
+.kv-cp .wpcf7-form .kv-f__sel-wrap > br,
+.kv-cp .wpcf7-form fieldset > br { display: none; }
 .kv-cp .wpcf7 form .wpcf7-response-output { margin: 16px 0 0; padding: 12px 16px; border-radius: 13px; font-size: 13.5px; line-height: 1.9; }
 .kv-cp .wpcf7 form.sent .wpcf7-response-output { border: 1px solid rgba(126,226,168,.45); background: rgba(126,226,168,.10); color: #7ee2a8; }
 .kv-cp .wpcf7 form.invalid .wpcf7-response-output,
