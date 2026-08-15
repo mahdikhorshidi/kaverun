@@ -1,0 +1,71 @@
+<!--
+============================================================================
+  KAVERUN — سکشن «فرم تماس» (آماده برای Contact Form 7)
+  ---------------------------------------------------------------------------
+  در یک ویجت HTML المنتور Paste کنید.
+  ⚠ پیش‌نیاز: بلوک 00-base.html باید یک بار در همین صفحه (بالاتر از این سکشن)
+     قرار گرفته باشد.
+  ---------------------------------------------------------------------------
+  ✏️ کاری که باید انجام دهید:
+    ۱) فرم CF7 را با محتوای فایل cf7/contact-form.txt بسازید.
+    ۲) شورت‌کد آن فرم را به‌جای خطِ  [contact-form-7 id="000" ...]  پایین بگذارید.
+       (اگر ویجت «Shortcode» المنتور را ترجیح می‌دهید، این سکشن را تا قبل از
+        <div class="kv-cp__formbox"> جدا کنید و فرم را در ستون کناری بگذارید؛
+        اما ساده‌ترین راه همین است: شورت‌کد داخل همین HTML کار می‌کند.)
+    ۳) id سکشن (kv-cp-form) را تغییر ندهید؛ دکمه‌های سایر سکشن‌ها به آن لینک‌اند.
+============================================================================
+-->
+<section class="kv-cp" dir="rtl" aria-labelledby="kv-cp-form-h">
+  <div id="kv-cp-form" class="kv-cp__section kv-cp__section--split">
+    <div class="kv-cp__wrap">
+      <div class="kv-cp__split">
+
+        <div class="kv-cp__split-side" data-kv-reveal>
+          <span class="kv-cp__kicker">فرم تماس</span>
+          <h2 id="kv-cp-form-h" class="kv-cp__h2">پیام‌تان را بنویسید،<br>ما تماس می‌گیریم</h2>
+          <p class="kv-cp__sub">
+            فرم را پر کنید تا کارشناس همان واحد با شما تماس بگیرد. اگر عجله دارید،
+            از تماس تلفنی یا واتساپ استفاده کنید.
+          </p>
+
+          <ul class="kv-cp__ticks">
+            <li>پاسخ در کمتر از ۲ ساعت کاری</li>
+            <li>مشاوره‌ی فنی رایگان پیش از خرید</li>
+            <li>ارسال کاتالوگ و مشخصات فنی کامل</li>
+            <li>اطلاعات شما محرمانه می‌ماند</li>
+          </ul>
+
+          <a class="kv-cp__catalog" data-kv-catalog href="/kaverun-catalog.pdf" download>
+            <span class="kv-cp__catalog-ico" aria-hidden="true">
+              <svg viewBox="0 0 24 24" width="22" height="22"><path fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round" d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><path fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round" d="M7 10l5 5 5-5M12 15V3"/></svg>
+            </span>
+            <span class="kv-cp__catalog-body">
+              <span class="kv-cp__catalog-t">دانلود کاتالوگ محصولات</span>
+              <span class="kv-cp__catalog-s">فایل PDF مشخصات فنی کامل</span>
+            </span>
+          </a>
+
+          <div class="kv-cp__actions" style="margin-top:22px">
+            <a class="kv-cp__btn kv-cp__btn--ghost" href="tel:+989127551258" data-kv-tel-primary>تماس فوری</a>
+            <a class="kv-cp__btn kv-cp__btn--ghost" href="https://wa.me/989127551258" data-kv-wa target="_blank" rel="noopener">واتساپ</a>
+          </div>
+        </div>
+
+        <div class="kv-cp__split-form" data-kv-reveal>
+          <div class="kv-cp__formbox">
+            <h3 class="kv-cp__form-t">ثبت درخواست</h3>
+
+            <!-- ▼▼▼ شورت‌کد فرم تماس CF7 را اینجا بگذارید ▼▼▼ -->
+            [contact-form-7 id="000" title="کاوران — فرم تماس"]
+            <!-- ▲▲▲ شورت‌کد فرم تماس CF7 ▲▲▲ -->
+
+            <p class="kv-cp__note">
+              با ثبت این فرم، تماس کارشناسان کاوران را می‌پذیرید. اطلاعات شما نزد ما محفوظ است.
+            </p>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </div>
+</section>

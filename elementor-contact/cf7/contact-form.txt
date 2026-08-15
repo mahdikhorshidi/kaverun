@@ -1,0 +1,124 @@
+========================================================================
+ کاوران — فرم تماس | محتوای تب «فرم» در Contact Form 7
+ ------------------------------------------------------------------------
+ مسیر: پیشخوان وردپرس ← Contact ← Add New ← نام فرم: «کاوران — فرم تماس»
+ کل متن زیر (از خط ▼ تا خط ▲) را در تب Form کپی کنید.
+ نام فیلدها را تغییر ندهید؛ استایل و اسکریپت سکشن‌ها به همین نام‌ها وصل‌اند.
+   kv-subject : با کلیک روی کارت‌های دپارتمان خودکار پر می‌شود.
+========================================================================
+
+▼▼▼ تب Form ▼▼▼
+
+<div class="kv-cp__row">
+  <label class="kv-f">
+    <span class="kv-f__l">نام و نام خانوادگی <span>*</span></span>
+    [text* kv-name class:kv-f__i autocomplete:name placeholder "مثلاً محمد رضایی"]
+  </label>
+  <label class="kv-f">
+    <span class="kv-f__l">شماره تماس <span>*</span></span>
+    [tel* kv-phone class:kv-f__i minlength:10 maxlength:14 autocomplete:tel placeholder "0912xxxxxxx"]
+  </label>
+</div>
+
+<div class="kv-cp__row">
+  <label class="kv-f">
+    <span class="kv-f__l">نام شرکت / پروژه</span>
+    [text kv-company class:kv-f__i autocomplete:organization placeholder "اختیاری"]
+  </label>
+  <label class="kv-f">
+    <span class="kv-f__l">ایمیل</span>
+    [email kv-email class:kv-f__i autocomplete:email placeholder "name@example.com"]
+  </label>
+</div>
+
+<div class="kv-cp__row">
+  <label class="kv-f">
+    <span class="kv-f__l">موضوع درخواست <span>*</span></span>
+    <span class="kv-f__sel-wrap">
+      [select* kv-subject first_as_label class:kv-f__i class:kv-f__sel "انتخاب کنید…" "مشاوره خرید و استعلام قیمت" "خدمات پس از فروش" "قطعات یدکی" "درخواست نمایندگی" "همکاری و تأمین قطعه" "سایر موارد"]
+      <span class="kv-f__caret" aria-hidden="true"><svg viewBox="0 0 24 24" width="16" height="16"><path fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" d="m6 9 6 6 6-6"/></svg></span>
+    </span>
+  </label>
+  <label class="kv-f">
+    <span class="kv-f__l">محصول موردنظر</span>
+    <span class="kv-f__sel-wrap">
+      [select kv-product first_as_label class:kv-f__i class:kv-f__sel "مهم نیست / هنوز مشخص نیست" "مینی بیل مکانیکی کاوران" "بیل مکانیکی ۸.۵ تن کاوران" "لودر ۲.۵ تن کاوران" "لودر ۵.۵ تن کاوران" "اسکیدلودر کاوران (ERS65)" "لیفتراک کاوران"]
+      <span class="kv-f__caret" aria-hidden="true"><svg viewBox="0 0 24 24" width="16" height="16"><path fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" d="m6 9 6 6 6-6"/></svg></span>
+    </span>
+  </label>
+</div>
+
+<label class="kv-f">
+  <span class="kv-f__l">توضیحات <span>*</span></span>
+  [textarea* kv-message class:kv-f__i class:kv-f__ta rows:4 placeholder "کاربری دستگاه، حجم کار، استان محل پروژه یا هر نکته‌ای که کمک می‌کند بهتر راهنمایی‌تان کنیم."]
+</label>
+
+<div class="kv-cp__actions">
+  [submit "ارسال درخواست"]
+</div>
+
+▲▲▲ پایان تب Form ▲▲▲
+
+========================================================================
+ ⚠ درباره‌ی <p> و <br>هایی که CF7 خودکار اضافه می‌کند
+ ------------------------------------------------------------------------
+ وردپرس روی محتوای فرم wpautop اجرا می‌کند و خروجی چیزی شبیه این می‌شود:
+
+   <div class="kv-cp__row"><p><label class="kv-f"><br>...
+
+ این طبیعی است و **نیازی به کار خاصی ندارید**: بلوک 00-base.html یک بخش
+ «خنثی‌سازی wpautop» دارد که با دو قانون CSS این <p> و <br>ها را بی‌اثر
+ می‌کند و فرم دقیقاً مثل طراحی اصلی نمایش داده می‌شود.
+
+ اگر می‌خواهید خروجی HTML هم تمیز بماند (اختیاری):
+   بخش «۰» فایل cf7/functions-snippet.php را به functions.php اضافه کنید تا
+   wpautop فقط برای فرم‌های کاوران خاموش شود.
+========================================================================
+
+
+
+========================================================================
+ تب Mail
+========================================================================
+
+To:        info@kaverun.com
+From:      سایت کاوران <wordpress@kaverun.com>
+Subject:   [kv-subject] — درخواست جدید از سایت کاوران
+Additional headers:
+           Reply-To: [kv-email]
+
+Message body:
+------------------------------------------------------------------------
+درخواست جدید از فرم تماس سایت کاوران
+
+نام و نام خانوادگی: [kv-name]
+شماره تماس: [kv-phone]
+ایمیل: [kv-email]
+شرکت / پروژه: [kv-company]
+موضوع درخواست: [kv-subject]
+محصول موردنظر: [kv-product]
+
+توضیحات:
+[kv-message]
+
+------------------------------------------------------------------------
+ارسال‌شده از: [_url]
+تاریخ: [_date] [_time]
+IP: [_remote_ip]
+------------------------------------------------------------------------
+
+⚠ تیک «Use HTML content type» را نزنید (متن ساده بالا برای ایمیل مناسب است).
+   اگر From با دامنه‌ی سایت هم‌خوان نباشد ایمیل به اسپم می‌رود؛ حتماً از یک
+   افزونه‌ی SMTP (مثل WP Mail SMTP) استفاده کنید.
+
+
+========================================================================
+ تب Messages — پیام‌های پیشنهادی فارسی
+========================================================================
+
+ارسال موفق:            درخواست شما ثبت شد ✓ کارشناسان کاوران به‌زودی تماس می‌گیرند.
+خطای ارسال:            ارسال ناموفق بود. لطفاً مستقیم تماس بگیرید یا از واتساپ استفاده کنید.
+فیلد اجباری خالی:      این فیلد الزامی است.
+ایمیل نامعتبر:         ایمیل معتبر نیست.
+شماره نامعتبر:         شماره تماس معتبر نیست (مثلاً ۰۹۱۲۱۲۳۴۵۶۷).
+فرم ناقص:              لطفاً فیلدهای مشخص‌شده را کامل کنید.

@@ -1,0 +1,771 @@
+<!--
+============================================================================
+  KAVERUN — بلوک پایه‌ی صفحه‌ی «ارتباط با ما»  (00-base)
+  ---------------------------------------------------------------------------
+  این فایل «موتور» همه‌ی سکشن‌هاست: استایل مشترک + اسکریپت مشترک.
+  ✅ فقط یک بار در صفحه قرار بگیرد (بهتر است در بالاترین ویجت HTML صفحه).
+  ✅ بدون این بلوک، سکشن‌ها بدون استایل نمایش داده می‌شوند.
+  ---------------------------------------------------------------------------
+  پیکربندی: فقط بخش KV_CP در اسکریپت زیر را ویرایش کنید (شماره‌ها، ایمیل،
+  نشانی، ساعات کاری، لینک نقشه و کاتالوگ). بقیه‌ی سکشن‌ها خودکار به‌روز می‌شوند.
+============================================================================
+-->
+<script id="kv-cp-config">
+window.KV_CP = {
+  phones:    ['09127551258', '09121555551', '09121100330'],
+  fax:       '08642343456',
+  whatsapp:  '989127551258',
+  email:     'info@kaverun.com',
+  address:   'ساوه، شهر صنعتی کاوه، گروه صنعتی کاوران',
+  map:       'https://maps.google.com/?q=%D8%B4%D9%87%D8%B1+%D8%B5%D9%86%D8%B9%D8%AA%DB%8C+%DA%A9%D8%A7%D9%88%D9%87+%D8%B3%D8%A7%D9%88%D9%87',
+  hours:     'شنبه تا پنج‌شنبه، ۸:۰۰ تا ۱۷:۰۰',
+  openDays:  [6, 0, 1, 2, 3, 4],
+  openFrom:  8,
+  openTo:    17,
+  catalog:   '/kaverun-catalog.pdf'
+};
+</script>
+
+<style id="kv-cp-base-styles">
+.kv-cp, .kv-cp *, .kv-cp *::before, .kv-cp *::after { box-sizing: border-box; }
+
+.kv-cp {
+  --bg: #0b0c10;
+  --bg2: #0e1015;
+  --fg: #ffffff;
+  --muted: rgba(255,255,255,.72);
+  --faint: rgba(255,255,255,.5);
+  --accent: #FFC72C;
+  --ink: #111111;
+  --line: rgba(255,255,255,.10);
+  --card: rgba(255,255,255,.04);
+  --ease: cubic-bezier(.22,1,.36,1);
+
+  display: block; width: 100%; margin: 0; padding: 0;
+  background: var(--bg); color: var(--fg);
+  direction: rtl; font-family: inherit; overflow-x: hidden;
+}
+
+.kv-cp .kv-cp__wrap { position: relative; z-index: 1; max-width: 1180px; margin: 0 auto; padding: 0 clamp(16px, 5vw, 48px); }
+.kv-cp .kv-cp__wrap--narrow { max-width: 880px; }
+.kv-cp .kv-cp__section { position: relative; padding: clamp(52px, 8vw, 104px) 0; }
+.kv-cp .kv-cp__section--split { background: linear-gradient(180deg, rgba(255,255,255,.025), rgba(255,255,255,0)); }
+.kv-cp .kv-cp__section--agency { background: var(--bg2); }
+
+/* ---------- هیرو ---------- */
+.kv-cp .kv-cp__hero {
+  /* هیرو خودش سکشن است؛ padding داخلی دارد */
+  position: relative;
+  padding: clamp(48px, 9vw, 112px) 0 clamp(40px, 6vw, 72px);
+  background:
+    radial-gradient(80% 60% at 85% -10%, rgba(255,199,44,.13) 0%, rgba(255,199,44,0) 58%),
+    radial-gradient(70% 60% at 0% 100%, rgba(255,199,44,.07) 0%, rgba(255,199,44,0) 55%),
+    var(--bg);
+  overflow: hidden;
+}
+.kv-cp .kv-cp__hero::before {
+  content: ""; position: absolute; inset: 0;
+  background-image: linear-gradient(var(--line) 1px, transparent 1px),
+                    linear-gradient(90deg, var(--line) 1px, transparent 1px);
+  background-size: 46px 46px;
+  -webkit-mask-image: radial-gradient(85% 75% at 70% 0%, #000 0%, transparent 82%);
+          mask-image: radial-gradient(85% 75% at 70% 0%, #000 0%, transparent 82%);
+  opacity: .38; pointer-events: none;
+}
+
+.kv-cp .kv-cp__crumb { position: relative; z-index: 1; display: flex; align-items: center; gap: 8px; margin-bottom: 22px; font-size: 13px; color: var(--faint); }
+.kv-cp .kv-cp__crumb a { color: var(--faint); text-decoration: none; transition: color .18s var(--ease); }
+.kv-cp .kv-cp__crumb a:hover { color: var(--accent); }
+.kv-cp .kv-cp__crumb-sep { opacity: .5; }
+
+.kv-cp .kv-cp__eyebrow {
+  display: inline-flex; align-items: center; gap: 9px; margin: 0 0 20px;
+  padding: 8px 16px; border: 1px solid var(--line); border-radius: 999px;
+  background: rgba(255,255,255,.03);
+  font-size: clamp(12px, 1.2vw, 14px); font-weight: 700; color: var(--accent);
+}
+.kv-cp .kv-cp__dot { width: 8px; height: 8px; border-radius: 50%; background: var(--accent); animation: kvCpPulse 2.2s ease-out infinite; }
+.kv-cp .kv-cp__eyebrow.is-closed { color: var(--muted); }
+.kv-cp .kv-cp__eyebrow.is-closed .kv-cp__dot { background: var(--faint); animation: none; }
+@keyframes kvCpPulse {
+  0% { box-shadow: 0 0 0 0 rgba(255,199,44,.55); }
+  70% { box-shadow: 0 0 0 10px rgba(255,199,44,0); }
+  100% { box-shadow: 0 0 0 0 rgba(255,199,44,0); }
+}
+
+.kv-cp .kv-cp__title { margin: 0 0 18px; font-size: clamp(34px, 6.4vw, 68px); line-height: 1.15; font-weight: 800; letter-spacing: -.02em; }
+.kv-cp .kv-cp__brand { color: var(--accent); }
+.kv-cp .kv-cp__lede { margin: 0 0 32px; max-width: 62ch; font-size: clamp(14.5px, 1.7vw, 18px); line-height: 2.1; color: var(--muted); }
+.kv-cp .kv-cp__lede strong { color: #fff; font-weight: 700; }
+
+.kv-cp .kv-cp__quick { display: flex; flex-wrap: wrap; gap: 12px; margin-bottom: clamp(34px, 5vw, 56px); }
+.kv-cp .kv-cp__qa {
+  display: inline-flex; align-items: center; gap: 9px;
+  padding: 13px 22px; border-radius: 999px; text-decoration: none;
+  font-weight: 800; font-size: 14.5px; color: #fff;
+  border: 1px solid var(--line); background: rgba(255,255,255,.04);
+  transition: transform .18s var(--ease), border-color .18s, background-color .18s, box-shadow .2s;
+}
+.kv-cp .kv-cp__qa:hover { transform: translateY(-2px); border-color: rgba(255,255,255,.42); background: rgba(255,255,255,.09); }
+.kv-cp .kv-cp__qa--primary { background: var(--accent); color: var(--ink); border-color: transparent; box-shadow: 0 12px 30px rgba(255,199,44,.28); }
+.kv-cp .kv-cp__qa--primary:hover { background: var(--accent); box-shadow: 0 16px 38px rgba(255,199,44,.42); }
+.kv-cp .kv-cp__qa-ico { display: inline-flex; }
+.kv-cp .kv-cp__qa:focus-visible { outline: 3px solid var(--accent); outline-offset: 3px; }
+
+.kv-cp .kv-cp__trust {
+  list-style: none; margin: 0; padding: clamp(18px, 2.6vw, 26px) 0 0;
+  border-top: 1px solid var(--line);
+  display: grid; grid-template-columns: repeat(4, 1fr); gap: clamp(14px, 2.4vw, 30px);
+}
+.kv-cp .kv-cp__trust li { display: flex; flex-direction: column; gap: 5px; }
+.kv-cp .kv-cp__trust strong { font-size: clamp(19px, 2.6vw, 28px); font-weight: 800; color: var(--accent); letter-spacing: -.01em; }
+.kv-cp .kv-cp__trust span { font-size: 12.5px; color: var(--faint); line-height: 1.7; }
+
+/* ---------- سرتیتر بخش‌ها ---------- */
+.kv-cp .kv-cp__head { max-width: 62ch; margin: 0 0 clamp(26px, 4vw, 44px); }
+.kv-cp .kv-cp__head--center { margin-inline: auto; text-align: center; }
+.kv-cp .kv-cp__kicker { display: inline-block; margin-bottom: 12px; font-size: 12.5px; font-weight: 800; letter-spacing: .04em; color: var(--accent); }
+.kv-cp .kv-cp__h2 { margin: 0 0 14px; font-size: clamp(24px, 3.6vw, 40px); line-height: 1.3; font-weight: 800; letter-spacing: -.015em; }
+.kv-cp .kv-cp__sub { margin: 0; font-size: clamp(14px, 1.5vw, 16.5px); line-height: 2; color: var(--muted); }
+
+/* ---------- کارت‌های ارتباطی ---------- */
+.kv-cp .kv-cp__cards { display: grid; grid-template-columns: repeat(3, 1fr); gap: clamp(14px, 2vw, 20px); }
+.kv-cp .kv-cp__card {
+  display: flex; flex-direction: column; gap: 12px;
+  padding: clamp(20px, 2.6vw, 28px);
+  border: 1px solid var(--line); border-radius: 22px;
+  background: linear-gradient(180deg, rgba(255,255,255,.05), rgba(255,255,255,.015));
+  transition: transform .22s var(--ease), border-color .22s, box-shadow .22s;
+}
+.kv-cp .kv-cp__card:hover { transform: translateY(-3px); border-color: rgba(255,255,255,.24); box-shadow: 0 22px 50px rgba(0,0,0,.35); }
+.kv-cp .kv-cp__card--wide { grid-column: span 2; }
+.kv-cp .kv-cp__card--accent {
+  background: linear-gradient(180deg, rgba(255,199,44,.1), rgba(255,199,44,.02));
+  border-color: rgba(255,199,44,.26);
+}
+.kv-cp .kv-cp__card--accent:hover { border-color: rgba(255,199,44,.55); box-shadow: 0 22px 50px rgba(255,199,44,.14); }
+.kv-cp .kv-cp__card-head { display: flex; align-items: center; gap: 12px; }
+.kv-cp .kv-cp__ico {
+  flex: 0 0 auto; display: inline-flex; align-items: center; justify-content: center;
+  width: 44px; height: 44px; border-radius: 14px;
+  border: 1px solid var(--line); background: var(--card); color: var(--accent);
+}
+.kv-cp .kv-cp__card-t { margin: 0; font-size: 16.5px; font-weight: 800; }
+.kv-cp .kv-cp__card-note { margin: auto 0 0; font-size: 12.5px; line-height: 1.9; color: var(--faint); }
+.kv-cp .kv-cp__card-cta { margin-top: 4px; font-size: 13.5px; font-weight: 800; color: var(--accent); text-decoration: none; transition: opacity .18s; }
+.kv-cp .kv-cp__card-cta:hover { opacity: .78; }
+
+.kv-cp .kv-cp__nums { list-style: none; margin: 0; padding: 0; display: grid; gap: 8px; }
+.kv-cp .kv-cp__nums li, .kv-cp .kv-cp__num-row { display: flex; align-items: center; gap: 10px; }
+.kv-cp .kv-cp__num {
+  font-size: clamp(15px, 1.7vw, 18px); font-weight: 800; color: #fff;
+  text-decoration: none; letter-spacing: .02em; word-break: break-word;
+  transition: color .18s var(--ease);
+}
+.kv-cp a.kv-cp__num:hover { color: var(--accent); }
+.kv-cp .kv-cp__num--lg { font-size: clamp(18px, 2.2vw, 23px); color: var(--accent); }
+.kv-cp .kv-cp__num--addr { font-size: clamp(14.5px, 1.6vw, 17px); font-weight: 700; line-height: 1.9; }
+.kv-cp .kv-cp__copy {
+  flex: 0 0 auto; display: inline-flex; align-items: center; justify-content: center;
+  width: 30px; height: 30px; padding: 0; cursor: pointer;
+  border: 1px solid var(--line); border-radius: 9px;
+  background: rgba(255,255,255,.03); color: var(--faint);
+  transition: color .18s, border-color .18s, background-color .18s;
+}
+.kv-cp .kv-cp__copy:hover { color: var(--accent); border-color: rgba(255,199,44,.5); background: rgba(255,199,44,.08); }
+.kv-cp .kv-cp__copy:focus-visible { outline: 2px solid var(--accent); outline-offset: 2px; }
+
+/* ---------- دپارتمان‌ها ---------- */
+.kv-cp .kv-cp__deps { display: grid; grid-template-columns: repeat(4, 1fr); gap: clamp(14px, 2vw, 20px); }
+.kv-cp .kv-cp__dep {
+  position: relative; display: flex; flex-direction: column; gap: 10px;
+  padding: clamp(20px, 2.6vw, 28px); text-decoration: none; color: #fff;
+  border: 1px solid var(--line); border-radius: 22px; background: var(--card); overflow: hidden;
+  transition: transform .22s var(--ease), border-color .22s, background-color .22s;
+}
+.kv-cp .kv-cp__dep::after {
+  content: ""; position: absolute; inset-inline-end: 0; inset-block-start: 0;
+  width: 3px; height: 0; background: var(--accent);
+  transition: height .3s var(--ease);
+}
+.kv-cp .kv-cp__dep:hover { transform: translateY(-3px); border-color: rgba(255,255,255,.24); background: rgba(255,255,255,.07); }
+.kv-cp .kv-cp__dep:hover::after { height: 100%; }
+.kv-cp .kv-cp__dep--hl { background: linear-gradient(180deg, rgba(255,199,44,.09), rgba(255,199,44,.02)); border-color: rgba(255,199,44,.26); }
+.kv-cp .kv-cp__dep-n { font-size: 12.5px; font-weight: 800; color: var(--accent); letter-spacing: .08em; }
+.kv-cp .kv-cp__dep-t { margin: 0; font-size: 16.5px; font-weight: 800; line-height: 1.5; }
+.kv-cp .kv-cp__dep-d { margin: 0; font-size: 13.5px; line-height: 1.95; color: var(--muted); }
+.kv-cp .kv-cp__dep-cta { margin-top: auto; padding-top: 8px; font-size: 13px; font-weight: 800; color: var(--accent); }
+.kv-cp .kv-cp__dep:focus-visible { outline: 3px solid var(--accent); outline-offset: 3px; }
+
+/* ---------- split فرم ---------- */
+.kv-cp .kv-cp__split { display: grid; grid-template-columns: 1fr 1.08fr; gap: clamp(24px, 4vw, 56px); align-items: start; }
+.kv-cp .kv-cp__split-side { position: sticky; top: 96px; }
+.kv-cp .kv-cp__ticks { list-style: none; margin: 26px 0; padding: 0; display: grid; gap: 12px; }
+.kv-cp .kv-cp__ticks li { position: relative; padding-inline-start: 30px; font-size: 14.5px; line-height: 1.9; color: var(--muted); }
+.kv-cp .kv-cp__ticks li::before {
+  content: ""; position: absolute; inset-inline-start: 0; top: 6px;
+  width: 18px; height: 18px; border-radius: 50%;
+  background: rgba(255,199,44,.16);
+  box-shadow: inset 0 0 0 1px rgba(255,199,44,.5);
+}
+.kv-cp .kv-cp__ticks li::after {
+  content: ""; position: absolute; inset-inline-start: 6px; top: 11px;
+  width: 6px; height: 3px; border-inline-start: 2px solid var(--accent); border-bottom: 2px solid var(--accent);
+  transform: rotate(-45deg);
+}
+
+.kv-cp .kv-cp__catalog {
+  display: flex; align-items: center; gap: 14px; padding: 16px 18px;
+  border-radius: 18px; text-decoration: none; color: #fff;
+  border: 1px solid var(--line);
+  background: linear-gradient(180deg, rgba(255,199,44,.08), rgba(255,199,44,.02));
+  transition: transform .2s var(--ease), border-color .2s, box-shadow .2s;
+}
+.kv-cp .kv-cp__catalog:hover { transform: translateY(-2px); border-color: rgba(255,199,44,.5); box-shadow: 0 14px 34px rgba(255,199,44,.16); }
+.kv-cp .kv-cp__catalog-ico {
+  flex: 0 0 auto; display: inline-flex; align-items: center; justify-content: center;
+  width: 46px; height: 46px; border-radius: 14px; background: var(--accent); color: var(--ink);
+}
+.kv-cp .kv-cp__catalog-body { display: flex; flex-direction: column; gap: 3px; }
+.kv-cp .kv-cp__catalog-t { font-weight: 800; font-size: 15px; }
+.kv-cp .kv-cp__catalog-s { font-size: 12.5px; color: var(--muted); }
+
+/* ---------- فرم ---------- */
+.kv-cp .kv-cp__form {
+  width: 100%; padding: clamp(20px, 3vw, 34px);
+  border: 1px solid var(--line); border-radius: 24px;
+  background: linear-gradient(180deg, rgba(255,255,255,.05), rgba(255,255,255,.02));
+  backdrop-filter: blur(6px); -webkit-backdrop-filter: blur(6px);
+  box-shadow: 0 30px 70px rgba(0,0,0,.35);
+}
+.kv-cp .kv-cp__form--agency { max-width: 900px; margin: clamp(26px, 4vw, 44px) auto 0; }
+.kv-cp .kv-cp__form-t { margin: 0 0 20px; font-size: clamp(17px, 2vw, 21px); font-weight: 800; }
+.kv-cp .kv-cp__row { display: grid; grid-template-columns: 1fr 1fr; gap: 14px; }
+
+.kv-cp .kv-f { display: flex; flex-direction: column; gap: 7px; margin-bottom: 14px; }
+.kv-cp .kv-f__l { font-size: 13px; font-weight: 700; color: var(--muted); }
+.kv-cp .kv-f__l span { color: var(--accent); }
+.kv-cp .kv-f__i {
+  width: 100%; padding: 13px 15px; font: inherit; font-size: 15px; color: #fff;
+  background: rgba(255,255,255,.04); border: 1px solid var(--line); border-radius: 13px;
+  outline: none; transition: border-color .18s var(--ease), box-shadow .18s var(--ease), background-color .18s;
+}
+.kv-cp .kv-f__i::placeholder { color: rgba(255,255,255,.33); }
+.kv-cp .kv-f__i:focus { border-color: var(--accent); background: rgba(255,255,255,.06); box-shadow: 0 0 0 3px rgba(255,199,44,.18); }
+.kv-cp .kv-f__ta { resize: vertical; min-height: 96px; line-height: 1.95; }
+.kv-cp .kv-f__sel-wrap { position: relative; display: block; }
+.kv-cp .kv-f__sel { appearance: none; -webkit-appearance: none; -moz-appearance: none; padding-left: 42px; cursor: pointer; }
+.kv-cp .kv-f__sel option { background: #14161c; color: #fff; }
+.kv-cp .kv-f__caret { position: absolute; left: 14px; top: 50%; transform: translateY(-50%); color: var(--accent); pointer-events: none; display: inline-flex; }
+.kv-cp .kv-f.is-invalid .kv-f__i { border-color: #ff6b6b; box-shadow: 0 0 0 3px rgba(255,107,107,.15); }
+.kv-cp .kv-f__e { font-size: 12px; color: #ff8f8f; }
+.kv-cp .kv-f.is-invalid .kv-f__e { min-height: 14px; }
+
+.kv-cp .kv-cp__fieldset { margin: 0 0 16px; padding: 0; border: 0; }
+.kv-cp .kv-cp__fieldset legend { padding: 0 0 10px; }
+.kv-cp .kv-cp__checks { display: grid; grid-template-columns: repeat(2, 1fr); gap: 10px; }
+.kv-cp .kv-chk {
+  display: flex; align-items: center; gap: 10px; cursor: pointer;
+  padding: 11px 14px; border: 1px solid var(--line); border-radius: 13px;
+  background: rgba(255,255,255,.03); font-size: 13.5px; color: var(--muted);
+  transition: border-color .18s, background-color .18s, color .18s;
+}
+.kv-cp .kv-chk:hover { border-color: rgba(255,255,255,.3); color: #fff; }
+.kv-cp .kv-chk input { accent-color: var(--accent); width: 17px; height: 17px; }
+.kv-cp .kv-chk:has(input:checked) { border-color: rgba(255,199,44,.55); background: rgba(255,199,44,.08); color: #fff; }
+
+.kv-cp .kv-cp__actions { display: flex; flex-wrap: wrap; gap: 12px; margin-top: 6px; }
+.kv-cp .kv-cp__btn {
+  display: inline-flex; align-items: center; justify-content: center; gap: 8px;
+  padding: 14px 26px; border-radius: 999px; font: inherit;
+  font-weight: 800; font-size: 15px; text-decoration: none; cursor: pointer;
+  border: 2px solid transparent;
+  transition: transform .18s var(--ease), box-shadow .2s var(--ease), background-color .2s, border-color .2s;
+}
+.kv-cp .kv-cp__btn--primary { flex: 1 1 230px; background: var(--accent); color: var(--ink); box-shadow: 0 12px 30px rgba(255,199,44,.3); }
+.kv-cp .kv-cp__btn--primary:hover { transform: translateY(-2px); box-shadow: 0 16px 38px rgba(255,199,44,.45); }
+.kv-cp .kv-cp__btn--primary:disabled { opacity: .75; cursor: progress; transform: none; }
+.kv-cp .kv-cp__btn-ico { display: inline-flex; transition: transform .2s var(--ease); }
+.kv-cp .kv-cp__btn--primary:hover .kv-cp__btn-ico { transform: translateX(-4px); }
+.kv-cp .kv-cp__btn--ghost { background: rgba(255,255,255,.05); color: #fff; border-color: var(--line); }
+.kv-cp .kv-cp__btn--ghost:hover { border-color: rgba(255,255,255,.5); background: rgba(255,255,255,.1); }
+.kv-cp .kv-cp__btn:focus-visible { outline: 3px solid var(--accent); outline-offset: 3px; }
+
+.kv-cp .kv-cp__spin {
+  width: 16px; height: 16px; border-radius: 50%; display: none;
+  border: 2px solid rgba(17,17,17,.35); border-top-color: var(--ink);
+  animation: kvCpSpin .7s linear infinite;
+}
+.kv-cp .kv-cp__form.is-sending .kv-cp__spin { display: inline-block; }
+.kv-cp .kv-cp__form.is-sending .kv-cp__btn-ico { display: none; }
+@keyframes kvCpSpin { to { transform: rotate(360deg); } }
+
+.kv-cp .kv-cp__note { margin: 16px 0 0; font-size: 12.5px; color: var(--faint); line-height: 1.95; }
+.kv-cp .kv-cp__note.is-ok { color: #7ee2a8; font-weight: 700; }
+.kv-cp .kv-cp__note.is-err { color: #ff9c9c; font-weight: 700; }
+
+/* ---------- مزایای نمایندگی ---------- */
+.kv-cp .kv-cp__benefits { list-style: none; margin: 0; padding: 0; display: grid; grid-template-columns: repeat(4, 1fr); gap: clamp(12px, 2vw, 18px); }
+.kv-cp .kv-cp__benefits li { padding: 18px 20px; border: 1px solid var(--line); border-radius: 18px; background: var(--card); }
+.kv-cp .kv-cp__benefits h3 { margin: 0 0 6px; font-size: 14.5px; font-weight: 800; color: var(--accent); }
+.kv-cp .kv-cp__benefits p { margin: 0; font-size: 13px; line-height: 1.9; color: var(--muted); }
+
+/* ---------- محصولات ---------- */
+.kv-cp .kv-cp__prods { display: grid; grid-template-columns: repeat(3, 1fr); gap: clamp(12px, 1.8vw, 16px); }
+.kv-cp .kv-cp__prod {
+  display: flex; align-items: center; justify-content: space-between; gap: 12px;
+  padding: 18px 20px; text-decoration: none; color: #fff;
+  border: 1px solid var(--line); border-radius: 16px; background: var(--card);
+  transition: transform .2s var(--ease), border-color .2s, background-color .2s;
+}
+.kv-cp .kv-cp__prod:hover { transform: translateY(-2px); border-color: rgba(255,199,44,.45); background: rgba(255,199,44,.06); }
+.kv-cp .kv-cp__prod h3 { margin: 0; font-size: 15px; font-weight: 700; }
+.kv-cp .kv-cp__prod span { font-size: 12.5px; font-weight: 800; color: var(--accent); white-space: nowrap; }
+
+/* ---------- FAQ ---------- */
+.kv-cp .kv-cp__faq { display: grid; gap: 12px; }
+.kv-cp .kv-faq { border: 1px solid var(--line); border-radius: 16px; background: var(--card); overflow: hidden; }
+.kv-cp .kv-faq summary {
+  list-style: none; cursor: pointer; padding: 18px 20px;
+  font-size: 15px; font-weight: 700; color: #fff;
+  display: flex; align-items: center; justify-content: space-between; gap: 12px;
+  transition: color .18s;
+}
+.kv-cp .kv-faq summary::-webkit-details-marker { display: none; }
+.kv-cp .kv-faq summary::after {
+  content: "+"; flex: 0 0 auto; font-size: 20px; font-weight: 700; line-height: 1;
+  color: var(--accent); transition: transform .25s var(--ease);
+}
+.kv-cp .kv-faq[open] summary::after { transform: rotate(45deg); }
+.kv-cp .kv-faq summary:hover { color: var(--accent); }
+.kv-cp .kv-faq summary:focus-visible { outline: 3px solid var(--accent); outline-offset: -3px; }
+.kv-cp .kv-faq__a { padding: 0 20px 18px; }
+.kv-cp .kv-faq__a p { margin: 0; font-size: 14px; line-height: 2.05; color: var(--muted); }
+
+/* ---------- CTA پایانی ---------- */
+.kv-cp .kv-cp__final { padding: 0 0 clamp(72px, 10vw, 128px); }
+.kv-cp .kv-cp__final-box {
+  padding: clamp(28px, 5vw, 56px); text-align: center;
+  border: 1px solid rgba(255,199,44,.28); border-radius: 28px;
+  background:
+    radial-gradient(90% 120% at 50% 0%, rgba(255,199,44,.14) 0%, rgba(255,199,44,0) 62%),
+    linear-gradient(180deg, rgba(255,255,255,.05), rgba(255,255,255,.02));
+}
+.kv-cp .kv-cp__final-t { margin: 0 0 12px; font-size: clamp(21px, 3.2vw, 34px); line-height: 1.4; font-weight: 800; }
+.kv-cp .kv-cp__final-s { margin: 0 0 26px; font-size: clamp(14px, 1.5vw, 16.5px); color: var(--muted); }
+.kv-cp .kv-cp__final-actions { display: flex; flex-wrap: wrap; gap: 12px; justify-content: center; }
+.kv-cp .kv-cp__final-actions .kv-cp__btn--primary { flex: 0 0 auto; }
+
+/* ---------- نوار چسبان موبایل ---------- */
+.kv-cp .kv-cp__bar { display: none; }
+
+/* ---------- توست ---------- */
+.kv-cp-toast {
+  position: fixed; z-index: 60; inset-inline-start: 50%; bottom: 26px;
+  transform: translate(-50%, 20px); opacity: 0; pointer-events: none;
+  padding: 11px 20px; border-radius: 999px;
+  background: var(--accent); color: var(--ink);
+  font-size: 13.5px; font-weight: 800;
+  box-shadow: 0 14px 34px rgba(0,0,0,.4);
+  transition: opacity .25s var(--ease), transform .25s var(--ease);
+}
+.kv-cp-toast.is-on { opacity: 1; transform: translate(-50%, 0); }
+
+/* ---------- ریوال ---------- */
+.kv-cp [data-kv-reveal] { opacity: 0; transform: translateY(24px); transition: opacity .7s var(--ease), transform .7s var(--ease); }
+.kv-cp [data-kv-reveal].is-in { opacity: 1; transform: none; }
+
+/* ---------- رسپانسیو ---------- */
+@media (max-width: 1024px) {
+  .kv-cp .kv-cp__deps { grid-template-columns: repeat(2, 1fr); }
+  .kv-cp .kv-cp__benefits { grid-template-columns: repeat(2, 1fr); }
+  .kv-cp .kv-cp__prods { grid-template-columns: repeat(2, 1fr); }
+}
+@media (max-width: 900px) {
+  .kv-cp .kv-cp__split { grid-template-columns: 1fr; }
+  .kv-cp .kv-cp__split-side { position: static; }
+  .kv-cp .kv-cp__cards { grid-template-columns: repeat(2, 1fr); }
+  .kv-cp .kv-cp__card--wide { grid-column: span 2; }
+}
+@media (max-width: 620px) {
+  .kv-cp .kv-cp__trust { grid-template-columns: repeat(2, 1fr); }
+  .kv-cp .kv-cp__deps { grid-template-columns: 1fr; }
+  .kv-cp .kv-cp__benefits { grid-template-columns: 1fr; }
+  .kv-cp .kv-cp__prods { grid-template-columns: 1fr; }
+  .kv-cp .kv-cp__cards { grid-template-columns: 1fr; }
+  .kv-cp .kv-cp__card, .kv-cp .kv-cp__card--wide { grid-column: span 1; }
+  .kv-cp .kv-cp__row { grid-template-columns: 1fr; gap: 0; }
+  .kv-cp .kv-cp__checks { grid-template-columns: 1fr; }
+  .kv-cp .kv-cp__btn--primary, .kv-cp .kv-cp__btn--ghost { flex: 1 1 auto; width: 100%; }
+  .kv-cp .kv-cp__qa { flex: 1 1 auto; justify-content: center; }
+
+  /* نوار تماس چسبان */
+  body.kv-cp-has-bar { padding-bottom: 72px; }
+  .kv-cp .kv-cp__bar {
+    position: fixed; z-index: 55; inset-inline: 0; bottom: 0;
+    display: grid; grid-template-columns: 1fr 1fr 1.2fr; gap: 8px;
+    padding: 9px 10px calc(9px + env(safe-area-inset-bottom, 0px));
+    background: rgba(11,12,16,.92);
+    backdrop-filter: blur(10px); -webkit-backdrop-filter: blur(10px);
+    border-top: 1px solid var(--line);
+  }
+  .kv-cp .kv-cp__bar-b {
+    display: inline-flex; align-items: center; justify-content: center; gap: 7px;
+    padding: 12px 8px; border-radius: 13px; text-decoration: none;
+    font-size: 13.5px; font-weight: 800; color: #fff;
+    border: 1px solid var(--line); background: rgba(255,255,255,.05);
+  }
+  .kv-cp .kv-cp__bar-b--cta { background: var(--accent); color: var(--ink); border-color: transparent; }
+  .kv-cp-toast { bottom: 84px; }
+}
+@media (max-width: 400px) {
+  .kv-cp .kv-cp__title { font-size: 30px; }
+}
+@media (prefers-reduced-motion: reduce) {
+  .kv-cp *, .kv-cp *::before, .kv-cp *::after { animation: none !important; transition: none !important; }
+  .kv-cp [data-kv-reveal] { opacity: 1 !important; transform: none !important; }
+}
+
+/* ==========================================================================
+   سازگاری با Contact Form 7  (فرم‌ها با CF7 ساخته می‌شوند)
+   ========================================================================== */
+
+/* پوسته‌ی کارت فرم — چه فرم CF7 داخلش باشد چه هر فرم دیگر */
+.kv-cp .kv-cp__formbox {
+  width: 100%; padding: clamp(20px, 3vw, 34px);
+  border: 1px solid var(--line); border-radius: 24px;
+  background: linear-gradient(180deg, rgba(255,255,255,.05), rgba(255,255,255,.02));
+  backdrop-filter: blur(6px); -webkit-backdrop-filter: blur(6px);
+  box-shadow: 0 30px 70px rgba(0,0,0,.35);
+}
+.kv-cp .kv-cp__formbox--agency { max-width: 900px; margin: clamp(26px, 4vw, 44px) auto 0; }
+
+/* CF7 هر فیلد را داخل span می‌پیچد */
+.kv-cp .wpcf7 { margin: 0; }
+.kv-cp .wpcf7-form { margin: 0; }
+.kv-cp .wpcf7-form-control-wrap { display: block; position: relative; }
+
+/* ---- خنثی‌سازی wpautop --------------------------------------------------
+   وردپرس/CF7 روی محتوای فرم wpautop اجرا می‌کند و خودکار <p> و <br> اضافه
+   می‌کند؛ این کار چیدمان دو-ستونه‌ی .kv-cp__row را به‌هم می‌ریزد.
+   دو قانون زیر آن‌ها را بی‌اثر می‌کند، بدون نیاز به هیچ کد PHP.
+   (<p>های ساخته‌شده توسط wpautop هیچ‌وقت کلاس ندارند، پس :not([class]) امن است.)
+   ---------------------------------------------------------------------- */
+.kv-cp .wpcf7-form p:not([class]) { display: contents; }
+.kv-cp .wpcf7-form > br,
+.kv-cp .wpcf7-form p > br,
+.kv-cp .wpcf7-form label > br,
+.kv-cp .wpcf7-form .kv-f__sel-wrap > br,
+.kv-cp .wpcf7-form fieldset > br { display: none; }
+.kv-cp .wpcf7 form .wpcf7-response-output { margin: 16px 0 0; padding: 12px 16px; border-radius: 13px; font-size: 13.5px; line-height: 1.9; }
+.kv-cp .wpcf7 form.sent .wpcf7-response-output { border: 1px solid rgba(126,226,168,.45); background: rgba(126,226,168,.10); color: #7ee2a8; }
+.kv-cp .wpcf7 form.invalid .wpcf7-response-output,
+.kv-cp .wpcf7 form.unaccepted .wpcf7-response-output,
+.kv-cp .wpcf7 form.payment-required .wpcf7-response-output { border: 1px solid rgba(255,156,156,.45); background: rgba(255,107,107,.10); color: #ff9c9c; }
+.kv-cp .wpcf7 form.failed .wpcf7-response-output,
+.kv-cp .wpcf7 form.aborted .wpcf7-response-output { border: 1px solid rgba(255,156,156,.45); background: rgba(255,107,107,.10); color: #ff9c9c; }
+
+/* پیام خطای زیر هر فیلد */
+.kv-cp .wpcf7-not-valid-tip { display: block; margin-top: 6px; font-size: 12px; color: #ff8f8f; }
+.kv-cp .wpcf7-form-control.wpcf7-not-valid { border-color: #ff6b6b; box-shadow: 0 0 0 3px rgba(255,107,107,.15); }
+
+/* اسپینر CF7 */
+.kv-cp .wpcf7-spinner { background-color: var(--accent); margin: 0 10px; }
+
+/* دکمه‌ی ارسال CF7 */
+.kv-cp .wpcf7 input[type="submit"] {
+  display: inline-flex; align-items: center; justify-content: center;
+  flex: 1 1 230px; padding: 14px 26px; border-radius: 999px; border: 2px solid transparent;
+  font: inherit; font-weight: 800; font-size: 15px; cursor: pointer;
+  background: var(--accent); color: var(--ink); box-shadow: 0 12px 30px rgba(255,199,44,.3);
+  transition: transform .18s var(--ease), box-shadow .2s var(--ease);
+  -webkit-appearance: none; appearance: none;
+}
+.kv-cp .wpcf7 input[type="submit"]:hover { transform: translateY(-2px); box-shadow: 0 16px 38px rgba(255,199,44,.45); }
+.kv-cp .wpcf7 input[type="submit"]:disabled { opacity: .7; cursor: progress; transform: none; }
+.kv-cp .wpcf7 input[type="submit"]:focus-visible { outline: 3px solid var(--accent); outline-offset: 3px; }
+
+/* چک‌باکس‌های CF7 با ظاهر kv-chk */
+.kv-cp .wpcf7-checkbox, .kv-cp .wpcf7-radio { display: grid; grid-template-columns: repeat(2, 1fr); gap: 10px; }
+.kv-cp .wpcf7-list-item { margin: 0; }
+.kv-cp .wpcf7-list-item label {
+  display: flex; align-items: center; gap: 10px; cursor: pointer;
+  padding: 11px 14px; border: 1px solid var(--line); border-radius: 13px;
+  background: rgba(255,255,255,.03); font-size: 13.5px; color: var(--muted);
+  transition: border-color .18s, background-color .18s, color .18s;
+}
+.kv-cp .wpcf7-list-item label:hover { border-color: rgba(255,255,255,.3); color: #fff; }
+.kv-cp .wpcf7-list-item input[type="checkbox"],
+.kv-cp .wpcf7-list-item input[type="radio"] { accent-color: var(--accent); width: 17px; height: 17px; }
+.kv-cp .wpcf7-list-item label:has(input:checked) { border-color: rgba(255,199,44,.55); background: rgba(255,199,44,.08); color: #fff; }
+.kv-cp .wpcf7-list-item-label { line-height: 1.7; }
+
+/* اکسپت (تیک قوانین) */
+.kv-cp .wpcf7-acceptance .wpcf7-list-item label { border: 0; background: transparent; padding: 4px 0; font-size: 12.5px; }
+
+@media (max-width: 620px) {
+  .kv-cp .wpcf7-checkbox, .kv-cp .wpcf7-radio { grid-template-columns: 1fr; }
+  .kv-cp .wpcf7 input[type="submit"] { width: 100%; }
+}
+</style>
+
+<script id="kv-cp-base-script">
+(function () {
+  'use strict';
+
+  if (window.__kvCpEngine) return;
+  window.__kvCpEngine = true;
+
+  var C = window.KV_CP || {};
+  var FA = '۰۱۲۳۴۵۶۷۸۹';
+
+  function toEn(s) { return String(s || '').replace(/[۰-۹]/g, function (c) { return FA.indexOf(c); }); }
+  function toFa(s) { return String(s || '').replace(/[0-9]/g, function (c) { return FA[+c]; }); }
+  function digits(s) { return toEn(s).replace(/[^\d+]/g, ''); }
+
+  /* شماره‌ی ایرانی 09xxxxxxxxx → +989xxxxxxxxx */
+  function telHref(raw) {
+    var n = digits(raw);
+    if (n.charAt(0) === '+') return n;
+    if (n.indexOf('98') === 0) return '+' + n;
+    if (n.charAt(0) === '0') return '+98' + n.slice(1);
+    return '+' + n;
+  }
+
+  /* گروه‌بندی خوانا: موبایل ۰۹۱۲ ۷۵۵ ۱۲۵۸ / ثابت ۰۸۶ ۴۲۳۴ ۳۴۵۶ */
+  function pretty(raw) {
+    var n = digits(raw).replace(/^\+/, '');
+    if (n.length === 11 && n.slice(0, 2) === '09') return toFa(n.slice(0, 4) + ' ' + n.slice(4, 7) + ' ' + n.slice(7));
+    if (n.length === 11 && n.charAt(0) === '0') return toFa(n.slice(0, 3) + ' ' + n.slice(3, 7) + ' ' + n.slice(7));
+    return toFa(n);
+  }
+
+  var phones = (C.phones || []).map(function (s) { return String(s).trim(); }).filter(Boolean);
+  var waNum = digits(C.whatsapp || '');
+  var primaryTel = telHref(phones[0] || waNum);
+
+  function waLink(text) {
+    return 'https://wa.me/' + waNum + (text ? '?text=' + encodeURIComponent(text) : '');
+  }
+
+  var COPY_SVG = '<svg viewBox="0 0 24 24" width="15" height="15" aria-hidden="true">' +
+    '<rect x="9" y="9" width="12" height="12" rx="2.5" fill="none" stroke="currentColor" stroke-width="1.8"/>' +
+    '<path fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" ' +
+    'd="M15 5.5A2.5 2.5 0 0 0 12.5 3h-7A2.5 2.5 0 0 0 3 5.5v7A2.5 2.5 0 0 0 5.5 15"/></svg>';
+
+  /* ==================== توست (اعلان کپی) ==================== */
+  var toast, toastTimer;
+  function showToast(msg) {
+    if (!toast) {
+      toast = document.createElement('div');
+      toast.className = 'kv-cp-toast';
+      toast.setAttribute('role', 'status');
+      toast.setAttribute('aria-live', 'polite');
+      document.body.appendChild(toast);
+    }
+    toast.textContent = msg;
+    toast.classList.add('is-on');
+    clearTimeout(toastTimer);
+    toastTimer = setTimeout(function () { toast.classList.remove('is-on'); }, 1900);
+  }
+
+  function copyText(text) {
+    if (navigator.clipboard && window.isSecureContext) return navigator.clipboard.writeText(text);
+    return new Promise(function (resolve, reject) {
+      var ta = document.createElement('textarea');
+      ta.value = text;
+      ta.setAttribute('readonly', '');
+      ta.style.cssText = 'position:fixed;top:-1000px;opacity:0';
+      document.body.appendChild(ta);
+      ta.select();
+      var ok = false;
+      try { ok = document.execCommand('copy'); } catch (e) { ok = false; }
+      document.body.removeChild(ta);
+      ok ? resolve() : reject();
+    });
+  }
+
+  /* ==================== تزریق مقادیر در یک سکشن ==================== */
+  function fillSection(root) {
+    /* شماره‌های تماس */
+    var listEl = root.querySelector('[data-kv-phones]');
+    if (listEl && phones.length) {
+      listEl.innerHTML = '';
+      phones.forEach(function (p) {
+        var li = document.createElement('li');
+
+        var a = document.createElement('a');
+        a.className = 'kv-cp__num';
+        a.href = 'tel:' + telHref(p);
+        a.setAttribute('itemprop', 'telephone');
+        a.setAttribute('dir', 'ltr');
+        a.textContent = pretty(p);
+
+        var btn = document.createElement('button');
+        btn.type = 'button';
+        btn.className = 'kv-cp__copy';
+        btn.setAttribute('data-kv-copy', digits(p));
+        btn.setAttribute('aria-label', 'کپی شماره ' + digits(p));
+        btn.innerHTML = COPY_SVG;
+
+        li.appendChild(a);
+        li.appendChild(btn);
+        listEl.appendChild(li);
+      });
+    }
+
+    root.querySelectorAll('[data-kv-tel-primary]').forEach(function (a) { a.href = 'tel:' + primaryTel; });
+
+    if (C.fax) {
+      var faxEl = root.querySelector('[data-kv-fax]');
+      if (faxEl) {
+        faxEl.textContent = pretty(C.fax);
+        var faxCopy = faxEl.parentNode.querySelector('[data-kv-copy]');
+        if (faxCopy) faxCopy.setAttribute('data-kv-copy', digits(C.fax));
+      }
+    }
+
+    if (C.email) {
+      root.querySelectorAll('[data-kv-email]').forEach(function (a) {
+        a.href = 'mailto:' + C.email;
+        a.textContent = C.email;
+        var c = a.parentNode.querySelector('[data-kv-copy]');
+        if (c) c.setAttribute('data-kv-copy', C.email);
+      });
+    }
+
+    if (C.address) {
+      root.querySelectorAll('[data-kv-address]').forEach(function (el) { el.textContent = C.address; });
+    }
+    if (C.hours) {
+      root.querySelectorAll('[data-kv-hours]').forEach(function (el) { el.textContent = C.hours; });
+    }
+    if (C.map) {
+      root.querySelectorAll('[data-kv-map]').forEach(function (a) { a.href = C.map; });
+    }
+    if (C.catalog) {
+      root.querySelectorAll('[data-kv-catalog]').forEach(function (a) { a.href = C.catalog; });
+    }
+    if (waNum) {
+      root.querySelectorAll('[data-kv-wa]').forEach(function (a) {
+        a.href = waLink(a.getAttribute('data-kv-wa-text') || '');
+        if (a.classList.contains('kv-cp__num')) a.textContent = pretty('0' + waNum.replace(/^98/, ''));
+      });
+    }
+
+    /* باز / بسته بودن دفتر */
+    var stateEl = root.querySelector('[data-kv-openstate]');
+    if (stateEl) {
+      var days = C.openDays || [];
+      var from = parseFloat(C.openFrom), to = parseFloat(C.openTo);
+      if (days.length && !isNaN(from) && !isNaN(to)) {
+        var now = new Date();
+        var open = days.indexOf(now.getDay()) !== -1 && now.getHours() >= from && now.getHours() < to;
+        stateEl.textContent = open
+          ? 'همین حالا پاسخ‌گوی شما هستیم'
+          : 'خارج از ساعت کاری — پیام بگذارید، اول وقت تماس می‌گیریم';
+        if (stateEl.parentNode.classList) stateEl.parentNode.classList.toggle('is-closed', !open);
+      }
+    }
+
+    /* نوار چسبان موبایل → فاصله‌ی انتهای صفحه */
+    if (root.querySelector('.kv-cp__bar')) document.body.classList.add('kv-cp-has-bar');
+  }
+
+  /* ==================== ریوال ==================== */
+  var io = null;
+  if ('IntersectionObserver' in window) {
+    io = new IntersectionObserver(function (entries) {
+      entries.forEach(function (e) {
+        if (!e.isIntersecting) return;
+        e.target.classList.add('is-in');
+        io.unobserve(e.target);
+      });
+    }, { rootMargin: '0px 0px -12% 0px', threshold: .12 });
+  }
+
+  function revealSection(root) {
+    var items = root.querySelectorAll('[data-kv-reveal]');
+    if (!io) {
+      items.forEach(function (el) { el.classList.add('is-in'); });
+      return;
+    }
+    items.forEach(function (el, i) {
+      el.style.transitionDelay = (Math.min(i % 6, 5) * 60) + 'ms';
+      io.observe(el);
+    });
+  }
+
+  /* ==================== راه‌اندازی سکشن‌ها ==================== */
+  function init() {
+    C = window.KV_CP || C;
+    document.querySelectorAll('.kv-cp').forEach(function (root) {
+      if (root.dataset.kvInit === '1') return;
+      root.dataset.kvInit = '1';
+      fillSection(root);
+      revealSection(root);
+    });
+  }
+
+  /* ==================== کپی با یک کلیک ==================== */
+  document.addEventListener('click', function (ev) {
+    var btn = ev.target.closest && ev.target.closest('[data-kv-copy]');
+    if (!btn) return;
+    ev.preventDefault();
+    copyText(btn.getAttribute('data-kv-copy'))
+      .then(function () { showToast('کپی شد ✓'); })
+      .catch(function () { showToast('کپی نشد — دستی انتخاب کنید'); });
+  });
+
+  /* ==================== مسیردهی دپارتمان‌ها به فرم CF7 ==================== */
+  /* کارت دپارتمان با data-kv-subject کلیک می‌شود → مقدار select موضوع در فرم ست می‌شود */
+  document.addEventListener('click', function (ev) {
+    var a = ev.target.closest && ev.target.closest('[data-kv-subject]');
+    if (!a) return;
+    var want = a.getAttribute('data-kv-subject');
+    var sel = document.querySelector('select[name="kv-subject"], [data-kv-subject-field]');
+    if (!sel) return;
+    Array.prototype.forEach.call(sel.options, function (o) {
+      if (o.text.trim() === want) sel.value = o.value || o.text;
+    });
+    try { sel.dispatchEvent(new Event('change', { bubbles: true })); } catch (e) {}
+  });
+
+  /* ==================== اسکرول نرم بین سکشن‌ها ==================== */
+  document.addEventListener('click', function (ev) {
+    var a = ev.target.closest && ev.target.closest('a[href^="#kv-cp-"]');
+    if (!a) return;
+    var target = document.querySelector(a.getAttribute('href'));
+    if (!target) return;
+    ev.preventDefault();
+    target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+    var focusable = target.querySelector('.kv-f__i, .wpcf7-form-control');
+    if (focusable) setTimeout(function () { focusable.focus({ preventScroll: true }); }, 600);
+  });
+
+  /* ==================== رویدادهای Contact Form 7 ==================== */
+  document.addEventListener('wpcf7mailsent', function (ev) {
+    var form = ev.target.closest ? ev.target.closest('.kv-cp') : null;
+    showToast('درخواست شما ثبت شد ✓');
+    if (form) form.scrollIntoView({ behavior: 'smooth', block: 'center' });
+  }, false);
+
+  document.addEventListener('wpcf7invalid', function () {
+    var tip = document.querySelector('.kv-cp .wpcf7-not-valid');
+    if (tip) tip.scrollIntoView({ behavior: 'smooth', block: 'center' });
+  }, false);
+
+  /* ==================== اجرا ==================== */
+  init();
+  if (document.readyState === 'loading') document.addEventListener('DOMContentLoaded', init);
+  window.addEventListener('load', init);
+  /* المنتور ممکن است ویجت‌ها را دیرتر رندر کند (پاپ‌آپ، لودر Ajax) */
+  if (window.jQuery) {
+    jQuery(window).on('elementor/frontend/init', function () {
+      if (window.elementorFrontend && elementorFrontend.hooks) {
+        elementorFrontend.hooks.addAction('frontend/element_ready/global', init);
+      }
+    });
+  }
+})();
+</script>

@@ -1,0 +1,48 @@
+<!--
+============================================================================
+  KAVERUN — سکشن «کارت‌های دپارتمان (مسیردهی درخواست به فرم)»
+  ---------------------------------------------------------------------------
+  در یک ویجت HTML المنتور Paste کنید.
+  ⚠ پیش‌نیاز: بلوک 00-base.html باید یک بار در همین صفحه (بالاتر از این سکشن)
+     قرار گرفته باشد؛ استایل و اسکریپت مشترک آنجاست.
+  نکته: کلیک روی هر کارت، فیلد «موضوع درخواست» فرم CF7 (نام فیلد: kv-subject) را خودکار پر می‌کند.
+============================================================================
+-->
+<section class="kv-cp" dir="rtl" aria-labelledby="kv-cp-dep">
+  <div class="kv-cp__section">
+    <div class="kv-cp__wrap">
+      <div class="kv-cp__head" data-kv-reveal>
+        <span class="kv-cp__kicker">درخواست‌تان را مسیردهی کنید</span>
+        <h2 id="kv-cp-dep" class="kv-cp__h2">با کدام واحد کار دارید؟</h2>
+        <p class="kv-cp__sub">انتخاب واحد درست، پاسخ را چند ساعت جلو می‌اندازد.</p>
+      </div>
+
+      <div class="kv-cp__deps">
+        <a class="kv-cp__dep" href="#kv-cp-form" data-kv-subject="مشاوره خرید و استعلام قیمت" data-kv-reveal>
+          <span class="kv-cp__dep-n" aria-hidden="true">۰۱</span>
+          <h3 class="kv-cp__dep-t">فروش و استعلام قیمت</h3>
+          <p class="kv-cp__dep-d">انتخاب دستگاه متناسب با پروژه، قیمت روز، شرایط پرداخت و زمان تحویل.</p>
+          <span class="kv-cp__dep-cta">ثبت درخواست ‹</span>
+        </a>
+        <a class="kv-cp__dep" href="#kv-cp-form" data-kv-subject="خدمات پس از فروش" data-kv-reveal>
+          <span class="kv-cp__dep-n" aria-hidden="true">۰۲</span>
+          <h3 class="kv-cp__dep-t">خدمات پس از فروش</h3>
+          <p class="kv-cp__dep-d">سرویس دوره‌ای، اعزام تکنسین، گارانتی و رفع ایراد دستگاه‌های در کار.</p>
+          <span class="kv-cp__dep-cta">ثبت درخواست ‹</span>
+        </a>
+        <a class="kv-cp__dep" href="#kv-cp-form" data-kv-subject="قطعات یدکی" data-kv-reveal>
+          <span class="kv-cp__dep-n" aria-hidden="true">۰۳</span>
+          <h3 class="kv-cp__dep-t">قطعات یدکی</h3>
+          <p class="kv-cp__dep-d">تأمین قطعات اصلی بیل، لودر، اسکیدلودر و لیفتراک با ارسال به سراسر کشور.</p>
+          <span class="kv-cp__dep-cta">ثبت درخواست ‹</span>
+        </a>
+        <a class="kv-cp__dep kv-cp__dep--hl" href="#kv-cp-agency" data-kv-reveal>
+          <span class="kv-cp__dep-n" aria-hidden="true">۰۴</span>
+          <h3 class="kv-cp__dep-t">نمایندگی و توسعه بازار</h3>
+          <p class="kv-cp__dep-d">همکاری به‌عنوان نماینده‌ی فروش و خدمات کاوران در استان خودتان.</p>
+          <span class="kv-cp__dep-cta">فرم نمایندگی ‹</span>
+        </a>
+      </div>
+    </div>
+  </div>
+</section>
