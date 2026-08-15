@@ -1,0 +1,120 @@
+========================================================================
+ کاوران — فرم درخواست نمایندگی | محتوای تب «فرم» در Contact Form 7
+ ------------------------------------------------------------------------
+ مسیر: پیشخوان وردپرس ← Contact ← Add New ← نام فرم: «کاوران — فرم نمایندگی»
+ کل متن زیر (از خط ▼ تا خط ▲) را در تب Form کپی کنید.
+========================================================================
+
+▼▼▼ تب Form ▼▼▼
+
+<div class="kv-cp__row">
+  <label class="kv-f">
+    <span class="kv-f__l">نام و نام خانوادگی <span>*</span></span>
+    [text* kv-name class:kv-f__i autocomplete:name placeholder "نام متقاضی"]
+  </label>
+  <label class="kv-f">
+    <span class="kv-f__l">نام شرکت / فروشگاه <span>*</span></span>
+    [text* kv-company class:kv-f__i autocomplete:organization placeholder "نام مجموعه"]
+  </label>
+</div>
+
+<div class="kv-cp__row">
+  <label class="kv-f">
+    <span class="kv-f__l">شماره تماس <span>*</span></span>
+    [tel* kv-phone class:kv-f__i minlength:10 maxlength:14 autocomplete:tel placeholder "0912xxxxxxx"]
+  </label>
+  <label class="kv-f">
+    <span class="kv-f__l">ایمیل</span>
+    [email kv-email class:kv-f__i autocomplete:email placeholder "name@example.com"]
+  </label>
+</div>
+
+<div class="kv-cp__row">
+  <label class="kv-f">
+    <span class="kv-f__l">استان <span>*</span></span>
+    <span class="kv-f__sel-wrap">
+      [select* kv-province first_as_label class:kv-f__i class:kv-f__sel "انتخاب استان…" "آذربایجان شرقی" "آذربایجان غربی" "اردبیل" "اصفهان" "البرز" "ایلام" "بوشهر" "تهران" "چهارمحال و بختیاری" "خراسان جنوبی" "خراسان رضوی" "خراسان شمالی" "خوزستان" "زنجان" "سمنان" "سیستان و بلوچستان" "فارس" "قزوین" "قم" "کردستان" "کرمان" "کرمانشاه" "کهگیلویه و بویراحمد" "گلستان" "گیلان" "لرستان" "مازندران" "مرکزی" "هرمزگان" "همدان" "یزد"]
+      <span class="kv-f__caret" aria-hidden="true"><svg viewBox="0 0 24 24" width="16" height="16"><path fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" d="m6 9 6 6 6-6"/></svg></span>
+    </span>
+  </label>
+  <label class="kv-f">
+    <span class="kv-f__l">شهر <span>*</span></span>
+    [text* kv-city class:kv-f__i placeholder "نام شهر"]
+  </label>
+</div>
+
+<div class="kv-cp__row">
+  <label class="kv-f">
+    <span class="kv-f__l">سابقه‌ی فعالیت در حوزه‌ی ماشین‌آلات <span>*</span></span>
+    <span class="kv-f__sel-wrap">
+      [select* kv-experience first_as_label class:kv-f__i class:kv-f__sel "انتخاب کنید…" "کمتر از ۲ سال" "۲ تا ۵ سال" "۵ تا ۱۰ سال" "بیش از ۱۰ سال"]
+      <span class="kv-f__caret" aria-hidden="true"><svg viewBox="0 0 24 24" width="16" height="16"><path fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" d="m6 9 6 6 6-6"/></svg></span>
+    </span>
+  </label>
+  <label class="kv-f">
+    <span class="kv-f__l">حوزه‌ی فعالیت فعلی</span>
+    [text kv-field class:kv-f__i placeholder "مثلاً فروش ماشین‌آلات راه‌سازی و قطعات"]
+  </label>
+</div>
+
+<fieldset class="kv-cp__fieldset">
+  <legend class="kv-f__l">امکانات موجود</legend>
+  [checkbox kv-facility use_label_element "نمایشگاه / محل عرضه" "انبار قطعات" "تیم خدمات پس از فروش" "ناوگان حمل"]
+</fieldset>
+
+<label class="kv-f">
+  <span class="kv-f__l">توضیحات تکمیلی</span>
+  [textarea kv-message class:kv-f__i class:kv-f__ta rows:4 placeholder "معرفی کوتاه مجموعه، بازار هدف، برندهایی که تاکنون نمایندگی داشته‌اید و پیش‌بینی فروش سالانه."]
+</label>
+
+<div class="kv-cp__actions">
+  [submit "ارسال درخواست نمایندگی"]
+</div>
+
+▲▲▲ پایان تب Form ▲▲▲
+
+
+========================================================================
+ تب Mail
+========================================================================
+
+To:        info@kaverun.com
+From:      سایت کاوران <wordpress@kaverun.com>
+Subject:   درخواست نمایندگی — [kv-company] ([kv-province])
+Additional headers:
+           Reply-To: [kv-email]
+
+Message body:
+------------------------------------------------------------------------
+درخواست نمایندگی جدید از سایت کاوران
+
+نام و نام خانوادگی: [kv-name]
+نام شرکت / فروشگاه: [kv-company]
+شماره تماس: [kv-phone]
+ایمیل: [kv-email]
+استان: [kv-province]
+شهر: [kv-city]
+سابقه‌ی فعالیت: [kv-experience]
+حوزه‌ی فعالیت فعلی: [kv-field]
+امکانات موجود: [kv-facility]
+
+توضیحات تکمیلی:
+[kv-message]
+
+------------------------------------------------------------------------
+ارسال‌شده از: [_url]
+تاریخ: [_date] [_time]
+IP: [_remote_ip]
+------------------------------------------------------------------------
+
+
+========================================================================
+ تب Messages — پیام‌های پیشنهادی فارسی
+========================================================================
+
+ارسال موفق:            درخواست نمایندگی شما ثبت شد ✓ واحد توسعه‌ی بازار ظرف یک هفته‌ی کاری تماس می‌گیرد.
+خطای ارسال:            ارسال ناموفق بود. لطفاً مستقیم تماس بگیرید یا از واتساپ استفاده کنید.
+فیلد اجباری خالی:      این فیلد الزامی است.
+ایمیل نامعتبر:         ایمیل معتبر نیست.
+شماره نامعتبر:         شماره تماس معتبر نیست (مثلاً ۰۹۱۲۱۲۳۴۵۶۷).
+فرم ناقص:              لطفاً فیلدهای مشخص‌شده را کامل کنید.
