@@ -1,0 +1,907 @@
+<!--
+============================================================================
+  KAVERUN — «صفحه‌ی محصول» مینی بیل مکانیکی | قالب سئومحور و مارکتینگی (Self-contained)
+  ---------------------------------------------------------------------------
+  یک قالب کامل و بدون هیچ وابستگی خارجی (CDN/فونت/jQuery/GSAP) برای صفحه‌ی
+  تک‌محصولِ «مینی بیل مکانیکی KAVERUN». هم‌استایل با صفحه‌ی «بیل مکانیکی ۸.۵ تن».
+  یک بلوک «Custom HTML» در وردپرس بسازید و کل این فایل را داخل آن Paste کنید.
+  ---------------------------------------------------------------------------
+  رعایت شده:
+   • SEO: <h1> معنایی، تیترهای h2/h3، متن مارکتینگ‌محور، داده‌ی ساختاریافته
+     JSON-LD (Product + Offer + BreadcrumbList + FAQPage + VideoObject)،
+     alt توصیفی، لینک‌سازی داخلی.
+   • Core Web Vitals: تصویر LCP با fetchpriority، ابعاد صریح برای CLS صفر،
+     ویدئو با preload=metadata، انیمیشن‌های GPU-محور، IntersectionObserver سبک.
+   • دسترس‌پذیری: prefers-reduced-motion، فوکوس کیبوردی، aria، آکاردئون و
+     لایت‌باکس کاملاً کیبورد-پذیر.
+  ---------------------------------------------------------------------------
+  ✎ نقاط قابل ویرایش (جست‌وجو کنید: «✎ ویرایش»):
+   • شماره‌های تماس  • تصاویر گالری  • لینک کاتالوگ
+============================================================================
+-->
+<article
+  id="kv-mpdp"
+  class="kv-mpdp"
+  dir="rtl"
+  lang="fa"
+  aria-labelledby="kv-mpdp-title"
+>
+  <!-- ═══════════ مسیر راهنما (Breadcrumb) ═══════════ -->
+  <nav class="kv-mpdp__crumbs" aria-label="مسیر راهنما">
+    <a href="https://kaverun.com/">خانه</a>
+    <span aria-hidden="true">›</span>
+    <a href="https://kaverun.com/products">محصولات</a>
+    <span aria-hidden="true">›</span>
+    <a href="https://kaverun.com/excavators">بیل مکانیکی</a>
+    <span aria-hidden="true">›</span>
+    <span aria-current="page">مینی بیل مکانیکی KAVERUN</span>
+  </nav>
+
+  <!-- ═══════════ هرو محصول ═══════════ -->
+  <header class="kv-mpdp__hero">
+    <div class="kv-mpdp__hero-copy" data-kv-reveal>
+      <p class="kv-mpdp__eyebrow">
+        <span class="kv-mpdp__dot" aria-hidden="true"></span>
+        مینی اکسکاواتور زنجیری · گروه صنعتی کاوران
+      </p>
+      <h1 id="kv-mpdp-title" class="kv-mpdp__title">
+        مینی بیل مکانیکی <span class="kv-mpdp__brand">KAVERUN</span>
+      </h1>
+      <p class="kv-mpdp__lede">
+        <strong>مینی بیل مکانیکی کاوران</strong> یک اکسکاواتور کوچک و چابک با موتور
+        <strong>YANMAR</strong>، <strong>باکت ۰.۰۵ متر مکعب</strong>، وزن عملیاتی
+        <strong>۱٬۹۵۳ کیلوگرم</strong> و <strong>عمق حفاری تا ۲۱۵۰ میلی‌متر</strong> است؛
+        ساخته‌شده برای کار در <strong>فضاهای محدود</strong> — محوطه‌سازی، حفر گودال و
+        ترانشه، کشاورزی و کاشت نهال، ساخت استخر و جکوزی و خطوط آب و فاضلاب.
+      </p>
+
+      <!-- نشان‌های اعتماد -->
+      <ul class="kv-mpdp__badges" aria-label="مزیت‌های خرید از کاوران">
+        <li>
+          <svg viewBox="0 0 24 24" aria-hidden="true"><path fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" d="M12 3l7 3v5c0 4.5-3 7.5-7 9-4-1.5-7-4.5-7-9V6l7-3z M9 12l2 2 4-4"/></svg>
+          گارانتی معتبر
+        </li>
+        <li>
+          <svg viewBox="0 0 24 24" aria-hidden="true"><path fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" d="M20.5 7.5l-8.5-4.5-8.5 4.5v9l8.5 4.5 8.5-4.5z M12 12l8.5-4.5 M12 12v9 M12 12L3.5 7.5"/></svg>
+          تأمین قطعات یدکی
+        </li>
+        <li>
+          <svg viewBox="0 0 24 24" aria-hidden="true"><path fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" d="M14 4h-3v9l6 3 M20.5 12a8.5 8.5 0 1 1-17 0 8.5 8.5 0 0 1 17 0z"/></svg>
+          خدمات پس از فروش
+        </li>
+      </ul>
+
+      <!-- دکمه‌های اقدام -->
+      <div class="kv-mpdp__actions">
+        <a class="kv-mpdp__btn kv-mpdp__btn--primary" href="#kv-mpdp-contact"
+           aria-label="استعلام قیمت و مشاوره خرید مینی بیل مکانیکی کاوران">
+          استعلام قیمت و مشاوره
+          <svg viewBox="0 0 24 24" aria-hidden="true"><path fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" d="M15 6l-6 6 6 6"/></svg>
+        </a>
+        <!-- ✎ ویرایش: شماره تماس واقعی را جایگزین کنید -->
+        <a class="kv-mpdp__btn kv-mpdp__btn--ghost" href="tel:+982100000000"
+           aria-label="تماس تلفنی با کارشناسان فروش کاوران">
+          <svg viewBox="0 0 24 24" aria-hidden="true"><path fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" d="M4 5c0 9 6 15 15 15l0-3.5-4-1.5-2 2c-2.5-1.2-4.8-3.5-6-6l2-2-1.5-4L4 5z"/></svg>
+          تماس مستقیم
+        </a>
+      </div>
+    </div>
+
+    <figure class="kv-mpdp__hero-media" data-kv-reveal>
+      <span class="kv-mpdp__glow" aria-hidden="true"></span>
+      <!-- تصویر اصلی محصول (LCP) -->
+      <img
+        class="kv-mpdp__hero-img"
+        src="https://kaverun.com/wp-content/uploads/2024/01/000-removebg-preview.png"
+        width="566" height="441" fetchpriority="high" decoding="async"
+        alt="مینی بیل مکانیکی کاوران؛ مینی اکسکاواتور زنجیری با باکت ۰.۰۵ متر مکعب و موتور YANMAR"
+      />
+      <!-- تراشه‌های مشخصات کلیدی روی تصویر -->
+      <figcaption class="kv-mpdp__hero-chips" aria-hidden="true">
+        <span>وزن ۱.۹۵ تن</span>
+        <span>باکت ۰.۰۵ m³</span>
+        <span>موتور YANMAR</span>
+      </figcaption>
+    </figure>
+  </header>
+
+  <!-- ═══════════ نوار آمار کلیدی ═══════════ -->
+  <section class="kv-mpdp__stats" aria-label="مشخصات کلیدی مینی بیل مکانیکی">
+    <div class="kv-mpdp__stat" data-kv-reveal>
+      <span class="kv-mpdp__stat-num">۱۳.۹</span>
+      <span class="kv-mpdp__stat-unit">اسب بخار</span>
+      <span class="kv-mpdp__stat-label">قدرت موتور</span>
+    </div>
+    <div class="kv-mpdp__stat" data-kv-reveal>
+      <span class="kv-mpdp__stat-num">۰.۰۵</span>
+      <span class="kv-mpdp__stat-unit">متر مکعب</span>
+      <span class="kv-mpdp__stat-label">ظرفیت باکت</span>
+    </div>
+    <div class="kv-mpdp__stat" data-kv-reveal>
+      <span class="kv-mpdp__stat-num">۱.۹۵</span>
+      <span class="kv-mpdp__stat-unit">تن</span>
+      <span class="kv-mpdp__stat-label">وزن عملیاتی</span>
+    </div>
+    <div class="kv-mpdp__stat" data-kv-reveal>
+      <span class="kv-mpdp__stat-num">۲۱۵۰</span>
+      <span class="kv-mpdp__stat-unit">میلی‌متر</span>
+      <span class="kv-mpdp__stat-label">حداکثر عمق حفر</span>
+    </div>
+  </section>
+
+  <!-- ═══════════ معرفی محصول ═══════════ -->
+  <section class="kv-mpdp__section" aria-labelledby="kv-mpdp-intro-h">
+    <div class="kv-mpdp__section-head" data-kv-reveal>
+      <span class="kv-mpdp__kicker">معرفی محصول</span>
+      <h2 id="kv-mpdp-intro-h" class="kv-mpdp__h2">مینی بیل مکانیکی کاوران؛ قدرت بیل مکانیکی در ابعاد کوچک</h2>
+    </div>
+    <div class="kv-mpdp__prose" data-kv-reveal>
+      <p>
+        مینی‌بیل‌ها کوچک‌تر و سبک‌تر از بیل‌های مکانیکی معمولی هستند؛ یعنی
+        <strong>آسیب سطحی به زمین، آسفالت و محوطه را به حداقل می‌رسانند</strong> و
+        می‌توانند در فضاهایی کار کنند که ورود یک بیل مکانیکی بزرگ در آن‌ها ممکن نیست.
+        با این حال قابلیت‌های آن‌ها مشابه بیل مکانیکی است و مزیت مانورپذیری را هم
+        به آن اضافه می‌کنند.
+      </p>
+      <p>
+        این ماشین‌ها بسته به ماهیت پروژه و نوع زمین با <strong>لینک و زنجیر</strong> یا
+        <strong>چرخ لاستیکی</strong> عرضه می‌شوند و می‌توانند انواع مختلفی از
+        <strong>اتصالات جانبی</strong> (باکت‌های مختلف، چکش هیدرولیک، اوگر، گریپر و مته)
+        را نصب کنند تا دامنه‌ی توانایی‌شان چند برابر شود.
+      </p>
+      <p>
+        <strong>مینی بیل مکانیکی کاوران</strong> با موتور <strong>YANMAR</strong> و
+        قدرت <strong>۱۳.۹ اسب بخار</strong>، باکت <strong>۰.۰۵ متر مکعبی</strong>،
+        وزن عملیاتی <strong>۱٬۹۵۳ کیلوگرم</strong> و پمپ هیدرولیک
+        <strong>Eaton/KYB Japan</strong> برای کار پیوسته و کم‌هزینه طراحی شده است.
+        برای عملیات سنگین‌تر و حجم خاک‌برداری بالاتر،
+        <a class="kv-mpdp__inline" href="https://kaverun.com/excavator-8-5-ton">بیل مکانیکی ۸.۵ تن کاوران</a>
+        و برای بارگیری و جابه‌جایی مصالح،
+        <a class="kv-mpdp__inline" href="https://kaverun.com/loader-5-5-ton">لودر ۵.۵ تن کاوران</a>
+        گزینه‌های مکمل این دستگاه هستند.
+      </p>
+    </div>
+  </section>
+
+  <!-- ═══════════ مشخصات فنی ═══════════ -->
+  <section class="kv-mpdp__section kv-mpdp__section--alt" aria-labelledby="kv-mpdp-specs-h">
+    <div class="kv-mpdp__section-head" data-kv-reveal>
+      <span class="kv-mpdp__kicker">جدول مشخصات</span>
+      <h2 id="kv-mpdp-specs-h" class="kv-mpdp__h2">مشخصات فنی مینی بیل مکانیکی KAVERUN</h2>
+    </div>
+
+    <dl class="kv-mpdp__specs" data-kv-reveal>
+      <div class="kv-mpdp__spec">
+        <svg class="kv-mpdp__spec-ic" viewBox="0 0 24 24" aria-hidden="true"><path fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" d="M4 8h10v8H4z M14 10h4l2 3v3h-6 M6.5 18.5a1.5 1.5 0 1 0 0-3 1.5 1.5 0 0 0 0 3z M17.5 18.5a1.5 1.5 0 1 0 0-3 1.5 1.5 0 0 0 0 3z"/></svg>
+        <dt>مدل موتور</dt><dd>YANMAR</dd>
+      </div>
+      <div class="kv-mpdp__spec">
+        <svg class="kv-mpdp__spec-ic" viewBox="0 0 24 24" aria-hidden="true"><path fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" d="M13 2L4 14h7l-1 8 9-12h-7l1-8z"/></svg>
+        <dt>قدرت موتور</dt><dd>۱۳.۹ اسب بخار</dd>
+      </div>
+      <div class="kv-mpdp__spec">
+        <svg class="kv-mpdp__spec-ic" viewBox="0 0 24 24" aria-hidden="true"><path fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" d="M12 3v12 M8 11l4 4 4-4 M4 20h16"/></svg>
+        <dt>حداکثر عمق حفر</dt><dd>۲۱۵۰ میلی‌متر</dd>
+      </div>
+      <div class="kv-mpdp__spec">
+        <svg class="kv-mpdp__spec-ic" viewBox="0 0 24 24" aria-hidden="true"><path fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" d="M4 14l3-7h6l4 5h3v4H4z M4 14v3h3 M17 17h3v-3"/></svg>
+        <dt>ظرفیت باکت</dt><dd>۰.۰۵ متر مکعب</dd>
+      </div>
+      <div class="kv-mpdp__spec">
+        <svg class="kv-mpdp__spec-ic" viewBox="0 0 24 24" aria-hidden="true"><path fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" d="M4 7h16v10H4z M8 7V5h8v2 M12 10v4 M9 12h6"/></svg>
+        <dt>وزن عملیاتی</dt><dd>۱٬۹۵۳ کیلوگرم</dd>
+      </div>
+      <div class="kv-mpdp__spec">
+        <svg class="kv-mpdp__spec-ic" viewBox="0 0 24 24" aria-hidden="true"><path fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" d="M5 12a7 7 0 1 1 14 0 M12 12l4-2 M12 12v-6 M4 12h1 M19 12h1 M12 20v-2"/></svg>
+        <dt>سرعت دستگاه</dt><dd>۴.۵ کیلومتر در ساعت</dd>
+      </div>
+      <div class="kv-mpdp__spec">
+        <svg class="kv-mpdp__spec-ic" viewBox="0 0 24 24" aria-hidden="true"><path fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" d="M3 12h4l2-5 4 12 2-7h6"/></svg>
+        <dt>برند هیدروپمپ</dt><dd>Eaton / KYB Japan</dd>
+      </div>
+      <div class="kv-mpdp__spec">
+        <svg class="kv-mpdp__spec-ic" viewBox="0 0 24 24" aria-hidden="true"><path fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" d="M5 20V6a2 2 0 0 1 2-2h6a2 2 0 0 1 2 2v14 M5 20h10 M15 9h2a2 2 0 0 1 2 2v5a1.5 1.5 0 0 1-3 0v-3 M8 8h4"/></svg>
+        <dt>ظرفیت مخزن سوخت</dt><dd>۱۹ لیتر</dd>
+      </div>
+      <div class="kv-mpdp__spec">
+        <svg class="kv-mpdp__spec-ic" viewBox="0 0 24 24" aria-hidden="true"><path fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" d="M4 17h16 M6 17v-3h12v3 M9 14V9h6v5 M12 9V5"/></svg>
+        <dt>سیستم حرکت</dt><dd>زنجیری (لینک و زنجیر)</dd>
+      </div>
+    </dl>
+  </section>
+
+  <!-- ═══════════ ویژگی‌ها و مزایا ═══════════ -->
+  <section class="kv-mpdp__section" aria-labelledby="kv-mpdp-feat-h">
+    <div class="kv-mpdp__section-head" data-kv-reveal>
+      <span class="kv-mpdp__kicker">چرا مینی بیل کاوران</span>
+      <h2 id="kv-mpdp-feat-h" class="kv-mpdp__h2">ویژگی‌ها و مزایای مینی بیل مکانیکی KAVERUN</h2>
+    </div>
+    <div class="kv-mpdp__features" data-kv-reveal>
+      <div class="kv-mpdp__feature">
+        <span class="kv-mpdp__feature-ic"><svg viewBox="0 0 24 24" aria-hidden="true"><path fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" d="M4 9V4h5 M20 9V4h-5 M4 15v5h5 M20 15v5h-5"/></svg></span>
+        <h3>ابعاد کوچک، مانور بالا</h3>
+        <p>اندازه‌ی جمع‌وجور نسبت به بیل مکانیکی‌های معمولی به شما اجازه می‌دهد در کوچه‌ها، حیاط‌ها و محوطه‌های بسته هم به‌راحتی کار کنید.</p>
+      </div>
+      <div class="kv-mpdp__feature">
+        <span class="kv-mpdp__feature-ic"><svg viewBox="0 0 24 24" aria-hidden="true"><path fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" d="M12 3a9 9 0 1 1 0 18 9 9 0 0 1 0-18z M12 7v5l3 2"/></svg></span>
+        <h3>بدون دم (Zero Tail)</h3>
+        <p>نداشتن دم بیرون‌زده باعث می‌شود دستگاه در فضاهای بسته و کنار دیوار، بدون برخورد و با خیال راحت بچرخد و مانور دهد.</p>
+      </div>
+      <div class="kv-mpdp__feature">
+        <span class="kv-mpdp__feature-ic"><svg viewBox="0 0 24 24" aria-hidden="true"><path fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" d="M4 14l3-7h6l4 5h3v4H4z M4 14v3h3 M17 17h3v-3"/></svg></span>
+        <h3>تنوع لوازم جانبی</h3>
+        <p>امکان نصب انواع اتصالات مانند باکت گودبردار، کشویی، چکش تخریب، اوگر و گریپر؛ یک دستگاه برای چند کاربرد مختلف.</p>
+      </div>
+      <div class="kv-mpdp__feature">
+        <span class="kv-mpdp__feature-ic"><svg viewBox="0 0 24 24" aria-hidden="true"><path fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" d="M3 12h4l2-5 4 12 2-7h6"/></svg></span>
+        <h3>هیدرولیک ژاپنی</h3>
+        <p>پمپ هیدرولیک Eaton/KYB ساخت ژاپن، حرکت نرم و دقیق بازو و باکت و پایداری عملکرد در چرخه‌های پیوسته کاری را تضمین می‌کند.</p>
+      </div>
+      <div class="kv-mpdp__feature">
+        <span class="kv-mpdp__feature-ic"><svg viewBox="0 0 24 24" aria-hidden="true"><path fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" d="M12 3l8 4v6c0 4-3.5 7-8 8-4.5-1-8-4-8-8V7l8-4z M9 12l2 2 4-4"/></svg></span>
+        <h3>کابین راحت و ایمن</h3>
+        <p>طراحی نوین و جادار کابین، دسترسی بهتر به کنترل‌ها، دید بازتر به محیط کار و خستگی کمتر اپراتور در شیفت‌های طولانی.</p>
+      </div>
+      <div class="kv-mpdp__feature">
+        <span class="kv-mpdp__feature-ic"><svg viewBox="0 0 24 24" aria-hidden="true"><path fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" d="M12 3l8 4v6c0 4-3.5 7-8 8-4.5-1-8-4-8-8V7l8-4z"/><path fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" d="M12 8v4l3 2"/></svg></span>
+        <h3>گارانتی و خدمات پس از فروش</h3>
+        <p>گارانتی معتبر، تأمین قطعات یدکی و پشتیبانی فنی کاوران، هزینه‌ی نگهداری و زمان توقف دستگاه را به حداقل می‌رساند.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══════════ کاربردها ═══════════ -->
+  <section class="kv-mpdp__section kv-mpdp__section--alt" aria-labelledby="kv-mpdp-use-h">
+    <div class="kv-mpdp__section-head" data-kv-reveal>
+      <span class="kv-mpdp__kicker">کجا به کار می‌آید</span>
+      <h2 id="kv-mpdp-use-h" class="kv-mpdp__h2">کاربردهای مینی بیل مکانیکی</h2>
+    </div>
+    <ul class="kv-mpdp__uses" data-kv-reveal aria-label="کاربردهای مینی بیل مکانیکی کاوران">
+      <li>محوطه‌سازی و تسطیح</li>
+      <li>حفر گودال و ترانشه</li>
+      <li>کشاورزی و کاشت نهال</li>
+      <li>ساخت استخر و جکوزی</li>
+      <li>خطوط آب و فاضلاب</li>
+      <li>استخراج و کارگاه‌های معدنی</li>
+      <li>تخریب سبک و جمع‌آوری نخاله</li>
+      <li>کار در فضاهای بسته و محدود</li>
+    </ul>
+  </section>
+
+  <!-- ═══════════ گالری تصاویر ═══════════ -->
+  <!--
+    ✎ ویرایش گالری: آدرس تصاویر واقعی گالری مینی بیل را از کتابخانه‌ی رسانه‌ی
+    وردپرس جایگزین کنید. برای هر آیتم دو جا را عوض کنید:
+      1) data-kv-full="آدرس تصویر بزرگ"     2) src="آدرس همان تصویر"
+    و متن alt را متناسب با تصویر بنویسید. اگر تصویری ندارید، کل آن بلوک دکمه/تصویر را حذف کنید.
+  -->
+  <section class="kv-mpdp__section" aria-labelledby="kv-mpdp-gal-h">
+    <div class="kv-mpdp__section-head" data-kv-reveal>
+      <span class="kv-mpdp__kicker">تصاویر واقعی</span>
+      <h2 id="kv-mpdp-gal-h" class="kv-mpdp__h2">گالری تصاویر مینی بیل مکانیکی</h2>
+    </div>
+    <div class="kv-mpdp__gallery" data-kv-reveal data-kv-gallery>
+      <button class="kv-mpdp__gitem" type="button" data-kv-full="https://kaverun.com/wp-content/uploads/2024/01/000-removebg-preview.png">
+        <img src="https://kaverun.com/wp-content/uploads/2024/01/000-removebg-preview.png" width="566" height="441" loading="lazy" decoding="async" alt="نمای کامل مینی بیل مکانیکی کاوران — تصویر ۱" />
+      </button>
+      <button class="kv-mpdp__gitem" type="button" data-kv-full="https://kaverun.com/wp-content/uploads/2024/01/000-removebg-preview.png">
+        <img src="https://kaverun.com/wp-content/uploads/2024/01/000-removebg-preview.png" width="566" height="441" loading="lazy" decoding="async" alt="مینی بیل مکانیکی کاوران؛ باکت و بازوی حفاری — تصویر ۲" />
+      </button>
+      <button class="kv-mpdp__gitem" type="button" data-kv-full="https://kaverun.com/wp-content/uploads/2024/01/000-removebg-preview.png">
+        <img src="https://kaverun.com/wp-content/uploads/2024/01/000-removebg-preview.png" width="566" height="441" loading="lazy" decoding="async" alt="کابین و زنجیرهای مینی بیل مکانیکی کاوران — تصویر ۳" />
+      </button>
+      <button class="kv-mpdp__gitem" type="button" data-kv-full="https://kaverun.com/wp-content/uploads/2024/01/000-removebg-preview.png">
+        <img src="https://kaverun.com/wp-content/uploads/2024/01/000-removebg-preview.png" width="566" height="441" loading="lazy" decoding="async" alt="مینی بیل مکانیکی کاوران در حال حفاری — تصویر ۴" />
+      </button>
+      <button class="kv-mpdp__gitem" type="button" data-kv-full="https://kaverun.com/wp-content/uploads/2024/01/000-removebg-preview.png">
+        <img src="https://kaverun.com/wp-content/uploads/2024/01/000-removebg-preview.png" width="566" height="441" loading="lazy" decoding="async" alt="نمای جانبی مینی اکسکاواتور زنجیری کاوران — تصویر ۵" />
+      </button>
+      <button class="kv-mpdp__gitem" type="button" data-kv-full="https://kaverun.com/wp-content/uploads/2024/01/000-removebg-preview.png">
+        <img src="https://kaverun.com/wp-content/uploads/2024/01/000-removebg-preview.png" width="566" height="441" loading="lazy" decoding="async" alt="مینی بیل مکانیکی کاوران در محوطه‌سازی — تصویر ۶" />
+      </button>
+    </div>
+  </section>
+
+  <!-- ═══════════ ویدئو ═══════════ -->
+  <section class="kv-mpdp__section kv-mpdp__section--alt" aria-labelledby="kv-mpdp-vid-h">
+    <div class="kv-mpdp__section-head" data-kv-reveal>
+      <span class="kv-mpdp__kicker">در حال کار</span>
+      <h2 id="kv-mpdp-vid-h" class="kv-mpdp__h2">ویدئوی عملکرد مینی بیل مکانیکی KAVERUN</h2>
+    </div>
+    <div class="kv-mpdp__video" data-kv-reveal>
+      <video
+        class="kv-mpdp__video-el"
+        preload="metadata" controls loop playsinline
+        controlslist="nodownload"
+        poster="https://kaverun.com/wp-content/uploads/2024/01/000-removebg-preview.png"
+        src="https://kaverun.com/wp-content/uploads/2024/01/Baumaschinen-6ton-Mini-Bagger-Raupen-Bagger-Mit-Kubota-Motor-CE-EPA-Bagger.mp4"
+      >
+        مرورگر شما از پخش ویدئو پشتیبانی نمی‌کند.
+      </video>
+    </div>
+  </section>
+
+  <!-- ═══════════ مینی بیل یا بیل مکانیکی؟ ═══════════ -->
+  <section class="kv-mpdp__section" aria-labelledby="kv-mpdp-cmp-h">
+    <div class="kv-mpdp__section-head" data-kv-reveal>
+      <span class="kv-mpdp__kicker">راهنمای انتخاب</span>
+      <h2 id="kv-mpdp-cmp-h" class="kv-mpdp__h2">مینی بیل مکانیکی بگیرم یا بیل مکانیکی ۸.۵ تن؟</h2>
+    </div>
+    <div class="kv-mpdp__cmp" data-kv-reveal>
+      <div class="kv-mpdp__cmp-card kv-mpdp__cmp-card--on">
+        <h3>مینی بیل مکانیکی کاوران</h3>
+        <ul>
+          <li>وزن عملیاتی ۱٬۹۵۳ کیلوگرم</li>
+          <li>باکت ۰.۰۵ متر مکعب</li>
+          <li>عمق حفاری تا ۲۱۵۰ میلی‌متر</li>
+          <li>مصرف سوخت پایین (مخزن ۱۹ لیتر)</li>
+          <li>مناسب فضاهای محدود و محوطه‌های آماده</li>
+          <li>حمل آسان با تریلی سبک</li>
+        </ul>
+      </div>
+      <div class="kv-mpdp__cmp-card">
+        <h3>بیل مکانیکی ۸.۵ تن کاوران</h3>
+        <ul>
+          <li>وزن عملیاتی ۸٬۷۷۰ کیلوگرم</li>
+          <li>باکت ۰.۳۲ متر مکعب</li>
+          <li>موتور ۶۵ اسب بخار، ۴ سیلندر</li>
+          <li>مناسب خاک‌برداری حجیم و معدن</li>
+          <li>تخریب و شکستن بتن</li>
+          <li>
+            <a class="kv-mpdp__inline" href="https://kaverun.com/excavator-8-5-ton">مشاهده صفحه محصول</a>
+          </li>
+        </ul>
+      </div>
+    </div>
+    <p class="kv-mpdp__cmp-note" data-kv-reveal>
+      اگر پروژه‌ی شما در فضای شهری، حیاط، باغ یا محوطه‌ی آماده است و نمی‌خواهید سطح
+      زمین آسیب ببیند، <strong>مینی بیل</strong> انتخاب درست است؛ برای خاک‌برداری
+      حجیم و عملیات سنگین، مدل‌های بزرگ‌تر مقرون‌به‌صرفه‌ترند. کارشناسان کاوران
+      رایگان به شما در انتخاب کمک می‌کنند.
+    </p>
+  </section>
+
+  <!-- ═══════════ سوالات متداول ═══════════ -->
+  <section class="kv-mpdp__section kv-mpdp__section--alt" aria-labelledby="kv-mpdp-faq-h">
+    <div class="kv-mpdp__section-head" data-kv-reveal>
+      <span class="kv-mpdp__kicker">قبل از خرید بدانید</span>
+      <h2 id="kv-mpdp-faq-h" class="kv-mpdp__h2">سوالات متداول درباره مینی بیل مکانیکی</h2>
+    </div>
+    <div class="kv-mpdp__faq" data-kv-reveal data-kv-faq>
+      <details class="kv-mpdp__qa">
+        <summary>موتور و قدرت مینی بیل مکانیکی کاوران چقدر است؟<span class="kv-mpdp__qa-ic" aria-hidden="true"></span></summary>
+        <div class="kv-mpdp__qa-body"><p>مینی بیل مکانیکی کاوران با موتور YANMAR و قدرت ۱۳.۹ اسب بخار عرضه می‌شود؛ ترکیبی از توان کافی برای حفاری و مصرف سوخت پایین برای کار طولانی.</p></div>
+      </details>
+      <details class="kv-mpdp__qa">
+        <summary>حداکثر عمق حفاری مینی بیل چقدر است؟<span class="kv-mpdp__qa-ic" aria-hidden="true"></span></summary>
+        <div class="kv-mpdp__qa-body"><p>حداکثر عمق حفر این دستگاه ۲۱۵۰ میلی‌متر (حدود ۲.۱۵ متر) است که برای حفر ترانشه، فونداسیون سبک، خطوط آب و فاضلاب و گودال کاشت نهال کافی است.</p></div>
+      </details>
+      <details class="kv-mpdp__qa">
+        <summary>ظرفیت باکت و وزن عملیاتی این مینی بیل چقدر است؟<span class="kv-mpdp__qa-ic" aria-hidden="true"></span></summary>
+        <div class="kv-mpdp__qa-body"><p>باکت این دستگاه ۰.۰۵ متر مکعب و وزن عملیاتی آن ۱٬۹۵۳ کیلوگرم است؛ سرعت حرکت دستگاه نیز تا ۴.۵ کیلومتر در ساعت می‌رسد.</p></div>
+      </details>
+      <details class="kv-mpdp__qa">
+        <summary>آیا مینی بیل به سطح زمین و آسفالت آسیب می‌زند؟<span class="kv-mpdp__qa-ic" aria-hidden="true"></span></summary>
+        <div class="kv-mpdp__qa-body"><p>به دلیل وزن کم و توزیع فشار روی زنجیر، مینی‌بیل‌ها آسیب سطحی بسیار کمتری نسبت به بیل‌های مکانیکی بزرگ وارد می‌کنند؛ به همین دلیل برای محوطه‌های آماده، حیاط و فضای سبز مناسب‌اند.</p></div>
+      </details>
+      <details class="kv-mpdp__qa">
+        <summary>چه لوازم جانبی روی مینی بیل کاوران نصب می‌شود؟<span class="kv-mpdp__qa-ic" aria-hidden="true"></span></summary>
+        <div class="kv-mpdp__qa-body"><p>انواع باکت (گودبردار، کشویی، ترانشه‌زنی)، چکش هیدرولیک برای تخریب، اوگر برای حفر چاله و گریپر برای جابه‌جایی مصالح؛ برای تطبیق اتصال موردنظر با دستگاه با کارشناسان ما تماس بگیرید.</p></div>
+      </details>
+      <details class="kv-mpdp__qa">
+        <summary>مصرف سوخت و ظرفیت مخزن چقدر است؟<span class="kv-mpdp__qa-ic" aria-hidden="true"></span></summary>
+        <div class="kv-mpdp__qa-body"><p>مخزن سوخت این مینی بیل ۱۹ لیتر است و با توجه به موتور کم‌مصرف، هزینه‌ی سوخت هر ساعت کارکرد به‌مراتب کمتر از بیل‌های مکانیکی بزرگ است.</p></div>
+      </details>
+      <details class="kv-mpdp__qa">
+        <summary>آیا مینی بیل مکانیکی کاوران گارانتی و خدمات پس از فروش دارد؟<span class="kv-mpdp__qa-ic" aria-hidden="true"></span></summary>
+        <div class="kv-mpdp__qa-body"><p>بله. تمام محصولات کاوران با گارانتی معتبر، تأمین قطعات یدکی و پشتیبانی فنی عرضه می‌شوند. برای جزئیات گارانتی با کارشناسان ما تماس بگیرید.</p></div>
+      </details>
+      <details class="kv-mpdp__qa">
+        <summary>قیمت مینی بیل مکانیکی کاوران چگونه اعلام می‌شود؟<span class="kv-mpdp__qa-ic" aria-hidden="true"></span></summary>
+        <div class="kv-mpdp__qa-body"><p>به‌دلیل نوسان بازار، قیمت به‌صورت روز و پس از استعلام اعلام می‌شود. کافی است فرم استعلام قیمت را پر کنید یا با شماره‌ی فروش تماس بگیرید.</p></div>
+      </details>
+    </div>
+  </section>
+
+  <!-- ═══════════ فراخوان اقدام / تماس ═══════════ -->
+  <section id="kv-mpdp-contact" class="kv-mpdp__cta" aria-labelledby="kv-mpdp-cta-h">
+    <div class="kv-mpdp__cta-inner" data-kv-reveal>
+      <h2 id="kv-mpdp-cta-h" class="kv-mpdp__cta-title">مینی بیل مکانیکی کاوران را همین امروز رزرو کنید</h2>
+      <p class="kv-mpdp__cta-lede">
+        کارشناسان فروش کاوران آماده‌ی مشاوره‌ی رایگان، اعلام قیمت روز و بررسی
+        شرایط خرید و تحویل هستند.
+      </p>
+      <div class="kv-mpdp__actions kv-mpdp__actions--center">
+        <!-- ✎ ویرایش: شماره تماس واقعی -->
+        <a class="kv-mpdp__btn kv-mpdp__btn--primary" href="tel:+982100000000" aria-label="تماس تلفنی برای خرید مینی بیل مکانیکی کاوران">
+          <svg viewBox="0 0 24 24" aria-hidden="true"><path fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" d="M4 5c0 9 6 15 15 15l0-3.5-4-1.5-2 2c-2.5-1.2-4.8-3.5-6-6l2-2-1.5-4L4 5z"/></svg>
+          تماس با فروش
+        </a>
+        <a class="kv-mpdp__btn kv-mpdp__btn--ghost" href="https://kaverun.com/contact" aria-label="فرم تماس و استعلام قیمت کاوران">
+          فرم استعلام قیمت
+        </a>
+      </div>
+    </div>
+  </section>
+</article>
+
+<style id="kv-mpdp-styles">
+/* ===== KAVERUN — Mini Excavator Product Page (scoped, بدون تداخل با تم) ===== */
+#kv-mpdp, #kv-mpdp *, #kv-mpdp *::before, #kv-mpdp *::after { box-sizing: border-box; }
+
+#kv-mpdp {
+  --kv-bg:      #0b0c10;
+  --kv-surface: #111318;
+  --kv-surface2:#15181f;
+  --kv-fg:      #ffffff;
+  --kv-muted:   rgba(255,255,255,.68);
+  --kv-faint:   rgba(255,255,255,.42);
+  --kv-accent:  #FFC72C;   /* زرد کاوران */
+  --kv-accent-2:#ffdf7e;
+  --kv-ink:     #14150f;
+  --kv-line:    rgba(255,255,255,.10);
+  --kv-line-2:  rgba(255,255,255,.06);
+  --kv-radius:  18px;
+  --kv-ease:    cubic-bezier(.22,1,.36,1);
+
+  position: relative; width: 100%; margin: 0;
+  padding: clamp(28px, 5vw, 64px) clamp(16px, 5vw, 72px) clamp(48px, 7vw, 96px);
+  background:
+    radial-gradient(120% 60% at 85% -5%, rgba(255,199,44,.10) 0%, rgba(255,199,44,0) 55%),
+    var(--kv-bg);
+  color: var(--kv-fg); direction: rtl; text-align: right;
+  font-family: 'Vazirmatn', 'IRANYekanX', 'IRANSans', Tahoma, system-ui, -apple-system, sans-serif;
+  line-height: 1.75; overflow: hidden;
+  -webkit-font-smoothing: antialiased;
+}
+#kv-mpdp a { color: inherit; }
+
+/* ---- مسیر راهنما ---- */
+#kv-mpdp .kv-mpdp__crumbs {
+  display: flex; flex-wrap: wrap; align-items: center; gap: 8px;
+  font-size: 13px; color: var(--kv-faint); margin: 0 0 clamp(24px,4vw,40px);
+}
+#kv-mpdp .kv-mpdp__crumbs a { text-decoration: none; transition: color .2s; }
+#kv-mpdp .kv-mpdp__crumbs a:hover { color: var(--kv-accent); }
+#kv-mpdp .kv-mpdp__crumbs span[aria-current] { color: var(--kv-fg); font-weight: 600; }
+
+/* ---- هرو ---- */
+#kv-mpdp .kv-mpdp__hero {
+  display: grid; grid-template-columns: 1.05fr .95fr; gap: clamp(24px, 4vw, 56px);
+  align-items: center; margin-bottom: clamp(32px, 5vw, 64px);
+}
+#kv-mpdp .kv-mpdp__eyebrow {
+  display: inline-flex; align-items: center; gap: 9px; margin: 0 0 18px;
+  padding: 7px 15px; border: 1px solid var(--kv-line); border-radius: 999px;
+  background: rgba(255,255,255,.03);
+  font-size: 13px; font-weight: 700; color: var(--kv-accent);
+}
+#kv-mpdp .kv-mpdp__dot {
+  width: 8px; height: 8px; border-radius: 50%; background: var(--kv-accent);
+  animation: kvmPulse 2.2s ease-out infinite;
+}
+@keyframes kvmPulse {
+  0% { box-shadow: 0 0 0 0 rgba(255,199,44,.55); }
+  70% { box-shadow: 0 0 0 10px rgba(255,199,44,0); }
+  100% { box-shadow: 0 0 0 0 rgba(255,199,44,0); }
+}
+#kv-mpdp .kv-mpdp__title {
+  margin: 0 0 16px; font-size: clamp(30px, 5.2vw, 58px);
+  line-height: 1.16; font-weight: 800; letter-spacing: -.01em; text-wrap: balance;
+}
+#kv-mpdp .kv-mpdp__brand { color: var(--kv-accent); }
+#kv-mpdp .kv-mpdp__lede {
+  margin: 0 0 22px; max-width: 56ch;
+  font-size: clamp(15px, 1.7vw, 18px); line-height: 1.95; color: var(--kv-muted);
+}
+#kv-mpdp .kv-mpdp__lede strong { color: #fff; font-weight: 700; }
+
+#kv-mpdp .kv-mpdp__badges {
+  display: flex; flex-wrap: wrap; gap: 10px; margin: 0 0 26px; padding: 0; list-style: none;
+}
+#kv-mpdp .kv-mpdp__badges li {
+  display: inline-flex; align-items: center; gap: 8px;
+  padding: 9px 14px; border-radius: 12px;
+  background: var(--kv-surface); border: 1px solid var(--kv-line);
+  font-size: 13.5px; font-weight: 600; color: rgba(255,255,255,.86);
+}
+#kv-mpdp .kv-mpdp__badges svg { width: 18px; height: 18px; color: var(--kv-accent); flex: none; }
+
+#kv-mpdp .kv-mpdp__actions { display: flex; flex-wrap: wrap; gap: 12px; }
+#kv-mpdp .kv-mpdp__actions--center { justify-content: center; }
+#kv-mpdp .kv-mpdp__btn {
+  display: inline-flex; align-items: center; gap: 8px;
+  padding: 14px 26px; border-radius: 999px;
+  font-weight: 700; font-size: 15px; text-decoration: none;
+  border: 2px solid transparent; cursor: pointer;
+  transition: transform .18s var(--kv-ease), box-shadow .2s var(--kv-ease), background-color .2s, border-color .2s;
+}
+#kv-mpdp .kv-mpdp__btn svg { width: 18px; height: 18px; transition: transform .2s var(--kv-ease); }
+#kv-mpdp .kv-mpdp__btn--primary {
+  background: var(--kv-accent); color: var(--kv-ink);
+  box-shadow: 0 12px 30px rgba(255,199,44,.28);
+}
+#kv-mpdp .kv-mpdp__btn--primary:hover { transform: translateY(-2px); box-shadow: 0 16px 40px rgba(255,199,44,.45); }
+#kv-mpdp .kv-mpdp__btn--primary:hover svg { transform: translateX(-4px); }
+#kv-mpdp .kv-mpdp__btn--ghost { background: rgba(255,255,255,.05); color: #fff; border-color: var(--kv-line); }
+#kv-mpdp .kv-mpdp__btn--ghost:hover { border-color: rgba(255,255,255,.5); background: rgba(255,255,255,.1); }
+#kv-mpdp .kv-mpdp__btn:focus-visible { outline: 3px solid var(--kv-accent); outline-offset: 3px; }
+
+#kv-mpdp .kv-mpdp__hero-media {
+  position: relative; margin: 0; display: flex; align-items: center; justify-content: center;
+  min-height: 260px;
+}
+#kv-mpdp .kv-mpdp__glow {
+  position: absolute; inset: 8% 8% 12%; border-radius: 50%;
+  background: radial-gradient(circle, rgba(255,199,44,.30) 0%, rgba(255,199,44,0) 65%);
+  filter: blur(14px); z-index: 0; pointer-events: none;
+}
+#kv-mpdp .kv-mpdp__hero-img {
+  position: relative; z-index: 1; width: 100%; max-width: 520px; height: auto;
+  object-fit: contain; filter: drop-shadow(0 24px 40px rgba(0,0,0,.5));
+}
+#kv-mpdp .kv-mpdp__hero-chips {
+  position: absolute; z-index: 2; inset-block-end: 4%; inset-inline-start: 0;
+  display: flex; flex-wrap: wrap; gap: 8px;
+}
+#kv-mpdp .kv-mpdp__hero-chips span {
+  padding: 7px 13px; border-radius: 999px; font-size: 12.5px; font-weight: 700;
+  color: #fff; background: rgba(17,19,24,.72);
+  border: 1px solid var(--kv-line); backdrop-filter: blur(6px);
+}
+
+/* ---- نوار آمار ---- */
+#kv-mpdp .kv-mpdp__stats {
+  display: grid; grid-template-columns: repeat(4, 1fr); gap: 12px;
+  margin-bottom: clamp(40px, 6vw, 80px);
+}
+#kv-mpdp .kv-mpdp__stat {
+  display: flex; flex-direction: column; align-items: center; text-align: center;
+  padding: 22px 14px; border-radius: var(--kv-radius);
+  background: linear-gradient(180deg, var(--kv-surface) 0%, var(--kv-surface2) 100%);
+  border: 1px solid var(--kv-line);
+}
+#kv-mpdp .kv-mpdp__stat-num {
+  font-size: clamp(26px, 3.8vw, 42px); font-weight: 800; color: var(--kv-accent);
+  line-height: 1; font-variant-numeric: tabular-nums;
+}
+#kv-mpdp .kv-mpdp__stat-unit { margin-top: 4px; font-size: 13px; color: var(--kv-fg); font-weight: 600; }
+#kv-mpdp .kv-mpdp__stat-label { margin-top: 8px; font-size: 12.5px; color: var(--kv-faint); }
+
+/* ---- سکشن عمومی ---- */
+#kv-mpdp .kv-mpdp__section {
+  position: relative; margin-inline: calc(clamp(16px, 5vw, 72px) * -1);
+  padding: clamp(40px, 6vw, 80px) clamp(16px, 5vw, 72px);
+}
+#kv-mpdp .kv-mpdp__section--alt {
+  background: linear-gradient(180deg, rgba(255,255,255,.02), rgba(255,255,255,0));
+  border-block: 1px solid var(--kv-line-2);
+}
+#kv-mpdp .kv-mpdp__section-head { max-width: 760px; margin: 0 0 clamp(24px, 4vw, 44px); }
+#kv-mpdp .kv-mpdp__kicker {
+  display: inline-block; font-size: 13px; font-weight: 700; letter-spacing: .04em;
+  color: var(--kv-accent); margin-bottom: 10px;
+}
+#kv-mpdp .kv-mpdp__h2 {
+  margin: 0; font-size: clamp(24px, 3.6vw, 38px); line-height: 1.3;
+  font-weight: 800; letter-spacing: -.01em; text-wrap: balance;
+}
+#kv-mpdp .kv-mpdp__prose { max-width: 68ch; }
+#kv-mpdp .kv-mpdp__prose p { margin: 0 0 16px; font-size: clamp(15px, 1.6vw, 17px); line-height: 2.05; color: var(--kv-muted); }
+#kv-mpdp .kv-mpdp__prose strong { color: #fff; font-weight: 700; }
+#kv-mpdp .kv-mpdp__inline, #kv-mpdp .kv-mpdp__prose a { color: var(--kv-accent); text-decoration: none; border-bottom: 1px solid rgba(255,199,44,.4); }
+#kv-mpdp .kv-mpdp__inline:hover { border-bottom-color: var(--kv-accent); }
+
+/* ---- مشخصات فنی ---- */
+#kv-mpdp .kv-mpdp__specs {
+  display: grid; grid-template-columns: repeat(3, 1fr); gap: 12px; margin: 0;
+}
+#kv-mpdp .kv-mpdp__spec {
+  display: flex; align-items: center; gap: 14px;
+  padding: 18px 18px; border-radius: 14px;
+  background: var(--kv-surface); border: 1px solid var(--kv-line);
+  transition: transform .2s var(--kv-ease), border-color .2s;
+}
+#kv-mpdp .kv-mpdp__spec:hover { transform: translateY(-3px); border-color: rgba(255,199,44,.5); }
+#kv-mpdp .kv-mpdp__spec-ic {
+  width: 30px; height: 30px; color: var(--kv-accent); flex: none;
+  padding: 6px; border-radius: 9px; background: rgba(255,199,44,.10);
+}
+#kv-mpdp .kv-mpdp__spec dt { margin: 0; font-size: 12.5px; color: var(--kv-faint); }
+#kv-mpdp .kv-mpdp__spec dd { margin: 2px 0 0; font-size: 15.5px; font-weight: 700; color: #fff; }
+
+/* ---- ویژگی‌ها ---- */
+#kv-mpdp .kv-mpdp__features { display: grid; grid-template-columns: repeat(3, 1fr); gap: 14px; }
+#kv-mpdp .kv-mpdp__feature {
+  padding: 26px 22px; border-radius: var(--kv-radius);
+  background: var(--kv-surface); border: 1px solid var(--kv-line);
+  transition: transform .2s var(--kv-ease), border-color .2s;
+}
+#kv-mpdp .kv-mpdp__feature:hover { transform: translateY(-4px); border-color: rgba(255,199,44,.5); }
+#kv-mpdp .kv-mpdp__feature-ic {
+  display: inline-flex; width: 46px; height: 46px; margin-bottom: 16px;
+  align-items: center; justify-content: center; border-radius: 12px;
+  background: rgba(255,199,44,.12); color: var(--kv-accent);
+}
+#kv-mpdp .kv-mpdp__feature-ic svg { width: 24px; height: 24px; }
+#kv-mpdp .kv-mpdp__feature h3 { margin: 0 0 8px; font-size: 18px; font-weight: 700; color: #fff; }
+#kv-mpdp .kv-mpdp__feature p { margin: 0; font-size: 14.5px; line-height: 1.9; color: var(--kv-muted); }
+
+/* ---- کاربردها ---- */
+#kv-mpdp .kv-mpdp__uses { display: flex; flex-wrap: wrap; gap: 12px; margin: 0; padding: 0; list-style: none; }
+#kv-mpdp .kv-mpdp__uses li {
+  display: inline-flex; align-items: center; gap: 8px;
+  padding: 12px 20px; border-radius: 999px;
+  background: var(--kv-surface); border: 1px solid var(--kv-line);
+  font-size: 15px; font-weight: 600; color: rgba(255,255,255,.9);
+}
+#kv-mpdp .kv-mpdp__uses li::before {
+  content: ""; width: 7px; height: 7px; border-radius: 50%; background: var(--kv-accent);
+}
+
+/* ---- گالری ---- */
+#kv-mpdp .kv-mpdp__gallery { display: grid; grid-template-columns: repeat(3, 1fr); gap: 12px; }
+#kv-mpdp .kv-mpdp__gitem {
+  padding: 0; border: 1px solid var(--kv-line); border-radius: var(--kv-radius);
+  overflow: hidden; cursor: zoom-in; background: var(--kv-surface);
+  aspect-ratio: 4 / 3; display: block;
+}
+#kv-mpdp .kv-mpdp__gitem img { width: 100%; height: 100%; object-fit: cover; display: block; transition: transform .4s var(--kv-ease); }
+#kv-mpdp .kv-mpdp__gitem:hover img { transform: scale(1.06); }
+#kv-mpdp .kv-mpdp__gitem:focus-visible { outline: 3px solid var(--kv-accent); outline-offset: 3px; }
+
+/* لایت‌باکس */
+#kv-mpdp-lb {
+  position: fixed; inset: 0; z-index: 99999; display: none;
+  align-items: center; justify-content: center; padding: 24px;
+  background: rgba(6,7,10,.9); backdrop-filter: blur(4px);
+}
+#kv-mpdp-lb.is-open { display: flex; }
+#kv-mpdp-lb img { max-width: 92vw; max-height: 86vh; border-radius: 12px; box-shadow: 0 30px 80px rgba(0,0,0,.6); }
+#kv-mpdp-lb .kv-mpdp__lb-close {
+  position: absolute; top: 20px; inset-inline-end: 20px; width: 46px; height: 46px;
+  border-radius: 50%; border: 1px solid rgba(255,255,255,.10); background: rgba(255,255,255,.08);
+  color: #fff; font-size: 24px; line-height: 1; cursor: pointer; display: grid; place-items: center;
+}
+#kv-mpdp-lb .kv-mpdp__lb-close:hover { background: rgba(255,255,255,.18); }
+
+/* ---- ویدئو ---- */
+#kv-mpdp .kv-mpdp__video {
+  border-radius: var(--kv-radius); overflow: hidden; border: 1px solid var(--kv-line);
+  background: #000; box-shadow: 0 24px 50px rgba(0,0,0,.4);
+}
+#kv-mpdp .kv-mpdp__video-el { display: block; width: 100%; height: auto; aspect-ratio: 16 / 9; object-fit: cover; }
+
+/* ---- مقایسه ---- */
+#kv-mpdp .kv-mpdp__cmp { display: grid; grid-template-columns: repeat(2, 1fr); gap: 14px; }
+#kv-mpdp .kv-mpdp__cmp-card {
+  padding: 26px 22px; border-radius: var(--kv-radius);
+  background: var(--kv-surface); border: 1px solid var(--kv-line);
+}
+#kv-mpdp .kv-mpdp__cmp-card--on {
+  border-color: rgba(255,199,44,.45);
+  background:
+    radial-gradient(90% 100% at 100% 0%, rgba(255,199,44,.10) 0%, rgba(255,199,44,0) 60%),
+    var(--kv-surface);
+}
+#kv-mpdp .kv-mpdp__cmp-card h3 { margin: 0 0 14px; font-size: 19px; font-weight: 800; color: #fff; }
+#kv-mpdp .kv-mpdp__cmp-card--on h3 { color: var(--kv-accent); }
+#kv-mpdp .kv-mpdp__cmp-card ul { margin: 0; padding: 0; list-style: none; display: grid; gap: 10px; }
+#kv-mpdp .kv-mpdp__cmp-card li {
+  display: flex; align-items: flex-start; gap: 9px;
+  font-size: 14.5px; line-height: 1.85; color: var(--kv-muted);
+}
+#kv-mpdp .kv-mpdp__cmp-card li::before {
+  content: ""; flex: none; margin-top: 10px; width: 6px; height: 6px;
+  border-radius: 50%; background: var(--kv-accent);
+}
+#kv-mpdp .kv-mpdp__cmp-note {
+  max-width: 72ch; margin: clamp(18px,3vw,28px) 0 0;
+  font-size: 14.5px; line-height: 2; color: var(--kv-muted);
+}
+#kv-mpdp .kv-mpdp__cmp-note strong { color: #fff; }
+
+/* ---- FAQ ---- */
+#kv-mpdp .kv-mpdp__faq { display: grid; gap: 10px; max-width: 820px; }
+#kv-mpdp .kv-mpdp__qa { border: 1px solid var(--kv-line); border-radius: 14px; background: var(--kv-surface); overflow: hidden; }
+#kv-mpdp .kv-mpdp__qa summary {
+  display: flex; align-items: center; justify-content: space-between; gap: 14px;
+  padding: 18px 20px; cursor: pointer; list-style: none;
+  font-size: 16px; font-weight: 700; color: #fff;
+}
+#kv-mpdp .kv-mpdp__qa summary::-webkit-details-marker { display: none; }
+#kv-mpdp .kv-mpdp__qa-ic { position: relative; width: 18px; height: 18px; flex: none; }
+#kv-mpdp .kv-mpdp__qa-ic::before, #kv-mpdp .kv-mpdp__qa-ic::after {
+  content: ""; position: absolute; background: var(--kv-accent); border-radius: 2px;
+  transition: transform .25s var(--kv-ease), opacity .25s;
+}
+#kv-mpdp .kv-mpdp__qa-ic::before { inset-block-start: 8px; inset-inline: 0; height: 2px; }
+#kv-mpdp .kv-mpdp__qa-ic::after { inset-inline-start: 8px; inset-block: 0; width: 2px; }
+#kv-mpdp .kv-mpdp__qa[open] .kv-mpdp__qa-ic::after { transform: scaleY(0); opacity: 0; }
+#kv-mpdp .kv-mpdp__qa-body { padding: 0 20px 20px; }
+#kv-mpdp .kv-mpdp__qa-body p { margin: 0; font-size: 14.5px; line-height: 1.95; color: var(--kv-muted); }
+#kv-mpdp .kv-mpdp__qa summary:focus-visible { outline: 3px solid var(--kv-accent); outline-offset: -3px; }
+
+/* ---- CTA ---- */
+#kv-mpdp .kv-mpdp__cta {
+  margin-top: clamp(24px, 4vw, 48px);
+  padding: clamp(36px, 5vw, 64px) clamp(20px, 4vw, 48px);
+  border-radius: clamp(20px, 3vw, 30px); text-align: center;
+  background:
+    radial-gradient(90% 120% at 50% 0%, rgba(255,199,44,.16) 0%, rgba(255,199,44,0) 60%),
+    linear-gradient(180deg, var(--kv-surface) 0%, var(--kv-surface2) 100%);
+  border: 1px solid rgba(255,199,44,.25);
+}
+#kv-mpdp .kv-mpdp__cta-inner { max-width: 640px; margin: 0 auto; }
+#kv-mpdp .kv-mpdp__cta-title { margin: 0 0 14px; font-size: clamp(22px, 3.4vw, 34px); font-weight: 800; text-wrap: balance; }
+#kv-mpdp .kv-mpdp__cta-lede { margin: 0 auto 26px; max-width: 52ch; font-size: clamp(14px,1.6vw,17px); line-height: 1.9; color: var(--kv-muted); }
+
+/* ---- Reveal on scroll ---- */
+#kv-mpdp [data-kv-reveal] { opacity: 0; transform: translateY(26px); transition: opacity .7s var(--kv-ease), transform .7s var(--kv-ease); }
+#kv-mpdp [data-kv-reveal].is-in { opacity: 1; transform: none; }
+
+/* ---- Responsive ---- */
+@media (max-width: 900px) {
+  #kv-mpdp .kv-mpdp__hero { grid-template-columns: 1fr; }
+  #kv-mpdp .kv-mpdp__hero-media { order: -1; }
+  #kv-mpdp .kv-mpdp__specs { grid-template-columns: repeat(2, 1fr); }
+  #kv-mpdp .kv-mpdp__features { grid-template-columns: repeat(2, 1fr); }
+  #kv-mpdp .kv-mpdp__cmp { grid-template-columns: 1fr; }
+}
+@media (max-width: 620px) {
+  #kv-mpdp .kv-mpdp__stats { grid-template-columns: repeat(2, 1fr); }
+  #kv-mpdp .kv-mpdp__gallery { grid-template-columns: repeat(2, 1fr); }
+  #kv-mpdp .kv-mpdp__hero-chips { position: static; margin-top: 14px; }
+}
+@media (max-width: 440px) {
+  #kv-mpdp .kv-mpdp__specs { grid-template-columns: 1fr; }
+  #kv-mpdp .kv-mpdp__features { grid-template-columns: 1fr; }
+  #kv-mpdp .kv-mpdp__actions .kv-mpdp__btn { flex: 1 1 auto; justify-content: center; }
+}
+@media (prefers-reduced-motion: reduce) {
+  #kv-mpdp * { animation: none !important; transition: none !important; }
+  #kv-mpdp [data-kv-reveal] { opacity: 1 !important; transform: none !important; }
+  #kv-mpdp .kv-mpdp__gitem img { transition: none !important; }
+}
+</style>
+
+<!-- لایت‌باکس گالری (خارج از جریان محتوا) -->
+<div class="kv-mpdp__lb" id="kv-mpdp-lb" role="dialog" aria-modal="true" aria-label="نمایش بزرگ تصویر" hidden>
+  <button class="kv-mpdp__lb-close" type="button" aria-label="بستن">×</button>
+  <img src="" alt="" />
+</div>
+
+<script id="kv-mpdp-script">
+(function () {
+  'use strict';
+  var root = document.getElementById('kv-mpdp');
+  if (!root || root.dataset.kvInit === '1') return;
+  root.dataset.kvInit = '1';
+
+  var reduced = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+  /* ── Reveal on scroll ── */
+  var reveals = root.querySelectorAll('[data-kv-reveal]');
+  if (reduced || !('IntersectionObserver' in window)) {
+    Array.prototype.forEach.call(reveals, function (el) { el.classList.add('is-in'); });
+  } else {
+    var io = new IntersectionObserver(function (entries) {
+      entries.forEach(function (e) {
+        if (e.isIntersecting) { e.target.classList.add('is-in'); io.unobserve(e.target); }
+      });
+    }, { threshold: 0.14, rootMargin: '0px 0px -8% 0px' });
+    Array.prototype.forEach.call(reveals, function (el) { io.observe(el); });
+  }
+
+  /* ── لایت‌باکس گالری ── */
+  var lb = document.getElementById('kv-mpdp-lb');
+  var lbImg = lb ? lb.querySelector('img') : null;
+  var lbClose = lb ? lb.querySelector('.kv-mpdp__lb-close') : null;
+  var lastFocus = null;
+
+  function onKey(e) { if (e.key === 'Escape') closeLb(); }
+  function openLb(src, alt) {
+    if (!lb) return;
+    lbImg.src = src; lbImg.alt = alt || '';
+    lb.hidden = false; lb.classList.add('is-open');
+    lastFocus = document.activeElement;
+    if (lbClose) lbClose.focus();
+    document.addEventListener('keydown', onKey);
+  }
+  function closeLb() {
+    if (!lb) return;
+    lb.classList.remove('is-open'); lb.hidden = true; lbImg.src = '';
+    document.removeEventListener('keydown', onKey);
+    if (lastFocus && lastFocus.focus) lastFocus.focus();
+  }
+
+  Array.prototype.forEach.call(
+    root.querySelectorAll('[data-kv-gallery] .kv-mpdp__gitem'),
+    function (btn) {
+      btn.addEventListener('click', function () {
+        var full = btn.getAttribute('data-kv-full');
+        var img = btn.querySelector('img');
+        openLb(full, img ? img.alt : '');
+      });
+    }
+  );
+  if (lb) {
+    lb.addEventListener('click', function (e) { if (e.target === lb) closeLb(); });
+    if (lbClose) lbClose.addEventListener('click', closeLb);
+  }
+})();
+</script>
+
+<!-- ═══════════ داده‌ی ساختاریافته (JSON-LD) ═══════════ -->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Product",
+  "name": "مینی بیل مکانیکی KAVERUN",
+  "image": [
+    "https://kaverun.com/wp-content/uploads/2024/01/000-removebg-preview.png"
+  ],
+  "description": "مینی بیل مکانیکی کاوران؛ مینی اکسکاواتور زنجیری با موتور YANMAR و قدرت ۱۳.۹ اسب بخار، باکت ۰.۰۵ متر مکعب، وزن عملیاتی ۱۹۵۳ کیلوگرم و حداکثر عمق حفر ۲۱۵۰ میلی‌متر؛ مناسب محوطه‌سازی، حفر گودال، کشاورزی، ساخت استخر و خطوط فاضلاب در فضاهای محدود.",
+  "brand": { "@type": "Brand", "name": "KAVERUN" },
+  "category": "مینی بیل مکانیکی زنجیری",
+  "sku": "KVR-MINI-EXCAVATOR",
+  "url": "https://kaverun.com/mini-excavator",
+  "additionalProperty": [
+    { "@type": "PropertyValue", "name": "مدل موتور", "value": "YANMAR" },
+    { "@type": "PropertyValue", "name": "قدرت موتور", "value": "۱۳.۹ اسب بخار" },
+    { "@type": "PropertyValue", "name": "حداکثر عمق حفر", "value": "۲۱۵۰ میلی‌متر" },
+    { "@type": "PropertyValue", "name": "ظرفیت باکت", "value": "۰.۰۵ متر مکعب" },
+    { "@type": "PropertyValue", "name": "وزن عملیاتی", "value": "۱۹۵۳ کیلوگرم" },
+    { "@type": "PropertyValue", "name": "سرعت دستگاه", "value": "۴.۵ کیلومتر در ساعت" },
+    { "@type": "PropertyValue", "name": "برند هیدروپمپ", "value": "Eaton/KYB Japan" },
+    { "@type": "PropertyValue", "name": "ظرفیت مخزن سوخت", "value": "۱۹ لیتر" }
+  ],
+  "offers": {
+    "@type": "Offer",
+    "priceCurrency": "IRR",
+    "availability": "https://schema.org/InStock",
+    "url": "https://kaverun.com/mini-excavator",
+    "seller": { "@type": "Organization", "name": "گروه صنعتی کاوران (KAVERUN)" }
+  }
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    { "@type": "ListItem", "position": 1, "name": "خانه", "item": "https://kaverun.com/" },
+    { "@type": "ListItem", "position": 2, "name": "محصولات", "item": "https://kaverun.com/products" },
+    { "@type": "ListItem", "position": 3, "name": "بیل مکانیکی", "item": "https://kaverun.com/excavators" },
+    { "@type": "ListItem", "position": 4, "name": "مینی بیل مکانیکی KAVERUN", "item": "https://kaverun.com/mini-excavator" }
+  ]
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    { "@type": "Question", "name": "موتور و قدرت مینی بیل مکانیکی کاوران چقدر است؟", "acceptedAnswer": { "@type": "Answer", "text": "مینی بیل مکانیکی کاوران با موتور YANMAR و قدرت ۱۳.۹ اسب بخار عرضه می‌شود؛ ترکیبی از توان کافی برای حفاری و مصرف سوخت پایین برای کار طولانی." } },
+    { "@type": "Question", "name": "حداکثر عمق حفاری مینی بیل چقدر است؟", "acceptedAnswer": { "@type": "Answer", "text": "حداکثر عمق حفر این دستگاه ۲۱۵۰ میلی‌متر (حدود ۲.۱۵ متر) است که برای حفر ترانشه، فونداسیون سبک، خطوط آب و فاضلاب و گودال کاشت نهال کافی است." } },
+    { "@type": "Question", "name": "ظرفیت باکت و وزن عملیاتی این مینی بیل چقدر است؟", "acceptedAnswer": { "@type": "Answer", "text": "باکت این دستگاه ۰.۰۵ متر مکعب و وزن عملیاتی آن ۱۹۵۳ کیلوگرم است؛ سرعت حرکت دستگاه نیز تا ۴.۵ کیلومتر در ساعت می‌رسد." } },
+    { "@type": "Question", "name": "آیا مینی بیل به سطح زمین و آسفالت آسیب می‌زند؟", "acceptedAnswer": { "@type": "Answer", "text": "به دلیل وزن کم و توزیع فشار روی زنجیر، مینی‌بیل‌ها آسیب سطحی بسیار کمتری نسبت به بیل‌های مکانیکی بزرگ وارد می‌کنند؛ به همین دلیل برای محوطه‌های آماده، حیاط و فضای سبز مناسب‌اند." } },
+    { "@type": "Question", "name": "چه لوازم جانبی روی مینی بیل کاوران نصب می‌شود؟", "acceptedAnswer": { "@type": "Answer", "text": "انواع باکت (گودبردار، کشویی، ترانشه‌زنی)، چکش هیدرولیک برای تخریب، اوگر برای حفر چاله و گریپر برای جابه‌جایی مصالح." } },
+    { "@type": "Question", "name": "مصرف سوخت و ظرفیت مخزن چقدر است؟", "acceptedAnswer": { "@type": "Answer", "text": "مخزن سوخت این مینی بیل ۱۹ لیتر است و با توجه به موتور کم‌مصرف، هزینه‌ی سوخت هر ساعت کارکرد به‌مراتب کمتر از بیل‌های مکانیکی بزرگ است." } },
+    { "@type": "Question", "name": "آیا مینی بیل مکانیکی کاوران گارانتی و خدمات پس از فروش دارد؟", "acceptedAnswer": { "@type": "Answer", "text": "بله. تمام محصولات کاوران با گارانتی معتبر، تأمین قطعات یدکی و پشتیبانی فنی عرضه می‌شوند." } },
+    { "@type": "Question", "name": "قیمت مینی بیل مکانیکی کاوران چگونه اعلام می‌شود؟", "acceptedAnswer": { "@type": "Answer", "text": "به‌دلیل نوسان بازار، قیمت به‌صورت روز و پس از استعلام اعلام می‌شود. کافی است فرم استعلام قیمت را پر کنید یا با شماره‌ی فروش تماس بگیرید." } }
+  ]
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "VideoObject",
+  "name": "ویدئوی عملکرد مینی بیل مکانیکی KAVERUN",
+  "description": "نمایش عملکرد مینی بیل مکانیکی زنجیری کاوران با باکت ۰.۰۵ متر مکعب در حال حفاری و کار در فضای محدود.",
+  "thumbnailUrl": "https://kaverun.com/wp-content/uploads/2024/01/000-removebg-preview.png",
+  "uploadDate": "2024-01-15",
+  "contentUrl": "https://kaverun.com/wp-content/uploads/2024/01/Baumaschinen-6ton-Mini-Bagger-Raupen-Bagger-Mit-Kubota-Motor-CE-EPA-Bagger.mp4"
+}
+</script>
+<!-- ============ END KAVERUN — صفحه محصول مینی بیل مکانیکی ============ -->
