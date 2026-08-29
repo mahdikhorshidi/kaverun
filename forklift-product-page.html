@@ -1,0 +1,908 @@
+<!--
+============================================================================
+  KAVERUN — «صفحه‌ی محصول» لیفتراک | قالب سئومحور و مارکتینگی (Self-contained)
+  ---------------------------------------------------------------------------
+  یک قالب کامل و بدون هیچ وابستگی خارجی (CDN/فونت/jQuery/GSAP) برای صفحه‌ی
+  تک‌محصولِ «لیفتراک KAVERUN». هم‌استایل با صفحه‌های «بیل مکانیکی ۸.۵ تن»،
+  «مینی بیل مکانیکی» و «اسکیدلودر». یک بلوک «Custom HTML» در وردپرس بسازید و
+  کل این فایل را داخل آن Paste کنید.
+  ---------------------------------------------------------------------------
+  رعایت شده:
+   • SEO: <h1> معنایی، تیترهای h2/h3، متن مارکتینگ‌محور، داده‌ی ساختاریافته
+     JSON-LD (Product + Offer + BreadcrumbList + FAQPage + VideoObject)،
+     alt توصیفی، لینک‌سازی داخلی، پوشش کلیدواژه‌های «لیفتراک»، «لیفتراک دیزلی»،
+     «لیفتراک برقی» و «لیفتراک گازی».
+   • Core Web Vitals: تصویر LCP با fetchpriority، ابعاد صریح برای CLS صفر،
+     ویدئو با preload=metadata، انیمیشن‌های GPU-محور، IntersectionObserver سبک.
+   • دسترس‌پذیری: prefers-reduced-motion، فوکوس کیبوردی، aria، آکاردئون و
+     لایت‌باکس کاملاً کیبورد-پذیر.
+  ---------------------------------------------------------------------------
+  ✎ نقاط قابل ویرایش (جست‌وجو کنید: «✎ ویرایش»):
+   • شماره‌های تماس  • تصاویر گالری
+============================================================================
+-->
+<article
+  id="kv-fpdp"
+  class="kv-fpdp"
+  dir="rtl"
+  lang="fa"
+  aria-labelledby="kv-fpdp-title"
+>
+  <!-- ═══════════ مسیر راهنما (Breadcrumb) ═══════════ -->
+  <nav class="kv-fpdp__crumbs" aria-label="مسیر راهنما">
+    <a href="https://kaverun.com/">خانه</a>
+    <span aria-hidden="true">›</span>
+    <a href="https://kaverun.com/products">محصولات</a>
+    <span aria-hidden="true">›</span>
+    <a href="https://kaverun.com/forklifts">لیفتراک</a>
+    <span aria-hidden="true">›</span>
+    <span aria-current="page">لیفتراک KAVERUN</span>
+  </nav>
+
+  <!-- ═══════════ هرو محصول ═══════════ -->
+  <header class="kv-fpdp__hero">
+    <div class="kv-fpdp__hero-copy" data-kv-reveal>
+      <p class="kv-fpdp__eyebrow">
+        <span class="kv-fpdp__dot" aria-hidden="true"></span>
+        لیفتراک دیزلی · برقی · گازی — گروه صنعتی کاوران
+      </p>
+      <h1 id="kv-fpdp-title" class="kv-fpdp__title">
+        لیفتراک <span class="kv-fpdp__brand">KAVERUN</span>
+      </h1>
+      <p class="kv-fpdp__lede">
+        <strong>لیفتراک کاوران</strong> در سه نوع <strong>دیزلی، برقی و گازی</strong>،
+        با <strong>ظرفیت بار ۱ تا ۵ تن</strong> و <strong>ارتفاع بالابری ۳ تا ۶ متر</strong>
+        عرضه می‌شود؛ ساخته‌شده برای ترابری، جابه‌جایی و انبار کردن بار در
+        کارخانه‌ها، انبارها، بنادر و مراکز توزیع — با انتخاب دقیق مدل متناسب با
+        محیط کار شما.
+      </p>
+
+      <!-- نشان‌های اعتماد -->
+      <ul class="kv-fpdp__badges" aria-label="مزیت‌های خرید از کاوران">
+        <li>
+          <svg viewBox="0 0 24 24" aria-hidden="true"><path fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" d="M12 3l7 3v5c0 4.5-3 7.5-7 9-4-1.5-7-4.5-7-9V6l7-3z M9 12l2 2 4-4"/></svg>
+          گارانتی معتبر
+        </li>
+        <li>
+          <svg viewBox="0 0 24 24" aria-hidden="true"><path fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" d="M20.5 7.5l-8.5-4.5-8.5 4.5v9l8.5 4.5 8.5-4.5z M12 12l8.5-4.5 M12 12v9 M12 12L3.5 7.5"/></svg>
+          تأمین قطعات یدکی
+        </li>
+        <li>
+          <svg viewBox="0 0 24 24" aria-hidden="true"><path fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" d="M14 4h-3v9l6 3 M20.5 12a8.5 8.5 0 1 1-17 0 8.5 8.5 0 0 1 17 0z"/></svg>
+          خدمات پس از فروش
+        </li>
+      </ul>
+
+      <!-- دکمه‌های اقدام -->
+      <div class="kv-fpdp__actions">
+        <a class="kv-fpdp__btn kv-fpdp__btn--primary" href="#kv-fpdp-contact"
+           aria-label="استعلام قیمت و مشاوره خرید لیفتراک کاوران">
+          استعلام قیمت و مشاوره
+          <svg viewBox="0 0 24 24" aria-hidden="true"><path fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" d="M15 6l-6 6 6 6"/></svg>
+        </a>
+        <!-- ✎ ویرایش: شماره تماس واقعی را جایگزین کنید -->
+        <a class="kv-fpdp__btn kv-fpdp__btn--ghost" href="tel:+982100000000"
+           aria-label="تماس تلفنی با کارشناسان فروش کاوران">
+          <svg viewBox="0 0 24 24" aria-hidden="true"><path fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" d="M4 5c0 9 6 15 15 15l0-3.5-4-1.5-2 2c-2.5-1.2-4.8-3.5-6-6l2-2-1.5-4L4 5z"/></svg>
+          تماس مستقیم
+        </a>
+      </div>
+    </div>
+
+    <figure class="kv-fpdp__hero-media" data-kv-reveal>
+      <span class="kv-fpdp__glow" aria-hidden="true"></span>
+      <!-- تصویر اصلی محصول (LCP) -->
+      <img
+        class="kv-fpdp__hero-img"
+        src="https://kaverun.com/wp-content/uploads/2024/01/1000000000-1.png"
+        width="506" height="493" fetchpriority="high" decoding="async"
+        alt="لیفتراک کاوران؛ لیفتراک دیزلی، برقی و گازی با ظرفیت بار ۱ تا ۵ تن و ارتفاع بالابری تا ۶ متر"
+      />
+      <!-- تراشه‌های مشخصات کلیدی روی تصویر -->
+      <figcaption class="kv-fpdp__hero-chips" aria-hidden="true">
+        <span>ظرفیت ۱ تا ۵ تن</span>
+        <span>بالابری تا ۶ متر</span>
+        <span>دیزلی/برقی/گازی</span>
+      </figcaption>
+    </figure>
+  </header>
+
+  <!-- ═══════════ نوار آمار کلیدی ═══════════ -->
+  <section class="kv-fpdp__stats" aria-label="مشخصات کلیدی لیفتراک">
+    <div class="kv-fpdp__stat" data-kv-reveal>
+      <span class="kv-fpdp__stat-num">۱ تا ۵</span>
+      <span class="kv-fpdp__stat-unit">تن</span>
+      <span class="kv-fpdp__stat-label">ظرفیت بار</span>
+    </div>
+    <div class="kv-fpdp__stat" data-kv-reveal>
+      <span class="kv-fpdp__stat-num">۳ تا ۶</span>
+      <span class="kv-fpdp__stat-unit">متر</span>
+      <span class="kv-fpdp__stat-label">ارتفاع بالابر</span>
+    </div>
+    <div class="kv-fpdp__stat" data-kv-reveal>
+      <span class="kv-fpdp__stat-num">۵ تا ۲۰</span>
+      <span class="kv-fpdp__stat-unit">km/h</span>
+      <span class="kv-fpdp__stat-label">سرعت حرکت</span>
+    </div>
+    <div class="kv-fpdp__stat" data-kv-reveal>
+      <span class="kv-fpdp__stat-num">۳</span>
+      <span class="kv-fpdp__stat-unit">نوع سوخت</span>
+      <span class="kv-fpdp__stat-label">دیزلی، برقی، گازی</span>
+    </div>
+  </section>
+
+  <!-- ═══════════ معرفی محصول ═══════════ -->
+  <section class="kv-fpdp__section" aria-labelledby="kv-fpdp-intro-h">
+    <div class="kv-fpdp__section-head" data-kv-reveal>
+      <span class="kv-fpdp__kicker">معرفی محصول</span>
+      <h2 id="kv-fpdp-intro-h" class="kv-fpdp__h2">لیفتراک کاوران؛ ستون فقرات جابه‌جایی بار در صنعت</h2>
+    </div>
+    <div class="kv-fpdp__prose" data-kv-reveal>
+      <p>
+        لیفتراک در اوایل قرن بیستم توسط شرکت‌های مختلف — از جمله شرکت
+        <strong>کلارک</strong> — اختراع شد و امروز به یکی از پرکاربردترین
+        ماشین‌آلات صنعتی جهان تبدیل شده است. لیفتراک ماشینی است دارای
+        <strong>دکل، شاخک و ملحقات</strong> که با توجه به نوع فعالیت، برای
+        <strong>ترابری، جابه‌جایی و انبار کردن بار</strong> در اشکال و ظرفیت‌های
+        مختلف طراحی و ساخته می‌شود.
+      </p>
+      <p>
+        متناسب با نوع کار و محیط، این دستگاه از <strong>سوخت فسیلی، گاز یا برق</strong>
+        استفاده می‌کند. لیفتراک می‌تواند <strong>بدون خطر واژگونی بار</strong> مقادیر
+        زیادی بار را حمل کند و کالا را تا ارتفاع مشخصی بالا و پایین ببرد؛ همین
+        ترکیب ایمنی و ظرفیت است که آن را در انبارها و خطوط تولید بی‌جایگزین کرده
+        است.
+      </p>
+      <p>
+        <strong>لیفتراک کاوران</strong> با ظرفیت بار <strong>۱ تا ۵ تن</strong>،
+        ارتفاع بالابری <strong>۳ تا ۶ متر</strong>، سرعت <strong>۵ تا ۲۰ کیلومتر
+        در ساعت</strong> و <strong>سیستم کنترل دستی یا اتوماتیک</strong> عرضه
+        می‌شود. برای بارگیری مصالح در محوطه‌های باز،
+        <a class="kv-fpdp__inline" href="https://kaverun.com/skid-loader">اسکیدلودر کاوران</a>
+        و برای حفاری،
+        <a class="kv-fpdp__inline" href="https://kaverun.com/mini-excavator">مینی بیل مکانیکی کاوران</a>
+        مکمل مناسب این دستگاه هستند.
+      </p>
+    </div>
+  </section>
+
+  <!-- ═══════════ مشخصات فنی ═══════════ -->
+  <section class="kv-fpdp__section kv-fpdp__section--alt" aria-labelledby="kv-fpdp-specs-h">
+    <div class="kv-fpdp__section-head" data-kv-reveal>
+      <span class="kv-fpdp__kicker">جدول مشخصات</span>
+      <h2 id="kv-fpdp-specs-h" class="kv-fpdp__h2">مشخصات فنی لیفتراک KAVERUN</h2>
+    </div>
+
+    <dl class="kv-fpdp__specs" data-kv-reveal>
+      <div class="kv-fpdp__spec">
+        <svg class="kv-fpdp__spec-ic" viewBox="0 0 24 24" aria-hidden="true"><path fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" d="M13 2L4 14h7l-1 8 9-12h-7l1-8z"/></svg>
+        <dt>نوع سوخت موتور</dt><dd>الکتریکی، دیزلی، گازی</dd>
+      </div>
+      <div class="kv-fpdp__spec">
+        <svg class="kv-fpdp__spec-ic" viewBox="0 0 24 24" aria-hidden="true"><path fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" d="M4 7h16v10H4z M8 7V5h8v2 M12 10v4 M9 12h6"/></svg>
+        <dt>ظرفیت بار</dt><dd>۱ الی ۵ تن</dd>
+      </div>
+      <div class="kv-fpdp__spec">
+        <svg class="kv-fpdp__spec-ic" viewBox="0 0 24 24" aria-hidden="true"><path fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" d="M12 20V4 M8 8l4-4 4 4 M5 20h14"/></svg>
+        <dt>ارتفاع بالابر</dt><dd>۳ الی ۶ متر</dd>
+      </div>
+      <div class="kv-fpdp__spec">
+        <svg class="kv-fpdp__spec-ic" viewBox="0 0 24 24" aria-hidden="true"><path fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" d="M6 4v16 M18 4v16 M6 9h12 M6 15h12"/></svg>
+        <dt>سیستم کنترل</dt><dd>دستی، اتوماتیک</dd>
+      </div>
+      <div class="kv-fpdp__spec">
+        <svg class="kv-fpdp__spec-ic" viewBox="0 0 24 24" aria-hidden="true"><path fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" d="M5 12a7 7 0 1 1 14 0 M12 12l4-2 M12 12v-6 M4 12h1 M19 12h1 M12 20v-2"/></svg>
+        <dt>سرعت دستگاه</dt><dd>۵ الی ۲۰ کیلومتر در ساعت</dd>
+      </div>
+      <div class="kv-fpdp__spec">
+        <svg class="kv-fpdp__spec-ic" viewBox="0 0 24 24" aria-hidden="true"><path fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" d="M12 3v4 M7 7h10l2 12H5L7 7z M10 11v4 M14 11v4"/></svg>
+        <dt>وزن دستگاه</dt><dd>۱ الی ۱۰ تن</dd>
+      </div>
+      <div class="kv-fpdp__spec">
+        <svg class="kv-fpdp__spec-ic" viewBox="0 0 24 24" aria-hidden="true"><path fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" d="M3 12h4l2-5 4 12 2-7h6"/></svg>
+        <dt>سیستم بالابری</dt><dd>هیدرولیک با یک یا چند سیلندر</dd>
+      </div>
+      <div class="kv-fpdp__spec">
+        <svg class="kv-fpdp__spec-ic" viewBox="0 0 24 24" aria-hidden="true"><path fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" d="M4 18h16 M7 18V8h4v10 M13 18V5h4v13"/></svg>
+        <dt>دکل و شاخک</dt><dd>قابل سفارش در طول‌های مختلف</dd>
+      </div>
+      <div class="kv-fpdp__spec">
+        <svg class="kv-fpdp__spec-ic" viewBox="0 0 24 24" aria-hidden="true"><path fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" d="M12 3v18 M8 7l4-4 4 4 M4 12h4 M16 12h4 M6 17l-2-2 2-2"/></svg>
+        <dt>حداقل دمای کاری (مدل برقی)</dt><dd>تا منفی ۳۰ درجه سانتی‌گراد</dd>
+      </div>
+    </dl>
+  </section>
+
+  <!-- ═══════════ ویژگی‌ها و مزایا ═══════════ -->
+  <section class="kv-fpdp__section" aria-labelledby="kv-fpdp-feat-h">
+    <div class="kv-fpdp__section-head" data-kv-reveal>
+      <span class="kv-fpdp__kicker">چرا لیفتراک کاوران</span>
+      <h2 id="kv-fpdp-feat-h" class="kv-fpdp__h2">ویژگی‌ها و مزایای لیفتراک KAVERUN</h2>
+    </div>
+    <div class="kv-fpdp__features" data-kv-reveal>
+      <div class="kv-fpdp__feature">
+        <span class="kv-fpdp__feature-ic"><svg viewBox="0 0 24 24" aria-hidden="true"><path fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" d="M4 18h16 M7 18V8h4v10 M13 18V5h4v13"/></svg></span>
+        <h3>حمل بار سنگین در انبار و صنعت</h3>
+        <p>طراحی‌شده برای جابه‌جایی مداوم بارهای سنگین در محیط‌های صنعتی، انبارها و خطوط تولید — بدون خطر واژگونی بار.</p>
+      </div>
+      <div class="kv-fpdp__feature">
+        <span class="kv-fpdp__feature-ic"><svg viewBox="0 0 24 24" aria-hidden="true"><path fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" d="M3 12h4l2-5 4 12 2-7h6"/></svg></span>
+        <h3>بالابری هیدرولیک قدرتمند</h3>
+        <p>موتور قدرتمند به همراه آبشار هیدرولیکی مجهز به یک یا چند سیلندر، بار را نرم و کنترل‌شده بالا و پایین می‌برد.</p>
+      </div>
+      <div class="kv-fpdp__feature">
+        <span class="kv-fpdp__feature-ic"><svg viewBox="0 0 24 24" aria-hidden="true"><path fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" d="M13 2L4 14h7l-1 8 9-12h-7l1-8z"/></svg></span>
+        <h3>قدرت بالا، استهلاک پایین</h3>
+        <p>قدرت زیاد، سرعت مضاعف و استهلاک بسیار پایین؛ ترکیبی که هزینه‌ی مالکیت را در طول سال‌های کارکرد پایین نگه می‌دارد.</p>
+      </div>
+      <div class="kv-fpdp__feature">
+        <span class="kv-fpdp__feature-ic"><svg viewBox="0 0 24 24" aria-hidden="true"><path fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" d="M6 4h8l4 5v11H6z M6 12h12 M9 20v-4h6v4"/></svg></span>
+        <h3>سه گزینه‌ی سوخت</h3>
+        <p>مدل دیزلی برای محوطه‌ی باز، برقی برای فضای بسته و بدون آلایندگی، و گازی به‌عنوان گزینه‌ی میانه؛ متناسب با محیط کار شما.</p>
+      </div>
+      <div class="kv-fpdp__feature">
+        <span class="kv-fpdp__feature-ic"><svg viewBox="0 0 24 24" aria-hidden="true"><path fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" d="M12 3v18 M8 7l4-4 4 4 M6 17l-2-2 2-2 M4 15h9"/></svg></span>
+        <h3>کار در سرمای شدید</h3>
+        <p>مدل برقی گرچه سرعت و قدرت کمتری دارد، اما قابلیت کار در هوای بسیار سرد تا منفی ۳۰ درجه را هم داراست.</p>
+      </div>
+      <div class="kv-fpdp__feature">
+        <span class="kv-fpdp__feature-ic"><svg viewBox="0 0 24 24" aria-hidden="true"><path fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" d="M12 3l8 4v6c0 4-3.5 7-8 8-4.5-1-8-4-8-8V7l8-4z"/><path fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" d="M12 8v4l3 2"/></svg></span>
+        <h3>گارانتی و خدمات پس از فروش</h3>
+        <p>گارانتی معتبر، تأمین قطعات یدکی و پشتیبانی فنی کاوران، هزینه‌ی نگهداری و زمان توقف دستگاه را به حداقل می‌رساند.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══════════ کاربردها ═══════════ -->
+  <section class="kv-fpdp__section kv-fpdp__section--alt" aria-labelledby="kv-fpdp-use-h">
+    <div class="kv-fpdp__section-head" data-kv-reveal>
+      <span class="kv-fpdp__kicker">کجا به کار می‌آید</span>
+      <h2 id="kv-fpdp-use-h" class="kv-fpdp__h2">کاربردهای لیفتراک</h2>
+    </div>
+    <ul class="kv-fpdp__uses" data-kv-reveal aria-label="کاربردهای لیفتراک کاوران">
+      <li>انبارها و مراکز توزیع</li>
+      <li>کارخانه‌ها و خطوط تولید</li>
+      <li>بارگیری و تخلیه‌ی کامیون</li>
+      <li>بنادر و پایانه‌های حمل‌ونقل</li>
+      <li>سردخانه و صنایع غذایی</li>
+      <li>مصالح ساختمانی و بارهای فله</li>
+      <li>چیدمان و انبارش قفسه‌ای</li>
+      <li>واحدهای بازیافت و ضایعات</li>
+    </ul>
+  </section>
+
+  <!-- ═══════════ گالری تصاویر ═══════════ -->
+  <!--
+    ✎ ویرایش گالری: آدرس تصاویر واقعی گالری لیفتراک را از کتابخانه‌ی رسانه‌ی
+    وردپرس جایگزین کنید. برای هر آیتم دو جا را عوض کنید:
+      1) data-kv-full="آدرس تصویر بزرگ"     2) src="آدرس همان تصویر"
+    و متن alt را متناسب با تصویر بنویسید. اگر تصویری ندارید، کل آن بلوک دکمه/تصویر را حذف کنید.
+  -->
+  <section class="kv-fpdp__section" aria-labelledby="kv-fpdp-gal-h">
+    <div class="kv-fpdp__section-head" data-kv-reveal>
+      <span class="kv-fpdp__kicker">تصاویر واقعی</span>
+      <h2 id="kv-fpdp-gal-h" class="kv-fpdp__h2">گالری تصاویر لیفتراک</h2>
+    </div>
+    <div class="kv-fpdp__gallery" data-kv-reveal data-kv-gallery>
+      <button class="kv-fpdp__gitem" type="button" data-kv-full="https://kaverun.com/wp-content/uploads/2024/01/1000000000-1.png">
+        <img src="https://kaverun.com/wp-content/uploads/2024/01/1000000000-1.png" width="506" height="493" loading="lazy" decoding="async" alt="نمای کامل لیفتراک کاوران — تصویر ۱" />
+      </button>
+      <button class="kv-fpdp__gitem" type="button" data-kv-full="https://kaverun.com/wp-content/uploads/2024/01/1000000000-1.png">
+        <img src="https://kaverun.com/wp-content/uploads/2024/01/1000000000-1.png" width="506" height="493" loading="lazy" decoding="async" alt="دکل و شاخک لیفتراک کاوران — تصویر ۲" />
+      </button>
+      <button class="kv-fpdp__gitem" type="button" data-kv-full="https://kaverun.com/wp-content/uploads/2024/01/1000000000-1.png">
+        <img src="https://kaverun.com/wp-content/uploads/2024/01/1000000000-1.png" width="506" height="493" loading="lazy" decoding="async" alt="کابین و کنترل‌های لیفتراک کاوران — تصویر ۳" />
+      </button>
+      <button class="kv-fpdp__gitem" type="button" data-kv-full="https://kaverun.com/wp-content/uploads/2024/01/1000000000-1.png">
+        <img src="https://kaverun.com/wp-content/uploads/2024/01/1000000000-1.png" width="506" height="493" loading="lazy" decoding="async" alt="لیفتراک کاوران در حال جابه‌جایی پالت — تصویر ۴" />
+      </button>
+      <button class="kv-fpdp__gitem" type="button" data-kv-full="https://kaverun.com/wp-content/uploads/2024/01/1000000000-1.png">
+        <img src="https://kaverun.com/wp-content/uploads/2024/01/1000000000-1.png" width="506" height="493" loading="lazy" decoding="async" alt="نمای جانبی لیفتراک دیزلی کاوران — تصویر ۵" />
+      </button>
+      <button class="kv-fpdp__gitem" type="button" data-kv-full="https://kaverun.com/wp-content/uploads/2024/01/1000000000-1.png">
+        <img src="https://kaverun.com/wp-content/uploads/2024/01/1000000000-1.png" width="506" height="493" loading="lazy" decoding="async" alt="لیفتراک کاوران در محیط انبار — تصویر ۶" />
+      </button>
+    </div>
+  </section>
+
+  <!-- ═══════════ ویدئو ═══════════ -->
+  <section class="kv-fpdp__section kv-fpdp__section--alt" aria-labelledby="kv-fpdp-vid-h">
+    <div class="kv-fpdp__section-head" data-kv-reveal>
+      <span class="kv-fpdp__kicker">در حال کار</span>
+      <h2 id="kv-fpdp-vid-h" class="kv-fpdp__h2">ویدئوی عملکرد لیفتراک KAVERUN</h2>
+    </div>
+    <div class="kv-fpdp__video" data-kv-reveal>
+      <video
+        class="kv-fpdp__video-el"
+        preload="metadata" controls loop playsinline
+        controlslist="nodownload"
+        poster="https://kaverun.com/wp-content/uploads/2024/01/1000000000-1.png"
+        src="https://kaverun.com/wp-content/uploads/2024/01/2.5t-3t-3.5t-4t-4.7ton-Yellow-Fork-Lift-Truck-with-Good-Quality-Forklift-Diesel-Engine-China-Forklift-and-Forklifts.mp4"
+      >
+        مرورگر شما از پخش ویدئو پشتیبانی نمی‌کند.
+      </video>
+    </div>
+  </section>
+
+  <!-- ═══════════ کدام نوع سوخت؟ ═══════════ -->
+  <section class="kv-fpdp__section" aria-labelledby="kv-fpdp-cmp-h">
+    <div class="kv-fpdp__section-head" data-kv-reveal>
+      <span class="kv-fpdp__kicker">راهنمای انتخاب</span>
+      <h2 id="kv-fpdp-cmp-h" class="kv-fpdp__h2">لیفتراک دیزلی بگیرم یا برقی؟</h2>
+    </div>
+    <div class="kv-fpdp__cmp" data-kv-reveal>
+      <div class="kv-fpdp__cmp-card kv-fpdp__cmp-card--on">
+        <h3>لیفتراک دیزلی</h3>
+        <ul>
+          <li>قدرت و سرعت بیشتر برای بارهای سنگین</li>
+          <li>مناسب محوطه‌ی باز، حیاط کارخانه و بندر</li>
+          <li>کارکرد پیوسته بدون توقف برای شارژ</li>
+          <li>سوخت‌گیری سریع در چند دقیقه</li>
+          <li>در انبارهای بزرگ با تهویه‌ی مناسب هم قابل استفاده است</li>
+        </ul>
+      </div>
+      <div class="kv-fpdp__cmp-card">
+        <h3>لیفتراک برقی</h3>
+        <ul>
+          <li>بدون دود و آلایندگی، مناسب فضای بسته</li>
+          <li>صدای بسیار کم و نگهداری ساده‌تر</li>
+          <li>قابلیت کار در سرمای شدید تا منفی ۳۰ درجه</li>
+          <li>هزینه‌ی انرژی پایین‌تر در کارکرد روزانه</li>
+          <li>سرعت و قدرت معمولاً کمتر از مدل دیزلی</li>
+        </ul>
+      </div>
+    </div>
+    <p class="kv-fpdp__cmp-note" data-kv-reveal>
+      قاعده‌ی ساده: کار در <strong>فضای بسته و سربسته</strong> → مدل
+      <strong>برقی</strong>؛ کار در <strong>محوطه‌ی باز و بار سنگین</strong> →
+      مدل <strong>دیزلی</strong>؛ و <strong>گازی</strong> نقطه‌ی تعادل این دو است.
+      کارشناسان کاوران با توجه به ظرفیت بار، ارتفاع قفسه و محیط کار شما، مدل
+      مناسب را رایگان پیشنهاد می‌دهند.
+    </p>
+  </section>
+
+  <!-- ═══════════ سوالات متداول ═══════════ -->
+  <section class="kv-fpdp__section kv-fpdp__section--alt" aria-labelledby="kv-fpdp-faq-h">
+    <div class="kv-fpdp__section-head" data-kv-reveal>
+      <span class="kv-fpdp__kicker">قبل از خرید بدانید</span>
+      <h2 id="kv-fpdp-faq-h" class="kv-fpdp__h2">سوالات متداول درباره لیفتراک</h2>
+    </div>
+    <div class="kv-fpdp__faq" data-kv-reveal data-kv-faq>
+      <details class="kv-fpdp__qa">
+        <summary>لیفتراک کاوران در چه ظرفیت‌هایی عرضه می‌شود؟<span class="kv-fpdp__qa-ic" aria-hidden="true"></span></summary>
+        <div class="kv-fpdp__qa-body"><p>ظرفیت بار لیفتراک‌های کاوران از ۱ تا ۵ تن است و ارتفاع بالابری آن‌ها بین ۳ تا ۶ متر انتخاب می‌شود؛ مدل دقیق بر اساس وزن بار و ارتفاع قفسه‌های شما پیشنهاد می‌شود.</p></div>
+      </details>
+      <details class="kv-fpdp__qa">
+        <summary>تفاوت لیفتراک دیزلی، برقی و گازی چیست؟<span class="kv-fpdp__qa-ic" aria-hidden="true"></span></summary>
+        <div class="kv-fpdp__qa-body"><p>مدل دیزلی قدرت و سرعت بیشتری دارد و برای محوطه‌ی باز طراحی شده است؛ مدل برقی بدون آلایندگی و مناسب فضای بسته است و تا منفی ۳۰ درجه هم کار می‌کند؛ مدل گازی گزینه‌ای میانه میان این دو است.</p></div>
+      </details>
+      <details class="kv-fpdp__qa">
+        <summary>آیا لیفتراک دیزلی در انبار سرپوشیده قابل استفاده است؟<span class="kv-fpdp__qa-ic" aria-hidden="true"></span></summary>
+        <div class="kv-fpdp__qa-body"><p>لیفتراک‌های دیزلی برای استفاده در مناطق باز طراحی شده‌اند، اما در انبارهای بزرگ با تهویه‌ی مناسب نیز استفاده می‌شوند. برای فضاهای بسته و کوچک، مدل برقی گزینه‌ی ایمن‌تری است.</p></div>
+      </details>
+      <details class="kv-fpdp__qa">
+        <summary>سرعت و وزن لیفتراک چقدر است؟<span class="kv-fpdp__qa-ic" aria-hidden="true"></span></summary>
+        <div class="kv-fpdp__qa-body"><p>سرعت حرکت بسته به مدل بین ۵ تا ۲۰ کیلومتر در ساعت و وزن خود دستگاه بین ۱ تا ۱۰ تن است؛ وزن دستگاه با ظرفیت بار و ارتفاع دکل رابطه‌ی مستقیم دارد.</p></div>
+      </details>
+      <details class="kv-fpdp__qa">
+        <summary>سیستم کنترل لیفتراک چگونه است؟<span class="kv-fpdp__qa-ic" aria-hidden="true"></span></summary>
+        <div class="kv-fpdp__qa-body"><p>لیفتراک‌های کاوران با سیستم کنترل دستی یا اتوماتیک قابل سفارش هستند؛ انتخاب میان این دو به مهارت اپراتورها و شدت کارکرد روزانه بستگی دارد.</p></div>
+      </details>
+      <details class="kv-fpdp__qa">
+        <summary>بار چگونه بالا و پایین می‌رود؟<span class="kv-fpdp__qa-ic" aria-hidden="true"></span></summary>
+        <div class="kv-fpdp__qa-body"><p>موتور دستگاه از طریق یک آبشار هیدرولیکی مجهز به یک یا چند سیلندر، دکل و شاخک را حرکت می‌دهد و بار را بدون خطر واژگونی تا ارتفاع مشخص بالا و پایین می‌برد.</p></div>
+      </details>
+      <details class="kv-fpdp__qa">
+        <summary>آیا لیفتراک کاوران گارانتی و خدمات پس از فروش دارد؟<span class="kv-fpdp__qa-ic" aria-hidden="true"></span></summary>
+        <div class="kv-fpdp__qa-body"><p>بله. تمام محصولات کاوران با گارانتی معتبر، تأمین قطعات یدکی و پشتیبانی فنی عرضه می‌شوند. برای جزئیات گارانتی با کارشناسان ما تماس بگیرید.</p></div>
+      </details>
+      <details class="kv-fpdp__qa">
+        <summary>قیمت لیفتراک کاوران چگونه اعلام می‌شود؟<span class="kv-fpdp__qa-ic" aria-hidden="true"></span></summary>
+        <div class="kv-fpdp__qa-body"><p>قیمت به ظرفیت، نوع سوخت و ارتفاع دکل بستگی دارد و به‌دلیل نوسان بازار به‌صورت روز و پس از استعلام اعلام می‌شود. کافی است فرم استعلام قیمت را پر کنید یا با شماره‌ی فروش تماس بگیرید.</p></div>
+      </details>
+    </div>
+  </section>
+
+  <!-- ═══════════ فراخوان اقدام / تماس ═══════════ -->
+  <section id="kv-fpdp-contact" class="kv-fpdp__cta" aria-labelledby="kv-fpdp-cta-h">
+    <div class="kv-fpdp__cta-inner" data-kv-reveal>
+      <h2 id="kv-fpdp-cta-h" class="kv-fpdp__cta-title">لیفتراک کاوران را همین امروز رزرو کنید</h2>
+      <p class="kv-fpdp__cta-lede">
+        کارشناسان فروش کاوران آماده‌ی مشاوره‌ی رایگان، اعلام قیمت روز و بررسی
+        شرایط خرید و تحویل هستند.
+      </p>
+      <div class="kv-fpdp__actions kv-fpdp__actions--center">
+        <!-- ✎ ویرایش: شماره تماس واقعی -->
+        <a class="kv-fpdp__btn kv-fpdp__btn--primary" href="tel:+982100000000" aria-label="تماس تلفنی برای خرید لیفتراک کاوران">
+          <svg viewBox="0 0 24 24" aria-hidden="true"><path fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" d="M4 5c0 9 6 15 15 15l0-3.5-4-1.5-2 2c-2.5-1.2-4.8-3.5-6-6l2-2-1.5-4L4 5z"/></svg>
+          تماس با فروش
+        </a>
+        <a class="kv-fpdp__btn kv-fpdp__btn--ghost" href="https://kaverun.com/contact" aria-label="فرم تماس و استعلام قیمت کاوران">
+          فرم استعلام قیمت
+        </a>
+      </div>
+    </div>
+  </section>
+</article>
+
+<style id="kv-fpdp-styles">
+/* ===== KAVERUN — Mini Excavator Product Page (scoped, بدون تداخل با تم) ===== */
+#kv-fpdp, #kv-fpdp *, #kv-fpdp *::before, #kv-fpdp *::after { box-sizing: border-box; }
+
+#kv-fpdp {
+  --kv-bg:      #0b0c10;
+  --kv-surface: #111318;
+  --kv-surface2:#15181f;
+  --kv-fg:      #ffffff;
+  --kv-muted:   rgba(255,255,255,.68);
+  --kv-faint:   rgba(255,255,255,.42);
+  --kv-accent:  #FFC72C;   /* زرد کاوران */
+  --kv-accent-2:#ffdf7e;
+  --kv-ink:     #14150f;
+  --kv-line:    rgba(255,255,255,.10);
+  --kv-line-2:  rgba(255,255,255,.06);
+  --kv-radius:  18px;
+  --kv-ease:    cubic-bezier(.22,1,.36,1);
+
+  position: relative; width: 100%; margin: 0;
+  padding: clamp(28px, 5vw, 64px) clamp(16px, 5vw, 72px) clamp(48px, 7vw, 96px);
+  background:
+    radial-gradient(120% 60% at 85% -5%, rgba(255,199,44,.10) 0%, rgba(255,199,44,0) 55%),
+    var(--kv-bg);
+  color: var(--kv-fg); direction: rtl; text-align: right;
+  font-family: 'Vazirmatn', 'IRANYekanX', 'IRANSans', Tahoma, system-ui, -apple-system, sans-serif;
+  line-height: 1.75; overflow: hidden;
+  -webkit-font-smoothing: antialiased;
+}
+#kv-fpdp a { color: inherit; }
+
+/* ---- مسیر راهنما ---- */
+#kv-fpdp .kv-fpdp__crumbs {
+  display: flex; flex-wrap: wrap; align-items: center; gap: 8px;
+  font-size: 13px; color: var(--kv-faint); margin: 0 0 clamp(24px,4vw,40px);
+}
+#kv-fpdp .kv-fpdp__crumbs a { text-decoration: none; transition: color .2s; }
+#kv-fpdp .kv-fpdp__crumbs a:hover { color: var(--kv-accent); }
+#kv-fpdp .kv-fpdp__crumbs span[aria-current] { color: var(--kv-fg); font-weight: 600; }
+
+/* ---- هرو ---- */
+#kv-fpdp .kv-fpdp__hero {
+  display: grid; grid-template-columns: 1.05fr .95fr; gap: clamp(24px, 4vw, 56px);
+  align-items: center; margin-bottom: clamp(32px, 5vw, 64px);
+}
+#kv-fpdp .kv-fpdp__eyebrow {
+  display: inline-flex; align-items: center; gap: 9px; margin: 0 0 18px;
+  padding: 7px 15px; border: 1px solid var(--kv-line); border-radius: 999px;
+  background: rgba(255,255,255,.03);
+  font-size: 13px; font-weight: 700; color: var(--kv-accent);
+}
+#kv-fpdp .kv-fpdp__dot {
+  width: 8px; height: 8px; border-radius: 50%; background: var(--kv-accent);
+  animation: kvfPulse 2.2s ease-out infinite;
+}
+@keyframes kvfPulse {
+  0% { box-shadow: 0 0 0 0 rgba(255,199,44,.55); }
+  70% { box-shadow: 0 0 0 10px rgba(255,199,44,0); }
+  100% { box-shadow: 0 0 0 0 rgba(255,199,44,0); }
+}
+#kv-fpdp .kv-fpdp__title {
+  margin: 0 0 16px; font-size: clamp(30px, 5.2vw, 58px);
+  line-height: 1.16; font-weight: 800; letter-spacing: -.01em; text-wrap: balance;
+}
+#kv-fpdp .kv-fpdp__brand { color: var(--kv-accent); }
+#kv-fpdp .kv-fpdp__lede {
+  margin: 0 0 22px; max-width: 56ch;
+  font-size: clamp(15px, 1.7vw, 18px); line-height: 1.95; color: var(--kv-muted);
+}
+#kv-fpdp .kv-fpdp__lede strong { color: #fff; font-weight: 700; }
+
+#kv-fpdp .kv-fpdp__badges {
+  display: flex; flex-wrap: wrap; gap: 10px; margin: 0 0 26px; padding: 0; list-style: none;
+}
+#kv-fpdp .kv-fpdp__badges li {
+  display: inline-flex; align-items: center; gap: 8px;
+  padding: 9px 14px; border-radius: 12px;
+  background: var(--kv-surface); border: 1px solid var(--kv-line);
+  font-size: 13.5px; font-weight: 600; color: rgba(255,255,255,.86);
+}
+#kv-fpdp .kv-fpdp__badges svg { width: 18px; height: 18px; color: var(--kv-accent); flex: none; }
+
+#kv-fpdp .kv-fpdp__actions { display: flex; flex-wrap: wrap; gap: 12px; }
+#kv-fpdp .kv-fpdp__actions--center { justify-content: center; }
+#kv-fpdp .kv-fpdp__btn {
+  display: inline-flex; align-items: center; gap: 8px;
+  padding: 14px 26px; border-radius: 999px;
+  font-weight: 700; font-size: 15px; text-decoration: none;
+  border: 2px solid transparent; cursor: pointer;
+  transition: transform .18s var(--kv-ease), box-shadow .2s var(--kv-ease), background-color .2s, border-color .2s;
+}
+#kv-fpdp .kv-fpdp__btn svg { width: 18px; height: 18px; transition: transform .2s var(--kv-ease); }
+#kv-fpdp .kv-fpdp__btn--primary {
+  background: var(--kv-accent); color: var(--kv-ink);
+  box-shadow: 0 12px 30px rgba(255,199,44,.28);
+}
+#kv-fpdp .kv-fpdp__btn--primary:hover { transform: translateY(-2px); box-shadow: 0 16px 40px rgba(255,199,44,.45); }
+#kv-fpdp .kv-fpdp__btn--primary:hover svg { transform: translateX(-4px); }
+#kv-fpdp .kv-fpdp__btn--ghost { background: rgba(255,255,255,.05); color: #fff; border-color: var(--kv-line); }
+#kv-fpdp .kv-fpdp__btn--ghost:hover { border-color: rgba(255,255,255,.5); background: rgba(255,255,255,.1); }
+#kv-fpdp .kv-fpdp__btn:focus-visible { outline: 3px solid var(--kv-accent); outline-offset: 3px; }
+
+#kv-fpdp .kv-fpdp__hero-media {
+  position: relative; margin: 0; display: flex; align-items: center; justify-content: center;
+  min-height: 260px;
+}
+#kv-fpdp .kv-fpdp__glow {
+  position: absolute; inset: 8% 8% 12%; border-radius: 50%;
+  background: radial-gradient(circle, rgba(255,199,44,.30) 0%, rgba(255,199,44,0) 65%);
+  filter: blur(14px); z-index: 0; pointer-events: none;
+}
+#kv-fpdp .kv-fpdp__hero-img {
+  position: relative; z-index: 1; width: 100%; max-width: 520px; height: auto;
+  object-fit: contain; filter: drop-shadow(0 24px 40px rgba(0,0,0,.5));
+}
+#kv-fpdp .kv-fpdp__hero-chips {
+  position: absolute; z-index: 2; inset-block-end: 4%; inset-inline-start: 0;
+  display: flex; flex-wrap: wrap; gap: 8px;
+}
+#kv-fpdp .kv-fpdp__hero-chips span {
+  padding: 7px 13px; border-radius: 999px; font-size: 12.5px; font-weight: 700;
+  color: #fff; background: rgba(17,19,24,.72);
+  border: 1px solid var(--kv-line); backdrop-filter: blur(6px);
+}
+
+/* ---- نوار آمار ---- */
+#kv-fpdp .kv-fpdp__stats {
+  display: grid; grid-template-columns: repeat(4, 1fr); gap: 12px;
+  margin-bottom: clamp(40px, 6vw, 80px);
+}
+#kv-fpdp .kv-fpdp__stat {
+  display: flex; flex-direction: column; align-items: center; text-align: center;
+  padding: 22px 14px; border-radius: var(--kv-radius);
+  background: linear-gradient(180deg, var(--kv-surface) 0%, var(--kv-surface2) 100%);
+  border: 1px solid var(--kv-line);
+}
+#kv-fpdp .kv-fpdp__stat-num {
+  font-size: clamp(26px, 3.8vw, 42px); font-weight: 800; color: var(--kv-accent);
+  line-height: 1; font-variant-numeric: tabular-nums;
+}
+#kv-fpdp .kv-fpdp__stat-unit { margin-top: 4px; font-size: 13px; color: var(--kv-fg); font-weight: 600; }
+#kv-fpdp .kv-fpdp__stat-label { margin-top: 8px; font-size: 12.5px; color: var(--kv-faint); }
+
+/* ---- سکشن عمومی ---- */
+#kv-fpdp .kv-fpdp__section {
+  position: relative; margin-inline: calc(clamp(16px, 5vw, 72px) * -1);
+  padding: clamp(40px, 6vw, 80px) clamp(16px, 5vw, 72px);
+}
+#kv-fpdp .kv-fpdp__section--alt {
+  background: linear-gradient(180deg, rgba(255,255,255,.02), rgba(255,255,255,0));
+  border-block: 1px solid var(--kv-line-2);
+}
+#kv-fpdp .kv-fpdp__section-head { max-width: 760px; margin: 0 0 clamp(24px, 4vw, 44px); }
+#kv-fpdp .kv-fpdp__kicker {
+  display: inline-block; font-size: 13px; font-weight: 700; letter-spacing: .04em;
+  color: var(--kv-accent); margin-bottom: 10px;
+}
+#kv-fpdp .kv-fpdp__h2 {
+  margin: 0; font-size: clamp(24px, 3.6vw, 38px); line-height: 1.3;
+  font-weight: 800; letter-spacing: -.01em; text-wrap: balance;
+}
+#kv-fpdp .kv-fpdp__prose { max-width: 68ch; }
+#kv-fpdp .kv-fpdp__prose p { margin: 0 0 16px; font-size: clamp(15px, 1.6vw, 17px); line-height: 2.05; color: var(--kv-muted); }
+#kv-fpdp .kv-fpdp__prose strong { color: #fff; font-weight: 700; }
+#kv-fpdp .kv-fpdp__inline, #kv-fpdp .kv-fpdp__prose a { color: var(--kv-accent); text-decoration: none; border-bottom: 1px solid rgba(255,199,44,.4); }
+#kv-fpdp .kv-fpdp__inline:hover { border-bottom-color: var(--kv-accent); }
+
+/* ---- مشخصات فنی ---- */
+#kv-fpdp .kv-fpdp__specs {
+  display: grid; grid-template-columns: repeat(3, 1fr); gap: 12px; margin: 0;
+}
+#kv-fpdp .kv-fpdp__spec {
+  display: flex; align-items: center; gap: 14px;
+  padding: 18px 18px; border-radius: 14px;
+  background: var(--kv-surface); border: 1px solid var(--kv-line);
+  transition: transform .2s var(--kv-ease), border-color .2s;
+}
+#kv-fpdp .kv-fpdp__spec:hover { transform: translateY(-3px); border-color: rgba(255,199,44,.5); }
+#kv-fpdp .kv-fpdp__spec-ic {
+  width: 30px; height: 30px; color: var(--kv-accent); flex: none;
+  padding: 6px; border-radius: 9px; background: rgba(255,199,44,.10);
+}
+#kv-fpdp .kv-fpdp__spec dt { margin: 0; font-size: 12.5px; color: var(--kv-faint); }
+#kv-fpdp .kv-fpdp__spec dd { margin: 2px 0 0; font-size: 15.5px; font-weight: 700; color: #fff; }
+
+/* ---- ویژگی‌ها ---- */
+#kv-fpdp .kv-fpdp__features { display: grid; grid-template-columns: repeat(3, 1fr); gap: 14px; }
+#kv-fpdp .kv-fpdp__feature {
+  padding: 26px 22px; border-radius: var(--kv-radius);
+  background: var(--kv-surface); border: 1px solid var(--kv-line);
+  transition: transform .2s var(--kv-ease), border-color .2s;
+}
+#kv-fpdp .kv-fpdp__feature:hover { transform: translateY(-4px); border-color: rgba(255,199,44,.5); }
+#kv-fpdp .kv-fpdp__feature-ic {
+  display: inline-flex; width: 46px; height: 46px; margin-bottom: 16px;
+  align-items: center; justify-content: center; border-radius: 12px;
+  background: rgba(255,199,44,.12); color: var(--kv-accent);
+}
+#kv-fpdp .kv-fpdp__feature-ic svg { width: 24px; height: 24px; }
+#kv-fpdp .kv-fpdp__feature h3 { margin: 0 0 8px; font-size: 18px; font-weight: 700; color: #fff; }
+#kv-fpdp .kv-fpdp__feature p { margin: 0; font-size: 14.5px; line-height: 1.9; color: var(--kv-muted); }
+
+/* ---- کاربردها ---- */
+#kv-fpdp .kv-fpdp__uses { display: flex; flex-wrap: wrap; gap: 12px; margin: 0; padding: 0; list-style: none; }
+#kv-fpdp .kv-fpdp__uses li {
+  display: inline-flex; align-items: center; gap: 8px;
+  padding: 12px 20px; border-radius: 999px;
+  background: var(--kv-surface); border: 1px solid var(--kv-line);
+  font-size: 15px; font-weight: 600; color: rgba(255,255,255,.9);
+}
+#kv-fpdp .kv-fpdp__uses li::before {
+  content: ""; width: 7px; height: 7px; border-radius: 50%; background: var(--kv-accent);
+}
+
+/* ---- گالری ---- */
+#kv-fpdp .kv-fpdp__gallery { display: grid; grid-template-columns: repeat(3, 1fr); gap: 12px; }
+#kv-fpdp .kv-fpdp__gitem {
+  padding: 0; border: 1px solid var(--kv-line); border-radius: var(--kv-radius);
+  overflow: hidden; cursor: zoom-in; background: var(--kv-surface);
+  aspect-ratio: 4 / 3; display: block;
+}
+#kv-fpdp .kv-fpdp__gitem img { width: 100%; height: 100%; object-fit: cover; display: block; transition: transform .4s var(--kv-ease); }
+#kv-fpdp .kv-fpdp__gitem:hover img { transform: scale(1.06); }
+#kv-fpdp .kv-fpdp__gitem:focus-visible { outline: 3px solid var(--kv-accent); outline-offset: 3px; }
+
+/* لایت‌باکس */
+#kv-fpdp-lb {
+  position: fixed; inset: 0; z-index: 99999; display: none;
+  align-items: center; justify-content: center; padding: 24px;
+  background: rgba(6,7,10,.9); backdrop-filter: blur(4px);
+}
+#kv-fpdp-lb.is-open { display: flex; }
+#kv-fpdp-lb img { max-width: 92vw; max-height: 86vh; border-radius: 12px; box-shadow: 0 30px 80px rgba(0,0,0,.6); }
+#kv-fpdp-lb .kv-fpdp__lb-close {
+  position: absolute; top: 20px; inset-inline-end: 20px; width: 46px; height: 46px;
+  border-radius: 50%; border: 1px solid rgba(255,255,255,.10); background: rgba(255,255,255,.08);
+  color: #fff; font-size: 24px; line-height: 1; cursor: pointer; display: grid; place-items: center;
+}
+#kv-fpdp-lb .kv-fpdp__lb-close:hover { background: rgba(255,255,255,.18); }
+
+/* ---- ویدئو ---- */
+#kv-fpdp .kv-fpdp__video {
+  border-radius: var(--kv-radius); overflow: hidden; border: 1px solid var(--kv-line);
+  background: #000; box-shadow: 0 24px 50px rgba(0,0,0,.4);
+}
+#kv-fpdp .kv-fpdp__video-el { display: block; width: 100%; height: auto; aspect-ratio: 16 / 9; object-fit: cover; }
+
+/* ---- مقایسه ---- */
+#kv-fpdp .kv-fpdp__cmp { display: grid; grid-template-columns: repeat(2, 1fr); gap: 14px; }
+#kv-fpdp .kv-fpdp__cmp-card {
+  padding: 26px 22px; border-radius: var(--kv-radius);
+  background: var(--kv-surface); border: 1px solid var(--kv-line);
+}
+#kv-fpdp .kv-fpdp__cmp-card--on {
+  border-color: rgba(255,199,44,.45);
+  background:
+    radial-gradient(90% 100% at 100% 0%, rgba(255,199,44,.10) 0%, rgba(255,199,44,0) 60%),
+    var(--kv-surface);
+}
+#kv-fpdp .kv-fpdp__cmp-card h3 { margin: 0 0 14px; font-size: 19px; font-weight: 800; color: #fff; }
+#kv-fpdp .kv-fpdp__cmp-card--on h3 { color: var(--kv-accent); }
+#kv-fpdp .kv-fpdp__cmp-card ul { margin: 0; padding: 0; list-style: none; display: grid; gap: 10px; }
+#kv-fpdp .kv-fpdp__cmp-card li {
+  display: flex; align-items: flex-start; gap: 9px;
+  font-size: 14.5px; line-height: 1.85; color: var(--kv-muted);
+}
+#kv-fpdp .kv-fpdp__cmp-card li::before {
+  content: ""; flex: none; margin-top: 10px; width: 6px; height: 6px;
+  border-radius: 50%; background: var(--kv-accent);
+}
+#kv-fpdp .kv-fpdp__cmp-note {
+  max-width: 72ch; margin: clamp(18px,3vw,28px) 0 0;
+  font-size: 14.5px; line-height: 2; color: var(--kv-muted);
+}
+#kv-fpdp .kv-fpdp__cmp-note strong { color: #fff; }
+
+/* ---- FAQ ---- */
+#kv-fpdp .kv-fpdp__faq { display: grid; gap: 10px; max-width: 820px; }
+#kv-fpdp .kv-fpdp__qa { border: 1px solid var(--kv-line); border-radius: 14px; background: var(--kv-surface); overflow: hidden; }
+#kv-fpdp .kv-fpdp__qa summary {
+  display: flex; align-items: center; justify-content: space-between; gap: 14px;
+  padding: 18px 20px; cursor: pointer; list-style: none;
+  font-size: 16px; font-weight: 700; color: #fff;
+}
+#kv-fpdp .kv-fpdp__qa summary::-webkit-details-marker { display: none; }
+#kv-fpdp .kv-fpdp__qa-ic { position: relative; width: 18px; height: 18px; flex: none; }
+#kv-fpdp .kv-fpdp__qa-ic::before, #kv-fpdp .kv-fpdp__qa-ic::after {
+  content: ""; position: absolute; background: var(--kv-accent); border-radius: 2px;
+  transition: transform .25s var(--kv-ease), opacity .25s;
+}
+#kv-fpdp .kv-fpdp__qa-ic::before { inset-block-start: 8px; inset-inline: 0; height: 2px; }
+#kv-fpdp .kv-fpdp__qa-ic::after { inset-inline-start: 8px; inset-block: 0; width: 2px; }
+#kv-fpdp .kv-fpdp__qa[open] .kv-fpdp__qa-ic::after { transform: scaleY(0); opacity: 0; }
+#kv-fpdp .kv-fpdp__qa-body { padding: 0 20px 20px; }
+#kv-fpdp .kv-fpdp__qa-body p { margin: 0; font-size: 14.5px; line-height: 1.95; color: var(--kv-muted); }
+#kv-fpdp .kv-fpdp__qa summary:focus-visible { outline: 3px solid var(--kv-accent); outline-offset: -3px; }
+
+/* ---- CTA ---- */
+#kv-fpdp .kv-fpdp__cta {
+  margin-top: clamp(24px, 4vw, 48px);
+  padding: clamp(36px, 5vw, 64px) clamp(20px, 4vw, 48px);
+  border-radius: clamp(20px, 3vw, 30px); text-align: center;
+  background:
+    radial-gradient(90% 120% at 50% 0%, rgba(255,199,44,.16) 0%, rgba(255,199,44,0) 60%),
+    linear-gradient(180deg, var(--kv-surface) 0%, var(--kv-surface2) 100%);
+  border: 1px solid rgba(255,199,44,.25);
+}
+#kv-fpdp .kv-fpdp__cta-inner { max-width: 640px; margin: 0 auto; }
+#kv-fpdp .kv-fpdp__cta-title { margin: 0 0 14px; font-size: clamp(22px, 3.4vw, 34px); font-weight: 800; text-wrap: balance; }
+#kv-fpdp .kv-fpdp__cta-lede { margin: 0 auto 26px; max-width: 52ch; font-size: clamp(14px,1.6vw,17px); line-height: 1.9; color: var(--kv-muted); }
+
+/* ---- Reveal on scroll ---- */
+#kv-fpdp [data-kv-reveal] { opacity: 0; transform: translateY(26px); transition: opacity .7s var(--kv-ease), transform .7s var(--kv-ease); }
+#kv-fpdp [data-kv-reveal].is-in { opacity: 1; transform: none; }
+
+/* ---- Responsive ---- */
+@media (max-width: 900px) {
+  #kv-fpdp .kv-fpdp__hero { grid-template-columns: 1fr; }
+  #kv-fpdp .kv-fpdp__hero-media { order: -1; }
+  #kv-fpdp .kv-fpdp__specs { grid-template-columns: repeat(2, 1fr); }
+  #kv-fpdp .kv-fpdp__features { grid-template-columns: repeat(2, 1fr); }
+  #kv-fpdp .kv-fpdp__cmp { grid-template-columns: 1fr; }
+}
+@media (max-width: 620px) {
+  #kv-fpdp .kv-fpdp__stats { grid-template-columns: repeat(2, 1fr); }
+  #kv-fpdp .kv-fpdp__gallery { grid-template-columns: repeat(2, 1fr); }
+  #kv-fpdp .kv-fpdp__hero-chips { position: static; margin-top: 14px; }
+}
+@media (max-width: 440px) {
+  #kv-fpdp .kv-fpdp__specs { grid-template-columns: 1fr; }
+  #kv-fpdp .kv-fpdp__features { grid-template-columns: 1fr; }
+  #kv-fpdp .kv-fpdp__actions .kv-fpdp__btn { flex: 1 1 auto; justify-content: center; }
+}
+@media (prefers-reduced-motion: reduce) {
+  #kv-fpdp * { animation: none !important; transition: none !important; }
+  #kv-fpdp [data-kv-reveal] { opacity: 1 !important; transform: none !important; }
+  #kv-fpdp .kv-fpdp__gitem img { transition: none !important; }
+}
+</style>
+
+<!-- لایت‌باکس گالری (خارج از جریان محتوا) -->
+<div class="kv-fpdp__lb" id="kv-fpdp-lb" role="dialog" aria-modal="true" aria-label="نمایش بزرگ تصویر" hidden>
+  <button class="kv-fpdp__lb-close" type="button" aria-label="بستن">×</button>
+  <img src="" alt="" />
+</div>
+
+<script id="kv-fpdp-script">
+(function () {
+  'use strict';
+  var root = document.getElementById('kv-fpdp');
+  if (!root || root.dataset.kvInit === '1') return;
+  root.dataset.kvInit = '1';
+
+  var reduced = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+  /* ── Reveal on scroll ── */
+  var reveals = root.querySelectorAll('[data-kv-reveal]');
+  if (reduced || !('IntersectionObserver' in window)) {
+    Array.prototype.forEach.call(reveals, function (el) { el.classList.add('is-in'); });
+  } else {
+    var io = new IntersectionObserver(function (entries) {
+      entries.forEach(function (e) {
+        if (e.isIntersecting) { e.target.classList.add('is-in'); io.unobserve(e.target); }
+      });
+    }, { threshold: 0.14, rootMargin: '0px 0px -8% 0px' });
+    Array.prototype.forEach.call(reveals, function (el) { io.observe(el); });
+  }
+
+  /* ── لایت‌باکس گالری ── */
+  var lb = document.getElementById('kv-fpdp-lb');
+  var lbImg = lb ? lb.querySelector('img') : null;
+  var lbClose = lb ? lb.querySelector('.kv-fpdp__lb-close') : null;
+  var lastFocus = null;
+
+  function onKey(e) { if (e.key === 'Escape') closeLb(); }
+  function openLb(src, alt) {
+    if (!lb) return;
+    lbImg.src = src; lbImg.alt = alt || '';
+    lb.hidden = false; lb.classList.add('is-open');
+    lastFocus = document.activeElement;
+    if (lbClose) lbClose.focus();
+    document.addEventListener('keydown', onKey);
+  }
+  function closeLb() {
+    if (!lb) return;
+    lb.classList.remove('is-open'); lb.hidden = true; lbImg.src = '';
+    document.removeEventListener('keydown', onKey);
+    if (lastFocus && lastFocus.focus) lastFocus.focus();
+  }
+
+  Array.prototype.forEach.call(
+    root.querySelectorAll('[data-kv-gallery] .kv-fpdp__gitem'),
+    function (btn) {
+      btn.addEventListener('click', function () {
+        var full = btn.getAttribute('data-kv-full');
+        var img = btn.querySelector('img');
+        openLb(full, img ? img.alt : '');
+      });
+    }
+  );
+  if (lb) {
+    lb.addEventListener('click', function (e) { if (e.target === lb) closeLb(); });
+    if (lbClose) lbClose.addEventListener('click', closeLb);
+  }
+})();
+</script>
+
+<!-- ═══════════ داده‌ی ساختاریافته (JSON-LD) ═══════════ -->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Product",
+  "name": "لیفتراک KAVERUN",
+  "alternateName": ["لیفتراک دیزلی کاوران", "لیفتراک برقی کاوران", "لیفتراک گازی کاوران"],
+  "image": [
+    "https://kaverun.com/wp-content/uploads/2024/01/1000000000-1.png"
+  ],
+  "description": "لیفتراک کاوران در سه نوع دیزلی، برقی و گازی؛ با ظرفیت بار ۱ تا ۵ تن، ارتفاع بالابری ۳ تا ۶ متر، سرعت ۵ تا ۲۰ کیلومتر در ساعت و سیستم کنترل دستی یا اتوماتیک؛ مناسب ترابری، جابه‌جایی و انبار کردن بار در کارخانه، انبار و مراکز توزیع.",
+  "brand": { "@type": "Brand", "name": "KAVERUN" },
+  "category": "لیفتراک صنعتی",
+  "sku": "KVR-FORKLIFT",
+  "url": "https://kaverun.com/forklift",
+  "additionalProperty": [
+    { "@type": "PropertyValue", "name": "نوع سوخت موتور", "value": "الکتریکی، دیزلی، گازی" },
+    { "@type": "PropertyValue", "name": "ظرفیت بار", "value": "۱ الی ۵ تن" },
+    { "@type": "PropertyValue", "name": "ارتفاع بالابر", "value": "۳ الی ۶ متر" },
+    { "@type": "PropertyValue", "name": "سیستم کنترل", "value": "دستی، اتوماتیک" },
+    { "@type": "PropertyValue", "name": "سرعت دستگاه", "value": "۵ الی ۲۰ کیلومتر در ساعت" },
+    { "@type": "PropertyValue", "name": "وزن دستگاه", "value": "۱ الی ۱۰ تن" },
+    { "@type": "PropertyValue", "name": "سیستم بالابری", "value": "هیدرولیک با یک یا چند سیلندر" },
+    { "@type": "PropertyValue", "name": "حداقل دمای کاری (مدل برقی)", "value": "منفی ۳۰ درجه سانتی‌گراد" }
+  ],
+  "offers": {
+    "@type": "Offer",
+    "priceCurrency": "IRR",
+    "availability": "https://schema.org/InStock",
+    "url": "https://kaverun.com/forklift",
+    "seller": { "@type": "Organization", "name": "گروه صنعتی کاوران (KAVERUN)" }
+  }
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    { "@type": "ListItem", "position": 1, "name": "خانه", "item": "https://kaverun.com/" },
+    { "@type": "ListItem", "position": 2, "name": "محصولات", "item": "https://kaverun.com/products" },
+    { "@type": "ListItem", "position": 3, "name": "لیفتراک", "item": "https://kaverun.com/forklifts" },
+    { "@type": "ListItem", "position": 4, "name": "لیفتراک KAVERUN", "item": "https://kaverun.com/forklift" }
+  ]
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    { "@type": "Question", "name": "لیفتراک کاوران در چه ظرفیت‌هایی عرضه می‌شود؟", "acceptedAnswer": { "@type": "Answer", "text": "ظرفیت بار لیفتراک‌های کاوران از ۱ تا ۵ تن است و ارتفاع بالابری آن‌ها بین ۳ تا ۶ متر انتخاب می‌شود." } },
+    { "@type": "Question", "name": "تفاوت لیفتراک دیزلی، برقی و گازی چیست؟", "acceptedAnswer": { "@type": "Answer", "text": "مدل دیزلی قدرت و سرعت بیشتری دارد و برای محوطه‌ی باز طراحی شده است؛ مدل برقی بدون آلایندگی و مناسب فضای بسته است و تا منفی ۳۰ درجه هم کار می‌کند؛ مدل گازی گزینه‌ای میانه میان این دو است." } },
+    { "@type": "Question", "name": "آیا لیفتراک دیزلی در انبار سرپوشیده قابل استفاده است؟", "acceptedAnswer": { "@type": "Answer", "text": "لیفتراک‌های دیزلی برای استفاده در مناطق باز طراحی شده‌اند، اما در انبارهای بزرگ با تهویه‌ی مناسب نیز استفاده می‌شوند. برای فضاهای بسته و کوچک، مدل برقی گزینه‌ی ایمن‌تری است." } },
+    { "@type": "Question", "name": "سرعت و وزن لیفتراک چقدر است؟", "acceptedAnswer": { "@type": "Answer", "text": "سرعت حرکت بسته به مدل بین ۵ تا ۲۰ کیلومتر در ساعت و وزن خود دستگاه بین ۱ تا ۱۰ تن است." } },
+    { "@type": "Question", "name": "سیستم کنترل لیفتراک چگونه است؟", "acceptedAnswer": { "@type": "Answer", "text": "لیفتراک‌های کاوران با سیستم کنترل دستی یا اتوماتیک قابل سفارش هستند." } },
+    { "@type": "Question", "name": "بار چگونه بالا و پایین می‌رود؟", "acceptedAnswer": { "@type": "Answer", "text": "موتور دستگاه از طریق یک آبشار هیدرولیکی مجهز به یک یا چند سیلندر، دکل و شاخک را حرکت می‌دهد و بار را بدون خطر واژگونی تا ارتفاع مشخص بالا و پایین می‌برد." } },
+    { "@type": "Question", "name": "آیا لیفتراک کاوران گارانتی و خدمات پس از فروش دارد؟", "acceptedAnswer": { "@type": "Answer", "text": "بله. تمام محصولات کاوران با گارانتی معتبر، تأمین قطعات یدکی و پشتیبانی فنی عرضه می‌شوند." } },
+    { "@type": "Question", "name": "قیمت لیفتراک کاوران چگونه اعلام می‌شود؟", "acceptedAnswer": { "@type": "Answer", "text": "قیمت به ظرفیت، نوع سوخت و ارتفاع دکل بستگی دارد و به‌دلیل نوسان بازار به‌صورت روز و پس از استعلام اعلام می‌شود." } }
+  ]
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "VideoObject",
+  "name": "ویدئوی عملکرد لیفتراک KAVERUN",
+  "description": "نمایش عملکرد لیفتراک کاوران در جابه‌جایی و انبارش بار در محیط صنعتی.",
+  "thumbnailUrl": "https://kaverun.com/wp-content/uploads/2024/01/1000000000-1.png",
+  "uploadDate": "2024-01-15",
+  "contentUrl": "https://kaverun.com/wp-content/uploads/2024/01/2.5t-3t-3.5t-4t-4.7ton-Yellow-Fork-Lift-Truck-with-Good-Quality-Forklift-Diesel-Engine-China-Forklift-and-Forklifts.mp4"
+}
+</script>
+<!-- ============ END KAVERUN — صفحه محصول لیفتراک ============ -->
