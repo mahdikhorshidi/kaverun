@@ -1,0 +1,913 @@
+<!--
+============================================================================
+  KAVERUN — «صفحه‌ی محصول» اسکیدلودر (بابکت) | قالب سئومحور و مارکتینگی (Self-contained)
+  ---------------------------------------------------------------------------
+  یک قالب کامل و بدون هیچ وابستگی خارجی (CDN/فونت/jQuery/GSAP) برای صفحه‌ی
+  تک‌محصولِ «اسکیدلودر KAVERUN». هم‌استایل با صفحه‌های «بیل مکانیکی ۸.۵ تن» و
+  «مینی بیل مکانیکی». یک بلوک «Custom HTML» در وردپرس بسازید و کل این فایل را
+  داخل آن Paste کنید.
+  ---------------------------------------------------------------------------
+  رعایت شده:
+   • SEO: <h1> معنایی، تیترهای h2/h3، متن مارکتینگ‌محور، داده‌ی ساختاریافته
+     JSON-LD (Product + Offer + BreadcrumbList + FAQPage + VideoObject)،
+     alt توصیفی، لینک‌سازی داخلی، پوشش کلیدواژه‌های «اسکید لودر»، «اسکید استیر
+     لودر» و «بابکت».
+   • Core Web Vitals: تصویر LCP با fetchpriority، ابعاد صریح برای CLS صفر،
+     ویدئو با preload=metadata، انیمیشن‌های GPU-محور، IntersectionObserver سبک.
+   • دسترس‌پذیری: prefers-reduced-motion، فوکوس کیبوردی، aria، آکاردئون و
+     لایت‌باکس کاملاً کیبورد-پذیر.
+  ---------------------------------------------------------------------------
+  ✎ نقاط قابل ویرایش (جست‌وجو کنید: «✎ ویرایش»):
+   • شماره‌های تماس  • تصاویر گالری
+============================================================================
+-->
+<article
+  id="kv-spdp"
+  class="kv-spdp"
+  dir="rtl"
+  lang="fa"
+  aria-labelledby="kv-spdp-title"
+>
+  <!-- ═══════════ مسیر راهنما (Breadcrumb) ═══════════ -->
+  <nav class="kv-spdp__crumbs" aria-label="مسیر راهنما">
+    <a href="https://kaverun.com/">خانه</a>
+    <span aria-hidden="true">›</span>
+    <a href="https://kaverun.com/products">محصولات</a>
+    <span aria-hidden="true">›</span>
+    <a href="https://kaverun.com/loaders">لودر</a>
+    <span aria-hidden="true">›</span>
+    <span aria-current="page">اسکیدلودر KAVERUN</span>
+  </nav>
+
+  <!-- ═══════════ هرو محصول ═══════════ -->
+  <header class="kv-spdp__hero">
+    <div class="kv-spdp__hero-copy" data-kv-reveal>
+      <p class="kv-spdp__eyebrow">
+        <span class="kv-spdp__dot" aria-hidden="true"></span>
+        اسکید استیر لودر (بابکت) · گروه صنعتی کاوران
+      </p>
+      <h1 id="kv-spdp-title" class="kv-spdp__title">
+        اسکیدلودر <span class="kv-spdp__brand">KAVERUN</span>
+      </h1>
+      <p class="kv-spdp__lede">
+        <strong>اسکیدلودر کاوران</strong> — که در بازار ایران با نام <strong>بابکت</strong>
+        شناخته می‌شود — یک <strong>اسکید استیر لودر</strong> با سیستم حرکتی
+        <strong>هیدرواستاتیک</strong>، موتور <strong>CUMMINS/KUBOTA</strong>،
+        <strong>ظرفیت بالابری ۹۵۰ تا ۱۱۵۰ کیلوگرم</strong> و وزن عملیاتی
+        <strong>۳٬۴۰۰ کیلوگرم</strong> است؛ ساخته‌شده برای بارگیری، جابه‌جایی مصالح و
+        کار در <strong>فضاهای تنگ و باریک</strong> با فرمان‌پذیری ۳۶۰ درجه.
+      </p>
+
+      <!-- نشان‌های اعتماد -->
+      <ul class="kv-spdp__badges" aria-label="مزیت‌های خرید از کاوران">
+        <li>
+          <svg viewBox="0 0 24 24" aria-hidden="true"><path fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" d="M12 3l7 3v5c0 4.5-3 7.5-7 9-4-1.5-7-4.5-7-9V6l7-3z M9 12l2 2 4-4"/></svg>
+          گارانتی معتبر
+        </li>
+        <li>
+          <svg viewBox="0 0 24 24" aria-hidden="true"><path fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" d="M20.5 7.5l-8.5-4.5-8.5 4.5v9l8.5 4.5 8.5-4.5z M12 12l8.5-4.5 M12 12v9 M12 12L3.5 7.5"/></svg>
+          تأمین قطعات یدکی
+        </li>
+        <li>
+          <svg viewBox="0 0 24 24" aria-hidden="true"><path fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" d="M14 4h-3v9l6 3 M20.5 12a8.5 8.5 0 1 1-17 0 8.5 8.5 0 0 1 17 0z"/></svg>
+          خدمات پس از فروش
+        </li>
+      </ul>
+
+      <!-- دکمه‌های اقدام -->
+      <div class="kv-spdp__actions">
+        <a class="kv-spdp__btn kv-spdp__btn--primary" href="#kv-spdp-contact"
+           aria-label="استعلام قیمت و مشاوره خرید اسکیدلودر کاوران">
+          استعلام قیمت و مشاوره
+          <svg viewBox="0 0 24 24" aria-hidden="true"><path fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" d="M15 6l-6 6 6 6"/></svg>
+        </a>
+        <!-- ✎ ویرایش: شماره تماس واقعی را جایگزین کنید -->
+        <a class="kv-spdp__btn kv-spdp__btn--ghost" href="tel:+982100000000"
+           aria-label="تماس تلفنی با کارشناسان فروش کاوران">
+          <svg viewBox="0 0 24 24" aria-hidden="true"><path fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" d="M4 5c0 9 6 15 15 15l0-3.5-4-1.5-2 2c-2.5-1.2-4.8-3.5-6-6l2-2-1.5-4L4 5z"/></svg>
+          تماس مستقیم
+        </a>
+      </div>
+    </div>
+
+    <figure class="kv-spdp__hero-media" data-kv-reveal>
+      <span class="kv-spdp__glow" aria-hidden="true"></span>
+      <!-- تصویر اصلی محصول (LCP) -->
+      <img
+        class="kv-spdp__hero-img"
+        src="https://kaverun.com/wp-content/uploads/2024/02/1-1.png"
+        width="768" height="768" fetchpriority="high" decoding="async"
+        alt="اسکیدلودر کاوران (بابکت)؛ اسکید استیر لودر با ظرفیت بالابری تا ۱۱۵۰ کیلوگرم و موتور CUMMINS/KUBOTA"
+      />
+      <!-- تراشه‌های مشخصات کلیدی روی تصویر -->
+      <figcaption class="kv-spdp__hero-chips" aria-hidden="true">
+        <span>بالابری تا ۱۱۵۰ kg</span>
+        <span>وزن ۳.۴ تن</span>
+        <span>هیدرواستاتیک</span>
+      </figcaption>
+    </figure>
+  </header>
+
+  <!-- ═══════════ نوار آمار کلیدی ═══════════ -->
+  <section class="kv-spdp__stats" aria-label="مشخصات کلیدی اسکیدلودر">
+    <div class="kv-spdp__stat" data-kv-reveal>
+      <span class="kv-spdp__stat-num">۱۱۵۰</span>
+      <span class="kv-spdp__stat-unit">کیلوگرم</span>
+      <span class="kv-spdp__stat-label">حداکثر ظرفیت بالابری</span>
+    </div>
+    <div class="kv-spdp__stat" data-kv-reveal>
+      <span class="kv-spdp__stat-num">۳.۴</span>
+      <span class="kv-spdp__stat-unit">تن</span>
+      <span class="kv-spdp__stat-label">وزن عملیاتی</span>
+    </div>
+    <div class="kv-spdp__stat" data-kv-reveal>
+      <span class="kv-spdp__stat-num">۱۱.۹</span>
+      <span class="kv-spdp__stat-unit">km/h</span>
+      <span class="kv-spdp__stat-label">سرعت دستگاه</span>
+    </div>
+    <div class="kv-spdp__stat" data-kv-reveal>
+      <span class="kv-spdp__stat-num">۳۶۰</span>
+      <span class="kv-spdp__stat-unit">درجه</span>
+      <span class="kv-spdp__stat-label">فرمان‌پذیری در جا</span>
+    </div>
+  </section>
+
+  <!-- ═══════════ معرفی محصول ═══════════ -->
+  <section class="kv-spdp__section" aria-labelledby="kv-spdp-intro-h">
+    <div class="kv-spdp__section-head" data-kv-reveal>
+      <span class="kv-spdp__kicker">معرفی محصول</span>
+      <h2 id="kv-spdp-intro-h" class="kv-spdp__h2">اسکیدلودر کاوران؛ قدرت و چابکی در تنگ‌ترین فضاها</h2>
+    </div>
+    <div class="kv-spdp__prose" data-kv-reveal>
+      <p>
+        وقتی صحبت از عملکرد ماشین در <strong>فضاهای تنگ و باریک</strong> با کاربردهای
+        خاص می‌شود، ذهن ناخودآگاه به سمت <strong>اسکیدلودر</strong> می‌رود. ویژگی
+        متمایز این دستگاه، <strong>مستقل بودن چرخش چرخ‌ها از یکدیگر</strong> است:
+        نیروی موتور به‌صورت مستقل توسط <strong>دو هیدروپمپ پیستونی با دبی متغیر</strong>
+        به هیدروموتورهای پیستونی محرک نهایی چرخ‌ها منتقل می‌شود. نتیجه، چرخش در جا
+        و مانور در محدوده‌ای است که هیچ لودر معمولی در آن جا نمی‌شود.
+      </p>
+      <p>
+        همین سازوکار در کنار <strong>تنوع تجهیزات نصب‌شونده روی بازو</strong> —
+        باکت، فورک پالت، جاروی مکانیکی، چکش هیدرولیک، اوگر و بیل برفی — اسکیدلودر
+        را به یک ماشین چندکاره تبدیل کرده است. ترکیب <strong>قدرت زیاد و سادگی</strong>
+        باعث شده این دستگاه خیلی سریع میان مصرف‌کنندگان محبوب شود؛ به همین دلیل در
+        ایران با نام عمومی <strong>بابکت</strong> هم شناخته می‌شود.
+      </p>
+      <p>
+        <strong>اسکیدلودر کاوران</strong> با موتور <strong>CUMMINS/KUBOTA</strong>،
+        سیستم انتقال <strong>هیدرواستاتیک</strong>، ظرفیت بالابری
+        <strong>۹۵۰ تا ۱۱۵۰ کیلوگرم</strong>، وزن عملیاتی <strong>۳٬۴۰۰ کیلوگرم</strong>
+        و لاستیک تیوبلس <strong>12-16/5</strong> عرضه می‌شود. برای حفاری و گودبرداری،
+        <a class="kv-spdp__inline" href="https://kaverun.com/mini-excavator">مینی بیل مکانیکی کاوران</a>
+        و برای عملیات سنگین‌تر
+        <a class="kv-spdp__inline" href="https://kaverun.com/excavator-8-5-ton">بیل مکانیکی ۸.۵ تن کاوران</a>
+        مکمل مناسب این دستگاه هستند.
+      </p>
+    </div>
+  </section>
+
+  <!-- ═══════════ مشخصات فنی ═══════════ -->
+  <section class="kv-spdp__section kv-spdp__section--alt" aria-labelledby="kv-spdp-specs-h">
+    <div class="kv-spdp__section-head" data-kv-reveal>
+      <span class="kv-spdp__kicker">جدول مشخصات</span>
+      <h2 id="kv-spdp-specs-h" class="kv-spdp__h2">مشخصات فنی اسکید استیر لودر KAVERUN</h2>
+    </div>
+
+    <dl class="kv-spdp__specs" data-kv-reveal>
+      <div class="kv-spdp__spec">
+        <svg class="kv-spdp__spec-ic" viewBox="0 0 24 24" aria-hidden="true"><path fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" d="M3 12h4l2-5 4 12 2-7h6"/></svg>
+        <dt>سیستم حرکتی</dt><dd>هیدرواستاتیک</dd>
+      </div>
+      <div class="kv-spdp__spec">
+        <svg class="kv-spdp__spec-ic" viewBox="0 0 24 24" aria-hidden="true"><path fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" d="M4 8h10v8H4z M14 10h4l2 3v3h-6 M6.5 18.5a1.5 1.5 0 1 0 0-3 1.5 1.5 0 0 0 0 3z M17.5 18.5a1.5 1.5 0 1 0 0-3 1.5 1.5 0 0 0 0 3z"/></svg>
+        <dt>مدل موتور</dt><dd>CUMMINS / KUBOTA</dd>
+      </div>
+      <div class="kv-spdp__spec">
+        <svg class="kv-spdp__spec-ic" viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="8" fill="none" stroke="currentColor" stroke-width="1.8"/><circle cx="12" cy="12" r="3" fill="none" stroke="currentColor" stroke-width="1.8"/></svg>
+        <dt>نوع لاستیک</dt><dd>تیوبلس 12-16/5</dd>
+      </div>
+      <div class="kv-spdp__spec">
+        <svg class="kv-spdp__spec-ic" viewBox="0 0 24 24" aria-hidden="true"><path fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" d="M12 20V5 M8 9l4-4 4 4 M5 20h14"/></svg>
+        <dt>ظرفیت بالابری</dt><dd>۹۵۰ تا ۱۱۵۰ کیلوگرم</dd>
+      </div>
+      <div class="kv-spdp__spec">
+        <svg class="kv-spdp__spec-ic" viewBox="0 0 24 24" aria-hidden="true"><path fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" d="M4 7h16v10H4z M8 7V5h8v2 M12 10v4 M9 12h6"/></svg>
+        <dt>وزن عملیاتی</dt><dd>۳٬۴۰۰ کیلوگرم</dd>
+      </div>
+      <div class="kv-spdp__spec">
+        <svg class="kv-spdp__spec-ic" viewBox="0 0 24 24" aria-hidden="true"><path fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" d="M5 12a7 7 0 1 1 14 0 M12 12l4-2 M12 12v-6 M4 12h1 M19 12h1 M12 20v-2"/></svg>
+        <dt>سرعت دستگاه</dt><dd>۱۱.۹ کیلومتر در ساعت</dd>
+      </div>
+      <div class="kv-spdp__spec">
+        <svg class="kv-spdp__spec-ic" viewBox="0 0 24 24" aria-hidden="true"><path fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" d="M7 3h10v6a5 5 0 0 1-10 0z M7 21h10 M12 14v7 M9 6h6"/></svg>
+        <dt>مخزن روغن هیدرولیک</dt><dd>۸۰ لیتر</dd>
+      </div>
+      <div class="kv-spdp__spec">
+        <svg class="kv-spdp__spec-ic" viewBox="0 0 24 24" aria-hidden="true"><path fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" d="M5 20V6a2 2 0 0 1 2-2h6a2 2 0 0 1 2 2v14 M5 20h10 M15 9h2a2 2 0 0 1 2 2v5a1.5 1.5 0 0 1-3 0v-3 M8 8h4"/></svg>
+        <dt>ظرفیت مخزن سوخت</dt><dd>۸۰ لیتر</dd>
+      </div>
+      <div class="kv-spdp__spec">
+        <svg class="kv-spdp__spec-ic" viewBox="0 0 24 24" aria-hidden="true"><path fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" d="M12 4a8 8 0 1 1-8 8 M12 4V1.5 M12 4l3 2.5"/></svg>
+        <dt>فرمان‌پذیری</dt><dd>۳۶۰ درجه (چرخش در جا)</dd>
+      </div>
+    </dl>
+  </section>
+
+  <!-- ═══════════ ویژگی‌ها و مزایا ═══════════ -->
+  <section class="kv-spdp__section" aria-labelledby="kv-spdp-feat-h">
+    <div class="kv-spdp__section-head" data-kv-reveal>
+      <span class="kv-spdp__kicker">چرا اسکیدلودر کاوران</span>
+      <h2 id="kv-spdp-feat-h" class="kv-spdp__h2">ویژگی‌ها و مزایای اسکیدلودر KAVERUN</h2>
+    </div>
+    <div class="kv-spdp__features" data-kv-reveal>
+      <div class="kv-spdp__feature">
+        <span class="kv-spdp__feature-ic"><svg viewBox="0 0 24 24" aria-hidden="true"><path fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" d="M12 4a8 8 0 1 1-8 8 M12 4V1.5 M12 4l3 2.5"/></svg></span>
+        <h3>فرمان‌پذیری ۳۶۰ درجه</h3>
+        <p>چرخش در جا و مانور انعطاف‌پذیر در هر مکان — حتی در کوچه‌ها، سالن‌ها و شرایط باریکی که ورود ماشین‌آلات دیگر ممکن نیست.</p>
+      </div>
+      <div class="kv-spdp__feature">
+        <span class="kv-spdp__feature-ic"><svg viewBox="0 0 24 24" aria-hidden="true"><path fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" d="M3 12h4l2-5 4 12 2-7h6"/></svg></span>
+        <h3>انتقال هیدرواستاتیک</h3>
+        <p>سیستم انتقال هیدرواستاتیک با دو هیدروپمپ پیستونی دبی متغیر، امکان استفاده از تجهیزات مختلف و انجام انواع گوناگون کار را فراهم می‌کند.</p>
+      </div>
+      <div class="kv-spdp__feature">
+        <span class="kv-spdp__feature-ic"><svg viewBox="0 0 24 24" aria-hidden="true"><path fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" d="M4 16h16 M6 16l1-5h10l1 5 M9 11V7h6v4"/></svg></span>
+        <h3>سیستم تراز هیدرولیک</h3>
+        <p>سیستم تطبیق تراز هیدرولیک، تعادل باکت را هنگام بالا بردن و پایین آوردن حفظ می‌کند تا بار در مسیر جابه‌جایی نریزد.</p>
+      </div>
+      <div class="kv-spdp__feature">
+        <span class="kv-spdp__feature-ic"><svg viewBox="0 0 24 24" aria-hidden="true"><path fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" d="M14.7 6.3a4 4 0 0 1-5.4 5.4L5 16v3h3l4.3-4.3a4 4 0 0 0 5.4-5.4l-2 2-2-2 2-2z"/></svg></span>
+        <h3>تعمیر و نگهداری آسان</h3>
+        <p>کنترل‌کننده‌ی مکانیکی سازگار و دسترسی ساده به اجزای موتور و هیدرولیک، سرویس دوره‌ای را سریع و کم‌هزینه می‌کند.</p>
+      </div>
+      <div class="kv-spdp__feature">
+        <span class="kv-spdp__feature-ic"><svg viewBox="0 0 24 24" aria-hidden="true"><path fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" d="M4 14l3-7h6l4 5h3v4H4z M4 14v3h3 M17 17h3v-3"/></svg></span>
+        <h3>تنوع اتصالات روی بازو</h3>
+        <p>باکت، فورک پالت، جاروی مکانیکی، چکش هیدرولیک، اوگر و بیل برفی؛ یک دستگاه که با تعویض سریع اتصال، چند ماشین را جایگزین می‌کند.</p>
+      </div>
+      <div class="kv-spdp__feature">
+        <span class="kv-spdp__feature-ic"><svg viewBox="0 0 24 24" aria-hidden="true"><path fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" d="M12 3l8 4v6c0 4-3.5 7-8 8-4.5-1-8-4-8-8V7l8-4z"/><path fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" d="M12 8v4l3 2"/></svg></span>
+        <h3>گارانتی و خدمات پس از فروش</h3>
+        <p>گارانتی معتبر، تأمین قطعات یدکی و پشتیبانی فنی کاوران، هزینه‌ی نگهداری و زمان توقف دستگاه را به حداقل می‌رساند.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══════════ کاربردها ═══════════ -->
+  <section class="kv-spdp__section kv-spdp__section--alt" aria-labelledby="kv-spdp-use-h">
+    <div class="kv-spdp__section-head" data-kv-reveal>
+      <span class="kv-spdp__kicker">کجا به کار می‌آید</span>
+      <h2 id="kv-spdp-use-h" class="kv-spdp__h2">کاربردهای اسکیدلودر (بابکت)</h2>
+    </div>
+    <ul class="kv-spdp__uses" data-kv-reveal aria-label="کاربردهای اسکیدلودر کاوران">
+      <li>بارگیری و جابه‌جایی مصالح</li>
+      <li>کارگاه‌های ساختمانی و عمرانی</li>
+      <li>نظافت صنعتی و جاروی محوطه</li>
+      <li>جمع‌آوری و حمل نخاله</li>
+      <li>دامداری و کشاورزی</li>
+      <li>انبارها و سوله‌های سرپوشیده</li>
+      <li>برف‌روبی و نگهداری معابر</li>
+      <li>تخریب سبک با چکش هیدرولیک</li>
+    </ul>
+  </section>
+
+  <!-- ═══════════ گالری تصاویر ═══════════ -->
+  <!--
+    ✎ ویرایش گالری: آدرس تصاویر واقعی گالری اسکیدلودر را از کتابخانه‌ی رسانه‌ی
+    وردپرس جایگزین کنید. برای هر آیتم دو جا را عوض کنید:
+      1) data-kv-full="آدرس تصویر بزرگ"     2) src="آدرس همان تصویر"
+    و متن alt را متناسب با تصویر بنویسید. اگر تصویری ندارید، کل آن بلوک دکمه/تصویر را حذف کنید.
+  -->
+  <section class="kv-spdp__section" aria-labelledby="kv-spdp-gal-h">
+    <div class="kv-spdp__section-head" data-kv-reveal>
+      <span class="kv-spdp__kicker">تصاویر واقعی</span>
+      <h2 id="kv-spdp-gal-h" class="kv-spdp__h2">گالری تصاویر اسکیدلودر</h2>
+    </div>
+    <div class="kv-spdp__gallery" data-kv-reveal data-kv-gallery>
+      <button class="kv-spdp__gitem" type="button" data-kv-full="https://kaverun.com/wp-content/uploads/2024/02/1-1.png">
+        <img src="https://kaverun.com/wp-content/uploads/2024/02/1-1.png" width="768" height="768" loading="lazy" decoding="async" alt="نمای کامل اسکیدلودر کاوران — تصویر ۱" />
+      </button>
+      <button class="kv-spdp__gitem" type="button" data-kv-full="https://kaverun.com/wp-content/uploads/2024/02/1-1.png">
+        <img src="https://kaverun.com/wp-content/uploads/2024/02/1-1.png" width="768" height="768" loading="lazy" decoding="async" alt="باکت و بازوی بالابر اسکیدلودر کاوران — تصویر ۲" />
+      </button>
+      <button class="kv-spdp__gitem" type="button" data-kv-full="https://kaverun.com/wp-content/uploads/2024/02/1-1.png">
+        <img src="https://kaverun.com/wp-content/uploads/2024/02/1-1.png" width="768" height="768" loading="lazy" decoding="async" alt="کابین و کنترل‌های اسکید استیر لودر کاوران — تصویر ۳" />
+      </button>
+      <button class="kv-spdp__gitem" type="button" data-kv-full="https://kaverun.com/wp-content/uploads/2024/02/1-1.png">
+        <img src="https://kaverun.com/wp-content/uploads/2024/02/1-1.png" width="768" height="768" loading="lazy" decoding="async" alt="اسکیدلودر کاوران در حال بارگیری مصالح — تصویر ۴" />
+      </button>
+      <button class="kv-spdp__gitem" type="button" data-kv-full="https://kaverun.com/wp-content/uploads/2024/02/1-1.png">
+        <img src="https://kaverun.com/wp-content/uploads/2024/02/1-1.png" width="768" height="768" loading="lazy" decoding="async" alt="نمای جانبی بابکت کاوران و لاستیک تیوبلس — تصویر ۵" />
+      </button>
+      <button class="kv-spdp__gitem" type="button" data-kv-full="https://kaverun.com/wp-content/uploads/2024/02/1-1.png">
+        <img src="https://kaverun.com/wp-content/uploads/2024/02/1-1.png" width="768" height="768" loading="lazy" decoding="async" alt="اسکیدلودر کاوران در محوطه‌ی کارگاهی — تصویر ۶" />
+      </button>
+    </div>
+  </section>
+
+  <!-- ═══════════ ویدئو ═══════════ -->
+  <section class="kv-spdp__section kv-spdp__section--alt" aria-labelledby="kv-spdp-vid-h">
+    <div class="kv-spdp__section-head" data-kv-reveal>
+      <span class="kv-spdp__kicker">در حال کار</span>
+      <h2 id="kv-spdp-vid-h" class="kv-spdp__h2">ویدئوی عملکرد اسکیدلودر KAVERUN</h2>
+    </div>
+    <div class="kv-spdp__video" data-kv-reveal>
+      <video
+        class="kv-spdp__video-el"
+        preload="metadata" controls loop playsinline
+        controlslist="nodownload"
+        poster="https://kaverun.com/wp-content/uploads/2024/02/1-1.png"
+        src="https://kaverun.com/wp-content/uploads/2024/01/China-Skid-Steer-Loader-Ws50-With-800kg-Load-For-Sale-Buy-Chinese-Skid-Steer-LoaderSkid-Steer-MiniSweeper-Loader-Product-on-Alibaba.com_.mp4"
+      >
+        مرورگر شما از پخش ویدئو پشتیبانی نمی‌کند.
+      </video>
+    </div>
+  </section>
+
+  <!-- ═══════════ اسکیدلودر یا مینی بیل؟ ═══════════ -->
+  <section class="kv-spdp__section" aria-labelledby="kv-spdp-cmp-h">
+    <div class="kv-spdp__section-head" data-kv-reveal>
+      <span class="kv-spdp__kicker">راهنمای انتخاب</span>
+      <h2 id="kv-spdp-cmp-h" class="kv-spdp__h2">اسکیدلودر بگیرم یا مینی بیل مکانیکی؟</h2>
+    </div>
+    <div class="kv-spdp__cmp" data-kv-reveal>
+      <div class="kv-spdp__cmp-card kv-spdp__cmp-card--on">
+        <h3>اسکیدلودر کاوران</h3>
+        <ul>
+          <li>کار اصلی: بارگیری و جابه‌جایی مصالح</li>
+          <li>ظرفیت بالابری ۹۵۰ تا ۱۱۵۰ کیلوگرم</li>
+          <li>چرخ لاستیکی، سرعت ۱۱.۹ کیلومتر در ساعت</li>
+          <li>چرخش ۳۶۰ درجه در جا</li>
+          <li>تعویض سریع اتصالات (جارو، فورک، چکش)</li>
+          <li>مناسب محوطه‌ی سخت، انبار و سوله</li>
+        </ul>
+      </div>
+      <div class="kv-spdp__cmp-card">
+        <h3>مینی بیل مکانیکی کاوران</h3>
+        <ul>
+          <li>کار اصلی: حفاری و گودبرداری</li>
+          <li>باکت ۰.۰۵ متر مکعب، عمق حفر ۲۱۵۰ میلی‌متر</li>
+          <li>زنجیری، وزن عملیاتی ۱٬۹۵۳ کیلوگرم</li>
+          <li>فشار کم روی زمین و آسیب سطحی کمتر</li>
+          <li>مناسب باغ، حیاط و فضای سبز</li>
+          <li>
+            <a class="kv-spdp__inline" href="https://kaverun.com/mini-excavator">مشاهده صفحه محصول</a>
+          </li>
+        </ul>
+      </div>
+    </div>
+    <p class="kv-spdp__cmp-note" data-kv-reveal>
+      قاعده‌ی ساده: اگر بیشتر کار شما <strong>برداشتن، حمل و تخلیه‌ی مصالح</strong> روی
+      سطح سخت است، <strong>اسکیدلودر</strong> انتخاب درست است؛ اگر کار اصلی
+      <strong>کندن زمین</strong> است، سراغ بیل مکانیکی بروید. کارشناسان کاوران
+      رایگان به شما در انتخاب کمک می‌کنند.
+    </p>
+  </section>
+
+  <!-- ═══════════ سوالات متداول ═══════════ -->
+  <section class="kv-spdp__section kv-spdp__section--alt" aria-labelledby="kv-spdp-faq-h">
+    <div class="kv-spdp__section-head" data-kv-reveal>
+      <span class="kv-spdp__kicker">قبل از خرید بدانید</span>
+      <h2 id="kv-spdp-faq-h" class="kv-spdp__h2">سوالات متداول درباره اسکیدلودر</h2>
+    </div>
+    <div class="kv-spdp__faq" data-kv-reveal data-kv-faq>
+      <details class="kv-spdp__qa">
+        <summary>تفاوت اسکیدلودر با بابکت چیست؟<span class="kv-spdp__qa-ic" aria-hidden="true"></span></summary>
+        <div class="kv-spdp__qa-body"><p>تفاوتی ندارند. «بابکت» نام یک برند آمریکایی سازنده‌ی اسکید استیر لودر است که در ایران به نام عمومی این دسته از ماشین‌آلات تبدیل شده؛ نام فنی درست همان <strong>اسکیدلودر</strong> یا <strong>اسکید استیر لودر</strong> است.</p></div>
+      </details>
+      <details class="kv-spdp__qa">
+        <summary>موتور و سیستم حرکتی اسکیدلودر کاوران چیست؟<span class="kv-spdp__qa-ic" aria-hidden="true"></span></summary>
+        <div class="kv-spdp__qa-body"><p>این دستگاه با موتور CUMMINS/KUBOTA و سیستم حرکتی هیدرواستاتیک عرضه می‌شود؛ نیروی موتور توسط دو هیدروپمپ پیستونی با دبی متغیر به هیدروموتورهای چرخ‌ها منتقل می‌شود.</p></div>
+      </details>
+      <details class="kv-spdp__qa">
+        <summary>ظرفیت بالابری و وزن عملیاتی این اسکیدلودر چقدر است؟<span class="kv-spdp__qa-ic" aria-hidden="true"></span></summary>
+        <div class="kv-spdp__qa-body"><p>ظرفیت بالابری ۹۵۰ تا ۱۱۵۰ کیلوگرم و وزن عملیاتی ۳٬۴۰۰ کیلوگرم است؛ سرعت حرکت دستگاه نیز تا ۱۱.۹ کیلومتر در ساعت می‌رسد.</p></div>
+      </details>
+      <details class="kv-spdp__qa">
+        <summary>چه تجهیزاتی روی بازوی اسکیدلودر نصب می‌شود؟<span class="kv-spdp__qa-ic" aria-hidden="true"></span></summary>
+        <div class="kv-spdp__qa-body"><p>باکت‌های مختلف، فورک پالت، جاروی مکانیکی، چکش هیدرولیک، اوگر و بیل برفی از رایج‌ترین اتصالات هستند. برای تطبیق اتصال موردنظر با دستگاه با کارشناسان ما تماس بگیرید.</p></div>
+      </details>
+      <details class="kv-spdp__qa">
+        <summary>ظرفیت مخزن سوخت و روغن هیدرولیک چقدر است؟<span class="kv-spdp__qa-ic" aria-hidden="true"></span></summary>
+        <div class="kv-spdp__qa-body"><p>هر دو مخزن ۸۰ لیتر هستند؛ سوخت ۸۰ لیتر و روغن هیدرولیک ۸۰ لیتر، که کارکرد طولانی بدون توقف مکرر را ممکن می‌کند.</p></div>
+      </details>
+      <details class="kv-spdp__qa">
+        <summary>آیا اسکیدلودر در فضای بسته و سالن قابل استفاده است؟<span class="kv-spdp__qa-ic" aria-hidden="true"></span></summary>
+        <div class="kv-spdp__qa-body"><p>بله؛ ابعاد جمع‌وجور و چرخش ۳۶۰ درجه در جا، این دستگاه را برای انبار، سوله و محوطه‌های محدود ایده‌آل کرده است. برای فضاهای کاملاً بسته، تهویه‌ی مناسب را در نظر بگیرید.</p></div>
+      </details>
+      <details class="kv-spdp__qa">
+        <summary>آیا اسکیدلودر کاوران گارانتی و خدمات پس از فروش دارد؟<span class="kv-spdp__qa-ic" aria-hidden="true"></span></summary>
+        <div class="kv-spdp__qa-body"><p>بله. تمام محصولات کاوران با گارانتی معتبر، تأمین قطعات یدکی و پشتیبانی فنی عرضه می‌شوند. برای جزئیات گارانتی با کارشناسان ما تماس بگیرید.</p></div>
+      </details>
+      <details class="kv-spdp__qa">
+        <summary>قیمت اسکیدلودر کاوران چگونه اعلام می‌شود؟<span class="kv-spdp__qa-ic" aria-hidden="true"></span></summary>
+        <div class="kv-spdp__qa-body"><p>به‌دلیل نوسان بازار، قیمت به‌صورت روز و پس از استعلام اعلام می‌شود. کافی است فرم استعلام قیمت را پر کنید یا با شماره‌ی فروش تماس بگیرید.</p></div>
+      </details>
+    </div>
+  </section>
+
+  <!-- ═══════════ فراخوان اقدام / تماس ═══════════ -->
+  <section id="kv-spdp-contact" class="kv-spdp__cta" aria-labelledby="kv-spdp-cta-h">
+    <div class="kv-spdp__cta-inner" data-kv-reveal>
+      <h2 id="kv-spdp-cta-h" class="kv-spdp__cta-title">اسکیدلودر کاوران را همین امروز رزرو کنید</h2>
+      <p class="kv-spdp__cta-lede">
+        کارشناسان فروش کاوران آماده‌ی مشاوره‌ی رایگان، اعلام قیمت روز و بررسی
+        شرایط خرید و تحویل هستند.
+      </p>
+      <div class="kv-spdp__actions kv-spdp__actions--center">
+        <!-- ✎ ویرایش: شماره تماس واقعی -->
+        <a class="kv-spdp__btn kv-spdp__btn--primary" href="tel:+982100000000" aria-label="تماس تلفنی برای خرید اسکیدلودر کاوران">
+          <svg viewBox="0 0 24 24" aria-hidden="true"><path fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" d="M4 5c0 9 6 15 15 15l0-3.5-4-1.5-2 2c-2.5-1.2-4.8-3.5-6-6l2-2-1.5-4L4 5z"/></svg>
+          تماس با فروش
+        </a>
+        <a class="kv-spdp__btn kv-spdp__btn--ghost" href="https://kaverun.com/contact" aria-label="فرم تماس و استعلام قیمت کاوران">
+          فرم استعلام قیمت
+        </a>
+      </div>
+    </div>
+  </section>
+</article>
+
+<style id="kv-spdp-styles">
+/* ===== KAVERUN — Mini Excavator Product Page (scoped, بدون تداخل با تم) ===== */
+#kv-spdp, #kv-spdp *, #kv-spdp *::before, #kv-spdp *::after { box-sizing: border-box; }
+
+#kv-spdp {
+  --kv-bg:      #0b0c10;
+  --kv-surface: #111318;
+  --kv-surface2:#15181f;
+  --kv-fg:      #ffffff;
+  --kv-muted:   rgba(255,255,255,.68);
+  --kv-faint:   rgba(255,255,255,.42);
+  --kv-accent:  #FFC72C;   /* زرد کاوران */
+  --kv-accent-2:#ffdf7e;
+  --kv-ink:     #14150f;
+  --kv-line:    rgba(255,255,255,.10);
+  --kv-line-2:  rgba(255,255,255,.06);
+  --kv-radius:  18px;
+  --kv-ease:    cubic-bezier(.22,1,.36,1);
+
+  position: relative; width: 100%; margin: 0;
+  padding: clamp(28px, 5vw, 64px) clamp(16px, 5vw, 72px) clamp(48px, 7vw, 96px);
+  background:
+    radial-gradient(120% 60% at 85% -5%, rgba(255,199,44,.10) 0%, rgba(255,199,44,0) 55%),
+    var(--kv-bg);
+  color: var(--kv-fg); direction: rtl; text-align: right;
+  font-family: 'Vazirmatn', 'IRANYekanX', 'IRANSans', Tahoma, system-ui, -apple-system, sans-serif;
+  line-height: 1.75; overflow: hidden;
+  -webkit-font-smoothing: antialiased;
+}
+#kv-spdp a { color: inherit; }
+
+/* ---- مسیر راهنما ---- */
+#kv-spdp .kv-spdp__crumbs {
+  display: flex; flex-wrap: wrap; align-items: center; gap: 8px;
+  font-size: 13px; color: var(--kv-faint); margin: 0 0 clamp(24px,4vw,40px);
+}
+#kv-spdp .kv-spdp__crumbs a { text-decoration: none; transition: color .2s; }
+#kv-spdp .kv-spdp__crumbs a:hover { color: var(--kv-accent); }
+#kv-spdp .kv-spdp__crumbs span[aria-current] { color: var(--kv-fg); font-weight: 600; }
+
+/* ---- هرو ---- */
+#kv-spdp .kv-spdp__hero {
+  display: grid; grid-template-columns: 1.05fr .95fr; gap: clamp(24px, 4vw, 56px);
+  align-items: center; margin-bottom: clamp(32px, 5vw, 64px);
+}
+#kv-spdp .kv-spdp__eyebrow {
+  display: inline-flex; align-items: center; gap: 9px; margin: 0 0 18px;
+  padding: 7px 15px; border: 1px solid var(--kv-line); border-radius: 999px;
+  background: rgba(255,255,255,.03);
+  font-size: 13px; font-weight: 700; color: var(--kv-accent);
+}
+#kv-spdp .kv-spdp__dot {
+  width: 8px; height: 8px; border-radius: 50%; background: var(--kv-accent);
+  animation: kvsPulse 2.2s ease-out infinite;
+}
+@keyframes kvsPulse {
+  0% { box-shadow: 0 0 0 0 rgba(255,199,44,.55); }
+  70% { box-shadow: 0 0 0 10px rgba(255,199,44,0); }
+  100% { box-shadow: 0 0 0 0 rgba(255,199,44,0); }
+}
+#kv-spdp .kv-spdp__title {
+  margin: 0 0 16px; font-size: clamp(30px, 5.2vw, 58px);
+  line-height: 1.16; font-weight: 800; letter-spacing: -.01em; text-wrap: balance;
+}
+#kv-spdp .kv-spdp__brand { color: var(--kv-accent); }
+#kv-spdp .kv-spdp__lede {
+  margin: 0 0 22px; max-width: 56ch;
+  font-size: clamp(15px, 1.7vw, 18px); line-height: 1.95; color: var(--kv-muted);
+}
+#kv-spdp .kv-spdp__lede strong { color: #fff; font-weight: 700; }
+
+#kv-spdp .kv-spdp__badges {
+  display: flex; flex-wrap: wrap; gap: 10px; margin: 0 0 26px; padding: 0; list-style: none;
+}
+#kv-spdp .kv-spdp__badges li {
+  display: inline-flex; align-items: center; gap: 8px;
+  padding: 9px 14px; border-radius: 12px;
+  background: var(--kv-surface); border: 1px solid var(--kv-line);
+  font-size: 13.5px; font-weight: 600; color: rgba(255,255,255,.86);
+}
+#kv-spdp .kv-spdp__badges svg { width: 18px; height: 18px; color: var(--kv-accent); flex: none; }
+
+#kv-spdp .kv-spdp__actions { display: flex; flex-wrap: wrap; gap: 12px; }
+#kv-spdp .kv-spdp__actions--center { justify-content: center; }
+#kv-spdp .kv-spdp__btn {
+  display: inline-flex; align-items: center; gap: 8px;
+  padding: 14px 26px; border-radius: 999px;
+  font-weight: 700; font-size: 15px; text-decoration: none;
+  border: 2px solid transparent; cursor: pointer;
+  transition: transform .18s var(--kv-ease), box-shadow .2s var(--kv-ease), background-color .2s, border-color .2s;
+}
+#kv-spdp .kv-spdp__btn svg { width: 18px; height: 18px; transition: transform .2s var(--kv-ease); }
+#kv-spdp .kv-spdp__btn--primary {
+  background: var(--kv-accent); color: var(--kv-ink);
+  box-shadow: 0 12px 30px rgba(255,199,44,.28);
+}
+#kv-spdp .kv-spdp__btn--primary:hover { transform: translateY(-2px); box-shadow: 0 16px 40px rgba(255,199,44,.45); }
+#kv-spdp .kv-spdp__btn--primary:hover svg { transform: translateX(-4px); }
+#kv-spdp .kv-spdp__btn--ghost { background: rgba(255,255,255,.05); color: #fff; border-color: var(--kv-line); }
+#kv-spdp .kv-spdp__btn--ghost:hover { border-color: rgba(255,255,255,.5); background: rgba(255,255,255,.1); }
+#kv-spdp .kv-spdp__btn:focus-visible { outline: 3px solid var(--kv-accent); outline-offset: 3px; }
+
+#kv-spdp .kv-spdp__hero-media {
+  position: relative; margin: 0; display: flex; align-items: center; justify-content: center;
+  min-height: 260px;
+}
+#kv-spdp .kv-spdp__glow {
+  position: absolute; inset: 8% 8% 12%; border-radius: 50%;
+  background: radial-gradient(circle, rgba(255,199,44,.30) 0%, rgba(255,199,44,0) 65%);
+  filter: blur(14px); z-index: 0; pointer-events: none;
+}
+#kv-spdp .kv-spdp__hero-img {
+  position: relative; z-index: 1; width: 100%; max-width: 520px; height: auto;
+  object-fit: contain; filter: drop-shadow(0 24px 40px rgba(0,0,0,.5));
+}
+#kv-spdp .kv-spdp__hero-chips {
+  position: absolute; z-index: 2; inset-block-end: 4%; inset-inline-start: 0;
+  display: flex; flex-wrap: wrap; gap: 8px;
+}
+#kv-spdp .kv-spdp__hero-chips span {
+  padding: 7px 13px; border-radius: 999px; font-size: 12.5px; font-weight: 700;
+  color: #fff; background: rgba(17,19,24,.72);
+  border: 1px solid var(--kv-line); backdrop-filter: blur(6px);
+}
+
+/* ---- نوار آمار ---- */
+#kv-spdp .kv-spdp__stats {
+  display: grid; grid-template-columns: repeat(4, 1fr); gap: 12px;
+  margin-bottom: clamp(40px, 6vw, 80px);
+}
+#kv-spdp .kv-spdp__stat {
+  display: flex; flex-direction: column; align-items: center; text-align: center;
+  padding: 22px 14px; border-radius: var(--kv-radius);
+  background: linear-gradient(180deg, var(--kv-surface) 0%, var(--kv-surface2) 100%);
+  border: 1px solid var(--kv-line);
+}
+#kv-spdp .kv-spdp__stat-num {
+  font-size: clamp(26px, 3.8vw, 42px); font-weight: 800; color: var(--kv-accent);
+  line-height: 1; font-variant-numeric: tabular-nums;
+}
+#kv-spdp .kv-spdp__stat-unit { margin-top: 4px; font-size: 13px; color: var(--kv-fg); font-weight: 600; }
+#kv-spdp .kv-spdp__stat-label { margin-top: 8px; font-size: 12.5px; color: var(--kv-faint); }
+
+/* ---- سکشن عمومی ---- */
+#kv-spdp .kv-spdp__section {
+  position: relative; margin-inline: calc(clamp(16px, 5vw, 72px) * -1);
+  padding: clamp(40px, 6vw, 80px) clamp(16px, 5vw, 72px);
+}
+#kv-spdp .kv-spdp__section--alt {
+  background: linear-gradient(180deg, rgba(255,255,255,.02), rgba(255,255,255,0));
+  border-block: 1px solid var(--kv-line-2);
+}
+#kv-spdp .kv-spdp__section-head { max-width: 760px; margin: 0 0 clamp(24px, 4vw, 44px); }
+#kv-spdp .kv-spdp__kicker {
+  display: inline-block; font-size: 13px; font-weight: 700; letter-spacing: .04em;
+  color: var(--kv-accent); margin-bottom: 10px;
+}
+#kv-spdp .kv-spdp__h2 {
+  margin: 0; font-size: clamp(24px, 3.6vw, 38px); line-height: 1.3;
+  font-weight: 800; letter-spacing: -.01em; text-wrap: balance;
+}
+#kv-spdp .kv-spdp__prose { max-width: 68ch; }
+#kv-spdp .kv-spdp__prose p { margin: 0 0 16px; font-size: clamp(15px, 1.6vw, 17px); line-height: 2.05; color: var(--kv-muted); }
+#kv-spdp .kv-spdp__prose strong { color: #fff; font-weight: 700; }
+#kv-spdp .kv-spdp__inline, #kv-spdp .kv-spdp__prose a { color: var(--kv-accent); text-decoration: none; border-bottom: 1px solid rgba(255,199,44,.4); }
+#kv-spdp .kv-spdp__inline:hover { border-bottom-color: var(--kv-accent); }
+
+/* ---- مشخصات فنی ---- */
+#kv-spdp .kv-spdp__specs {
+  display: grid; grid-template-columns: repeat(3, 1fr); gap: 12px; margin: 0;
+}
+#kv-spdp .kv-spdp__spec {
+  display: flex; align-items: center; gap: 14px;
+  padding: 18px 18px; border-radius: 14px;
+  background: var(--kv-surface); border: 1px solid var(--kv-line);
+  transition: transform .2s var(--kv-ease), border-color .2s;
+}
+#kv-spdp .kv-spdp__spec:hover { transform: translateY(-3px); border-color: rgba(255,199,44,.5); }
+#kv-spdp .kv-spdp__spec-ic {
+  width: 30px; height: 30px; color: var(--kv-accent); flex: none;
+  padding: 6px; border-radius: 9px; background: rgba(255,199,44,.10);
+}
+#kv-spdp .kv-spdp__spec dt { margin: 0; font-size: 12.5px; color: var(--kv-faint); }
+#kv-spdp .kv-spdp__spec dd { margin: 2px 0 0; font-size: 15.5px; font-weight: 700; color: #fff; }
+
+/* ---- ویژگی‌ها ---- */
+#kv-spdp .kv-spdp__features { display: grid; grid-template-columns: repeat(3, 1fr); gap: 14px; }
+#kv-spdp .kv-spdp__feature {
+  padding: 26px 22px; border-radius: var(--kv-radius);
+  background: var(--kv-surface); border: 1px solid var(--kv-line);
+  transition: transform .2s var(--kv-ease), border-color .2s;
+}
+#kv-spdp .kv-spdp__feature:hover { transform: translateY(-4px); border-color: rgba(255,199,44,.5); }
+#kv-spdp .kv-spdp__feature-ic {
+  display: inline-flex; width: 46px; height: 46px; margin-bottom: 16px;
+  align-items: center; justify-content: center; border-radius: 12px;
+  background: rgba(255,199,44,.12); color: var(--kv-accent);
+}
+#kv-spdp .kv-spdp__feature-ic svg { width: 24px; height: 24px; }
+#kv-spdp .kv-spdp__feature h3 { margin: 0 0 8px; font-size: 18px; font-weight: 700; color: #fff; }
+#kv-spdp .kv-spdp__feature p { margin: 0; font-size: 14.5px; line-height: 1.9; color: var(--kv-muted); }
+
+/* ---- کاربردها ---- */
+#kv-spdp .kv-spdp__uses { display: flex; flex-wrap: wrap; gap: 12px; margin: 0; padding: 0; list-style: none; }
+#kv-spdp .kv-spdp__uses li {
+  display: inline-flex; align-items: center; gap: 8px;
+  padding: 12px 20px; border-radius: 999px;
+  background: var(--kv-surface); border: 1px solid var(--kv-line);
+  font-size: 15px; font-weight: 600; color: rgba(255,255,255,.9);
+}
+#kv-spdp .kv-spdp__uses li::before {
+  content: ""; width: 7px; height: 7px; border-radius: 50%; background: var(--kv-accent);
+}
+
+/* ---- گالری ---- */
+#kv-spdp .kv-spdp__gallery { display: grid; grid-template-columns: repeat(3, 1fr); gap: 12px; }
+#kv-spdp .kv-spdp__gitem {
+  padding: 0; border: 1px solid var(--kv-line); border-radius: var(--kv-radius);
+  overflow: hidden; cursor: zoom-in; background: var(--kv-surface);
+  aspect-ratio: 4 / 3; display: block;
+}
+#kv-spdp .kv-spdp__gitem img { width: 100%; height: 100%; object-fit: cover; display: block; transition: transform .4s var(--kv-ease); }
+#kv-spdp .kv-spdp__gitem:hover img { transform: scale(1.06); }
+#kv-spdp .kv-spdp__gitem:focus-visible { outline: 3px solid var(--kv-accent); outline-offset: 3px; }
+
+/* لایت‌باکس */
+#kv-spdp-lb {
+  position: fixed; inset: 0; z-index: 99999; display: none;
+  align-items: center; justify-content: center; padding: 24px;
+  background: rgba(6,7,10,.9); backdrop-filter: blur(4px);
+}
+#kv-spdp-lb.is-open { display: flex; }
+#kv-spdp-lb img { max-width: 92vw; max-height: 86vh; border-radius: 12px; box-shadow: 0 30px 80px rgba(0,0,0,.6); }
+#kv-spdp-lb .kv-spdp__lb-close {
+  position: absolute; top: 20px; inset-inline-end: 20px; width: 46px; height: 46px;
+  border-radius: 50%; border: 1px solid rgba(255,255,255,.10); background: rgba(255,255,255,.08);
+  color: #fff; font-size: 24px; line-height: 1; cursor: pointer; display: grid; place-items: center;
+}
+#kv-spdp-lb .kv-spdp__lb-close:hover { background: rgba(255,255,255,.18); }
+
+/* ---- ویدئو ---- */
+#kv-spdp .kv-spdp__video {
+  border-radius: var(--kv-radius); overflow: hidden; border: 1px solid var(--kv-line);
+  background: #000; box-shadow: 0 24px 50px rgba(0,0,0,.4);
+}
+#kv-spdp .kv-spdp__video-el { display: block; width: 100%; height: auto; aspect-ratio: 16 / 9; object-fit: cover; }
+
+/* ---- مقایسه ---- */
+#kv-spdp .kv-spdp__cmp { display: grid; grid-template-columns: repeat(2, 1fr); gap: 14px; }
+#kv-spdp .kv-spdp__cmp-card {
+  padding: 26px 22px; border-radius: var(--kv-radius);
+  background: var(--kv-surface); border: 1px solid var(--kv-line);
+}
+#kv-spdp .kv-spdp__cmp-card--on {
+  border-color: rgba(255,199,44,.45);
+  background:
+    radial-gradient(90% 100% at 100% 0%, rgba(255,199,44,.10) 0%, rgba(255,199,44,0) 60%),
+    var(--kv-surface);
+}
+#kv-spdp .kv-spdp__cmp-card h3 { margin: 0 0 14px; font-size: 19px; font-weight: 800; color: #fff; }
+#kv-spdp .kv-spdp__cmp-card--on h3 { color: var(--kv-accent); }
+#kv-spdp .kv-spdp__cmp-card ul { margin: 0; padding: 0; list-style: none; display: grid; gap: 10px; }
+#kv-spdp .kv-spdp__cmp-card li {
+  display: flex; align-items: flex-start; gap: 9px;
+  font-size: 14.5px; line-height: 1.85; color: var(--kv-muted);
+}
+#kv-spdp .kv-spdp__cmp-card li::before {
+  content: ""; flex: none; margin-top: 10px; width: 6px; height: 6px;
+  border-radius: 50%; background: var(--kv-accent);
+}
+#kv-spdp .kv-spdp__cmp-note {
+  max-width: 72ch; margin: clamp(18px,3vw,28px) 0 0;
+  font-size: 14.5px; line-height: 2; color: var(--kv-muted);
+}
+#kv-spdp .kv-spdp__cmp-note strong { color: #fff; }
+
+/* ---- FAQ ---- */
+#kv-spdp .kv-spdp__faq { display: grid; gap: 10px; max-width: 820px; }
+#kv-spdp .kv-spdp__qa { border: 1px solid var(--kv-line); border-radius: 14px; background: var(--kv-surface); overflow: hidden; }
+#kv-spdp .kv-spdp__qa summary {
+  display: flex; align-items: center; justify-content: space-between; gap: 14px;
+  padding: 18px 20px; cursor: pointer; list-style: none;
+  font-size: 16px; font-weight: 700; color: #fff;
+}
+#kv-spdp .kv-spdp__qa summary::-webkit-details-marker { display: none; }
+#kv-spdp .kv-spdp__qa-ic { position: relative; width: 18px; height: 18px; flex: none; }
+#kv-spdp .kv-spdp__qa-ic::before, #kv-spdp .kv-spdp__qa-ic::after {
+  content: ""; position: absolute; background: var(--kv-accent); border-radius: 2px;
+  transition: transform .25s var(--kv-ease), opacity .25s;
+}
+#kv-spdp .kv-spdp__qa-ic::before { inset-block-start: 8px; inset-inline: 0; height: 2px; }
+#kv-spdp .kv-spdp__qa-ic::after { inset-inline-start: 8px; inset-block: 0; width: 2px; }
+#kv-spdp .kv-spdp__qa[open] .kv-spdp__qa-ic::after { transform: scaleY(0); opacity: 0; }
+#kv-spdp .kv-spdp__qa-body { padding: 0 20px 20px; }
+#kv-spdp .kv-spdp__qa-body p { margin: 0; font-size: 14.5px; line-height: 1.95; color: var(--kv-muted); }
+#kv-spdp .kv-spdp__qa summary:focus-visible { outline: 3px solid var(--kv-accent); outline-offset: -3px; }
+
+/* ---- CTA ---- */
+#kv-spdp .kv-spdp__cta {
+  margin-top: clamp(24px, 4vw, 48px);
+  padding: clamp(36px, 5vw, 64px) clamp(20px, 4vw, 48px);
+  border-radius: clamp(20px, 3vw, 30px); text-align: center;
+  background:
+    radial-gradient(90% 120% at 50% 0%, rgba(255,199,44,.16) 0%, rgba(255,199,44,0) 60%),
+    linear-gradient(180deg, var(--kv-surface) 0%, var(--kv-surface2) 100%);
+  border: 1px solid rgba(255,199,44,.25);
+}
+#kv-spdp .kv-spdp__cta-inner { max-width: 640px; margin: 0 auto; }
+#kv-spdp .kv-spdp__cta-title { margin: 0 0 14px; font-size: clamp(22px, 3.4vw, 34px); font-weight: 800; text-wrap: balance; }
+#kv-spdp .kv-spdp__cta-lede { margin: 0 auto 26px; max-width: 52ch; font-size: clamp(14px,1.6vw,17px); line-height: 1.9; color: var(--kv-muted); }
+
+/* ---- Reveal on scroll ---- */
+#kv-spdp [data-kv-reveal] { opacity: 0; transform: translateY(26px); transition: opacity .7s var(--kv-ease), transform .7s var(--kv-ease); }
+#kv-spdp [data-kv-reveal].is-in { opacity: 1; transform: none; }
+
+/* ---- Responsive ---- */
+@media (max-width: 900px) {
+  #kv-spdp .kv-spdp__hero { grid-template-columns: 1fr; }
+  #kv-spdp .kv-spdp__hero-media { order: -1; }
+  #kv-spdp .kv-spdp__specs { grid-template-columns: repeat(2, 1fr); }
+  #kv-spdp .kv-spdp__features { grid-template-columns: repeat(2, 1fr); }
+  #kv-spdp .kv-spdp__cmp { grid-template-columns: 1fr; }
+}
+@media (max-width: 620px) {
+  #kv-spdp .kv-spdp__stats { grid-template-columns: repeat(2, 1fr); }
+  #kv-spdp .kv-spdp__gallery { grid-template-columns: repeat(2, 1fr); }
+  #kv-spdp .kv-spdp__hero-chips { position: static; margin-top: 14px; }
+}
+@media (max-width: 440px) {
+  #kv-spdp .kv-spdp__specs { grid-template-columns: 1fr; }
+  #kv-spdp .kv-spdp__features { grid-template-columns: 1fr; }
+  #kv-spdp .kv-spdp__actions .kv-spdp__btn { flex: 1 1 auto; justify-content: center; }
+}
+@media (prefers-reduced-motion: reduce) {
+  #kv-spdp * { animation: none !important; transition: none !important; }
+  #kv-spdp [data-kv-reveal] { opacity: 1 !important; transform: none !important; }
+  #kv-spdp .kv-spdp__gitem img { transition: none !important; }
+}
+</style>
+
+<!-- لایت‌باکس گالری (خارج از جریان محتوا) -->
+<div class="kv-spdp__lb" id="kv-spdp-lb" role="dialog" aria-modal="true" aria-label="نمایش بزرگ تصویر" hidden>
+  <button class="kv-spdp__lb-close" type="button" aria-label="بستن">×</button>
+  <img src="" alt="" />
+</div>
+
+<script id="kv-spdp-script">
+(function () {
+  'use strict';
+  var root = document.getElementById('kv-spdp');
+  if (!root || root.dataset.kvInit === '1') return;
+  root.dataset.kvInit = '1';
+
+  var reduced = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+  /* ── Reveal on scroll ── */
+  var reveals = root.querySelectorAll('[data-kv-reveal]');
+  if (reduced || !('IntersectionObserver' in window)) {
+    Array.prototype.forEach.call(reveals, function (el) { el.classList.add('is-in'); });
+  } else {
+    var io = new IntersectionObserver(function (entries) {
+      entries.forEach(function (e) {
+        if (e.isIntersecting) { e.target.classList.add('is-in'); io.unobserve(e.target); }
+      });
+    }, { threshold: 0.14, rootMargin: '0px 0px -8% 0px' });
+    Array.prototype.forEach.call(reveals, function (el) { io.observe(el); });
+  }
+
+  /* ── لایت‌باکس گالری ── */
+  var lb = document.getElementById('kv-spdp-lb');
+  var lbImg = lb ? lb.querySelector('img') : null;
+  var lbClose = lb ? lb.querySelector('.kv-spdp__lb-close') : null;
+  var lastFocus = null;
+
+  function onKey(e) { if (e.key === 'Escape') closeLb(); }
+  function openLb(src, alt) {
+    if (!lb) return;
+    lbImg.src = src; lbImg.alt = alt || '';
+    lb.hidden = false; lb.classList.add('is-open');
+    lastFocus = document.activeElement;
+    if (lbClose) lbClose.focus();
+    document.addEventListener('keydown', onKey);
+  }
+  function closeLb() {
+    if (!lb) return;
+    lb.classList.remove('is-open'); lb.hidden = true; lbImg.src = '';
+    document.removeEventListener('keydown', onKey);
+    if (lastFocus && lastFocus.focus) lastFocus.focus();
+  }
+
+  Array.prototype.forEach.call(
+    root.querySelectorAll('[data-kv-gallery] .kv-spdp__gitem'),
+    function (btn) {
+      btn.addEventListener('click', function () {
+        var full = btn.getAttribute('data-kv-full');
+        var img = btn.querySelector('img');
+        openLb(full, img ? img.alt : '');
+      });
+    }
+  );
+  if (lb) {
+    lb.addEventListener('click', function (e) { if (e.target === lb) closeLb(); });
+    if (lbClose) lbClose.addEventListener('click', closeLb);
+  }
+})();
+</script>
+
+<!-- ═══════════ داده‌ی ساختاریافته (JSON-LD) ═══════════ -->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Product",
+  "name": "اسکیدلودر KAVERUN",
+  "alternateName": ["اسکید استیر لودر کاوران", "بابکت کاوران"],
+  "image": [
+    "https://kaverun.com/wp-content/uploads/2024/02/1-1.png"
+  ],
+  "description": "اسکیدلودر (بابکت) کاوران؛ اسکید استیر لودر با سیستم حرکتی هیدرواستاتیک، موتور CUMMINS/KUBOTA، ظرفیت بالابری ۹۵۰ تا ۱۱۵۰ کیلوگرم، وزن عملیاتی ۳۴۰۰ کیلوگرم و فرمان‌پذیری ۳۶۰ درجه؛ مناسب بارگیری، جابه‌جایی مصالح و کار در فضاهای تنگ و باریک.",
+  "brand": { "@type": "Brand", "name": "KAVERUN" },
+  "category": "اسکید استیر لودر",
+  "sku": "KVR-SKID-LOADER",
+  "url": "https://kaverun.com/skid-loader",
+  "additionalProperty": [
+    { "@type": "PropertyValue", "name": "سیستم حرکتی", "value": "هیدرواستاتیک" },
+    { "@type": "PropertyValue", "name": "مدل موتور", "value": "CUMMINS/KUBOTA" },
+    { "@type": "PropertyValue", "name": "نوع لاستیک", "value": "تیوبلس 12-16/5" },
+    { "@type": "PropertyValue", "name": "ظرفیت بالابری", "value": "۹۵۰ تا ۱۱۵۰ کیلوگرم" },
+    { "@type": "PropertyValue", "name": "وزن عملیاتی", "value": "۳۴۰۰ کیلوگرم" },
+    { "@type": "PropertyValue", "name": "سرعت دستگاه", "value": "۱۱.۹ کیلومتر در ساعت" },
+    { "@type": "PropertyValue", "name": "ظرفیت مخزن روغن هیدرولیک", "value": "۸۰ لیتر" },
+    { "@type": "PropertyValue", "name": "ظرفیت مخزن سوخت", "value": "۸۰ لیتر" },
+    { "@type": "PropertyValue", "name": "فرمان‌پذیری", "value": "۳۶۰ درجه" }
+  ],
+  "offers": {
+    "@type": "Offer",
+    "priceCurrency": "IRR",
+    "availability": "https://schema.org/InStock",
+    "url": "https://kaverun.com/skid-loader",
+    "seller": { "@type": "Organization", "name": "گروه صنعتی کاوران (KAVERUN)" }
+  }
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    { "@type": "ListItem", "position": 1, "name": "خانه", "item": "https://kaverun.com/" },
+    { "@type": "ListItem", "position": 2, "name": "محصولات", "item": "https://kaverun.com/products" },
+    { "@type": "ListItem", "position": 3, "name": "لودر", "item": "https://kaverun.com/loaders" },
+    { "@type": "ListItem", "position": 4, "name": "اسکیدلودر KAVERUN", "item": "https://kaverun.com/skid-loader" }
+  ]
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    { "@type": "Question", "name": "تفاوت اسکیدلودر با بابکت چیست؟", "acceptedAnswer": { "@type": "Answer", "text": "تفاوتی ندارند. «بابکت» نام یک برند آمریکایی سازنده‌ی اسکید استیر لودر است که در ایران به نام عمومی این دسته از ماشین‌آلات تبدیل شده؛ نام فنی درست همان اسکیدلودر یا اسکید استیر لودر است." } },
+    { "@type": "Question", "name": "موتور و سیستم حرکتی اسکیدلودر کاوران چیست؟", "acceptedAnswer": { "@type": "Answer", "text": "این دستگاه با موتور CUMMINS/KUBOTA و سیستم حرکتی هیدرواستاتیک عرضه می‌شود؛ نیروی موتور توسط دو هیدروپمپ پیستونی با دبی متغیر به هیدروموتورهای چرخ‌ها منتقل می‌شود." } },
+    { "@type": "Question", "name": "ظرفیت بالابری و وزن عملیاتی این اسکیدلودر چقدر است؟", "acceptedAnswer": { "@type": "Answer", "text": "ظرفیت بالابری ۹۵۰ تا ۱۱۵۰ کیلوگرم و وزن عملیاتی ۳۴۰۰ کیلوگرم است؛ سرعت حرکت دستگاه نیز تا ۱۱.۹ کیلومتر در ساعت می‌رسد." } },
+    { "@type": "Question", "name": "چه تجهیزاتی روی بازوی اسکیدلودر نصب می‌شود؟", "acceptedAnswer": { "@type": "Answer", "text": "باکت‌های مختلف، فورک پالت، جاروی مکانیکی، چکش هیدرولیک، اوگر و بیل برفی از رایج‌ترین اتصالات هستند." } },
+    { "@type": "Question", "name": "ظرفیت مخزن سوخت و روغن هیدرولیک چقدر است؟", "acceptedAnswer": { "@type": "Answer", "text": "هر دو مخزن ۸۰ لیتر هستند؛ سوخت ۸۰ لیتر و روغن هیدرولیک ۸۰ لیتر، که کارکرد طولانی بدون توقف مکرر را ممکن می‌کند." } },
+    { "@type": "Question", "name": "آیا اسکیدلودر در فضای بسته و سالن قابل استفاده است؟", "acceptedAnswer": { "@type": "Answer", "text": "بله؛ ابعاد جمع‌وجور و چرخش ۳۶۰ درجه در جا، این دستگاه را برای انبار، سوله و محوطه‌های محدود ایده‌آل کرده است." } },
+    { "@type": "Question", "name": "آیا اسکیدلودر کاوران گارانتی و خدمات پس از فروش دارد؟", "acceptedAnswer": { "@type": "Answer", "text": "بله. تمام محصولات کاوران با گارانتی معتبر، تأمین قطعات یدکی و پشتیبانی فنی عرضه می‌شوند." } },
+    { "@type": "Question", "name": "قیمت اسکیدلودر کاوران چگونه اعلام می‌شود؟", "acceptedAnswer": { "@type": "Answer", "text": "به‌دلیل نوسان بازار، قیمت به‌صورت روز و پس از استعلام اعلام می‌شود. کافی است فرم استعلام قیمت را پر کنید یا با شماره‌ی فروش تماس بگیرید." } }
+  ]
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "VideoObject",
+  "name": "ویدئوی عملکرد اسکیدلودر KAVERUN",
+  "description": "نمایش عملکرد اسکید استیر لودر (بابکت) کاوران در بارگیری و جابه‌جایی مصالح و مانور در فضای محدود.",
+  "thumbnailUrl": "https://kaverun.com/wp-content/uploads/2024/02/1-1.png",
+  "uploadDate": "2024-01-15",
+  "contentUrl": "https://kaverun.com/wp-content/uploads/2024/01/China-Skid-Steer-Loader-Ws50-With-800kg-Load-For-Sale-Buy-Chinese-Skid-Steer-LoaderSkid-Steer-MiniSweeper-Loader-Product-on-Alibaba.com_.mp4"
+}
+</script>
+<!-- ============ END KAVERUN — صفحه محصول اسکیدلودر ============ -->
