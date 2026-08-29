@@ -740,6 +740,75 @@
 #kv-mpdp [data-kv-reveal] { opacity: 0; transform: translateY(26px); transition: opacity .7s var(--kv-ease), transform .7s var(--kv-ease); }
 #kv-mpdp [data-kv-reveal].is-in { opacity: 1; transform: none; }
 
+/* ═══ چیدمان در نمایشگرهای عریض (همان قوانین فایل product-pages-layout-fix.html) ═══ */
+/* ═════════ ۱) ستون مرکزی: محتوا محدود، پس‌زمینه تمام‌عرض ═════════ */
+article[id$="pdp"] {
+  --kv-max: 1280px;                                   /* ✎ عرض ستون مرکزی */
+  --kv-pad: clamp(16px, 5vw, 72px);                   /* حاشیه‌ی کناری موبایل/تبلت */
+  --kv-gut: max(var(--kv-pad), (100vw - var(--kv-max)) / 2);
+  padding-inline: var(--kv-gut) !important;
+}
+
+/* سکشن‌های تمام‌عرض: از ستون بیرون می‌زنند و دوباره پد می‌گیرند */
+article[id$="pdp"] > section[class*="__section"] {
+  margin-inline: calc(-1 * var(--kv-gut)) !important;
+  padding-inline: var(--kv-gut) !important;
+}
+
+/* ═════════ ۲) پر کردن فضاهای خالی ═════════ */
+
+/* متن معرفی: در نمایشگر عریض دو ستونه */
+article[id$="pdp"] [class$="__prose"] { max-width: none !important; }
+@media (min-width: 1100px) {
+  article[id$="pdp"] [class$="__prose"] {
+    column-count: 2;
+    column-gap: clamp(32px, 4vw, 56px);
+    column-rule: 1px solid rgba(255,255,255,.08);
+  }
+  article[id$="pdp"] [class$="__prose"] p { break-inside: avoid; }
+  article[id$="pdp"] [class$="__prose"] p:last-child { margin-bottom: 0; }
+}
+
+/* تیتر سکشن کمی بازتر */
+article[id$="pdp"] [class$="__section-head"] { max-width: 900px !important; }
+
+/* پرسش‌های متداول: تمام‌عرضِ ستون و دو‌ستونی در نمایشگر بزرگ */
+article[id$="pdp"] [class$="__faq"] { max-width: none !important; }
+@media (min-width: 1100px) {
+  article[id$="pdp"] [class$="__faq"] {
+    grid-template-columns: 1fr 1fr !important;
+    gap: 12px !important;
+    align-items: start;
+  }
+}
+
+/* چیپ‌های کاربردها: به‌جای ردیف ناهموار، گرید منظم */
+@media (min-width: 900px) {
+  article[id$="pdp"] [class$="__uses"] {
+    display: grid !important;
+    grid-template-columns: repeat(auto-fit, minmax(210px, 1fr)) !important;
+  }
+  article[id$="pdp"] [class$="__uses"] li { justify-content: center; text-align: center; }
+}
+
+/* هرو: تصویر بزرگ‌تر و متن با تنفس بیشتر */
+@media (min-width: 1280px) {
+  article[id$="pdp"] [class$="__hero"] { gap: clamp(40px, 5vw, 72px) !important; }
+  article[id$="pdp"] [class$="__hero-img"] { max-width: 620px !important; }
+  article[id$="pdp"] [class$="__lede"] { max-width: 62ch !important; }
+}
+
+/* متن CTA کمی بازتر تا وسط کادر خالی نماند */
+article[id$="pdp"] [class$="__cta-inner"] { max-width: 760px !important; }
+
+/* ═════════ ۳) نمایشگرهای فوق‌عریض ═════════ */
+@media (min-width: 1600px) {
+  article[id$="pdp"] { --kv-max: 1400px; }
+  article[id$="pdp"] [class$="__specs"]   { grid-template-columns: repeat(4, 1fr) !important; }
+  article[id$="pdp"] [class$="__gallery"] { grid-template-columns: repeat(4, 1fr) !important; }
+  article[id$="pdp"] [class$="__features"]{ grid-template-columns: repeat(3, 1fr) !important; }
+}
+
 /* ---- Responsive ---- */
 @media (max-width: 900px) {
   #kv-mpdp .kv-mpdp__hero { grid-template-columns: 1fr; }
